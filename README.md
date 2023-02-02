@@ -7,6 +7,7 @@ CarterMon is a practice project inspired by my daughter's newly discovered inter
 + Bootstrap
 + Javascript (Promises)
 + APIs
++ LocalStorage
 
 ____
 ### Will udpate as project progresses. 
