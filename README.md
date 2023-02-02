@@ -8,6 +8,7 @@ CarterMon is a practice project inspired by my daughter's newly discovered inter
 + Javascript (Promises)
 + APIs
 + LocalStorage
++ FontAwesome
 
 ____
 ### Will udpate as project progresses. 
