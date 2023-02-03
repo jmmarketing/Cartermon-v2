@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Montserrat, Impact, sans-serif;
+    font-size: 18px;
 }
 
 .search-container {
@@ -49,6 +51,7 @@ footer {
     text-align: center;
     padding: 10px 0;
     font-weight:bold;
+    color: white;
 }
 
 .navbar {
@@ -59,4 +62,18 @@ footer {
 
 .navbar-brand img {
     height: 40px;
+}
+
+.nav-link {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: white;
+}
+
+.nav-link:hover {
+    color: grey;
+}
+
+.navbar-nav .nav-link.active {
+    color: red;
 }
