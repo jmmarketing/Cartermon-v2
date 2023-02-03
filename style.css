@@ -33,6 +33,7 @@
     border: 0;
     background: transparent;
     font-size: 20px;
+    outline:none;
 
 }
 .search-bar button {
@@ -41,4 +42,11 @@
 }
 #pokeball {
     width: 50px;
+}
+
+footer {
+    background-color: #ce944e;
+    text-align: center;
+    padding: 10px 0;
+    font-weight:bold;
 }
