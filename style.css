@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.search-container {
+    height: 100vh;
+    width: auto;
+    background-image: url(./resources/images/evee.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar {
+    width: 50vw;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.75);
+    padding: 10px;
+    border: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    width: 80%;
+    flex: 1;
+    padding: 15px;
+    border: 0;
+    background: transparent;
+    font-size: 20px;
+
+}
+.search-bar button {
+    border: 0;
+    background: transparent;
+}
+#pokeball {
+    width: 50px;
+}
