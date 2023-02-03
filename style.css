@@ -50,3 +50,13 @@ footer {
     padding: 10px 0;
     font-weight:bold;
 }
+
+.navbar {
+    border-bottom: 3px solid #ce944e;
+    background-color: #ffb111;
+    box-shadow: 0 7px 16px 0px rgba(0,0,0,.11);
+}
+
+.navbar-brand img {
+    height: 40px;
+}
