@@ -22,16 +22,19 @@ submit.addEventListener('submit', searchPokemon);
 
 async function pokeNames() {
 
-    try {
+try {
     const response = await fetch ('https://pokeapi.co/api/v2/pokemon?limit=151');
 
     if (response.ok) {
-        const jsonResponse = await response.json();
-        console.log(jsonResponse);
+      const jsonResponse = await response.json();
+      console.log(jsonResponse)
+        for (const poke of jsonResponse.results){
+            console.log(poke.name);
         }
+    }
     // throw new Error('Request Failed!')
 
-    } catch(error){
+} catch(error){
         console.log(error);
     }
 }
