@@ -27,19 +27,32 @@ async function loadPokeNames() {
 }
 
 //############ Search Function ###############
-function searchPokemon(e) {
+async function searchPokemon(e) {
     e.preventDefault();
 
+    let pokeSearchValue = e.srcElement[0].value.toLowerCase();
     searchElement.hidden = true;
     loader.hidden = false;
-    searchInput.value = '';
+    // searchInput.value = '';
     
-    let pokeSearchValue = e.srcElement[0].value;
-    console.log(pokeSearchValue);
-
+    try {
+        const pokeResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeSearchValue}`);
+        if (pokeResponse.ok) {
+            const pokeJSON = await pokeResponse.json();
+            console.log(pokeJSON);
+        } else {
+            throw new Error('Something Went Wrong!');
+        }
+    } catch (error) {
+        console.log(error);
+    }
     
 }
 
+// ####### Generates the Pokemon Card #########
+function createPokeCard() {
+
+}
 
 
 window.onload = loadPokeNames;
