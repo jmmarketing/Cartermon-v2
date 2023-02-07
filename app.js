@@ -12,6 +12,7 @@ const errorMessage = document.querySelector('.error');
 //------- Arrays & Objects ----------
 let names = [];
 let pokemon = {};
+let bgImages = ["./resources/images/forest_background.jpg", "./resources/images/field.jpg", "./resources/images/galar-scenery.png", "./resources/images/night.jpg", "./resources/images/training.jpg", "./resources/images/poke-background.webp"];
 
 //########## Grab & Store Pokemon Names for Autocomplete ##########
 async function loadPokeNames() {
@@ -81,8 +82,11 @@ function createPokeCard(object) {
     const pokeDefense = document.querySelector('#defense .num');
     const pokeSpecialA = document.querySelector('#special-attack .num');
     const pokeSpecialD = document.querySelector('#special-defense .num');
+    const backgroundImage = document.querySelector('#poke-image')
 
     // Assign values to Results Card
+
+    backgroundImage.style.backgroundImage = `url('${bgImages[Math.floor(Math.random() * 6)]}')`;
     pokeName.textContent = object.name;
     pokeHP.textContent = `${object.hp} HP`;
     pokeImg.src = object.img;

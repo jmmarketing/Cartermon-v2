@@ -210,7 +210,7 @@ p#hp {
 }
 
 #poke-image { /*Background Settings */
-    background-image: url('./resources/images/poke-background.webp');
+    
     background-size: cover;
     border: 5px solid #b17b0e;
     background-color: #ffb111;
