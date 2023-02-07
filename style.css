@@ -25,6 +25,7 @@ button.reset {
     text-transform: uppercase;
 }
 
+
 /* ######### Navigation Styling ########## */
 .navbar {
     border-bottom: 3px solid #ce944e;
@@ -108,7 +109,7 @@ button.reset {
     justify-content: center;
 }
 
-.loader p {
+.loader p, .error p {
     font-weight: 700;
     font-size: 27px;
 }  

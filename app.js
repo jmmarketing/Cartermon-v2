@@ -7,11 +7,11 @@ const submit = document.getElementById('search-bar');
 const loader = document.querySelector('.loader');
 const results = document.querySelector('.results');
 const resetButton = document.querySelector('.reset');
+const errorMessage = document.querySelector('.error');
 
 //------- Arrays & Objects ----------
 let names = [];
-let pokemon = {
-};
+let pokemon = {};
 
 //########## Grab & Store Pokemon Names for Autocomplete ##########
 async function loadPokeNames() {
@@ -63,6 +63,9 @@ async function searchPokemon(e) {
             throw new Error("Something Went Wrong.");
         }
     } catch (error) {
+        loader.hidden = true;
+        errorMessage.hidden = false;
+        resetButton.hidden = false;
         console.log(error);
     }
     
@@ -103,6 +106,7 @@ function resetSearch() {
     resetButton.hidden = true;
     results.hidden = true;
     searchElement.hidden = false;
+    errorMessage.hidden = true;
 
     for (const att in pokemon){
         delete pokemon[att];
