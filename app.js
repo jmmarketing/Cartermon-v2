@@ -105,6 +105,7 @@ function createPokeCard(object) {
 
 }
 
+// ####### Generates the Pokemon Card #########
 function resetSearch() {
     searchInput.value = '';
     resetButton.hidden = true;
