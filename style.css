@@ -45,7 +45,8 @@ h6 {
 
 /* ######### Search Area Styling ########## */
 .search-container {
-    height: 100%;
+    min-height: 100vh;
+    max-height: 100%;
     width: auto;
     background-image: url(./resources/images/evee.png);
     background-size: cover;
