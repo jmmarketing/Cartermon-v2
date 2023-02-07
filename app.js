@@ -6,18 +6,11 @@ const searchInput = document.querySelector('input[name="search-bar"]');
 const submit = document.getElementById('search-bar');
 const loader = document.querySelector('.loader');
 const results = document.querySelector('.results');
+const resetButton = document.querySelector('.reset');
 
 //------- Arrays & Objects ----------
 let names = [];
 let pokemon = {
-    name: '',
-    hp: '',
-    img: '',
-    attack: '',
-    speed: '',
-    defense: '',
-    special_attack: '',
-    special_defense: ''
 };
 
 //########## Grab & Store Pokemon Names for Autocomplete ##########
@@ -28,7 +21,7 @@ async function loadPokeNames() {
     
         if (response.ok) {
           const jsonResponse = await response.json();
-          console.log(jsonResponse)
+        //   console.log(jsonResponse)
             for (const poke of jsonResponse.results){
                names.push(poke.name);
             }
@@ -47,12 +40,14 @@ async function searchPokemon(e) {
     let pokeSearchValue = e.srcElement[0].value.toLowerCase();
     searchElement.hidden = true;
     loader.hidden = false;
-    // searchInput.value = '';
+    
     
     try {
         const pokeResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeSearchValue}`);
         if (pokeResponse.ok) {
             const pokeJSON = await pokeResponse.json();
+
+            // Assign Values to Pokemon Object
             pokemon.name = pokeJSON["name"];
             pokemon.img = pokeJSON["sprites"]["other"]["official-artwork"]["front_default"];
             pokemon.hp = pokeJSON["stats"][0]["base_stat"];
@@ -84,8 +79,7 @@ function createPokeCard(object) {
     const pokeSpecialA = document.querySelector('#special-attack .num');
     const pokeSpecialD = document.querySelector('#special-defense .num');
 
-    console.log(pokeAttack)
-
+    // Assign values to Results Card
     pokeName.textContent = object.name;
     pokeHP.textContent = `${object.hp} HP`;
     pokeImg.src = object.img;
@@ -98,11 +92,23 @@ function createPokeCard(object) {
     setTimeout(() => {
         loader.hidden = true;
         results.hidden = false;
+        resetButton.hidden = false;
     }, 3000)
     
 
 }
 
+function resetSearch() {
+    searchInput.value = '';
+    resetButton.hidden = true;
+    results.hidden = true;
+    searchElement.hidden = false;
+
+    for (const att in pokemon){
+        delete pokemon[att];
+    }
+}
 
 window.onload = loadPokeNames;
+resetButton.addEventListener('click', resetSearch);
 submit.addEventListener('submit', searchPokemon);
