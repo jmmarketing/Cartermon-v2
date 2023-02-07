@@ -10,6 +10,11 @@
     font-size: 18px;
 }
 
+h6 {
+    font-weight: 800; 
+    text-transform: uppercase;
+    margin: 0;
+}
 
 /* ######### Navigation Styling ########## */
 .navbar {
@@ -39,7 +44,7 @@
 
 /* ######### Search Area Styling ########## */
 .search-container {
-    height: 100vh;
+    height: 100%;
     width: auto;
     background-image: url(./resources/images/evee.png);
     background-size: cover;
@@ -48,6 +53,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 25px;
 }
 
 /* -------- Search Bar ------- */
@@ -154,6 +160,7 @@
     background-color: #ffb111;
     border-radius: 15px;
     border: 2px solid white;
+    padding-bottom: 15px;
     align-items: center;
     box-shadow: 5px 5px 15px -6px #000000;
 }
@@ -165,6 +172,7 @@
     padding: 10px 0;
     margin-top: 10px;
 }
+
 #poke-name {
     display:inline-flex;
     align-items: flex-end;
@@ -181,14 +189,14 @@
     margin: 15px 0 0 0;
 }
 
-p#hp {
+p#hp { 
     justify-content: flex-end;
     text-align: right;
     font-size: 1.8em;
     color: red;
 }
 
-#poke-image {
+#poke-image { /*Background Settings */
     background-image: url('./resources/images/poke-background.webp');
     background-size: cover;
     border: 5px solid #b17b0e;
@@ -198,10 +206,38 @@ p#hp {
     margin-top: 0;
 }
 
-#poke-image img{
+#poke-image img{ /*Image from API */
     width: 100%;
     max-width: 420px;
     margin: 0 auto;
+}
+
+#poke-stats {
+    background-color: #f8c55f;
+    border-radius: 5px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.stats {
+    display: inline-flex;
+    column-gap: 10px;
+}
+
+#stats2 {
+    margin-top: 10px;
+}
+
+#attack, #speed, #defense, #special-attack, #special-defense {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    flex-grow: 1;
+}
+
+p.num{
+    font-size: 2.2em;
+    margin: 0;
 }
 
 /*############ Footer Styling #########*/
