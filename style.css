@@ -55,7 +55,9 @@ button.reset {
 /* ######### Search Area Styling ########## */
 .search-container {
     min-height: 100vh;
-    max-height: 100%;
+    height: auto;
+    max-height: fit-content;
+    overflow-y: hidden;
     width: auto;
     background-image: url(./resources/images/evee.png);
     background-size: cover;
@@ -76,7 +78,7 @@ button.reset {
 
 .autocomplete-items {
     position: absolute;
-    border: 1px solid #d4d4d4;
+    /* border: 1px solid #d4d4d4; */
     border-bottom: none;
     border-top: none;
     z-index: 99;
@@ -84,12 +86,14 @@ button.reset {
     top: 100%;
     left: 0;
     right: 0;
+    margin-top: 10px;
   }
   .autocomplete-items div {
     padding: 10px;
     cursor: pointer;
-    background-color: #fff;
+    background-color: #ffffffe8;
     border-bottom: 1px solid #d4d4d4;
+    border-radius: 5px;
   }
   .autocomplete-items div:hover {
     /*when hovering an item:*/
@@ -97,7 +101,7 @@ button.reset {
   }
   .autocomplete-active {
     /*when navigating through the items using the arrow keys:*/
-    background-color: DodgerBlue !important;
+    background-color: royalblue !important;
     color: #ffffff;
   }
 

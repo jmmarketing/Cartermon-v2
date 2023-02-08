@@ -1,4 +1,4 @@
-import { autocomplete } from "./autocomplete";
+import { autocomplete } from "./autocomplete.js";
 
 // ######## GLOBAL VARIABLES ############
 //------- Selectors ----------
@@ -121,5 +121,6 @@ function resetSearch() {
 }
 
 window.onload = loadPokeNames;
+autocomplete(searchInput, names)
 resetButton.addEventListener('click', resetSearch);
 submit.addEventListener('submit', searchPokemon);
