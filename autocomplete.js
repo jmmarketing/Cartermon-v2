@@ -81,3 +81,5 @@ function autocomplete (inp, arr) {
     });
 
 };
+
+export {autocomplete};

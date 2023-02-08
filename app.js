@@ -1,3 +1,5 @@
+import { autocomplete } from "./autocomplete";
+
 // ######## GLOBAL VARIABLES ############
 //------- Selectors ----------
 const container = document.querySelector('.search-container');
