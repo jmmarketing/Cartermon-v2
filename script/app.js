@@ -124,3 +124,4 @@ window.onload = loadPokeNames;
 autocomplete(searchInput, names)
 resetButton.addEventListener('click', resetSearch);
 submit.addEventListener('submit', searchPokemon);
+
