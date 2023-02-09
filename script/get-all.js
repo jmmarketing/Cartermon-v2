@@ -1,3 +1,4 @@
+const viewAllContainer = document.querySelector('.view-all-container');
 let names = [];
 
 //########## Grab & Store Pokemon Info ##########
@@ -13,7 +14,7 @@ async function loadPokeInfo() {
                 let pokeInfo = await fetch (poke.url);
                 if (pokeInfo.ok) {
                     let pokeInfoJSON = await pokeInfo.json();
-                    names.push({'name': pokeInfoJSON.name, 'image': pokeInfoJSON.sprites.other['official-artwork']['front_default']})
+                    names.push({'name': pokeInfoJSON.name, 'image': pokeInfoJSON.sprites.other['official-artwork']['front_default'], 'hp': pokeInfoJSON["stats"][0]["base_stat"]})
                 }
             }
         }
@@ -22,4 +23,42 @@ async function loadPokeInfo() {
     } catch(error){
             console.log(error);
         }
+}
+
+function createPreviewCards(arr) {
+
+    arr.forEach(pokemon => {
+        const miniCard = document.createElement('div');
+        miniCard.classList.add('mini-card');
+    
+        const pokeName = document.createElement('div');
+        pokeName.classList.add('row');
+        pokeName.setAttribute('id', 'poke-name');
+    
+        const poke = document.createElement('p');
+        poke.textContent = pokemon['name'];
+
+        const pokeHP = document.createElement('p');
+        pokeHP.setAttribute('id', 'hp');
+        pokeHP.textContent = `${pokemon['hp']} HP`;
+    
+        const pokeImage = document.createElement('div');
+        pokeImage.classList.add('row');
+        pokeImage.setAttribute('id', 'poke-image');
+
+        const image = document.createElement('img');
+        image.setAttribute('src', `${pokemon['image']}`);
+
+        pokeName.appendChild(poke);
+        pokeName.appendChild(pokeHP);
+        pokeImage.appendChild(image);
+
+        miniCard.appendChild(pokeName);
+        miniCard.appendChild(pokeImage);
+         
+        viewAllContainer.appendChild(miniCard);
+    })
+
+
+
 }
