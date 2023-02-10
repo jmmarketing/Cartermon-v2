@@ -1,4 +1,6 @@
-const viewAllContainer = document.querySelector('.view-all-container');
+const viewCardsContainer = document.querySelector('.view-cards');
+const loader = document.querySelector('.loader');
+
 let names = [];
 
 //########## Grab & Store Pokemon Info ##########
@@ -17,6 +19,8 @@ async function loadPokeInfo() {
                     names.push({'name': pokeInfoJSON.name, 'image': pokeInfoJSON.sprites.other['official-artwork']['front_default'], 'hp': pokeInfoJSON["stats"][0]["base_stat"]})
                 }
             }
+
+            createPreviewCards(names);
         }
         // throw new Error('Request Failed!')
     
@@ -56,9 +60,17 @@ function createPreviewCards(arr) {
         miniCard.appendChild(pokeName);
         miniCard.appendChild(pokeImage);
          
-        viewAllContainer.appendChild(miniCard);
+        viewCardsContainer.appendChild(miniCard);
     })
 
-
-
 }
+
+function hideLoader() {
+    loader.hidden = true;
+    viewCardsContainer.hidden = false;
+}
+
+
+window.onload = loadPokeInfo;
+
+setTimeout(hideLoader, 2500);
