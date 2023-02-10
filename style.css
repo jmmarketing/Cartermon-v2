@@ -334,6 +334,11 @@ p.num {
     /* margin: 50px 0 25px 0; */
 }
 
+.mini-card:hover {
+    /* max-width: 260px; */
+    box-shadow: 5px 5px 15px -6px #000000;
+}
+
 .mini-card #poke-name p {
     font-size: 1em;
 }

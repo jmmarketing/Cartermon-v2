@@ -20,7 +20,11 @@ async function loadPokeInfo() {
                 }
             }
 
+            let string = JSON.stringify(names);
+            localStorage.setItem('allnames', string);
+
             createPreviewCards(names);
+
         }
         // throw new Error('Request Failed!')
     
@@ -61,6 +65,8 @@ function createPreviewCards(arr) {
         miniCard.appendChild(pokeImage);
          
         viewCardsContainer.appendChild(miniCard);
+
+        console.log(`${pokemon['name']} Card Created!`)
     })
 
 }
@@ -70,7 +76,13 @@ function hideLoader() {
     viewCardsContainer.hidden = false;
 }
 
+if (localStorage.length > 0){
+    let pokeJSON = JSON.parse(localStorage.getItem('allnames'));;
+    createPreviewCards(pokeJSON);
+} else {
+    loadPokeInfo();
+}
 
-window.onload = loadPokeInfo;
+// window.onload = loadPokeInfo;
 
 setTimeout(hideLoader, 2500);
