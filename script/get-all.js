@@ -83,6 +83,4 @@ if (localStorage.length > 0){
     loadPokeInfo();
 }
 
-// window.onload = loadPokeInfo;
-
 setTimeout(hideLoader, 2500);

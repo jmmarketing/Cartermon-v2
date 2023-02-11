@@ -10,6 +10,7 @@ const loader = document.querySelector('.loader');
 const results = document.querySelector('.results');
 const resetButton = document.querySelector('.reset');
 const errorMessage = document.querySelector('.error');
+const heart = document.querySelector('#favorite');
 
 //------- Arrays & Objects ----------
 let names = [];
@@ -120,8 +121,17 @@ function resetSearch() {
     }
 }
 
+function hoverFav() {
+    this.src = '../resources/images/heartline-fill.png';
+}
+function hoverOutFav() {
+    this.src = '../resources/images/heartline.png';
+}
+
 window.onload = loadPokeNames;
 autocomplete(searchInput, names)
+heart.addEventListener('mouseenter', hoverFav);
+heart.addEventListener('mouseout', hoverOutFav);
 resetButton.addEventListener('click', resetSearch);
 submit.addEventListener('submit', searchPokemon);
 
