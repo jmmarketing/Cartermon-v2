@@ -7,7 +7,7 @@ let names = [];
 async function loadPokeInfo() {
 
     try {
-        const response = await fetch ('https://pokeapi.co/api/v2/pokemon?limit=151');
+        const response = await fetch ('https://pokeapi.co/api/v2/pokemon?limit=250');
     
         if (response.ok) {
           const jsonResponse = await response.json();
@@ -83,4 +83,4 @@ if (localStorage.length > 0){
     loadPokeInfo();
 }
 
-setTimeout(hideLoader, 2500);
+setTimeout(hideLoader, 3500);

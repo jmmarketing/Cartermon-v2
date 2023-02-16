@@ -21,7 +21,7 @@ let bgImages = ["./resources/images/forest_background.jpg", "./resources/images/
 async function loadPokeNames() {
 
     try {
-        const response = await fetch ('https://pokeapi.co/api/v2/pokemon?limit=151');
+        const response = await fetch ('https://pokeapi.co/api/v2/pokemon?limit=250');
     
         if (response.ok) {
           const jsonResponse = await response.json();
@@ -121,6 +121,7 @@ function resetSearch() {
     }
 }
 
+//######## Favorite Functions ###########
 function hoverFav() {
     this.src = '../resources/images/heartline-fill.png';
 }
@@ -128,6 +129,8 @@ function hoverOutFav() {
     this.src = '../resources/images/heartline.png';
 }
 
+
+// ########### EVENTS ##############
 window.onload = loadPokeNames;
 autocomplete(searchInput, names)
 heart.addEventListener('mouseenter', hoverFav);
