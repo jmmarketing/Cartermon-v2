@@ -1,0 +1,21 @@
+//Cartermon Pseudo Code
+
+// Version 2
+-- Like Button - Local Storage
+-- Saved Page -> Call Local Storage, create card elements
+
+	- On Click of Heart 
+		- Store Searched Pokemon Into Local Storage ('Favorites')
+		- Toggle Data Attribute on Pokemon - data-fav (boolean) / Persistent Heart Icon
+		- 
+
+	+ Local Storage
+	- Fetch Pokemon Favorite & push into Array.
+	- Prase back into JSON
+	- Create Cards from parsed local storage
+
+
+// Version 3
+-- Make Responsive. 
+
+

@@ -137,4 +137,3 @@ heart.addEventListener('mouseenter', hoverFav);
 heart.addEventListener('mouseout', hoverOutFav);
 resetButton.addEventListener('click', resetSearch);
 submit.addEventListener('submit', searchPokemon);
-
