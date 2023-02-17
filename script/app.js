@@ -17,6 +17,12 @@ let names = [];
 let pokemon = {};
 let bgImages = ["./resources/images/forest_background.jpg", "./resources/images/field.jpg", "./resources/images/galar-scenery.png", "./resources/images/night.jpg", "./resources/images/training.jpg", "./resources/images/poke-background.webp"];
 
+
+/* #### TRUE GLOBAL MODULE VARIABLES */
+window.names = names;
+window.pokemon = pokemon;
+window.bgImages = bgImages;
+
 //########## Grab & Store Pokemon Names for Autocomplete ##########
 async function loadPokeNames() {
 
