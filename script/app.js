@@ -1,4 +1,4 @@
-import { autocomplete } from "./autocomplete.js";
+// import { autocomplete } from "./autocomplete.js";
 
 // ######## GLOBAL VARIABLES ############
 //------- Selectors ----------
@@ -18,10 +18,10 @@ let pokemon = {};
 let bgImages = ["./resources/images/forest_background.jpg", "./resources/images/field.jpg", "./resources/images/galar-scenery.png", "./resources/images/night.jpg", "./resources/images/training.jpg", "./resources/images/poke-background.webp"];
 
 
-/* #### TRUE GLOBAL MODULE VARIABLES */
-window.names = names;
-window.pokemon = pokemon;
-window.bgImages = bgImages;
+/* #### TRUE GLOBAL MODULE VARIABLES TO USE WHILE DEBUG ### */
+// window.names = names;
+// window.pokemon = pokemon;
+// window.bgImages = bgImages;
 
 //########## Grab & Store Pokemon Names for Autocomplete ##########
 async function loadPokeNames() {
@@ -66,6 +66,7 @@ async function searchPokemon(e) {
             pokemon.defense = pokeJSON["stats"][2]["base_stat"];
             pokemon.special_attack = pokeJSON["stats"][3]["base_stat"];
             pokemon.special_defense = pokeJSON["stats"][4]["base_stat"];
+            pokemon.fav = false;
 
             console.log(pokemon);
             createPokeCard(pokemon);
@@ -99,6 +100,7 @@ function createPokeCard(object) {
     pokeName.textContent = object.name;
     pokeHP.textContent = `${object.hp} HP`;
     pokeImg.src = object.img;
+    heart.dataset.saved = object.fav;
     pokeAttack.innerText = object.attack;
     pokeDefense.textContent = object.defense;
     pokeSpeed.textContent = object.speed;
@@ -129,17 +131,28 @@ function resetSearch() {
 
 //######## Favorite Functions ###########
 function hoverFav() {
-    this.src = '../resources/images/heartline-fill.png';
+    this.dataset.saved == 'true' ? this.src = '../resources/images/heartline.png' : this.src = '../resources/images/heartline-fill.png';
 }
 function hoverOutFav() {
-    this.src = '../resources/images/heartline.png';
+    this.dataset.saved == 'true' ? this.src = '../resources/images/heartline-fill.png' : this.src = '../resources/images/heartline.png';
+}
+
+function toggleFav() {
+    pokemon.fav = !pokemon.fav;
+    this.dataset.saved == 'false' ? this.dataset.saved = 'true' : this.dataset.saved = 'false';
+    
+    this.src = '../resources/images/heartline-fill.png';
+
+    console.log(this);
+    console.log(pokemon);
 }
 
 
 // ########### EVENTS ##############
 window.onload = loadPokeNames;
-autocomplete(searchInput, names)
+// autocomplete(searchInput, names)
 heart.addEventListener('mouseenter', hoverFav);
-heart.addEventListener('mouseout', hoverOutFav);
+heart.addEventListener('mouseleave', hoverOutFav);
+heart.addEventListener('click', toggleFav);
 resetButton.addEventListener('click', resetSearch);
 submit.addEventListener('submit', searchPokemon);
