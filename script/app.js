@@ -1,4 +1,4 @@
-// import { autocomplete } from "./autocomplete.js";
+import { autocomplete } from "./autocomplete.js";
 
 // ######## GLOBAL VARIABLES ############
 //------- Selectors ----------
@@ -121,6 +121,7 @@ function resetSearch() {
     searchInput.value = '';
     resetButton.hidden = true;
     heart.dataset.saved = '';
+    heart.src = '../resources/images/heartline.png';
     results.hidden = true;
     searchElement.hidden = false;
     errorMessage.hidden = true;
@@ -169,16 +170,12 @@ function toggleFav() {
         localStorage.setItem('fav', JSON.stringify(pokeFav));
     }
     
-    
-
-    console.log(this);
-    console.log(pokemon);
 }
 
 
 // ########### EVENTS ##############
 window.onload = loadPokeNames;
-// autocomplete(searchInput, names)
+autocomplete(searchInput, names)
 heart.addEventListener('mouseenter', hoverFav);
 heart.addEventListener('mouseleave', hoverOutFav);
 heart.addEventListener('click', toggleFav);

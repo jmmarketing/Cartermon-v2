@@ -4,16 +4,11 @@
 -- Like Button - Local Storage
 -- Saved Page -> Call Local Storage, create card elements
 
-	- On Click of Heart 
-		- Store Searched Pokemon Into Local Storage ('Favorites')
-		- Toggle Data Attribute on Pokemon - data-fav (boolean) / Persistent Heart Icon
-		- 
-
-	+ Local Storage
-	- Fetch Pokemon Favorite & push into Array.
-	- Prase back into JSON
-	- Create Cards from parsed local storage
-
++ Search LocalStorage first in Fav
+	- If exists, pull pokemon info, create card
+	- If not, normal PokeAPI search, create card
+	
+	Need to incorparate data-saved into card creation?
 
 // Version 3
 -- Make Responsive. 
