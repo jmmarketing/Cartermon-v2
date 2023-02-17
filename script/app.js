@@ -120,6 +120,7 @@ function createPokeCard(object) {
 function resetSearch() {
     searchInput.value = '';
     resetButton.hidden = true;
+    heart.dataset.saved = '';
     results.hidden = true;
     searchElement.hidden = false;
     errorMessage.hidden = true;
@@ -139,9 +140,36 @@ function hoverOutFav() {
 
 function toggleFav() {
     pokemon.fav = !pokemon.fav;
-    this.dataset.saved == 'false' ? this.dataset.saved = 'true' : this.dataset.saved = 'false';
+
+    if (this.dataset.saved == 'false') { //Check if Pokemon previously saved?
+        this.dataset.saved = 'true';
+        this.src = '../resources/images/heartline-fill.png';
+
+        if (!localStorage.fav) { //Checks to see if first pokemon saved
+            localStorage.setItem('fav', `[${JSON.stringify(pokemon)}]`)
+        } else {
+            let pokeFav = JSON.parse(localStorage.getItem('fav'));
+            pokeFav.push(pokemon);
+            localStorage.setItem('fav', JSON.stringify(pokeFav));
+        };
+
+
+    } else {
+        this.dataset.saved = 'false';
+        this.src = '../resources/images/heartline.png';
+
+        let pokeFav = JSON.parse(localStorage.getItem('fav'));
+        console.log(pokeFav)
+        let pokeIdx = pokeFav.findIndex(obj => obj.name === pokemon.name);
+        console.log(pokeIdx);
+        
+        pokeFav.splice(pokeIdx, 1);
+        console.log(pokeFav);
+
+        localStorage.setItem('fav', JSON.stringify(pokeFav));
+    }
     
-    this.src = '../resources/images/heartline-fill.png';
+    
 
     console.log(this);
     console.log(pokemon);
