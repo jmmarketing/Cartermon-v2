@@ -44,16 +44,27 @@ async function loadPokeNames() {
 }
 
 //############ Search Function ###############
-async function searchPokemon(e) {
+function searchPokemon(e) {
     e.preventDefault();
 
     let pokeSearchValue = e.srcElement[0].value.toLowerCase();
     searchElement.hidden = true;
     loader.hidden = false;
-    
+
+    if (!localStorage.fav){
+        searchPokemonAPI(pokeSearchValue);
+    } else {
+        console.log('Search localstorage first');
+
+
+
+    }
+}
+
+async function searchPokemonAPI(pokemonSearched) {
     
     try {
-        const pokeResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeSearchValue}`);
+        const pokeResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonSearched}`);
         if (pokeResponse.ok) {
             const pokeJSON = await pokeResponse.json();
 
