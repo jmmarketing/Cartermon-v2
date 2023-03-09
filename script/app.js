@@ -48,39 +48,38 @@ function searchPokemon(e) {
     e.preventDefault();
 
     let pokeSearchValue = e.srcElement[0].value.toLowerCase();
+    let localSaved = JSON.parse(localStorage.getItem('fav')) || [];
     searchElement.hidden = true;
     loader.hidden = false;
 
     if (!localStorage.fav){
-        console.log('API SEARCH TRIGGERED')
+        console.log('NO FAVORITES! -> API SEARCH TRIGGERED')
         searchPokemonAPI(pokeSearchValue);
-    } else {
-        const localSaved = JSON.parse(localStorage.getItem('fav'));
-        
-        for (const fav of localSaved){
-            if (fav.name === pokeSearchValue){
-                console.log('Pokemon Found In Favorite LocalStorage')
 
-                pokemon.name = fav.name;
-                pokemon.img = fav.img;
-                pokemon.hp = fav.hp;
-                pokemon.attack = fav.attack;
-                pokemon.speed = fav.speed;
-                pokemon.defense = fav.defense;
-                pokemon.special_attack = fav.special_attack;
-                pokemon.special_defense = fav.special_defense;
-                pokemon.fav = fav.fav;
+    } else if (localSaved.some(obj => obj.name === pokeSearchValue)) {
+        console.log('POKEMON FOUND! -> In Favorite LocalStorage')
+        localSaved.forEach(obj => {
+            if (obj.name === pokeSearchValue){
+                
 
-                console.log('Card Created From LocalStorage');
+                pokemon.name = obj.name;
+                pokemon.img = obj.img;
+                pokemon.hp = obj.hp;
+                pokemon.attack = obj.attack;
+                pokemon.speed = obj.speed;
+                pokemon.defense = obj.defense;
+                pokemon.special_attack = obj.special_attack;
+                pokemon.special_defense = obj.special_defense;
+                pokemon.fav = obj.fav;
+
+                console.log('CARD CREATED! -> From LocalStorage');
                 console.log(pokemon);
                 createPokeCard(pokemon);
-                break;
-            } else {
-                searchPokemonAPI(pokeSearchValue);
-            }
-        }
-
-
+            }; 
+        });
+    } else {
+        console.log('NOT A FAVORITE! -> Searching API')
+        searchPokemonAPI(pokeSearchValue);
     }
 }
 
@@ -102,9 +101,10 @@ async function searchPokemonAPI(pokemonSearched) {
             pokemon.special_defense = pokeJSON["stats"][4]["base_stat"];
             pokemon.fav = false;
 
-            console.log('Card Created From API Search');
+            console.log('CARD CREATED! -> From API Search');
             console.log(pokemon);
             createPokeCard(pokemon);
+            
         } else {
             throw new Error("Something Went Wrong.");
         }
