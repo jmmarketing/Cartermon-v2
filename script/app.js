@@ -52,10 +52,33 @@ function searchPokemon(e) {
     loader.hidden = false;
 
     if (!localStorage.fav){
+        console.log('API SEARCH TRIGGERED')
         searchPokemonAPI(pokeSearchValue);
     } else {
-        console.log('Search localstorage first');
+        const localSaved = JSON.parse(localStorage.getItem('fav'));
+        
+        for (const fav of localSaved){
+            if (fav.name === pokeSearchValue){
+                console.log('Pokemon Found In Favorite LocalStorage')
 
+                pokemon.name = fav.name;
+                pokemon.img = fav.img;
+                pokemon.hp = fav.hp;
+                pokemon.attack = fav.attack;
+                pokemon.speed = fav.speed;
+                pokemon.defense = fav.defense;
+                pokemon.special_attack = fav.special_attack;
+                pokemon.special_defense = fav.special_defense;
+                pokemon.fav = fav.fav;
+
+                console.log('Card Created From LocalStorage');
+                console.log(pokemon);
+                createPokeCard(pokemon);
+                break;
+            } else {
+                searchPokemonAPI(pokeSearchValue);
+            }
+        }
 
 
     }
@@ -79,6 +102,7 @@ async function searchPokemonAPI(pokemonSearched) {
             pokemon.special_defense = pokeJSON["stats"][4]["base_stat"];
             pokemon.fav = false;
 
+            console.log('Card Created From API Search');
             console.log(pokemon);
             createPokeCard(pokemon);
         } else {
@@ -111,7 +135,9 @@ function createPokeCard(object) {
     pokeName.textContent = object.name;
     pokeHP.textContent = `${object.hp} HP`;
     pokeImg.src = object.img;
+    console.log(object.fav)
     heart.dataset.saved = object.fav;
+    heart.src = object.fav ? '../resources/images/heartline-fill.png' : '../resources/images/heartline.png';
     pokeAttack.innerText = object.attack;
     pokeDefense.textContent = object.defense;
     pokeSpeed.textContent = object.speed;
