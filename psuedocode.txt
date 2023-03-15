@@ -1,16 +1,9 @@
 //Cartermon Pseudo Code
 
-// Version 2
--- Like Button - Local Storage
--- Saved Page -> Call Local Storage, create card elements
-
-+ Search LocalStorage first in Fav
-	- If exists, pull pokemon info, create card
-	- If not, normal PokeAPI search, create card
-	
-	Need to incorparate data-saved into card creation?
-
 // Version 3
 -- Make Responsive. 
+-- Clear Favorites Option in Saved
+-- Fix Alignment with Saved cards
+-- Hover Styles for Buttons
 
 
