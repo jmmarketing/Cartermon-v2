@@ -163,7 +163,7 @@ a.search-pokemon {
 }
 
 @media screen and (max-width:768px){
-    #search, #search-bar {
+    #search, #search-bar, .results {
         width: 90vw;
     }
 
@@ -176,6 +176,16 @@ a.search-pokemon {
     }
 }
 
+@media screen and (max-width:425px){
+    #poke-name {
+        padding-right: 8vw !important;
+        font-size: 15px;
+    }
+
+    #favorite {
+        max-width: 75px;
+    }
+}
 
 /*############ Pokeball Loader Styling #########*/
 .loader {
@@ -242,7 +252,7 @@ a.search-pokemon {
     display: flex;
     flex-direction: column;
     max-width: 700px;
-    width: 100%;
+    /* width: 100%; */
     height: auto;
     background-color: #ffb111;
     border-radius: 15px;
@@ -271,6 +281,7 @@ a.search-pokemon {
 
 #poke-name p{
     width:45%;
+    display: inline-flex;
     justify-content: flex-start;
     font-size: 2em;
     font-weight: bold;
@@ -283,6 +294,13 @@ p#hp {
     text-align: right;
     font-size: 1.8em;
     color: red;
+    display: inline-flex;
+    justify-content: flex-end;
+}
+
+#poke-name img {
+    display: inline-flex;
+    justify-content: flex-start;
 }
 
 #favorite {
