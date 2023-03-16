@@ -179,7 +179,7 @@ a.search-pokemon {
 @media screen and (max-width:425px){
     #poke-name {
         padding-right: 8vw !important;
-        font-size: 15px;
+        font-size: 14px;
     }
 
     #favorite {
