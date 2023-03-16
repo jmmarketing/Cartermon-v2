@@ -66,13 +66,14 @@ a.search-pokemon {
 }
 
 
+
 /* ######### Search Area Styling ########## */
 .search-container, .view-all-container {
     min-height: 100vh;
-    height: auto;
-    max-height: fit-content;
+    /* height: auto; */
+    /* max-height: fit-content; */
     overflow-y: hidden;
-    width: auto;
+    /* width: auto; */
     background-image: url(./resources/images/evee.png);
     background-size: cover;
     background-position: center;
@@ -128,7 +129,7 @@ a.search-pokemon {
 }
 
 #search-bar {
-    width: 50vw;
+    width: 55vw;
     border-radius: 25px;
     background: rgba(255, 255, 255, 0.75);
     padding: 10px;
@@ -173,6 +174,11 @@ a.search-pokemon {
 
     #logo {
         width: 100%;
+    }
+
+    .search-container, .view-all-container {
+        background-image: url(./resources/images/eevee-mobile.jpg);
+        background-position: bottom;
     }
 }
 
@@ -371,6 +377,7 @@ p.num {
     flex-wrap: wrap;
     column-gap: 10px;
     row-gap: 15px;
+    justify-content: center;
 }
 
 .view-all-container .loader{
