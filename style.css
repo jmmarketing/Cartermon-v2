@@ -155,6 +155,27 @@ a.search-pokemon {
     width: 50px;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1024px){
+
+    #search-bar {
+        width: 75vw;
+    }
+}
+
+@media screen and (max-width:768px){
+    #search, #search-bar {
+        width: 90vw;
+    }
+
+    #search-bar input {
+        width: 80%;
+    }
+
+    #logo {
+        width: 100%;
+    }
+}
+
 
 /*############ Pokeball Loader Styling #########*/
 .loader {
