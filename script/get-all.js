@@ -76,7 +76,7 @@ function hideLoader() {
     viewCardsContainer.hidden = false;
 }
 
-if (localStorage.length > 0){
+if (localStorage.allnames){
     let pokeJSON = JSON.parse(localStorage.getItem('allnames'));;
     createPreviewCards(pokeJSON);
 } else {
