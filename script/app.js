@@ -170,10 +170,10 @@ function resetSearch() {
 
 //######## Favorite Functions ###########
 function hoverFav() {
-    this.dataset.saved == 'true' ? this.src = './resources/images/heartline.png' : this.src = '../resources/images/heartline-fill.png';
+    this.dataset.saved == 'true' ? this.src = './resources/images/heartline.png' : this.src = './resources/images/heartline-fill.png';
 }
 function hoverOutFav() {
-    this.dataset.saved == 'true' ? this.src = './resources/images/heartline-fill.png' : this.src = '../resources/images/heartline.png';
+    this.dataset.saved == 'true' ? this.src = './resources/images/heartline-fill.png' : this.src = './resources/images/heartline.png';
 }
 
 function toggleFav() {
