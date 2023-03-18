@@ -170,10 +170,10 @@ function resetSearch() {
 
 //######## Favorite Functions ###########
 function hoverFav() {
-    this.dataset.saved == 'true' ? this.src = '../resources/images/heartline.png' : this.src = '../resources/images/heartline-fill.png';
+    this.dataset.saved == 'true' ? this.src = './resources/images/heartline.png' : this.src = '../resources/images/heartline-fill.png';
 }
 function hoverOutFav() {
-    this.dataset.saved == 'true' ? this.src = '../resources/images/heartline-fill.png' : this.src = '../resources/images/heartline.png';
+    this.dataset.saved == 'true' ? this.src = './resources/images/heartline-fill.png' : this.src = '../resources/images/heartline.png';
 }
 
 function toggleFav() {
@@ -181,7 +181,7 @@ function toggleFav() {
 
     if (this.dataset.saved == 'false') { //Check if Pokemon previously saved?
         this.dataset.saved = 'true';
-        this.src = '../resources/images/heartline-fill.png';
+        this.src = './resources/images/heartline-fill.png';
 
         if (!localStorage.fav) { //Checks to see if first pokemon saved
             localStorage.setItem('fav', `[${JSON.stringify(pokemon)}]`)
@@ -194,7 +194,7 @@ function toggleFav() {
 
     } else {
         this.dataset.saved = 'false';
-        this.src = '../resources/images/heartline.png';
+        this.src = './resources/images/heartline.png';
 
         let pokeFav = JSON.parse(localStorage.getItem('fav'));
         console.log(pokeFav)
