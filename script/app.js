@@ -137,7 +137,7 @@ function createPokeCard(object) {
     pokeImg.src = object.img;
     console.log(object.fav)
     heart.dataset.saved = object.fav;
-    heart.src = object.fav ? '../resources/images/heartline-fill.png' : '../resources/images/heartline.png';
+    heart.src = object.fav ? './resources/images/heartline-fill.png' : './resources/images/heartline.png';
     pokeAttack.innerText = object.attack;
     pokeDefense.textContent = object.defense;
     pokeSpeed.textContent = object.speed;
@@ -158,7 +158,7 @@ function resetSearch() {
     searchInput.value = '';
     resetButton.hidden = true;
     heart.dataset.saved = '';
-    heart.src = '../resources/images/heartline.png';
+    heart.src = './resources/images/heartline.png';
     results.hidden = true;
     searchElement.hidden = false;
     errorMessage.hidden = true;
