@@ -81,6 +81,7 @@ if (localStorage.allnames){
     createPreviewCards(pokeJSON);
 } else {
     loadPokeInfo();
+   
 }
 
 setTimeout(hideLoader, 3500);

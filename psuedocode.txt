@@ -1,11 +1,9 @@
 //Cartermon Pseudo Code
 
 // Version 3
--- Make Responsive. 
 -- Clear Favorites Option in Saved
--- Fix Alignment with Saved cards
 -- Hover Styles for Buttons
 -- Refactor into less Code
--- Host on Git
+
 
 
