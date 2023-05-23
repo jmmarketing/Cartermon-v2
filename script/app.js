@@ -124,15 +124,6 @@ async function searchPokemonAPI(pokemonSearched) {
 
 // ####### Generates the Pokemon Card #########
 function createPokeCard(object) {
-  //   const pokeName = document.querySelector("#poke-name p");
-  //   const pokeHP = document.querySelector("#hp");
-  //   const pokeImg = document.querySelector("#poke-image img");
-  //   const pokeAttack = document.querySelector("#attack .num");
-  //   const pokeSpeed = document.querySelector("#speed .num");
-  //   const pokeDefense = document.querySelector("#defense .num");
-  //   const pokeSpecialA = document.querySelector("#special-attack .num");
-  //   const pokeSpecialD = document.querySelector("#special-defense .num");
-
   // Assign values to Results Card
 
   const cardHTML = `
@@ -186,24 +177,8 @@ function createPokeCard(object) {
 </div>
 `;
 
-  // ## REFACTORED INTO SINGLE HTML VARIABLE ABOVE ##
-  //   pokeName.textContent = object.name;
-  //   pokeHP.textContent = `${object.hp} HP`;
-  //   pokeImg.src = object.img;
-  //   console.log(object.fav);
-  //   heart.dataset.saved = object.fav;
-  //   heart.src = object.fav
-  //     ? "./resources/images/heartline-fill.png"
-  //     : "./resources/images/heartline.png";
-  //   pokeAttack.innerText = object.attack;
-  //   pokeDefense.textContent = object.defense;
-  //   pokeSpeed.textContent = object.speed;
-  //   pokeSpecialA.textContent = object.special_attack;
-  //   pokeSpecialD.textContent = object.special_defense;
-
   setTimeout(() => {
     loader.hidden = true;
-    // results.hidden = false;
     resetButton.hidden = false;
     resetButton.insertAdjacentHTML("beforebegin", cardHTML);
     heart = document.querySelector("#favorite");
@@ -219,11 +194,11 @@ function resetSearch() {
   resetButton.hidden = true;
   heart.dataset.saved = "";
   heart.src = "./resources/images/heartline.png";
-  results.hidden = true;
   searchElement.hidden = false;
   errorMessage.hidden = true;
+  document.querySelector(".results").remove();
 
-  for (const att in pokemon) {
+  for (const att of pokemon) {
     delete pokemon[att];
   }
 }
@@ -278,12 +253,3 @@ window.onload = loadPokeNames;
 
 resetButton.addEventListener("click", resetSearch);
 submit.addEventListener("submit", searchPokemon);
-container.addEventListener("mouseover", function (e) {
-  if (e.target == "img#favorite") {
-    console.log(e);
-    console.log("Favorite!");
-  }
-  //   heart.addEventListener("mouseenter", hoverFav);
-  //   heart.addEventListener("mouseleave", hoverOutFav);
-  //   heart.addEventListener("click", toggleFav);
-});
