@@ -184,8 +184,8 @@ function createPokeCard(object) {
     loader.hidden = true;
     resetButton.hidden = false;
     resetButton.insertAdjacentHTML("beforebegin", cardHTML);
-    heart = document.querySelector("#favorite");
-    heart.addEventListener("mouseenter", hoverFav);
+    heart = document.querySelector("#favorite"); //Need to move to here because HTML does not exist prior
+    heart.addEventListener("mouseenter", hoverFav); // Same as above
     heart.addEventListener("mouseleave", hoverOutFav);
     heart.addEventListener("click", toggleFav);
   }, 3000);
@@ -195,8 +195,6 @@ function createPokeCard(object) {
 function resetSearch() {
   searchInput.value = "";
   resetButton.hidden = true;
-  heart.dataset.saved = "";
-  heart.src = "./resources/images/heartline.png";
   searchElement.hidden = false;
   errorMessage.hidden = true;
   document.querySelector(".results").remove();
