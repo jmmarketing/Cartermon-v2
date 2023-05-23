@@ -11,7 +11,10 @@ const loader = document.querySelector(".loader");
 const results = document.querySelector(".results"); //
 const resetButton = document.querySelector(".reset");
 const errorMessage = document.querySelector(".error");
+const successMessage = document.querySelector(".fav-success");
+const removeMessage = document.querySelector(".fav-remove");
 let heart;
+
 ///////////////////////////////////////////
 /////////------- Arrays & Objects ----------
 let names = [];
@@ -223,6 +226,12 @@ function toggleFav() {
     this.dataset.saved = "true";
     this.src = "./resources/images/heartline-fill.png";
 
+    successMessage.hidden = false;
+    successMessage.textContent = `${pokemon.name.toUpperCase()} added to your favorites!`;
+    setTimeout(() => {
+      successMessage.hidden = true;
+    }, 3000);
+
     if (!localStorage.fav) {
       //Checks to see if first pokemon saved
       localStorage.setItem("fav", `[${JSON.stringify(pokemon)}]`);
@@ -244,6 +253,11 @@ function toggleFav() {
     console.log(pokeFav);
 
     localStorage.setItem("fav", JSON.stringify(pokeFav));
+    removeMessage.hidden = false;
+    removeMessage.textContent = `${pokemon.name.toUpperCase()} removed from your favorites!`;
+    setTimeout(() => {
+      removeMessage.hidden = true;
+    }, 3000);
   }
 }
 //////////////////////////////////////
