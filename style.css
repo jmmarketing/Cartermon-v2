@@ -435,6 +435,12 @@ p.num {
   box-shadow: 5px 5px 15px -6px #000000;
 }
 
+.mini-card .row#poke-name {
+  display: inline-flex;
+  max-width: 250px;
+  padding-right: 15px;
+}
+
 .mini-card #poke-name p {
   font-size: 1em;
 }
@@ -442,6 +448,12 @@ p.num {
 .mini-card #poke-image {
   border-radius: 5px;
   border: 3px solid #b17b0e;
+}
+
+#remove-fave {
+  font-size: 1.2em;
+  padding-bottom: 3px;
+  max-width: fit-content;
 }
 
 /*############ Footer Styling #########*/
