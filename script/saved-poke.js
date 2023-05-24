@@ -2,11 +2,13 @@ const searchButton = document.querySelector(".search-pokemon");
 const errorMessage = document.querySelector(".error");
 const viewCardsContainer = document.querySelector(".view-cards");
 const loader = document.querySelector(".loader");
+let pokeJSON;
 
 function createPreviewCards(arr) {
   arr.forEach((pokemon) => {
     const miniCard = document.createElement("div");
     miniCard.classList.add("mini-card");
+    miniCard.setAttribute("name", `${pokemon.name}`);
 
     const pokeName = document.createElement("div");
     pokeName.classList.add("row");
@@ -24,7 +26,7 @@ function createPreviewCards(arr) {
     trashCan.classList.add("fa-trash-o");
     trashCan.setAttribute("aria-hidden", "true");
     trashCan.setAttribute("id", "remove-fave");
-    trashCan.setAttribute("name", `${pokemon.name}`);
+    trashCan.setAttribute("trash-name", `${pokemon.name}`);
 
     const pokeImage = document.createElement("div");
     pokeImage.classList.add("row");
@@ -53,7 +55,7 @@ function hideLoader() {
 }
 
 if (localStorage.fav) {
-  let pokeJSON = JSON.parse(localStorage.getItem("fav"));
+  pokeJSON = JSON.parse(localStorage.getItem("fav"));
   createPreviewCards(pokeJSON);
   setTimeout(function () {
     viewCardsContainer.hidden = false;
@@ -66,7 +68,17 @@ if (localStorage.fav) {
 }
 
 function removeSaved() {
-  console.log(this.getAttribute("name"));
+  pokeJSON.splice(
+    pokeJSON.findIndex((poke) => poke.name == this.getAttribute("trash-name")),
+    1
+  );
+  const json = JSON.stringify(pokeJSON);
+  localStorage.setItem("fav", json);
+  console.log(pokeJSON);
+
+  console.log(this);
+
+  document.querySelector(`[name=${this.getAttribute("trash-name")}]`).remove();
 }
 
 setTimeout(hideLoader, 3500);

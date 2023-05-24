@@ -454,6 +454,7 @@ p.num {
   font-size: 1.2em;
   padding-bottom: 3px;
   max-width: fit-content;
+  cursor: pointer;
 }
 
 /*############ Footer Styling #########*/
