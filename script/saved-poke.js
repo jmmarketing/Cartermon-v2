@@ -74,6 +74,8 @@ function removeSaved() {
   );
   const json = JSON.stringify(pokeJSON);
   localStorage.setItem("fav", json);
+
+  if (pokeJSON.length === 0) location.reload(); // Working Here - Reload on last removed?
   console.log(pokeJSON);
 
   console.log(this);
