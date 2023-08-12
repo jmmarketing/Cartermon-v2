@@ -1,4 +1,4 @@
-// import { autocomplete } from "./autocomplete.js";
+import { autocomplete } from "./autocomplete.js";
 
 /////////////////////////////////////////
 ///////######## GLOBAL VARIABLES ############
@@ -19,7 +19,7 @@ let heart;
 /////////------- Arrays & Objects ----------
 let names = [];
 let pokemon = {};
-let bgImages = [
+const bgImages = [
   "./resources/images/forest_background.jpg",
   "./resources/images/field.jpg",
   "./resources/images/galar-scenery.png",
@@ -35,22 +35,34 @@ let bgImages = [
 
 ///////////////////////////////////////////
 /////////------- FUNCTIONS ----------
+class App {
+  constructor() {
+    this.loadPokeNames();
 
-//########## Grab & Store Pokemon Names for Autocomplete ##########
-async function loadPokeNames() {
-  try {
-    const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=250");
+    // Assigns Event Listeners when Initialized
+    resetButton.addEventListener("click", resetSearch);
+    submit.addEventListener("submit", searchPokemon);
+  }
 
-    if (response.ok) {
-      const jsonResponse = await response.json();
-      //   console.log(jsonResponse)
-      for (const poke of jsonResponse.results) {
-        names.push(poke.name);
+  //########## Grab & Store Pokemon Names for Autocomplete ##########
+  async loadPokeNames() {
+    try {
+      const response = await fetch(
+        "https://pokeapi.co/api/v2/pokemon?limit=250"
+      );
+
+      if (response.ok) {
+        const jsonResponse = await response.json();
+
+        //Takes respons and loops through results to push pokemon names to names array.
+        for (const poke of jsonResponse.results) {
+          names.push(poke.name);
+        }
       }
+      // throw new Error('Request Failed!')
+    } catch (error) {
+      console.log(error);
     }
-    // throw new Error('Request Failed!')
-  } catch (error) {
-    console.log(error);
   }
 }
 
@@ -260,8 +272,7 @@ function toggleFav() {
 }
 //////////////////////////////////////
 // ########### EVENTS ##############
-window.onload = loadPokeNames;
-// autocomplete(searchInput, names);
+// Initiates App
+const app = new App();
 
-resetButton.addEventListener("click", resetSearch);
-submit.addEventListener("submit", searchPokemon);
+autocomplete(searchInput, names);
