@@ -17,7 +17,6 @@ let heart;
 
 ///////////////////////////////////////////
 /////////------- Arrays & Objects ----------
-let names = [];
 let pokemon = {};
 const bgImages = [
   "./resources/images/forest_background.jpg",
@@ -36,70 +35,83 @@ const bgImages = [
 ///////////////////////////////////////////
 /////////------- FUNCTIONS ----------
 class App {
+  #names = [];
   constructor() {
+    //Gets Pokemon Names for Autocomplete
     this.loadPokeNames();
-
+    // Creates Eventlistener & Autocomplete feature for Searchbar
+    autocomplete(searchInput, this.#names);
     // Assigns Event Listeners when Initialized
     resetButton.addEventListener("click", resetSearch);
-    submit.addEventListener("submit", searchPokemon);
+    submit.addEventListener("submit", this.searchPokemon);
   }
 
   //########## Grab & Store Pokemon Names for Autocomplete ##########
-  async loadPokeNames() {
-    try {
-      const response = await fetch(
-        "https://pokeapi.co/api/v2/pokemon?limit=250"
-      );
+  loadPokeNames() {
+    // IF names NOT in localstorage, then feth from API
+    if (!localStorage.autoNames) {
+      const request = fetch("https://pokeapi.co/api/v2/pokemon?limit=250");
 
-      if (response.ok) {
-        const jsonResponse = await response.json();
-
-        //Takes respons and loops through results to push pokemon names to names array.
-        for (const poke of jsonResponse.results) {
-          names.push(poke.name);
-        }
-      }
-      // throw new Error('Request Failed!')
-    } catch (error) {
-      console.log(error);
+      request
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          //Takes response and loops through results to push pokemon names to names array.
+          for (const poke of data.results) {
+            this.#names.push(poke.name);
+          }
+          this._setLocalstorage("autoNames", this.#names);
+        })
+        .catch((error) => console.log(error));
     }
+
+    // IF Names in local Storage then set to #names from localstorage
+    this.#names = this._getLocalstorage("autoNames");
   }
-}
 
-//############ Search Function ###############
-function searchPokemon(e) {
-  e.preventDefault();
+  _setLocalstorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
 
-  let pokeSearchValue = searchInput.value.toLowerCase();
-  let localSaved = JSON.parse(localStorage.getItem("fav")) || [];
-  searchElement.hidden = true;
-  loader.hidden = false;
+  _getLocalstorage(key) {
+    return JSON.parse(localStorage.getItem(key));
+  }
 
-  if (!localStorage.fav) {
-    console.log("NO FAVORITES! -> API SEARCH TRIGGERED");
-    searchPokemonAPI(pokeSearchValue);
-  } else if (localSaved.some((obj) => obj.name === pokeSearchValue)) {
-    console.log("POKEMON FOUND! -> In Favorite LocalStorage");
-    localSaved.forEach((obj) => {
-      if (obj.name === pokeSearchValue) {
-        pokemon.name = obj.name;
-        pokemon.img = obj.img;
-        pokemon.hp = obj.hp;
-        pokemon.attack = obj.attack;
-        pokemon.speed = obj.speed;
-        pokemon.defense = obj.defense;
-        pokemon.special_attack = obj.special_attack;
-        pokemon.special_defense = obj.special_defense;
-        pokemon.fav = obj.fav;
+  //############ Search Function ###############
+  searchPokemon(e) {
+    e.preventDefault();
 
-        console.log("CARD CREATED! -> From LocalStorage");
-        console.log(pokemon);
-        createPokeCard(pokemon);
-      }
-    });
-  } else {
-    console.log("NOT A FAVORITE! -> Searching API");
-    searchPokemonAPI(pokeSearchValue);
+    let pokeSearchValue = searchInput.value.toLowerCase();
+    let localSaved = JSON.parse(localStorage.getItem("fav")) || [];
+    searchElement.hidden = true;
+    loader.hidden = false;
+
+    if (!localStorage.fav) {
+      console.log("NO FAVORITES! -> API SEARCH TRIGGERED");
+      searchPokemonAPI(pokeSearchValue);
+    } else if (localSaved.some((obj) => obj.name === pokeSearchValue)) {
+      console.log("POKEMON FOUND! -> In Favorite LocalStorage");
+      localSaved.forEach((obj) => {
+        if (obj.name === pokeSearchValue) {
+          pokemon.name = obj.name;
+          pokemon.img = obj.img;
+          pokemon.hp = obj.hp;
+          pokemon.attack = obj.attack;
+          pokemon.speed = obj.speed;
+          pokemon.defense = obj.defense;
+          pokemon.special_attack = obj.special_attack;
+          pokemon.special_defense = obj.special_defense;
+          pokemon.fav = obj.fav;
+
+          console.log("CARD CREATED! -> From LocalStorage");
+          console.log(pokemon);
+          createPokeCard(pokemon);
+        }
+      });
+    } else {
+      console.log("NOT A FAVORITE! -> Searching API");
+      searchPokemonAPI(pokeSearchValue);
+    }
   }
 }
 
@@ -208,12 +220,14 @@ function resetSearch() {
   searchInput.value = "";
   resetButton.hidden = true;
   searchElement.hidden = false;
+  searchInput.focus();
   errorMessage.hidden = true;
   document.querySelector(".results").remove();
 
-  for (const att of pokemon) {
-    delete pokemon[att];
-  }
+  // ??? Not sure what this snippet was for, Comeback later.
+  // for (const att of pokemon) {
+  //   delete pokemon[att];
+  // }
 }
 
 //######## Favorite Functions ###########
@@ -274,5 +288,3 @@ function toggleFav() {
 // ########### EVENTS ##############
 // Initiates App
 const app = new App();
-
-autocomplete(searchInput, names);
