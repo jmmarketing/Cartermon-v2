@@ -88,30 +88,15 @@ class App {
     searchElement.hidden = true;
     loader.hidden = false;
 
-    if (!localSaved.length) {
-      console.log("NO FAVORITES! -> API SEARCH TRIGGERED");
-      this._searchPokemonAPI(pokeSearchValue);
-    } else if (localSaved.some((obj) => obj.name === pokeSearchValue)) {
-      console.log("POKEMON FOUND! -> In Favorite LocalStorage");
-      localSaved.forEach((obj) => {
-        if (obj.name === pokeSearchValue) {
-          pokemon.name = obj.name;
-          pokemon.img = obj.img;
-          pokemon.hp = obj.hp;
-          pokemon.attack = obj.attack;
-          pokemon.speed = obj.speed;
-          pokemon.defense = obj.defense;
-          pokemon.special_attack = obj.special_attack;
-          pokemon.special_defense = obj.special_defense;
-          pokemon.fav = obj.fav;
+    if (localSaved.some((obj) => obj.name === pokeSearchValue)) {
+      console.log("✔ FAVORITE POKEMON! -> In Favorite LocalStorage");
+      this.#pokemon = localSaved.find((obj) => obj.name === pokeSearchValue);
 
-          console.log("CARD CREATED! -> From LocalStorage");
-          console.log(pokemon);
-          createPokeCard(pokemon);
-        }
-      });
+      console.log("🃏 CARD CREATED! -> From LocalStorage");
+      console.log(this.#pokemon);
+      this._createPokeCard(this.#pokemon);
     } else {
-      console.log("NOT A FAVORITE! -> Searching API");
+      console.log("❌ NOT A FAVORITE! -> Searching API");
       this._searchPokemonAPI(pokeSearchValue);
     }
   }
@@ -124,7 +109,7 @@ class App {
     pokeRequest
       .then((response) => response.json())
       .then((pokeJSON) => {
-        console.log(pokeJSON);
+        // console.log(pokeJSON);
         // Destructure Response into Pokemon Object//
         ({
           name: this.#pokemon.name,
@@ -144,9 +129,9 @@ class App {
           fav: this.#pokemon.fav = false,
         } = pokeJSON);
 
-        console.log("CARD CREATED! -> From API Search");
-        console.log(this.#pokemon);
-        createPokeCard(this.#pokemon);
+        console.log("Pokemon API Search Found 🔍", this.#pokemon);
+        console.log("🃏 CARD CREATED! -> From API");
+        this._createPokeCard(this.#pokemon);
       })
       .catch((error) => {
         loader.hidden = true;
@@ -155,13 +140,12 @@ class App {
         console.log(error);
       });
   }
-}
 
-// ####### Generates the Pokemon Card #########
-function createPokeCard(object) {
-  // Assign values to Results Card
+  // ####### Generates the Pokemon Card #########
+  _createPokeCard(object) {
+    // Assign values to Results Card
 
-  const cardHTML = `
+    const cardHTML = `
     <div class="results">
           <div class="row" id="poke-name">
               <p>${object.name}</p>
@@ -212,15 +196,16 @@ function createPokeCard(object) {
     </div>
 `;
 
-  setTimeout(() => {
-    loader.hidden = true;
-    resetButton.hidden = false;
-    container.insertAdjacentHTML("afterbegin", cardHTML);
-    heart = document.querySelector("#favorite"); //Need to move to here because HTML does not exist prior
-    heart.addEventListener("mouseenter", hoverFav); // Same as above
-    heart.addEventListener("mouseleave", hoverOutFav);
-    heart.addEventListener("click", toggleFav);
-  }, 3000);
+    setTimeout(() => {
+      loader.hidden = true;
+      resetButton.hidden = false;
+      container.insertAdjacentHTML("afterbegin", cardHTML);
+      heart = document.querySelector("#favorite"); //Need to move to here because HTML does not exist prior
+      heart.addEventListener("mouseenter", hoverFav); // Same as above
+      heart.addEventListener("mouseleave", hoverOutFav);
+      heart.addEventListener("click", toggleFav);
+    }, 3000);
+  }
 }
 
 // ####### Resets Search & Card #########
