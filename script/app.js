@@ -17,7 +17,6 @@ let heart;
 
 ///////////////////////////////////////////
 /////////------- Arrays & Objects ----------
-let pokemon = {};
 const bgImages = [
   "./resources/images/forest_background.jpg",
   "./resources/images/field.jpg",
@@ -36,18 +35,19 @@ const bgImages = [
 /////////------- FUNCTIONS ----------
 class App {
   #names = [];
+  #pokemon = {};
   constructor() {
     //Gets Pokemon Names for Autocomplete
-    this.loadPokeNames();
+    this._loadPokeNames();
     // Creates Eventlistener & Autocomplete feature for Searchbar
     autocomplete(searchInput, this.#names);
     // Assigns Event Listeners when Initialized
     resetButton.addEventListener("click", resetSearch);
-    submit.addEventListener("submit", this.searchPokemon);
+    submit.addEventListener("submit", this._searchPokemon.bind(this));
   }
 
   //########## Grab & Store Pokemon Names for Autocomplete ##########
-  loadPokeNames() {
+  _loadPokeNames() {
     // IF names NOT in localstorage, then feth from API
     if (!localStorage.autoNames) {
       const request = fetch("https://pokeapi.co/api/v2/pokemon?limit=250");
@@ -78,17 +78,19 @@ class App {
   }
 
   //############ Search Function ###############
-  searchPokemon(e) {
+  _searchPokemon(e) {
     e.preventDefault();
 
-    let pokeSearchValue = searchInput.value.toLowerCase();
-    let localSaved = JSON.parse(localStorage.getItem("fav")) || [];
+    const pokeSearchValue = searchInput.value.toLowerCase();
+    const localSaved = JSON.parse(localStorage.getItem("fav")) || [];
+
+    // Hide Search Field and Show Loader
     searchElement.hidden = true;
     loader.hidden = false;
 
-    if (!localStorage.fav) {
+    if (!localSaved.length) {
       console.log("NO FAVORITES! -> API SEARCH TRIGGERED");
-      searchPokemonAPI(pokeSearchValue);
+      this._searchPokemonAPI(pokeSearchValue);
     } else if (localSaved.some((obj) => obj.name === pokeSearchValue)) {
       console.log("POKEMON FOUND! -> In Favorite LocalStorage");
       localSaved.forEach((obj) => {
@@ -110,42 +112,48 @@ class App {
       });
     } else {
       console.log("NOT A FAVORITE! -> Searching API");
-      searchPokemonAPI(pokeSearchValue);
+      this._searchPokemonAPI(pokeSearchValue);
     }
   }
-}
 
-async function searchPokemonAPI(pokemonSearched) {
-  try {
-    const pokeResponse = await fetch(
+  _searchPokemonAPI(pokemonSearched) {
+    const pokeRequest = fetch(
       `https://pokeapi.co/api/v2/pokemon/${pokemonSearched}`
     );
-    if (pokeResponse.ok) {
-      const pokeJSON = await pokeResponse.json();
 
-      // Assign Values to Pokemon Object
-      pokemon.name = pokeJSON["name"];
-      pokemon.img =
-        pokeJSON["sprites"]["other"]["official-artwork"]["front_default"];
-      pokemon.hp = pokeJSON["stats"][0]["base_stat"];
-      pokemon.attack = pokeJSON["stats"][1]["base_stat"];
-      pokemon.speed = pokeJSON["stats"][5]["base_stat"];
-      pokemon.defense = pokeJSON["stats"][2]["base_stat"];
-      pokemon.special_attack = pokeJSON["stats"][3]["base_stat"];
-      pokemon.special_defense = pokeJSON["stats"][4]["base_stat"];
-      pokemon.fav = false;
+    pokeRequest
+      .then((response) => response.json())
+      .then((pokeJSON) => {
+        console.log(pokeJSON);
+        // Destructure Response into Pokemon Object//
+        ({
+          name: this.#pokemon.name,
+          sprites: {
+            other: {
+              "official-artwork": { front_default: this.#pokemon.img },
+            },
+          },
+          stats: [
+            { base_stat: this.#pokemon.hp },
+            { base_stat: this.#pokemon.attack },
+            { base_stat: this.#pokemon.defense },
+            { base_stat: this.#pokemon.special_attack },
+            { base_stat: this.#pokemon.special_defense },
+            { base_stat: this.#pokemon.speed },
+          ],
+          fav: this.#pokemon.fav = false,
+        } = pokeJSON);
 
-      console.log("CARD CREATED! -> From API Search");
-      console.log(pokemon);
-      createPokeCard(pokemon);
-    } else {
-      throw new Error("Something Went Wrong.");
-    }
-  } catch (error) {
-    loader.hidden = true;
-    errorMessage.hidden = false;
-    resetButton.hidden = false;
-    console.log(error);
+        console.log("CARD CREATED! -> From API Search");
+        console.log(this.#pokemon);
+        createPokeCard(this.#pokemon);
+      })
+      .catch((error) => {
+        loader.hidden = true;
+        errorMessage.hidden = false;
+        resetButton.hidden = false;
+        console.log(error);
+      });
   }
 }
 
@@ -154,60 +162,60 @@ function createPokeCard(object) {
   // Assign values to Results Card
 
   const cardHTML = `
-<div class="results">
-  <div class="row" id="poke-name">
-    <p>${object.name}</p>
-    <p id="hp">${object.hp} HP</p>
-    <img
-      src="${
-        object.fav
-          ? "./resources/images/heartline-fill.png"
-          : "./resources/images/heartline.png"
-      }"
-      id="favorite"
-      data-saved="${object.fav}"
-    />
-  </div>
-  <div class="row" id="poke-image" style="background-image: url('${
-    bgImages[Math.floor(Math.random() * 6)]
-  }')">
-    <img src="${object.img}" />
-  </div>
+    <div class="results">
+          <div class="row" id="poke-name">
+              <p>${object.name}</p>
+              <p id="hp">${object.hp} HP</p>
+              <img
+                src="${
+                  object.fav
+                    ? "./resources/images/heartline-fill.png"
+                    : "./resources/images/heartline.png"
+                }"
+                id="favorite"
+                data-saved="${object.fav}"
+              />
+          </div>
+          <div class="row" id="poke-image" style="background-image: url('${
+            bgImages[Math.floor(Math.random() * 6)]
+          }')">
+             <img src="${object.img}" />
+          </div>
 
-  <div class="row" id="poke-stats">
-    <div class="stats" id="stats1">
-      <div id="attack">
-        <h6>attack</h6>
-        <p class="num">${object.attack}</p>
-      </div>
-      <div id="speed">
-        <h6>speed</h6>
-        <p class="num">${object.speed}</p>
-      </div>
-      <div id="defense">
-        <h6>defense</h6>
-        <p class="num">${object.defense}</p>
-      </div>
-    </div>
+          <div class="row" id="poke-stats">
+            <div class="stats" id="stats1">
+                <div id="attack">
+                  <h6>attack</h6>
+                  <p class="num">${object.attack}</p>
+                </div>
+                <div id="speed">
+                  <h6>speed</h6>
+                  <p class="num">${object.speed}</p>
+                </div>
+                <div id="defense">
+                  <h6>defense</h6>
+                  <p class="num">${object.defense}</p>
+              </div>
+            </div>
 
-    <div class="stats" id="stats2">
-      <div id="special-attack">
-        <h6>special attack</h6>
-        <p class="num">${object.special_attack}</p>
-      </div>
-      <div id="special-defense">
-        <h6>special defense</h6>
-        <p class="num">${object.special_defense}</p>
-      </div>
+            <div class="stats" id="stats2">
+                <div id="special-attack">
+                  <h6>special attack</h6>
+                  <p class="num">${object.special_attack}</p>
+                </div>
+                <div id="special-defense">
+                  <h6>special defense</h6>
+                  <p class="num">${object.special_defense}</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 `;
 
   setTimeout(() => {
     loader.hidden = true;
     resetButton.hidden = false;
-    resetButton.insertAdjacentHTML("beforebegin", cardHTML);
+    container.insertAdjacentHTML("afterbegin", cardHTML);
     heart = document.querySelector("#favorite"); //Need to move to here because HTML does not exist prior
     heart.addEventListener("mouseenter", hoverFav); // Same as above
     heart.addEventListener("mouseleave", hoverOutFav);
