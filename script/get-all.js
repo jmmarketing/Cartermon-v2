@@ -1,92 +1,90 @@
 const viewCardsContainer = document.querySelector(".view-cards");
 const loader = document.querySelector(".loader");
 
-let names250 = [];
-
 class App {
+  #names250;
   constructor() {
     if (localStorage.allnames) {
       let pokeJSON = JSON.parse(localStorage.getItem("allnames"));
-      createPreviewCards(pokeJSON);
+      this._createPreviewCards(pokeJSON);
     } else {
-      loadPokeInfo();
+      this._loadPokeInfo();
     }
 
-    setTimeout(hideLoader, 3500);
+    setTimeout(this._hideLoader, 3500);
   }
-}
 
-//########## Grab & Store Pokemon Info ##########
-async function loadPokeInfo() {
-  try {
-    const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=250");
-
-    if (response.ok) {
-      const jsonResponse = await response.json();
-      //   console.log(jsonResponse)
-      for (const poke of jsonResponse.results) {
-        let pokeInfo = await fetch(poke.url);
-        if (pokeInfo.ok) {
-          let pokeInfoJSON = await pokeInfo.json();
-          names250.push({
-            name: pokeInfoJSON.name,
-            image:
-              pokeInfoJSON.sprites.other["official-artwork"]["front_default"],
-            hp: pokeInfoJSON["stats"][0]["base_stat"],
+  //########## Grab & Store Pokemon Info ##########
+  _loadPokeInfo() {
+    const request = fetch("https://pokeapi.co/api/v2/pokemon?limit=250");
+    request
+      .then((response) => response.json())
+      .then((data) => {
+        for (const poke of data.results) {
+          this.#names250.push({
+            name: poke.name,
+            image: poke.sprites.other["official-artwork"]["front_default"],
+            hp: poke["stats"][0]["base_stat"],
           });
         }
-      }
+        localStorage.setItem("allnames", JSON.stringify(this.#names250));
 
-      let string = JSON.stringify(names250);
-      localStorage.setItem("allnames", string);
-
-      createPreviewCards(names250);
-    }
-    // throw new Error('Request Failed!')
-  } catch (error) {
-    console.log(error);
+        this._createPreviewCards(this.#names250);
+      })
+      .catch((error) => console.log(error));
   }
-}
 
-function createPreviewCards(arr) {
-  arr.forEach((pokemon) => {
-    const miniCard = document.createElement("div");
-    miniCard.classList.add("mini-card");
+  _createPreviewCards(arr) {
+    arr.forEach((pokemon) => {
+      const html = `
+      <div class="mini-card" name="${pokemon.name}">
+        <div class="row" id="poke-name">
+          <p>${pokemon.name}</p>
+          <p id="hp">${pokemon.hp} HP</p>
+        </div>
+        <div class="row" id="poke-image">
+          <img src="${pokemon.image}">
+        </div>
+      </div>`;
 
-    const pokeName = document.createElement("div");
-    pokeName.classList.add("row");
-    pokeName.setAttribute("id", "poke-name");
+      // const miniCard = document.createElement("div");
+      // miniCard.classList.add("mini-card");
 
-    const poke = document.createElement("p");
-    poke.textContent = pokemon["name"];
+      // const pokeName = document.createElement("div");
+      // pokeName.classList.add("row");
+      // pokeName.setAttribute("id", "poke-name");
 
-    const pokeHP = document.createElement("p");
-    pokeHP.setAttribute("id", "hp");
-    pokeHP.textContent = `${pokemon["hp"]} HP`;
+      // const poke = document.createElement("p");
+      // poke.textContent = pokemon["name"];
 
-    const pokeImage = document.createElement("div");
-    pokeImage.classList.add("row");
-    pokeImage.setAttribute("id", "poke-image");
+      // const pokeHP = document.createElement("p");
+      // pokeHP.setAttribute("id", "hp");
+      // pokeHP.textContent = `${pokemon["hp"]} HP`;
 
-    const image = document.createElement("img");
-    image.setAttribute("src", `${pokemon["image"]}`);
+      // const pokeImage = document.createElement("div");
+      // pokeImage.classList.add("row");
+      // pokeImage.setAttribute("id", "poke-image");
 
-    pokeName.appendChild(poke);
-    pokeName.appendChild(pokeHP);
-    pokeImage.appendChild(image);
+      // const image = document.createElement("img");
+      // image.setAttribute("src", `${pokemon["image"]}`);
 
-    miniCard.appendChild(pokeName);
-    miniCard.appendChild(pokeImage);
+      // pokeName.appendChild(poke);
+      // pokeName.appendChild(pokeHP);
+      // pokeImage.appendChild(image);
 
-    viewCardsContainer.appendChild(miniCard);
+      // miniCard.appendChild(pokeName);
+      // miniCard.appendChild(pokeImage);
 
-    console.log(`${pokemon["name"]} Card Created!`);
-  });
-}
+      viewCardsContainer.insertAdjacentHTML("beforeend", html);
 
-function hideLoader() {
-  loader.hidden = true;
-  viewCardsContainer.hidden = false;
+      console.log(`${pokemon["name"]} Card Created!`);
+    });
+  }
+
+  _hideLoader() {
+    loader.hidden = true;
+    viewCardsContainer.hidden = false;
+  }
 }
 
 const app = new App();
