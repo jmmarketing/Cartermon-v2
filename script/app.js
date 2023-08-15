@@ -4,7 +4,7 @@ import { autocomplete } from "./autocomplete.js";
 /////////////////////////////////////////
 ///////######## GLOBAL VARIABLES ############
 //------- Selectors ----------
-const container = document.querySelector(".search-container");
+const container = document.querySelector(".main-container");
 const searchElement = document.getElementById("search");
 const searchInput = document.querySelector('input[name="search-bar"]');
 const submit = document.getElementById("search-bar");
@@ -38,6 +38,10 @@ class App {
   #names;
   pokemon = {};
   constructor() {
+    this._initHome();
+  }
+
+  _initHome() {
     //Gets Pokemon Names for Autocomplete
     this._loadPokeNames();
     // Creates Eventlistener & Autocomplete feature for Searchbar
@@ -253,6 +257,7 @@ class App {
       : (this.src = "./resources/images/heartline.png");
   }
 
+  //***** REFACTOR SHOW / HIDE
   _toggleFav(e) {
     this.pokemon.fav = !this.pokemon.fav;
 

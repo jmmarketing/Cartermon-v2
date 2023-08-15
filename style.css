@@ -11,6 +11,8 @@
 }
 body {
   background-color: #ffb111;
+  /* width: 100vw;
+  height: auto; */
 }
 h6 {
   font-weight: 800;
@@ -67,8 +69,7 @@ a.search-pokemon {
 }
 
 /* ######### Search Area Styling ########## */
-.search-container,
-.view-all-container {
+.main-container {
   min-height: 100vh;
   /* height: auto; */
   /* max-height: fit-content; */
@@ -81,7 +82,7 @@ a.search-pokemon {
   padding-bottom: 25px;
 }
 
-.search-container {
+.main-container {
   flex-direction: column;
   justify-content: center;
   align-items: center;
