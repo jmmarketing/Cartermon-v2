@@ -4,6 +4,10 @@ const loader = document.querySelector(".loader");
 class App {
   #names250;
   constructor() {
+    this._initAll();
+  }
+
+  _initAll() {
     if (localStorage.allnames) {
       let pokeJSON = JSON.parse(localStorage.getItem("allnames"));
       this._createPreviewCards(pokeJSON);
@@ -47,6 +51,7 @@ class App {
         </div>
       </div>`;
 
+      // Using create Element example
       // const miniCard = document.createElement("div");
       // miniCard.classList.add("mini-card");
 
