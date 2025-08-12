@@ -1,0 +1,22 @@
+{
+  "name": "jm-project-starter",
+  "version": "1.0.0",
+  "description": "Starter files/folder for development projects. Uses MVC architecture & scss.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html --open --port 1234",
+    "build": "parcel build index.html --public-url ./",
+    "deploy": "gh-pages -d dist"
+  },
+  "author": "Jeffrey McLean",
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "parcel": "^2.12.0"
+  },
+  "dependencies": {
+    "core-js": "^3.38.1",
+    "navigo": "^8.11.1",
+    "regenerator-runtime": "^0.14.1"
+  }
+}

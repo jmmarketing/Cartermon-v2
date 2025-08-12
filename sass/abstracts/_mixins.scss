@@ -1,0 +1,40 @@
+// MEDIA QUERY MANAGER (can change breakpoints as needed, just boilerplate)
+/*
+0 - 600px:        Phone
+600 - 900px:      Tablet Portrait
+900 - 1200px:     Tablet Landscape
+[1200 - 1800px]:  Desktop - Where Normal Styles Apply
+1800px + :        Big Desktop
+*/
+
+/*
+$breakpoint argument choices: 
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+1em = 16px;
+
+
+ORDER [When refactoring for responsiveness]: Base + typography > general layout + grid > page layout > components
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 36.5em) {
+      //580px
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: 65.5em) {
+      //1048px
+      @content;
+    }
+  }
+
+  @if $breakpoint == big-desktop {
+  }
+}
