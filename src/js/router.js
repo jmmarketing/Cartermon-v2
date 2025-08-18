@@ -11,7 +11,12 @@ class Router {
   _setupRoutes() {
     this.router
       .on("/", () => controller.showHome())
-      .on("/signup", () => controller.showSignup());
+      .on("/signup ", () => controller.showSignup())
+      .on("/continue", () => controller.showContinue())
+      .on("/main", () => controller.showMain())
+      .on("/pokedex", () => controller.showPokedex())
+      .on("/learn", () => controller.showLearn())
+      .on("/explore", () => controller.showExplore());
   }
 
   _getBasePath() {

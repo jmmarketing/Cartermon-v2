@@ -27,6 +27,12 @@ export async function showSignup() {
   //   }
 }
 
+export async function showContinue() {}
+export async function showMain() {}
+export async function showPokedex() {}
+export async function showLearn() {}
+export async function showExplore() {}
+
 function setupGlobalNavigation() {
   document.addEventListener("click", (e) => {
     if (
