@@ -7,9 +7,18 @@ body {
 }
 
 // Rowdies associated typography.
-.bilboard {
-  font-family: "Rowdies", sans-serif;
 
+.bilboard,
+.bilboard-sm,
+.rowdie-title,
+.rowdie-label,
+.rowdie-stat,
+.math-equation,
+.math-answer {
+  font-family: "Rowdies", sans-serif;
+}
+
+.bilboard {
   font-size: 9.6rem; //96px;
   line-height: 99px;
   font-weight: 400;
@@ -18,8 +27,6 @@ body {
 }
 
 .bilboard-sm {
-  font-family: "Rowdies", sans-serif;
-
   font-size: 6.4rem; //64px;
   font-weight: 400;
 
@@ -27,27 +34,22 @@ body {
 }
 
 .rowdie-title {
-  font-family: "Rowdies", sans-serif;
   font-size: 3rem; //30px
 }
 
 .rowdie-label {
-  font-family: "Rowdies", sans-serif;
   font-size: 1.8rem; //18px;
 }
 
 .rowdie-stat {
-  font-family: "Rowdies", sans-serif;
   font-size: 4.8rem; // 48px
 }
 
 .math-equation {
-  font-family: "Rowdies", sans-serif;
   font-size: 8rem; //80px;
 }
 
 .math-answer {
-  font-family: "Rowdies", sans-serif;
   font-size: 2.4rem; //24px
 }
 
@@ -58,3 +60,37 @@ body {
 }
 
 // Silkscreen trypography
+
+.pokedex-value,
+.play-information,
+.play-label,
+.user-title,
+.user-name {
+  font-family: "Silkscreen", sans-serif;
+}
+
+.pokedex-value {
+  font-size: $default-font-size; //16px;
+}
+
+.play-information {
+  font-size: 2.4rem; //24px;
+}
+
+.play-label {
+  font-size: 2rem; //20px;
+}
+
+.user-title {
+  font-size: 1.8rem; //18px;
+}
+
+.user-name {
+  font-size: 3rem; //30px;
+}
+
+//16 ✔ - Pokedex pokemon values
+//18 ✔ - User Stat Heading
+//20 ✔ - Label (singup) || Pokedex filter title
+//24 ✔ - User Stat Pokeball count || Main card title/cta || Pokedex error/blank message || Catch pokemone message || math question title
+//30 ✔ - User Stat Name
