@@ -1,21 +1,22 @@
 // Abstracts
-@import "abstracts/variables";
-@import "abstracts/functions";
-@import "abstracts/mixins";
+@forward "abstracts/variables";
+@forward "abstracts/functions";
+@forward "abstracts/mixins";
 
 // Base
-@import "base/typography";
-@import "base/animations";
-@import "base/utilities";
-@import "base/base";
+@forward "base/typography";
+@forward "base/animations";
+@forward "base/utilities";
+@forward "base/base";
 
 //Components
-// ** IMPORT AS NEEDED **
+// ** USE AS NEEDED **
 
 //Layouts
-@import "layouts/navigation";
-@import "layouts/headers";
-@import "layouts/footer";
+@forward "layouts/navigation";
+@forward "layouts/headers";
+@forward "layouts/footer";
+@forward "layouts/body";
 
 //Pages
 // ** IMPORT AS NEEDED **

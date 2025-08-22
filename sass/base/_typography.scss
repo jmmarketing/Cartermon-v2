@@ -1,4 +1,6 @@
 // Importing Silkscreen, Rowdies, & Pixelfy Sans from Google Fonts
+@use "../abstracts/variables" as *;
+
 @import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Rowdies:wght@300;400;700&family=Silkscreen:wght@400;700&display=swap");
 
 body {

@@ -131,6 +131,8 @@ export const icons = {
   speed,
   thumbsup,
   water,
+  attack,
+  electric,
 };
 
 export const imgAssets = {
