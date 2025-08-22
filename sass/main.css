@@ -99,6 +99,40 @@ body {
   font-size: 3rem;
 }
 
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  75% {
+    transform: translateX(2px) rotate(1deg);
+  }
+}
+@keyframes slideInLeft {
+  0% {
+    transform: translate(260px, -60px);
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+@keyframes fadeInPokeball {
+  from {
+    opacity: 0;
+    transform: scale(0.01) rotate(-360deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
 *,
 *::before,
 *::after {
@@ -124,30 +158,55 @@ body {
   background-color: white;
   border-radius: 24px;
   border: 3px solid #3962a7;
+  box-shadow: 5px 5px 12px 4px rgba(0, 0, 0, 0.24);
   display: inline-flex;
+  overflow: hidden;
 }
 .hero__left {
   width: 50%;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .hero__right {
   width: 50%;
-  border-radius: 24px;
+  border-radius: 24px 0 0 24px;
   background-image: url("../assets/backgrounds/forest.webp");
   background-size: cover;
   background-position: right;
+  background-repeat: no-repeat;
   position: relative;
 }
 .hero__right--pikachu {
+  position: absolute;
   width: 200px;
+  bottom: 126px;
+  left: 80px;
+}
+.hero__right--pikachu:hover {
+  animation: shake 0.3s ease infinite;
 }
 .hero__right--eevee {
+  position: absolute;
   width: 200px;
+  bottom: 126px;
+  right: 60px;
+  opacity: 0;
+  animation: slideInLeft 1.5s ease 2s forwards;
 }
 .hero__right--pokeball {
   width: 125px;
   position: absolute;
-  left: 0;
+  left: -62px;
   top: 305px;
+  animation: fadeInPokeball 1s ease 2s both;
+}
+.hero__description {
+  max-width: 450px;
+}
+.hero__sprite {
+  width: 110px;
 }
 
 body {

@@ -10,36 +10,70 @@
 
   border-radius: $radius-24;
   border: 3px solid $color-blue;
+  box-shadow: 5px 5px 12px 4px rgba($color-black, 0.24);
 
   display: inline-flex;
+  overflow: hidden;
 
   &__left {
     width: 50%;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 
   &__right {
     width: 50%;
 
-    border-radius: $radius-24;
+    border-radius: $radius-24 0 0 $radius-24;
 
     background-image: url("../assets/backgrounds/forest.webp");
     background-size: cover;
     background-position: right;
+    background-repeat: no-repeat;
 
     position: relative;
 
     &--pikachu {
+      position: absolute;
       width: 200px;
+
+      bottom: 126px;
+      left: 80px;
+
+      &:hover {
+        animation: shake 0.3s ease infinite;
+      }
     }
     &--eevee {
+      position: absolute;
       width: 200px;
+
+      bottom: 126px;
+      right: 60px;
+
+      opacity: 0;
+      //   animation: none;
+      animation: slideInLeft 1.5s ease 2s forwards;
     }
     &--pokeball {
       width: 125px;
 
       position: absolute;
-      left: 0;
+      left: -62px;
       top: 305px;
+
+      //   opacity: 0;
+      animation: fadeInPokeball 1s ease 2s both;
     }
+  }
+
+  &__description {
+    max-width: 450px;
+  }
+
+  &__sprite {
+    width: 110px;
   }
 }
