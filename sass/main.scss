@@ -11,12 +11,14 @@
 
 //Components
 // ** USE AS NEEDED **
+@forward "components/hero";
 
 //Layouts
 @forward "layouts/navigation";
 @forward "layouts/headers";
 @forward "layouts/footer";
 @forward "layouts/body";
+@forward "layouts/containers";
 
 //Pages
 // ** IMPORT AS NEEDED **

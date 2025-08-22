@@ -1,0 +1,45 @@
+@use "../abstracts/variables" as *;
+
+.hero {
+  width: 100%;
+  height: 740px;
+  //   max-height: 740px;
+  margin-top: $spacing-10;
+
+  background-color: white;
+
+  border-radius: $radius-24;
+  border: 3px solid $color-blue;
+
+  display: inline-flex;
+
+  &__left {
+    width: 50%;
+  }
+
+  &__right {
+    width: 50%;
+
+    border-radius: $radius-24;
+
+    background-image: url("../assets/backgrounds/forest.webp");
+    background-size: cover;
+    background-position: right;
+
+    position: relative;
+
+    &--pikachu {
+      width: 200px;
+    }
+    &--eevee {
+      width: 200px;
+    }
+    &--pokeball {
+      width: 125px;
+
+      position: absolute;
+      left: 0;
+      top: 305px;
+    }
+  }
+}
