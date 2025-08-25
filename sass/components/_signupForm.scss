@@ -1,0 +1,37 @@
+@use "../abstracts/variables" as *;
+
+.signup-form {
+  display: flex;
+  //   flex-direction: column;
+  flex-wrap: wrap;
+  gap: 35px;
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 605px;
+    gap: 35px;
+  }
+
+  &__right {
+    width: 100%;
+    max-width: 560px;
+  }
+
+  &__label {
+    height: 50px;
+    width: fit-content;
+    padding: 5px 25px;
+    background-color: $color-white;
+
+    border-radius: $radius-24;
+    border: 1px solid #c0c0c0;
+
+    // text-align: center;
+  }
+
+  button {
+    align-self: flex-end;
+  }
+}

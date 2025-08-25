@@ -1,9 +1,10 @@
 export const buttonComponent = (config = {}) => {
   let {
-    type = "nav",
+    use = "nav",
     path = null,
     color = "yellow",
     text = "⚠ No Text",
+    type = "",
   } = config;
 
   if (type !== "game") {
@@ -11,8 +12,9 @@ export const buttonComponent = (config = {}) => {
     return `
  <a
     href="${path ?? "/signup"}"
+    type="${type}"
     data-nav="${path ?? "/signup"}"
-    class="btn btn-${type} btn-nav--${color}">
+    class="btn btn-${use} btn-nav--${color}">
     ${text}
 </a>
 `;

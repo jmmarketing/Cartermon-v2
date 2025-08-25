@@ -11,8 +11,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" href="./sass/main.css" />
-    <!-- <script src="./src/js/script.js" type="module"></script> -->
-    <script src="./src/js/controller.js" type="module"></script>
+    <script src="./src/js/script.js" type="module"></script>
+    <!-- <script src="./src/js/controller.js" type="module"></script> -->
   </head>
-  <body></body>
+  <body>
+    <nav></nav>
+    <main>
+      <form class="signup-form">
+        <div class="signup-form__left">
+          <div class="signup-form--username">
+            <legend class="rowdie-title signup-form__label">Name</legend>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Enter your name"
+            />
+          </div>
+          <fieldset class="signup-form--avatar">
+            <legend class="rowdie-title signup-form__label">Picture</legend>
+
+            <input type="radio" name="" id="" />
+          </fieldset>
+        </div>
+        <div class="signup-form__right">
+          <fieldset class="signup-form--difficulty">
+            <legend class="rowdie-title signup-form__label">Difficulty</legend>
+
+            <input type="radio" name="" id="" />
+          </fieldset>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-nav btn-nav--yellow"
+          data-nav="/main"
+        >
+          Start >>>
+        </button>
+      </form>
+    </main>
+  </body>
 </html>

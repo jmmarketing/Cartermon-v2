@@ -15,15 +15,12 @@ export async function showHome() {
 }
 
 export async function showSignup() {
-  //   try {
-  //     countdownView._destoryTimer();
-  //     document.body.className = "signup";
-  //     await signupView.render();
-  //     countdownView._startTimer();
-  //     formView._initFormBehavior();
-  //   } catch (error) {
-  //     console.error(`Failed to load page: ${error}`);
-  //   }
+  try {
+    document.body.className = "signup";
+    await signupView.render();
+  } catch (error) {
+    console.error(`Failed to load page: ${error}`);
+  }
 }
 
 export async function showContinue() {}
