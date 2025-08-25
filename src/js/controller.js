@@ -1,4 +1,5 @@
 import router from "./router";
+import homeView from "./views/homeView.js";
 
 import "core-js";
 import "regenerator-runtime/runtime";
@@ -6,10 +7,8 @@ import "regenerator-runtime/runtime";
 export async function showHome() {
   // Example
   try {
-    countdownView._destoryTimer();
     document.body.className = "home-page";
     await homeView.render();
-    countdownView._startTimer();
   } catch (error) {
     console.error(`Failed to load page: ${error}`);
   }

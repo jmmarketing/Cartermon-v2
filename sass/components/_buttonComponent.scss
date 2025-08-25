@@ -28,5 +28,10 @@
       color: $color-white;
       font-weight: bold;
     }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 7px 5px 0 rgba($color-black, 0.25);
+    }
   }
 }

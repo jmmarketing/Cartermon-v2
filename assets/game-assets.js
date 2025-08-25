@@ -66,7 +66,7 @@ import pokedex from "./img/pokedex.png";
 
 //##### LOGO ASSETS ########
 //##########################
-import logo from "./logo.webp";
+import logo from "./logo/logo.webp";
 
 //##### SPRITE ASSETs ######
 //##########################

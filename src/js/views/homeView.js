@@ -1,4 +1,4 @@
-import { homeTemplate, homeFooter } from "../../../templates/homeTemplate.js";
+import { homeTemplate } from "../../../templates/homeTemplate.js";
 
 class HomeView {
   constructor() {
@@ -6,7 +6,7 @@ class HomeView {
   }
 
   render() {
-    const template = homeTemplate + homeFooter;
+    const template = homeTemplate;
 
     this.container.innerHTML = template;
 
