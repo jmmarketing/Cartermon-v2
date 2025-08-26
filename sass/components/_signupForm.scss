@@ -28,7 +28,25 @@
     border-radius: $radius-24;
     border: 1px solid #c0c0c0;
 
-    // text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  &--username {
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 3rem;
+    width: 100%;
+    padding: $spacing-32;
+    background-color: rgba($color-white, 0.8);
+
+    border-radius: $radius-20;
+    border: none;
+
+    position: relative;
+    transform: translateY(-23px);
+    // z-index: -1;
+
+    outline-style: none;
   }
 
   button {
