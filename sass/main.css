@@ -156,6 +156,35 @@ main {
   max-width: 1220px;
 }
 
+.btn {
+  font-family: "Silkscreen", sans-serif;
+  color: #000;
+  text-decoration: none;
+  width: 100%;
+  cursor: pointer;
+}
+.btn-nav {
+  max-width: 400px;
+  height: 65px;
+  padding: 10px 0;
+  text-align: center;
+  border-radius: 16px;
+  font-size: 3rem;
+}
+.btn-nav--yellow {
+  background-color: #ffd623;
+  border: 3px solid #333;
+}
+.btn-nav--blue {
+  background-color: #3962a7;
+  color: #fff;
+  font-weight: bold;
+}
+.btn-nav:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 7px 5px 0 rgba(0, 0, 0, 0.25);
+}
+
 .hero {
   width: 100%;
   height: 740px;
@@ -214,35 +243,6 @@ main {
   width: 110px;
 }
 
-.btn {
-  font-family: "Silkscreen", sans-serif;
-  color: #000;
-  text-decoration: none;
-  width: 100%;
-  cursor: pointer;
-}
-.btn-nav {
-  max-width: 400px;
-  height: 65px;
-  padding: 10px 0;
-  text-align: center;
-  border-radius: 16px;
-  font-size: 3rem;
-}
-.btn-nav--yellow {
-  background-color: #ffd623;
-  border: 3px solid #333;
-}
-.btn-nav--blue {
-  background-color: #3962a7;
-  color: #fff;
-  font-weight: bold;
-}
-.btn-nav:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 7px 5px 0 rgba(0, 0, 0, 0.25);
-}
-
 .signup-form {
   display: flex;
   flex-wrap: wrap;
@@ -287,6 +287,13 @@ main {
   transform: translateY(-23px);
   border-radius: 20px;
   border: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-evenly;
+}
+.signup-form--avatar [type=radio] {
+  width: 0;
 }
 .signup-form--difficulty {
   height: 540px;
@@ -299,6 +306,30 @@ main {
 }
 .signup-form button {
   margin-left: auto;
+}
+
+.avatar-card {
+  background-color: #fff;
+  width: 125px;
+  height: 125px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.avatar-card__img {
+  width: 120px;
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+}
+.avatar-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
+}
+.avatar-card:has(input:checked) {
+  border: 3px solid #3962a7;
 }
 
 body {

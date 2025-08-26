@@ -10,8 +10,10 @@
 @forward "base/base";
 
 //Components
-@forward "../src/js/views/homeView/hero";
 @forward "../src/components/buttonComponent/buttonComponent";
+
+//Pages / Views
+@forward "../src/js/views/homeView/hero";
 @forward "../src/js/views/signupView/signupForm";
 
 //Layouts
