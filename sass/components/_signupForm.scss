@@ -37,40 +37,18 @@
     font-family: "Pixelify Sans", sans-serif;
     font-size: 3rem;
     padding: $spacing-32;
-    position: relative;
-
-    // width: 100%;
-    // background-color: rgba($color-white, 0.8);
-    // transform: translateY(-23px);
-    // border-radius: $radius-20;
-    // border: none;
 
     @include signupBoxStyling;
   }
 
   &--avatar {
     padding: $spacing-48 $spacing-24;
-
-    //  width: 100%;
-    // background-color: rgba($color-white, 0.8);
-    // transform: translateY(-23px);
-
-    // border-radius: $radius-20;
-    // border: none;
-
     @include signupBoxStyling;
   }
 
   &--difficulty {
     height: 540px;
     padding: $spacing-48 $spacing-24;
-
-    //  width: 100%;
-    //     background-color: rgba($color-white, 0.8);
-    //     transform: translateY(-23px);
-
-    //     border-radius: $radius-20;
-    //     border: none;
 
     @include signupBoxStyling;
   }
