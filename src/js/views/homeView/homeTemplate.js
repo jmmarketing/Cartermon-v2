@@ -1,5 +1,5 @@
 //Import necessary components as needed (logoBar, priceCard, etc..)
-import { buttonComponent } from "../src/components/buttonComponent.js";
+import { buttonComponent } from "../src/components/buttonComponent/buttonComponent.js";
 import { sprites, imgAssets, backgrounds } from "../assets/game-assets.js";
 
 export const homeTemplate = `

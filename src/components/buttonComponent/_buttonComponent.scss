@@ -1,6 +1,6 @@
 // Game Button
 //  Nav Button.
-@use "../abstracts/variables" as *;
+@use "../../../sass/abstracts/variables" as *;
 
 .btn {
   font-family: "Silkscreen", sans-serif;
@@ -8,6 +8,8 @@
   text-decoration: none;
 
   width: 100%;
+
+  cursor: pointer;
 
   &-nav {
     max-width: 400px;

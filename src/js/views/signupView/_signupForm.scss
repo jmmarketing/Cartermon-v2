@@ -1,5 +1,4 @@
-@use "../abstracts/variables" as *;
-@use "../abstracts/mixins" as *;
+@use "../../../../essentials" as *;
 
 .signup-form {
   display: flex;
@@ -36,7 +35,7 @@
   &--username {
     font-family: "Pixelify Sans", sans-serif;
     font-size: 3rem;
-    padding: $spacing-32;
+    padding: $spacing-32 $spacing-32 $spacing-24;
 
     @include signupBoxStyling;
   }

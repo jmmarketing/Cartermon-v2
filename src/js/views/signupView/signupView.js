@@ -1,4 +1,4 @@
-import { signupTemplate } from "../../../templates/signupTemplate.js";
+import { signupTemplate } from "../../../../templates/signupTemplate.js";
 
 class SignUpView {
   constructor() {

@@ -10,10 +10,9 @@
 @forward "base/base";
 
 //Components
-// ** USE AS NEEDED **
-@forward "components/hero";
-@forward "components/buttonComponent";
-@forward "components/signupForm";
+@forward "../src/js/views/homeView/hero";
+@forward "../src/components/buttonComponent/buttonComponent";
+@forward "../src/js/views/signupView/signupForm";
 
 //Layouts
 @forward "layouts/navigation";

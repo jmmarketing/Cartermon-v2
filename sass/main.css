@@ -219,6 +219,7 @@ main {
   color: #000;
   text-decoration: none;
   width: 100%;
+  cursor: pointer;
 }
 .btn-nav {
   max-width: 400px;
@@ -272,7 +273,7 @@ main {
 .signup-form--username {
   font-family: "Pixelify Sans", sans-serif;
   font-size: 3rem;
-  padding: 32px;
+  padding: 32px 32px 24px;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.8);
   transform: translateY(-23px);
