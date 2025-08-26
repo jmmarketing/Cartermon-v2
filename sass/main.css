@@ -156,6 +156,10 @@ main {
   max-width: 1220px;
 }
 
+input[type=radio] {
+  width: 0;
+}
+
 .btn {
   font-family: "Silkscreen", sans-serif;
   color: #000;
@@ -292,9 +296,6 @@ main {
   gap: 20px;
   justify-content: space-evenly;
 }
-.signup-form--avatar [type=radio] {
-  width: 0;
-}
 .signup-form--difficulty {
   height: 540px;
   padding: 48px 24px;
@@ -330,6 +331,20 @@ main {
 }
 .avatar-card:has(input:checked) {
   border: 3px solid #3962a7;
+}
+
+.difficulty-selection {
+  width: 100%;
+  max-width: 465px;
+}
+.difficulty-selection--easy {
+  background-color: #a4e4a7;
+  border: 2px solid #4caf50;
+  border-radius: 20px;
+  text-align: center;
+  font-family: "Silkscreen", sans-serif;
+  font-size: 3rem;
+  padding: 24px 40px;
 }
 
 body {
