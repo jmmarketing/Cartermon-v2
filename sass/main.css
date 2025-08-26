@@ -251,7 +251,7 @@ main {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 605px;
+  max-width: 625px;
   gap: 35px;
 }
 .signup-form__right {
@@ -281,8 +281,25 @@ main {
   transform: translateY(-23px);
   outline-style: none;
 }
+.signup-form--avatar {
+  width: 100%;
+  padding: 48px 24px;
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-23px);
+  border-radius: 20px;
+  border: none;
+}
+.signup-form--difficulty {
+  width: 100%;
+  height: 540px;
+  padding: 48px 24px;
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-23px);
+  border-radius: 20px;
+  border: none;
+}
 .signup-form button {
-  align-self: flex-end;
+  margin-left: auto;
 }
 
 body {
