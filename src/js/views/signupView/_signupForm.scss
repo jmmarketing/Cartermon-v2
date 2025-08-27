@@ -38,10 +38,6 @@
     padding: $spacing-32 $spacing-32 $spacing-24;
 
     @include signupBoxStyling;
-
-    // &.error {
-    //   border: 3px solid $color-red;
-    // }
   }
 
   &--avatar {
@@ -101,6 +97,31 @@
 .difficulty-selection {
   width: 100%;
   // max-width: 465px;
+  position: relative;
+
+  &::after {
+    content: "";
+    background: url("../assets/icons/thumbsup.png");
+    background-size: cover;
+    // background-color: red;
+    width: 50px;
+    height: 50px;
+
+    position: absolute;
+    right: 40px;
+    top: 38px;
+
+    opacity: 0;
+    transform: scale(0.2);
+    transition: all 0.3s ease;
+  }
+
+  &:has(input:checked) {
+    &::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 
   &--easy {
     background-color: $color-light-green;

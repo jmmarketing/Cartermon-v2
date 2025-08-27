@@ -344,6 +344,24 @@ label {
 
 .difficulty-selection {
   width: 100%;
+  position: relative;
+}
+.difficulty-selection::after {
+  content: "";
+  background: url("../assets/icons/thumbsup.png");
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 40px;
+  top: 38px;
+  opacity: 0;
+  transform: scale(0.2);
+  transition: all 0.3s ease;
+}
+.difficulty-selection:has(input:checked)::after {
+  opacity: 1;
+  transform: scale(1);
 }
 .difficulty-selection--easy {
   background-color: #a4e4a7;
