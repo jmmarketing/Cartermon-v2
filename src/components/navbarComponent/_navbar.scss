@@ -1,0 +1,29 @@
+@use "../../../essentials" as *;
+
+.navigation {
+  background-color: rgba($color-white, 0.8);
+  border-radius: $radius-full;
+
+  padding: $spacing-10 $spacing-60;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__logo {
+    width: 230px;
+  }
+
+  &__icon-container {
+    display: inline-flex;
+    gap: 40px;
+  }
+
+  &__icon {
+    height: 50px;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}

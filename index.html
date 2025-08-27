@@ -15,7 +15,40 @@
     <!-- <script src="./src/js/controller.js" type="module"></script> -->
   </head>
   <body>
-    <nav></nav>
+    <nav class="navigation">
+      <a href="/" data-nav="/"
+        ><img
+          class="navigation__logo"
+          src="./assets/logo/logo.webp"
+          alt="Cartermon Logo"
+      /></a>
+      <div class="navigation__icon-container">
+        <a href="/main" data-nav="/main"
+          ><img
+            class="navigation__icon"
+            src="./assets/avatars/girl1.webp"
+            alt="User Avatar"
+        /></a>
+        <a href="/pokedex" data-nav="/pokedex"
+          ><img
+            class="navigation__icon"
+            src="./assets/img/pokedex.png"
+            alt="Pokedex Icon"
+        /></a>
+        <a href="/learn" data-nav="/learn"
+          ><img
+            class="navigation__icon"
+            src="./assets/img/backpack.webp"
+            alt="Backpack Icon (Learn)"
+        /></a>
+        <a href="/explore" data-nav="/explore"
+          ><img
+            class="navigation__icon"
+            src="./assets/img/pokeball.webp"
+            alt="Explore Icon"
+        /></a>
+      </div>
+    </nav>
     <main>
       <form class="signup-form">
         <div class="signup-form__left">
@@ -165,62 +198,76 @@
           </div>
         </div>
         <div class="signup-form__right">
-            <legend class="rowdie-title signup-form__label">Difficulty</legend>
-            <fieldset class="signup-form--difficulty">
-              <!-- Difficulty Card-->
-              <div class="difficulty-selection">
-                <input
-                  type="radio"
-                  id="easy"
-                  value="easy"
-                  name="Difficulty"
-                />
-                <label for="easy">
-                  <div class="difficulty-selection--easy">EASY</div>
-                </label>
-                <div class="difficulty-selection__description">
-                  <p class="play-label"><span><img src="./assets/icons/8bitpokeball.webp" alt="Pokeball" class="difficulty-selection__description--pokeball"></span> X 5</p>
-                  <p class="play-label">0 - 10 Numbers</p>
-                  <p class="play-label">+/-</p>
-                </div>
+          <legend class="rowdie-title signup-form__label">Difficulty</legend>
+          <fieldset class="signup-form--difficulty">
+            <!-- Difficulty Card-->
+            <div class="difficulty-selection">
+              <input type="radio" id="easy" value="easy" name="Difficulty" />
+              <label for="easy">
+                <div class="difficulty-selection--easy">EASY</div>
+              </label>
+              <div class="difficulty-selection__description">
+                <p class="play-label">
+                  <span
+                    ><img
+                      src="./assets/icons/8bitpokeball.webp"
+                      alt="Pokeball"
+                      class="difficulty-selection__description--pokeball"
+                  /></span>
+                  X 5
+                </p>
+                <p class="play-label">0 - 10 Numbers</p>
+                <p class="play-label">+/-</p>
               </div>
-                <!-- Difficulty Card-->
-              <div class="difficulty-selection">
-                <input
-                  type="radio"
-                  id="normal"
-                  value="normal"
-                  name="Difficulty"
-                />
-                <label for="normal">
-                  <div class="difficulty-selection--normal">normal</div>
-                </label>
-                <div class="difficulty-selection__description">
-                  <p class="play-label"><span><img src="./assets/icons/8bitpokeball.webp" alt="Pokeball" class="difficulty-selection__description--pokeball"></span> X 3</p>
-                  <p class="play-label">2 Digit Numbers</p>
-                  <p class="play-label">+/-</p>
-                </div>
+            </div>
+            <!-- Difficulty Card-->
+            <div class="difficulty-selection">
+              <input
+                type="radio"
+                id="normal"
+                value="normal"
+                name="Difficulty"
+              />
+              <label for="normal">
+                <div class="difficulty-selection--normal">normal</div>
+              </label>
+              <div class="difficulty-selection__description">
+                <p class="play-label">
+                  <span
+                    ><img
+                      src="./assets/icons/8bitpokeball.webp"
+                      alt="Pokeball"
+                      class="difficulty-selection__description--pokeball"
+                  /></span>
+                  X 3
+                </p>
+                <p class="play-label">2 Digit Numbers</p>
+                <p class="play-label">+/-</p>
               </div>
-                <!-- Difficulty Card-->
-              <div class="difficulty-selection">
-                <input
-                  type="radio"
-                  id="hard"
-                  value="hard"
-                  name="Difficulty"
-                />
-                <label for="hard">
-                  <div class="difficulty-selection--hard">hard</div>
-                </label>
-                <div class="difficulty-selection__description">
-                  <p class="play-label"><span><img src="./assets/icons/8bitpokeball.webp" alt="Pokeball" class="difficulty-selection__description--pokeball"></span> X 1</p>
-                  <p class="play-label">3 Digit Numbers</p>
-                  <p class="play-label">+/-</p>
-                </div>
+            </div>
+            <!-- Difficulty Card-->
+            <div class="difficulty-selection">
+              <input type="radio" id="hard" value="hard" name="Difficulty" />
+              <label for="hard">
+                <div class="difficulty-selection--hard">hard</div>
+              </label>
+              <div class="difficulty-selection__description">
+                <p class="play-label">
+                  <span
+                    ><img
+                      src="./assets/icons/8bitpokeball.webp"
+                      alt="Pokeball"
+                      class="difficulty-selection__description--pokeball"
+                  /></span>
+                  X 1
+                </p>
+                <p class="play-label">3 Digit Numbers</p>
+                <p class="play-label">+/-</p>
               </div>
-            </fieldset>
-          </div>
+            </div>
+          </fieldset>
         </div>
+
         <button
           type="submit"
           class="btn btn-nav btn-nav--yellow"

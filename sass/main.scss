@@ -11,6 +11,8 @@
 
 //Components
 @forward "../src/components/buttonComponent/buttonComponent";
+@forward "../src/components/navbarComponent/navbar";
+@forward "../src/components/avatarRadioCardComponent/avatarRadioCard";
 
 //Pages / Views
 @forward "../src/js/views/homeView/hero";
