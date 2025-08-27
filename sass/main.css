@@ -378,6 +378,36 @@ label {
   border: 4px solid #4caf50;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
 }
+.difficulty-selection--normal {
+  background-color: #fde684;
+  border: 2px solid #ffd623;
+  height: 90px;
+  border-radius: 20px;
+  text-align: center;
+  font-family: "Silkscreen", sans-serif;
+  font-size: 3rem;
+  padding: 24px 40px;
+  margin-bottom: 10px;
+}
+.difficulty-selection--normal:hover {
+  border: 4px solid #ffd623;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
+}
+.difficulty-selection--hard {
+  background-color: #e48585;
+  border: 2px solid #ba0000;
+  height: 90px;
+  border-radius: 20px;
+  text-align: center;
+  font-family: "Silkscreen", sans-serif;
+  font-size: 3rem;
+  padding: 24px 40px;
+  margin-bottom: 10px;
+}
+.difficulty-selection--hard:hover {
+  border: 4px solid #ba0000;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
+}
 .difficulty-selection__description {
   width: 100%;
   display: inline-flex;
