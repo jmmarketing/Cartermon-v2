@@ -39,9 +39,9 @@
 
     @include signupBoxStyling;
 
-    &.error {
-      border: 3px solid $color-red;
-    }
+    // &.error {
+    //   border: 3px solid $color-red;
+    // }
   }
 
   &--avatar {
@@ -107,6 +107,11 @@
     border: 2px solid $color-green;
 
     @include difficultySelectionStyling;
+
+    &:hover {
+      border: 4px solid $color-green;
+      box-shadow: 0 3px 3px 0 rgba($color-black, 0.25);
+    }
   }
 
   &__description {

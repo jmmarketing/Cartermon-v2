@@ -1,0 +1,5 @@
+@use "../../essentials" as *;
+
+.error {
+  border: 3px solid $color-red !important;
+}
