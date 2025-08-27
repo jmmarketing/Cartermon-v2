@@ -38,6 +38,10 @@
     padding: $spacing-32 $spacing-32 $spacing-24;
 
     @include signupBoxStyling;
+
+    &.error {
+      border: 3px solid $color-red;
+    }
   }
 
   &--avatar {
@@ -55,6 +59,8 @@
     padding: $spacing-48 $spacing-24;
 
     @include signupBoxStyling;
+    display: flex;
+    flex-direction: column;
   }
 
   button {
@@ -74,40 +80,43 @@
 
   transition: all 0.3s ease;
 
-  cursor: pointer;
-
   &__img {
     width: 120px;
 
     position: absolute;
     bottom: 0;
-
-    cursor: pointer;
   }
 
   &:hover {
-    transform: scale((1.03));
+    transform: scale(1.05);
     box-shadow: 0 5px 5px 0 rgba($color-black, 0.25);
   }
 
   &:has(input:checked) {
     border: 3px solid $color-blue;
+    transform: scale(1.02);
   }
 }
 
 .difficulty-selection {
   width: 100%;
-  max-width: 465px;
+  // max-width: 465px;
 
   &--easy {
     background-color: $color-light-green;
     border: 2px solid $color-green;
 
-    border-radius: $radius-20;
+    @include difficultySelectionStyling;
+  }
 
-    text-align: center;
-    font-family: "Silkscreen", sans-serif;
-    font-size: 3rem;
-    padding: $spacing-24 $spacing-40;
+  &__description {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-around;
+
+    &--pokeball {
+      width: 28px;
+      vertical-align: middle;
+    }
   }
 }

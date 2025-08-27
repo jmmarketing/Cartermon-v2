@@ -48,3 +48,13 @@ ORDER [When refactoring for responsiveness]: Base + typography > general layout 
   border-radius: $radius-20;
   border: none;
 }
+
+@mixin difficultySelectionStyling {
+  border-radius: $radius-20;
+
+  text-align: center;
+  font-family: "Silkscreen", sans-serif;
+  font-size: 3rem;
+  padding: $spacing-24 $spacing-40;
+  margin-bottom: $spacing-10;
+}

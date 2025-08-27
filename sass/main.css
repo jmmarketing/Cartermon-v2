@@ -160,6 +160,10 @@ input[type=radio] {
   width: 0;
 }
 
+label {
+  cursor: pointer;
+}
+
 .btn {
   font-family: "Silkscreen", sans-serif;
   color: #000;
@@ -284,6 +288,9 @@ input[type=radio] {
   border-radius: 20px;
   border: none;
 }
+.signup-form--username.error {
+  border: 3px solid #ba0000;
+}
 .signup-form--avatar {
   padding: 48px 24px;
   width: 100%;
@@ -304,6 +311,8 @@ input[type=radio] {
   transform: translateY(-23px);
   border-radius: 20px;
   border: none;
+  display: flex;
+  flex-direction: column;
 }
 .signup-form button {
   margin-left: auto;
@@ -317,25 +326,23 @@ input[type=radio] {
   position: relative;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease;
-  cursor: pointer;
 }
 .avatar-card__img {
   width: 120px;
   position: absolute;
   bottom: 0;
-  cursor: pointer;
 }
 .avatar-card:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
 }
 .avatar-card:has(input:checked) {
   border: 3px solid #3962a7;
+  transform: scale(1.02);
 }
 
 .difficulty-selection {
   width: 100%;
-  max-width: 465px;
 }
 .difficulty-selection--easy {
   background-color: #a4e4a7;
@@ -345,6 +352,16 @@ input[type=radio] {
   font-family: "Silkscreen", sans-serif;
   font-size: 3rem;
   padding: 24px 40px;
+  margin-bottom: 10px;
+}
+.difficulty-selection__description {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-around;
+}
+.difficulty-selection__description--pokeball {
+  width: 28px;
+  vertical-align: middle;
 }
 
 body {
