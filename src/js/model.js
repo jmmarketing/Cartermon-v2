@@ -1,5 +1,20 @@
 // ORganizing Old function that could be use for model.
 
+export const gameModel = {
+  player: {
+    name: "",
+    avatar: "girl1",
+    difficulty: "",
+    stats: {
+      pokeballs: 3,
+      answers: 0,
+    },
+    pokemonCaught: [],
+  },
+  pokemon: [],
+  users: [],
+};
+
 /// **** REFACTOR CATCH / SHOW HIDE
 function _searchPokemonAPI(pokemonSearched) {
   const pokeRequest = fetch(
