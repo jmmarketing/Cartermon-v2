@@ -5,6 +5,8 @@ import signupView from "./views/signupView/signupView.js";
 import "core-js";
 import "regenerator-runtime/runtime";
 
+import { gameModel } from "./model.js";
+
 export async function showHome() {
   // Example
   try {
@@ -18,7 +20,9 @@ export async function showHome() {
 export async function showSignup() {
   try {
     document.body.className = "signup";
-    await signupView.render();
+
+    await signupView.render(gameModel.player);
+    signupView._initSignUpBehavior();
   } catch (error) {
     console.error(`Failed to load page: ${error}`);
   }

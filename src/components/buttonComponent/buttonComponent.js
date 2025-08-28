@@ -1,22 +1,35 @@
 export const buttonComponent = (config = {}) => {
   let {
     use = "nav",
-    path = null,
+    path = "",
     color = "yellow",
     text = "⚠ No Text",
     type = "",
   } = config;
 
-  if (type !== "game") {
-    type = "nav";
+  // if (use !== "game" || type !== "submit") {
+  //   type = "nav";
+  // }
+
+  //Is commented out because of the nullish. Not sure I absolutely need to use it when compiling a button.
+
+  if (!path) {
     return `
  <a
-    href="${path ?? "/signup"}"
     type="${type}"
-    data-nav="${path ?? "/signup"}"
     class="btn btn-${use} btn-nav--${color}">
     ${text}
 </a>
 `;
+  } else {
+    return `
+   <a
+      href="${path ?? "/signup"}"
+      type="${type}"
+      data-nav="${path ?? "/signup"}"
+      class="btn btn-${use} btn-nav--${color}">
+      ${text}
+  </a>
+  `;
   }
 };

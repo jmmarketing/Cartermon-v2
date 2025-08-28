@@ -99,7 +99,6 @@ export const signupTemplate = `
 
         ${buttonComponent({
           use: "nav",
-          path: "/main",
           color: "yellow",
           text: "Start >>>",
           type: "submit",

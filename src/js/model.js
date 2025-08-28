@@ -12,7 +12,7 @@ export const gameModel = {
     pokemonCaught: [],
   },
   pokemon: [],
-  users: [],
+  allPlayers: [],
 };
 
 /// **** REFACTOR CATCH / SHOW HIDE
