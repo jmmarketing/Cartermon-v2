@@ -7,7 +7,7 @@ class SignUpView {
   }
 
   render() {
-    const nav = navbarComponent();
+    const nav = navbarComponent({ avatar: "girl1" });
 
     this.container.innerHTML = nav + signupTemplate;
   }

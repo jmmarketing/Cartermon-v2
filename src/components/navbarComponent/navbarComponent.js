@@ -1,6 +1,20 @@
-import { imgAssets, icons } from "../../../assets/game-assets";
+import { imgAssets, avatars } from "../../../assets/game-assets";
 
-export const navbarComponent = () => {
+export const navbarComponent = (data) => {
+  let avatarLink = "";
+
+  if (data.avatar) {
+    avatarLink = `
+    
+        <a href="/main" data-nav="/main"
+          ><img
+            class="navigation__icon"
+            src="${avatars[data.avatar]}"
+            alt="User Avatar"
+        /></a>
+ `;
+  }
+
   return `
     <nav class="navigation">
       <a href="/" data-nav="/"
@@ -10,12 +24,8 @@ export const navbarComponent = () => {
           alt="Cartermon Logo"
       /></a>
       <div class="navigation__icon-container">
-        <a href="/main" data-nav="/main"
-          ><img
-            class="navigation__icon"
-            src="./assets/avatars/girl1.webp"
-            alt="User Avatar"
-        /></a>
+      ${avatarLink}
+
         <a href="/pokedex" data-nav="/pokedex"
           ><img
             class="navigation__icon"
