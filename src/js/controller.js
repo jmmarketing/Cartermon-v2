@@ -1,5 +1,6 @@
 import router from "./router";
-import homeView from "./views/homeView.js";
+import homeView from "./views/homeView/homeView.js";
+import signupView from "./views/signupView/signupView.js";
 
 import "core-js";
 import "regenerator-runtime/runtime";

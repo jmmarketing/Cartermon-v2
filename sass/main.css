@@ -337,6 +337,7 @@ label {
   display: flex;
   flex-direction: column;
 }
+.signup-form a,
 .signup-form button {
   margin-left: auto;
 }

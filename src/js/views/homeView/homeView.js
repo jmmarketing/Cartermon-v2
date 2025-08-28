@@ -1,4 +1,4 @@
-import { homeTemplate } from "../../../templates/homeTemplate.js";
+import { homeTemplate } from "./homeTemplate.js";
 
 class HomeView {
   constructor() {
