@@ -31,7 +31,7 @@ export const signupTemplate = `
           <fieldset class="signup-form--difficulty">
             <!-- Difficulty Card-->
             <div class="difficulty-selection">
-              <input type="radio" id="easy" value="easy" name="Difficulty" />
+              <input type="radio" id="easy" value="easy" name="difficulty" />
               <label for="easy">
                 <div class="difficulty-selection--easy">EASY</div>
               </label>
@@ -55,7 +55,7 @@ export const signupTemplate = `
                 type="radio"
                 id="normal"
                 value="normal"
-                name="Difficulty"
+                name="difficulty"
               />
               <label for="normal">
                 <div class="difficulty-selection--normal">normal</div>
@@ -76,7 +76,7 @@ export const signupTemplate = `
             </div>
             <!-- Difficulty Card-->
             <div class="difficulty-selection">
-              <input type="radio" id="hard" value="hard" name="Difficulty" />
+              <input type="radio" id="hard" value="hard" name="difficulty" />
               <label for="hard">
                 <div class="difficulty-selection--hard">hard</div>
               </label>

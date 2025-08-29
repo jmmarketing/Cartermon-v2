@@ -3,7 +3,7 @@
 export const gameModel = {
   player: {
     name: "",
-    avatar: "girl1",
+    avatar: "",
     difficulty: "",
     stats: {
       pokeballs: 3,

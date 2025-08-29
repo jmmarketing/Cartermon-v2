@@ -11,7 +11,7 @@ export const buttonComponent = (config = {}) => {
   //   type = "nav";
   // }
 
-  //Is commented out because of the nullish. Not sure I absolutely need to use it when compiling a button.
+  //Re: nullish below. Not sure I absolutely need to use it when compiling a button.
 
   if (!path) {
     return `

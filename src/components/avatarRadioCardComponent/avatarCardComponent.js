@@ -5,7 +5,7 @@ export const avatarCardComponent = (data) => {
             type="radio"
             id="${id}"
             value="${id}"
-            name="Avatar Selection"
+            name="avatar"
          />
         <label for="${id}">
             <img
