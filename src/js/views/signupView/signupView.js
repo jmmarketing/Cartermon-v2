@@ -43,17 +43,29 @@ class SignUpView {
 
   _getPlayerData(e) {
     e.preventDefault();
-    console.log("START!");
-
-    console.log(this._form);
 
     const userData = new FormData(this._form);
 
-    console.log(userData.get("username"));
+    const name = userData.get("username");
+    const avatar = userData.get("avatar");
+    const difficulty = userData.get("difficulty");
 
-    for (const [key, value] of userData) {
-      console.log(key, value);
-    }
+    // for (const [key, value] of userData) {
+    //   console.log(key, value);
+    // }
+
+    console.log(name);
+    console.log(avatar);
+    console.log(difficulty);
+    this._validatePlayerData(name, avatar, difficulty);
+  }
+
+  _validatePlayerData(name, avatar, difficulty) {
+    console.log("Validate!");
+    console.log(this._nameInput);
+    if (!name) this._nameInput.classList.add("error");
+    if (!avatar) this._avatarContainer.classList.add("error");
+    if (!difficulty) this._difficultyContainer.classList.add("error");
   }
 
   render(data) {
