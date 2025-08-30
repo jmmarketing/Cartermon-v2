@@ -7,6 +7,7 @@ class SignUpView {
   _avatarContainer;
   _difficultyContainer;
   _nameInput;
+  _inputs;
 
   userDetails = {
     name: "",
@@ -35,6 +36,12 @@ class SignUpView {
       ".signup-form--difficulty"
     );
     this._nameInput = document.querySelector(".signup-form--username");
+
+    this._inputs = {
+      name: this._nameInput,
+      avatar: this._avatarContainer,
+      difficulty: this._difficultyContainer,
+    };
   }
 
   _applyEventListener() {
@@ -57,15 +64,22 @@ class SignUpView {
     console.log(name);
     console.log(avatar);
     console.log(difficulty);
-    this._validatePlayerData(name, avatar, difficulty);
+    this._validatePlayerData({ name, avatar, difficulty });
   }
 
-  _validatePlayerData(name, avatar, difficulty) {
+  _validatePlayerData(obj) {
     console.log("Validate!");
-    console.log(this._nameInput);
-    if (!name) this._nameInput.classList.add("error");
-    if (!avatar) this._avatarContainer.classList.add("error");
-    if (!difficulty) this._difficultyContainer.classList.add("error");
+    // console.log(this._nameInput);
+    // if (!name) this._nameInput.classList.add("error");
+    // if (!avatar) this._avatarContainer.classList.add("error");
+    // if (!difficulty) this._difficultyContainer.classList.add("error");
+
+    for (const [key, value] of Object.entries(obj)) {
+      if (!value) {
+        console.log(this._inputs);
+        this._inputs[key].classList.add("error");
+      }
+    }
   }
 
   render(data) {
