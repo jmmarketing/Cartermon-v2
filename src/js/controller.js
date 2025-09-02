@@ -7,6 +7,7 @@ import "regenerator-runtime/runtime";
 
 import { gameModel } from "./model.js";
 
+//Renders the Home Page
 export async function showHome() {
   // Example
   try {
@@ -17,6 +18,7 @@ export async function showHome() {
   }
 }
 
+//Renders the Signup Page & Sets eventListeners
 export async function showSignup() {
   try {
     document.body.className = "signup";
@@ -27,6 +29,8 @@ export async function showSignup() {
     console.error(`Failed to load page: ${error}`);
   }
 }
+
+function handleNewSignUp(data) {}
 
 export async function showContinue() {}
 export async function showMain() {}

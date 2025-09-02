@@ -7,12 +7,13 @@ class SignUpView {
   _avatarContainer;
   _difficultyContainer;
   _nameInput;
-  _inputs;
+  _inputContainers;
 
   userDetails = {
     name: "",
     avatar: "",
     difficulty: "",
+    id: "",
     stats: {
       pokeballs: 0,
       answers: 0,
@@ -37,7 +38,7 @@ class SignUpView {
     );
     this._nameInput = document.querySelector(".signup-form--username");
 
-    this._inputs = {
+    this._inputContainers = {
       name: this._nameInput,
       avatar: this._avatarContainer,
       difficulty: this._difficultyContainer,
@@ -53,33 +54,40 @@ class SignUpView {
 
     const userData = new FormData(this._form);
 
-    const name = userData.get("username");
-    const avatar = userData.get("avatar");
-    const difficulty = userData.get("difficulty");
+    const rawData = {
+      name: userData.get("username"),
+      avatar: userData.get("avatar"),
+      difficulty: userData.get("difficulty"),
+    };
 
-    // for (const [key, value] of userData) {
-    //   console.log(key, value);
-    // }
-
-    console.log(name);
-    console.log(avatar);
-    console.log(difficulty);
-    this._validatePlayerData({ name, avatar, difficulty });
+    this._validatePlayerData(rawData);
   }
 
   _validatePlayerData(obj) {
-    console.log("Validate!");
-    // console.log(this._nameInput);
-    // if (!name) this._nameInput.classList.add("error");
-    // if (!avatar) this._avatarContainer.classList.add("error");
-    // if (!difficulty) this._difficultyContainer.classList.add("error");
+    console.log("Validating Inputs");
+
+    let validData = true;
 
     for (const [key, value] of Object.entries(obj)) {
       if (!value) {
-        console.log(this._inputs);
-        this._inputs[key].classList.add("error");
+        console.log(this._inputContainers);
+        validData = false;
+        this._inputContainers[key].classList.add("error");
       }
     }
+
+    if (validData) {
+      Object.values(this._inputContainers).forEach((container) => {
+        container.classList.remove("error");
+        container.value = "";
+      });
+
+      this._setPlayerData(obj);
+    }
+  }
+
+  _setPlayerData(data) {
+    console.log("Setting Player DATA!");
   }
 
   render(data) {

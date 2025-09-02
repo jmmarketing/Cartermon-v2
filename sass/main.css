@@ -327,7 +327,6 @@ label {
   justify-content: space-evenly;
 }
 .signup-form--difficulty {
-  height: 540px;
   padding: 48px 24px;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.8);

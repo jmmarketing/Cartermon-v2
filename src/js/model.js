@@ -5,6 +5,7 @@ export const gameModel = {
     name: "",
     avatar: "",
     difficulty: "",
+    id: "",
     stats: {
       pokeballs: 3,
       answers: 0,
