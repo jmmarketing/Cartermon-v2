@@ -1,0 +1,77 @@
+@use "../../../essentials" as *;
+
+.difficulty-selection {
+  width: 100%;
+  // max-width: 465px;
+  position: relative;
+
+  &::after {
+    content: "";
+    background: url("../assets/icons/thumbsup.png");
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+
+    position: absolute;
+    right: 40px;
+    top: 38px;
+
+    opacity: 0;
+    transform: scale(0.2);
+    transition: all 0.3s ease;
+  }
+
+  &:has(input:checked) {
+    &::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  &--easy {
+    background-color: $color-light-green;
+    border: 2px solid $color-green;
+
+    @include difficultySelectionStyling;
+
+    &:hover {
+      border: 4px solid $color-green;
+      box-shadow: 0 3px 3px 0 rgba($color-black, 0.25);
+    }
+  }
+
+  &--normal {
+    background-color: $color-light-yellow;
+    border: 2px solid $color-yellow;
+
+    @include difficultySelectionStyling;
+
+    &:hover {
+      border: 4px solid $color-yellow;
+      box-shadow: 0 3px 3px 0 rgba($color-black, 0.25);
+    }
+  }
+
+  &--hard {
+    background-color: $color-light-red;
+    border: 2px solid $color-red;
+
+    @include difficultySelectionStyling;
+
+    &:hover {
+      border: 4px solid $color-red;
+      box-shadow: 0 3px 3px 0 rgba($color-black, 0.25);
+    }
+  }
+
+  &__description {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-around;
+
+    &--pokeball {
+      width: 28px;
+      vertical-align: middle;
+    }
+  }
+}
