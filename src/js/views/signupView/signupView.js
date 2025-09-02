@@ -86,9 +86,6 @@ class SignUpView {
       });
 
       //Clears any value attributes on input
-      // NOTE: This does not work. Something is happening with the checked attribute
-      //Even though the css is registering checked, dev html doesnt show it. Need to
-      //Dive deeper in the :focus
       this._allInputFields.forEach((input) => {
         input.value = "";
         input.checked = false;
@@ -114,7 +111,7 @@ class SignUpView {
   }
 
   render(data) {
-    console.log(data);
+    // console.log(data);
     const nav = navbarComponent(data);
 
     this.container.innerHTML = nav + signupTemplate;

@@ -5,10 +5,11 @@ import signupView from "./views/signupView/signupView.js";
 import "core-js";
 import "regenerator-runtime/runtime";
 
-import { gameModel } from "./model.js";
+import * as model from "./model.js";
 
 //Renders the Home Page
 export async function showHome() {
+  console.log(model.gameModel);
   // Example
   try {
     document.body.className = "home-page";
@@ -20,10 +21,11 @@ export async function showHome() {
 
 //Renders the Signup Page & Sets eventListeners
 export async function showSignup() {
+  console.log(model.gameModel);
   try {
     document.body.className = "signup";
 
-    await signupView.render(gameModel.player);
+    await signupView.render(model.gameModel.player);
     signupView._initSignUpBehavior();
   } catch (error) {
     console.error(`Failed to load page: ${error}`);
@@ -32,7 +34,11 @@ export async function showSignup() {
 
 export function handleNewSignUp(data) {
   console.log("New Signup Passed to Controller");
-  console.log(data);
+  model.gameModel.player = data;
+
+  console.log(model.gameModel);
+
+  router.navigateTo("/main");
 }
 
 export async function showContinue() {}
