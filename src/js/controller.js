@@ -30,7 +30,10 @@ export async function showSignup() {
   }
 }
 
-function handleNewSignUp(data) {}
+export function handleNewSignUp(data) {
+  console.log("New Signup Passed to Controller");
+  console.log(data);
+}
 
 export async function showContinue() {}
 export async function showMain() {}

@@ -10,7 +10,7 @@ export const signupTemplate = `
             <legend class="rowdie-title signup-form__label">Name</legend>
             <input
               type="text"
-              name="username"
+              name="name"
               id="username"
               placeholder="Enter your name"
               class="signup-form--username"

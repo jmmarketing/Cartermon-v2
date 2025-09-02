@@ -219,6 +219,29 @@ label {
   transform: scale(1.05);
 }
 
+.avatar-card {
+  background-color: #fff;
+  width: 125px;
+  height: 125px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+.avatar-card__img {
+  width: 120px;
+  position: absolute;
+  bottom: 0;
+}
+.avatar-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
+}
+.avatar-card:has(input:checked) {
+  border: 3px solid #3962a7;
+  transform: scale(1.02);
+}
+
 .hero {
   width: 100%;
   height: 740px;
@@ -339,29 +362,6 @@ label {
 .signup-form a,
 .signup-form button {
   margin-left: auto;
-}
-
-.avatar-card {
-  background-color: #fff;
-  width: 125px;
-  height: 125px;
-  border-radius: 20px;
-  position: relative;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
-}
-.avatar-card__img {
-  width: 120px;
-  position: absolute;
-  bottom: 0;
-}
-.avatar-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
-}
-.avatar-card:has(input:checked) {
-  border: 3px solid #3962a7;
-  transform: scale(1.02);
 }
 
 .difficulty-selection {

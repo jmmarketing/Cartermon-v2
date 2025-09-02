@@ -1,5 +1,6 @@
 import { signupTemplate } from "./signupTemplate.js";
 import { navbarComponent } from "../../../components/navbarComponent/navbarComponent.js";
+import * as controller from "../../controller.js";
 
 class SignUpView {
   _startButton;
@@ -8,6 +9,7 @@ class SignUpView {
   _difficultyContainer;
   _nameInput;
   _inputContainers;
+  _allInputFields;
 
   userDetails = {
     name: "",
@@ -37,6 +39,7 @@ class SignUpView {
       ".signup-form--difficulty"
     );
     this._nameInput = document.querySelector(".signup-form--username");
+    this._allInputFields = document.querySelectorAll("input");
 
     this._inputContainers = {
       name: this._nameInput,
@@ -55,7 +58,7 @@ class SignUpView {
     const userData = new FormData(this._form);
 
     const rawData = {
-      name: userData.get("username"),
+      name: userData.get("name"),
       avatar: userData.get("avatar"),
       difficulty: userData.get("difficulty"),
     };
@@ -63,12 +66,12 @@ class SignUpView {
     this._validatePlayerData(rawData);
   }
 
-  _validatePlayerData(obj) {
+  _validatePlayerData(inputData) {
     console.log("Validating Inputs");
 
     let validData = true;
 
-    for (const [key, value] of Object.entries(obj)) {
+    for (const [key, value] of Object.entries(inputData)) {
       if (!value) {
         console.log(this._inputContainers);
         validData = false;
@@ -77,17 +80,37 @@ class SignUpView {
     }
 
     if (validData) {
+      //Removes errors on parent container
       Object.values(this._inputContainers).forEach((container) => {
         container.classList.remove("error");
-        container.value = "";
       });
 
-      this._setPlayerData(obj);
+      //Clears any value attributes on input
+      // NOTE: This does not work. Something is happening with the checked attribute
+      //Even though the css is registering checked, dev html doesnt show it. Need to
+      //Dive deeper in the :focus
+      this._allInputFields.forEach((input) => {
+        input.value = "";
+        input.checked = false;
+      });
+
+      this._setPlayerData(inputData);
     }
   }
 
   _setPlayerData(data) {
     console.log("Setting Player DATA!");
+    // console.log(data);
+
+    this.userDetails.id = Math.ceil(Math.random() * 1000000000);
+    this.userDetails.stats.pokeballs =
+      data.difficulty == "easy" ? 5 : data.difficulty == "normal" ? 3 : 1;
+
+    for (const [key, value] of Object.entries(data)) {
+      this.userDetails[key] = value;
+    }
+
+    controller.handleNewSignUp(this.userDetails);
   }
 
   render(data) {
