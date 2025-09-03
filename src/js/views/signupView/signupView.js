@@ -16,10 +16,10 @@ class SignUpView {
     avatar: "",
     difficulty: "",
     id: "",
-    stats: {
-      pokeballs: 0,
-      answers: 0,
-    },
+    caught: [],
+
+    pokeballs: 0,
+    answers: 0,
   };
 
   constructor() {
@@ -100,7 +100,7 @@ class SignUpView {
     // console.log(data);
 
     this.userDetails.id = Math.ceil(Math.random() * 1000000000);
-    this.userDetails.stats.pokeballs =
+    this.userDetails.pokeballs =
       data.difficulty == "easy" ? 5 : data.difficulty == "normal" ? 3 : 1;
 
     for (const [key, value] of Object.entries(data)) {

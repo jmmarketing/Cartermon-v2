@@ -6,15 +6,50 @@ export const gameModel = {
     avatar: "",
     difficulty: "",
     id: "",
-    stats: {
-      pokeballs: 3,
-      answers: 0,
-    },
-    pokemonCaught: [],
+    pokeballs: 3,
+    answers: 0,
+    caught: [],
   },
   pokemon: [],
   allPlayers: [],
 };
+
+export function _updateActivePlayer(data) {
+  const { name, avatar, difficulty, id, caught, pokeballs, answers } = data;
+
+  gameModel.player = data;
+}
+
+// PSUEDO CODE 9-3-25
+/*
+-- ANY Page Load (not / or /continue)
+  + Check player -> if name: null direct to /Continue page
+
+-- New Signup:
+  + Add player details to player
+  + Add player to allPlayers. 
+  + Update LocalStorage
+
+-- Continue Page:
+  + Pull allPlayers from LocalStorage
+  + Loop over & create cards for UX
+  + Selected Player pushed to Player property
+  + Redirect to /Main. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 
 /// **** REFACTOR CATCH / SHOW HIDE
 function _searchPokemonAPI(pokemonSearched) {

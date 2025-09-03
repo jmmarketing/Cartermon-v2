@@ -10,7 +10,6 @@ import * as model from "./model.js";
 //Renders the Home Page
 export async function showHome() {
   console.log(model.gameModel);
-  // Example
   try {
     document.body.className = "home-page";
     await homeView.render();
@@ -34,9 +33,11 @@ export async function showSignup() {
 
 export function handleNewSignUp(data) {
   console.log("New Signup Passed to Controller");
-  model.gameModel.player = data;
+  model._updateActivePlayer(data);
 
   console.log(model.gameModel);
+
+  localStorage.setItem("gameModel", JSON.stringify(model.gameModel));
 
   router.navigateTo("/main");
 }
