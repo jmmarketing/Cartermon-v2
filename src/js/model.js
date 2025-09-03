@@ -2,7 +2,7 @@
 
 export const gameModel = {
   player: {
-    name: "",
+    name: null,
     avatar: "",
     difficulty: "",
     id: "",
