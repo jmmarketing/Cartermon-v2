@@ -14,10 +14,60 @@ export const gameModel = {
   allPlayers: [],
 };
 
-export function _updateActivePlayer(data) {
-  const { name, avatar, difficulty, id, caught, pokeballs, answers } = data;
+//Basic Update of Player values (Might need updates, could be too simple)
+export function _updateActivePlayer(userObj) {
+  // const { name, avatar, difficulty, id, caught, pokeballs, answers } = data;
 
-  gameModel.player = data;
+  gameModel.player = userObj;
+}
+
+//Checks to see if player exists in gameModel.allPlayers, if not push.
+// If so, updage player in allPlayers, then update LocalStorage
+export function _updateAllPlayersData(userObj) {
+  const userID = userObj.id;
+  const playerExistsInDB = gameModel.allPlayers.find(
+    (player) => player.id == userID
+  );
+
+  if (!playerExistsInDB) gameModel.allPlayers.push(userObj);
+  else {
+    const playerIndex = gameModel.allPlayers.findIndex(
+      (player) => player.id == userID
+    );
+
+    console.log("Found Index: " + playerIndex);
+
+    gameModel.allPlayers[playerIndex] = userObj;
+  }
+
+  console.log("Updated gameModel: " + gameModel);
+  console.log("Updating Local Storage....");
+  _updateAllLocalStorage();
+}
+
+// Loads all Players and Pokemon from Local Storage
+export function _loadPokemonAndAllPlayersFromLS() {
+  const rawLocalStorageData = localStorage.getItem("gameModel");
+  const localStorageData = JSON.parse(rawLocalStorageData);
+  // console.log("Raw: " + rawLocalStorageData);
+  // console.log("Parse: " + localStorageData);
+
+  const pokemon = localStorageData.pokemon || [];
+  const allPlayersData = localStorageData.allPlayers || [];
+
+  // console.log("Pokemon: " + pokemon);
+  // console.log("All Players: " + allPlayersData);
+
+  gameModel.pokemon = pokemon;
+  gameModel.allPlayers = allPlayersData;
+
+  // console.log(gameModel);
+}
+
+//Blanket update for whole gameModel to local storage.
+export function _updateAllLocalStorage() {
+  const gameModelJSON = JSON.stringify(gameModel);
+  localStorage.setItem("gameModel", gameModelJSON);
 }
 
 // PSUEDO CODE 9-3-25

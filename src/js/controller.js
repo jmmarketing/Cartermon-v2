@@ -7,12 +7,29 @@ import "regenerator-runtime/runtime";
 
 import * as model from "./model.js";
 
+const testData = {
+  name: "jeffrey",
+  avatar: "boy3",
+  difficulty: "hard",
+  id: "637759389",
+  caught: [],
+
+  pokeballs: 17,
+  answers: 0,
+};
+
 //Renders the Home Page
 export async function showHome() {
-  console.log(model.gameModel);
+  // console.log(model.gameModel);
   try {
     document.body.className = "home-page";
     await homeView.render();
+    model._loadPokemonAndAllPlayersFromLS();
+    console.log("Local Storage Compile?");
+    console.log(model.gameModel);
+
+    console.log("-------------");
+    model._updateAllPlayersData(testData);
   } catch (error) {
     console.error(`Failed to load page: ${error}`);
   }
@@ -34,6 +51,7 @@ export async function showSignup() {
 export function handleNewSignUp(data) {
   console.log("New Signup Passed to Controller");
   model._updateActivePlayer(data);
+  model._updateAllPlayersData(data);
 
   console.log(model.gameModel);
 
