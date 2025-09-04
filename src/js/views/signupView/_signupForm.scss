@@ -28,7 +28,7 @@
     // border-radius: $radius-24;
     // border: 1px solid #c0c0c0;
 
-    @include labelMessageStyling;
+    @include labelTitleStyling;
     width: fit-content;
     position: relative;
     z-index: 1;

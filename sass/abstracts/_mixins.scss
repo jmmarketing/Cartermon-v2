@@ -61,7 +61,7 @@ ORDER [When refactoring for responsiveness]: Base + typography > general layout 
   margin-bottom: $spacing-10;
 }
 
-@mixin labelMessageStyling {
+@mixin labelTitleStyling {
   height: 50px;
 
   padding: 5px 25px;
