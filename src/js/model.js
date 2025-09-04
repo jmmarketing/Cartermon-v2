@@ -46,6 +46,7 @@ export function _updateAllPlayersData(userObj) {
 }
 
 // Loads all Players and Pokemon from Local Storage
+// Used for /continue page & pokemon look up (tbd)
 export function _loadPokemonAndAllPlayersFromLS() {
   const rawLocalStorageData = localStorage.getItem("gameModel");
   const localStorageData = JSON.parse(rawLocalStorageData);

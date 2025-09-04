@@ -26,11 +26,13 @@ class SignUpView {
     this.container = document.querySelector("body");
   }
 
+  // Initiates page element variables & Sets eventlistners after DOM updated with render.
   _initSignUpBehavior() {
     this._setPageElements();
     this._applyEventListener();
   }
 
+  // Sets page elements
   _setPageElements() {
     this._startButton = document.querySelector('[type="submit"]');
     this._form = document.querySelector(".signup-form");
@@ -48,10 +50,13 @@ class SignUpView {
     };
   }
 
+  //Applies event listeners
   _applyEventListener() {
     this._startButton.addEventListener("click", this._getPlayerData.bind(this));
   }
 
+  // Gets data from form via eventlistner on submit button & passes to
+  // validation method.
   _getPlayerData(e) {
     e.preventDefault();
 
@@ -66,6 +71,7 @@ class SignUpView {
     this._validatePlayerData(rawData);
   }
 
+  // Basic input validation (basically 'not empty' validation) & sends to setPlayerData
   _validatePlayerData(inputData) {
     console.log("Validating Inputs");
 
@@ -95,24 +101,30 @@ class SignUpView {
     }
   }
 
-  _setPlayerData(data) {
+  //Sets the player Data in view State (userDetails) & passes to controller for updating model.
+  _setPlayerData(playerData) {
     console.log("Setting Player DATA!");
     // console.log(data);
 
     this.userDetails.id = Math.ceil(Math.random() * 1000000000);
     this.userDetails.pokeballs =
-      data.difficulty == "easy" ? 5 : data.difficulty == "normal" ? 3 : 1;
+      playerData.difficulty == "easy"
+        ? 5
+        : playerData.difficulty == "normal"
+        ? 3
+        : 1;
 
-    for (const [key, value] of Object.entries(data)) {
+    for (const [key, value] of Object.entries(playerData)) {
       this.userDetails[key] = value;
     }
 
     controller.handleNewSignUp(this.userDetails);
   }
 
-  render(data) {
+  // Renders the page in DOM
+  render(gameData) {
     // console.log(data);
-    const nav = navbarComponent(data);
+    const nav = navbarComponent(gameData);
 
     this.container.innerHTML = nav + signupTemplate;
   }
