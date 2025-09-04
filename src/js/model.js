@@ -23,13 +23,13 @@ export function _updateActivePlayer(userObj) {
 
 //Checks to see if player exists in gameModel.allPlayers, if not push.
 // If so, updage player in allPlayers, then update LocalStorage
-export function _updateAllPlayersData(userObj) {
-  const userID = userObj.id;
+export function _updateAllPlayersData(playerData) {
+  const userID = playerData.id;
   const playerExistsInDB = gameModel.allPlayers.find(
     (player) => player.id == userID
   );
 
-  if (!playerExistsInDB) gameModel.allPlayers.push(userObj);
+  if (!playerExistsInDB) gameModel.allPlayers.push(playerData);
   else {
     const playerIndex = gameModel.allPlayers.findIndex(
       (player) => player.id == userID
@@ -37,10 +37,11 @@ export function _updateAllPlayersData(userObj) {
 
     console.log("Found Index: " + playerIndex);
 
-    gameModel.allPlayers[playerIndex] = userObj;
+    gameModel.allPlayers[playerIndex] = playerData;
   }
 
-  console.log("Updated gameModel: " + gameModel);
+  console.log("Updated gameModel: ");
+  console.log(gameModel);
   console.log("Updating Local Storage....");
   _updateAllLocalStorage();
 }
@@ -48,6 +49,10 @@ export function _updateAllPlayersData(userObj) {
 // Loads all Players and Pokemon from Local Storage
 // Used for /continue page & pokemon look up (tbd)
 export function _loadPokemonAndAllPlayersFromLS() {
+  //Check --> if first time, creates local storage.
+  if (!localStorage.getItem("gameModel"))
+    localStorage.setItem("gameModel", JSON.stringify(gameModel));
+
   const rawLocalStorageData = localStorage.getItem("gameModel");
   const localStorageData = JSON.parse(rawLocalStorageData);
   // console.log("Raw: " + rawLocalStorageData);
@@ -73,7 +78,7 @@ export function _updateAllLocalStorage() {
 
 // PSUEDO CODE 9-3-25
 /*
--- ANY Page Load (not / or /continue)
+-- ANY Page Load (not / or /continue or /singup)
   + Check player -> if name: null direct to /Continue page
 
 -- New Signup:

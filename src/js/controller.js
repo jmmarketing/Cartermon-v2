@@ -11,7 +11,7 @@ const testData = {
   name: "jeffrey",
   avatar: "boy3",
   difficulty: "hard",
-  id: "637759389",
+  id: 637759389,
   caught: [],
 
   pokeballs: 17,
@@ -25,11 +25,11 @@ export async function showHome() {
     document.body.className = "home-page";
     await homeView.render();
     model._loadPokemonAndAllPlayersFromLS();
-    console.log("Local Storage Compile?");
+    console.log("Local Storage Compiled & Loaded into gameModel: ");
     console.log(model.gameModel);
 
-    console.log("-------------");
-    model._updateAllPlayersData(testData);
+    // console.log("-------------");
+    // model._updateAllPlayersData(testData);
   } catch (error) {
     console.error(`Failed to load page: ${error}`);
   }
@@ -37,6 +37,7 @@ export async function showHome() {
 
 //Renders the Signup Page & Sets eventListeners
 export async function showSignup() {
+  console.log("showSignup -> Current gameModel:");
   console.log(model.gameModel);
   try {
     document.body.className = "signup";
@@ -48,11 +49,13 @@ export async function showSignup() {
   }
 }
 
-export function handleNewSignUp(data) {
+//Gets new Player Data from Signup, updates gameModel player (Active), adds player to All Players, & updates local storage with all gameModel, then redirects to /main
+export function handleNewSignUp(playerData) {
   console.log("New Signup Passed to Controller");
-  model._updateActivePlayer(data);
-  model._updateAllPlayersData(data);
+  model._updateActivePlayer(playerData);
+  model._updateAllPlayersData(playerData);
 
+  console.log("Current Game Model:");
   console.log(model.gameModel);
 
   localStorage.setItem("gameModel", JSON.stringify(model.gameModel));
