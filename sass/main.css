@@ -394,12 +394,12 @@ label {
 }
 .signup-form__label {
   height: 50px;
-  width: -moz-fit-content;
-  width: fit-content;
   padding: 5px 25px;
   background-color: #fff;
   border-radius: 24px;
   border: 1px solid #c0c0c0;
+  width: -moz-fit-content;
+  width: fit-content;
   position: relative;
   z-index: 1;
 }
@@ -438,6 +438,16 @@ label {
 .signup-form a,
 .signup-form button {
   margin-left: auto;
+}
+
+.continue__message {
+  height: 50px;
+  padding: 5px 25px;
+  background-color: #fff;
+  border-radius: 24px;
+  border: 1px solid #c0c0c0;
+  width: 485px;
+  text-align: center;
 }
 
 .navigation {

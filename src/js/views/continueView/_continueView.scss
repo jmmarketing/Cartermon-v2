@@ -1,0 +1,9 @@
+@use "../../../../essentials" as *;
+
+.continue {
+  &__message {
+    @include labelMessageStyling;
+    width: 485px;
+    text-align: center;
+  }
+}

@@ -60,3 +60,13 @@ ORDER [When refactoring for responsiveness]: Base + typography > general layout 
   padding: $spacing-24 $spacing-40;
   margin-bottom: $spacing-10;
 }
+
+@mixin labelMessageStyling {
+  height: 50px;
+
+  padding: 5px 25px;
+  background-color: $color-white;
+
+  border-radius: $radius-24;
+  border: 1px solid #c0c0c0;
+}

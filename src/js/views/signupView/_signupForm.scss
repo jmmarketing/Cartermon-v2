@@ -20,14 +20,16 @@
   }
 
   &__label {
-    height: 50px;
+    // height: 50px;
+    // width: fit-content;
+    // padding: 5px 25px;
+    // background-color: $color-white;
+
+    // border-radius: $radius-24;
+    // border: 1px solid #c0c0c0;
+
+    @include labelMessageStyling;
     width: fit-content;
-    padding: 5px 25px;
-    background-color: $color-white;
-
-    border-radius: $radius-24;
-    border: 1px solid #c0c0c0;
-
     position: relative;
     z-index: 1;
   }
