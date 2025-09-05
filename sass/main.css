@@ -158,6 +158,7 @@ body {
 main {
   width: 100%;
   max-width: 1220px;
+  padding-bottom: 50px;
 }
 
 input[type=radio] {
@@ -458,7 +459,9 @@ label {
 }
 .continue__player-container {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 20px;
 }
 
 .player-card {
@@ -478,13 +481,27 @@ label {
   height: 240px;
   background-color: #fff;
   position: absolute;
-  bottom: 0;
+  bottom: -10px;
   border-radius: 20px;
   z-index: -1;
 }
+.player-card:hover .player-card__img {
+  transform: scale(1.07);
+}
+.player-card__avatar-box {
+  position: relative;
+}
+.player-card__avatar-box::after {
+  content: "";
+  width: 200px;
+  height: 40px;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 62.98%);
+}
 .player-card__img {
   width: 200px;
-  position: relative;
 }
 .player-card__pokeball-info {
   display: inline-flex;
@@ -510,7 +527,9 @@ label {
 
 body {
   width: 100%;
-  height: 100vh;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-height: 100vh;
   background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 214, 35, 0.5) 50%), url("../assets/backgrounds/forest.webp");
   background-position: center, 0 30%;
   background-size: cover;

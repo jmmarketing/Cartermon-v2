@@ -17,7 +17,9 @@
   &__player-container {
     display: flex;
     // flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
+    gap: 20px;
   }
 }
 
@@ -48,14 +50,37 @@
     height: 240px;
     background-color: $color-white;
     position: absolute;
-    bottom: 0;
+    bottom: -10px;
 
     border-radius: $radius-20;
     z-index: -1;
   }
+
+  &:hover &__img {
+    transform: scale(1.07);
+  }
+
+  &__avatar-box {
+    position: relative;
+    &::after {
+      content: "";
+      width: 200px;
+      height: 40px;
+
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        #fff 62.98%
+      );
+    }
+  }
+
   &__img {
     width: 200px;
-    position: relative;
   }
 
   &__pokeball-info {
