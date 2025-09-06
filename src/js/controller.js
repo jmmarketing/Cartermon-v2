@@ -1,6 +1,7 @@
 import router from "./router";
 import homeView from "./views/homeView/homeView.js";
 import signupView from "./views/signupView/signupView.js";
+import continueView from "./views/continueView/continueView.js";
 
 import "core-js";
 import "regenerator-runtime/runtime";
@@ -49,6 +50,19 @@ export async function showSignup() {
   }
 }
 
+export async function showContinue() {
+  console.log("showContinue -> Current gameModel:");
+  console.log(model.gameModel);
+  try {
+    document.body.className = "continue";
+
+    await continueView.render(model.gameModel);
+    // signupView._initSignUpBehavior();
+  } catch (error) {
+    console.error(`Failed to load page: ${error}`);
+  }
+}
+
 //Gets new Player Data from Signup, updates gameModel player (Active), adds player to All Players, & updates local storage with all gameModel, then redirects to /main
 export function handleNewSignUp(playerData) {
   console.log("New Signup Passed to Controller");
@@ -63,7 +77,6 @@ export function handleNewSignUp(playerData) {
   router.navigateTo("/main");
 }
 
-export async function showContinue() {}
 export async function showMain() {}
 export async function showPokedex() {}
 export async function showLearn() {}
