@@ -1,7 +1,9 @@
-import { imgAssets, avatars } from "../../../assets/game-assets";
+import { imgAssets, avatars } from "../../../assets/game-assets.js";
 
-export const navbarComponent = (data) => {
+export const navbarComponent = (data = {}) => {
   let avatarLink = "";
+
+  console.log("navBarComponent compiling.....");
 
   if (data.avatar) {
     avatarLink = `

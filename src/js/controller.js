@@ -53,10 +53,19 @@ export async function showSignup() {
 export async function showContinue() {
   console.log("showContinue -> Current gameModel:");
   console.log(model.gameModel);
+  console.log("Getting allPlayers from LocalStorage:");
+  model._loadPokemonAndAllPlayersFromLS();
+
+  //Check if any saved players, if not direct to /signup.
+  const hasPlayers = model.gameModel.allPlayers.length > 0;
+  if (!hasPlayers) router.navigateTo("/signup");
+
+  // Render continue
   try {
     document.body.className = "continue";
 
     await continueView.render(model.gameModel);
+    continueView._initContinueBehavior();
     // signupView._initSignUpBehavior();
   } catch (error) {
     console.error(`Failed to load page: ${error}`);
@@ -75,6 +84,10 @@ export function handleNewSignUp(playerData) {
   localStorage.setItem("gameModel", JSON.stringify(model.gameModel));
 
   router.navigateTo("/main");
+}
+
+export function handleContinuePlay(id) {
+  model._setActivePlayer(id);
 }
 
 export async function showMain() {}

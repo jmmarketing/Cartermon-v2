@@ -19,6 +19,28 @@ export function _updateActivePlayer(userObj) {
   // const { name, avatar, difficulty, id, caught, pokeballs, answers } = data;
 
   gameModel.player = userObj;
+
+  console.log("UPDATE! 🗃 Current Game Model:");
+  console.log(gameModel);
+}
+
+export function _setActivePlayer(id) {
+  const playerID = +id;
+  // console.log("Player ID is: " + playerID);
+  // console.log("ID is a: " + typeof playerID);
+  console.log("🗃 Current Game Model:");
+  console.log(gameModel);
+
+  //Finds index of player in allPlayers
+  const playerIndex = gameModel.allPlayers.findIndex(
+    (player) => (player.id = playerID)
+  );
+
+  //Assigns selected player to variable
+  const selectedPlayer = gameModel.allPlayers[playerIndex];
+
+  // Passes selected player to update gameModel
+  _updateActivePlayer(selectedPlayer);
 }
 
 //Checks to see if player exists in gameModel.allPlayers, if not push.
