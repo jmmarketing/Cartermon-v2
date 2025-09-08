@@ -88,6 +88,7 @@ export function handleNewSignUp(playerData) {
 
 export function handleContinuePlay(id) {
   model._setActivePlayer(id);
+  router.navigateTo("/main");
 }
 
 export async function showMain() {}

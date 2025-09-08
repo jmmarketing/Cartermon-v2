@@ -28,16 +28,19 @@ export function _setActivePlayer(id) {
   const playerID = +id;
   // console.log("Player ID is: " + playerID);
   // console.log("ID is a: " + typeof playerID);
-  console.log("🗃 Current Game Model:");
+  console.log("setActivePlayer => 🗃 Current Game Model:");
   console.log(gameModel);
 
   //Finds index of player in allPlayers
   const playerIndex = gameModel.allPlayers.findIndex(
-    (player) => (player.id = playerID)
+    (player) => player.id === playerID
   );
 
+  console.log("Player Index: " + playerIndex);
   //Assigns selected player to variable
   const selectedPlayer = gameModel.allPlayers[playerIndex];
+  console.log("setActivePlayer, selectedPlayer:");
+  console.log(selectedPlayer);
 
   // Passes selected player to update gameModel
   _updateActivePlayer(selectedPlayer);
