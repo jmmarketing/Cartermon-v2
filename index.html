@@ -11,8 +11,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" href="./sass/main.css" />
-    <!-- <script src="./src/js/script.js" type="module"></script> -->
-    <script src="./src/js/controller.js" type="module"></script>
+    <script src="./src/js/script.js" type="module"></script>
+    <!-- <script src="./src/js/controller.js" type="module"></script> -->
   </head>
-  <body></body>
+  <body>
+    <main>
+      <div class="player-card" data-id="${playerObj.id}">
+        <div class="player-card__avatar-box">
+          <img
+            class="player-card__img"
+            src="./assets/avatars/girl2.webp"
+            alt="Player"
+          />
+        </div>
+        <p class="user-name">Sterling</p>
+        <div class="player-card__pokeball-info">
+          <p class="play-information">
+            <span
+              ><img
+                src="./assets/icons/8bitpokeball.webp"
+                alt="Pokeball"
+                class="player-card__pokeball-info--img"
+              />
+            </span>
+            X 5
+          </p>
+        </div>
+
+        <div class="player-card__pokeball-info">
+          <p class="user-title">Pokemon Caught</p>
+        </div>
+
+        <div class="player-card__pokeball-info">
+          <p class="user-title">Math Questions</p>
+        </div>
+      </div>
+      <section class="game-paths"></section>
+    </main>
+  </body>
 </html>

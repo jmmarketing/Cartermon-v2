@@ -2,6 +2,7 @@ import router from "./router";
 import homeView from "./views/homeView/homeView.js";
 import signupView from "./views/signupView/signupView.js";
 import continueView from "./views/continueView/continueView.js";
+import mainView from "./views/mainView/mainView.js";
 
 import "core-js";
 import "regenerator-runtime/runtime";
@@ -18,6 +19,9 @@ const testData = {
   pokeballs: 17,
   answers: 0,
 };
+// #########################
+// #### ROUTER / PAGE ######
+// #########################
 
 //Renders the Home Page
 export async function showHome() {
@@ -72,6 +76,16 @@ export async function showContinue() {
   }
 }
 
+export async function showMain() {}
+
+export async function showPokedex() {}
+export async function showLearn() {}
+export async function showExplore() {}
+
+// #########################
+// #### INTERACTIONS ######
+// #########################
+
 //Gets new Player Data from Signup, updates gameModel player (Active), adds player to All Players, & updates local storage with all gameModel, then redirects to /main
 export function handleNewSignUp(playerData) {
   console.log("New Signup Passed to Controller");
@@ -90,11 +104,6 @@ export function handleContinuePlay(id) {
   model._setActivePlayer(id);
   router.navigateTo("/main");
 }
-
-export async function showMain() {}
-export async function showPokedex() {}
-export async function showLearn() {}
-export async function showExplore() {}
 
 function setupGlobalNavigation() {
   document.addEventListener("click", (e) => {
