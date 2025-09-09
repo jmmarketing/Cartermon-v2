@@ -1,5 +1,10 @@
 import { imgAssets, avatars } from "../../../assets/game-assets.js";
 
+/**
+ *
+ * @param {*} data - Active player object
+ * @returns
+ */
 export const navbarComponent = (data = {}) => {
   let avatarLink = "";
 
@@ -8,7 +13,7 @@ export const navbarComponent = (data = {}) => {
   if (data.avatar) {
     avatarLink = `
     
-        <a href="/main" data-nav="/main"
+        <a href="/continue" data-nav="/continue"
           ><img
             class="navigation__icon"
             src="${avatars[data.avatar]}"

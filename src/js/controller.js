@@ -72,11 +72,20 @@ export async function showContinue() {
     continueView._initContinueBehavior();
     // signupView._initSignUpBehavior();
   } catch (error) {
+    console.log(error);
     console.error(`Failed to load page: ${error}`);
   }
 }
 
-export async function showMain() {}
+export async function showMain() {
+  try {
+    document.body.className = "main";
+
+    await mainView.render(model.gameModel);
+  } catch (error) {
+    console.error(`Failed to load page: ${error}`);
+  }
+}
 
 export async function showPokedex() {}
 export async function showLearn() {}

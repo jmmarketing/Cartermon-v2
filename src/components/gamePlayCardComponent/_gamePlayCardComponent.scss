@@ -1,0 +1,65 @@
+@use "../../../essentials" as *;
+
+.gameplay-card {
+  height: 475px;
+  width: 260px;
+  padding: 50px 20px 20px 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 25px;
+
+  background-color: $color-white;
+  border-radius: $radius-20;
+
+  position: relative;
+
+  transform: translateY(-20px);
+
+  &--red {
+    //Card specific
+    border: 3px solid $color-red;
+    box-shadow: 0 30px 0 0 $color-red;
+  }
+
+  &--blue {
+    //Card specific
+    border: 3px solid $color-blue;
+    box-shadow: 0 30px 0 0 $color-blue;
+  }
+
+  &--purple {
+    //Card specific
+    border: 3px solid $color-purple;
+    box-shadow: 0 30px 0 0 $color-purple;
+  }
+
+  &__img {
+    height: 125px;
+  }
+
+  &__nav {
+    text-decoration: none;
+    position: absolute;
+    bottom: 35px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-radius: $radius-full;
+      padding: 5px 20px;
+      color: $color-white !important;
+    }
+
+    &:hover:is(.stat-blue) {
+      background-color: $color-blue;
+    }
+    &:hover:is(.stat-red) {
+      background-color: $color-red;
+    }
+    &:hover:is(.stat-purple) {
+      background-color: $color-purple;
+    }
+  }
+}

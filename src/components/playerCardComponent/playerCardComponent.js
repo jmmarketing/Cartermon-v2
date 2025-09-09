@@ -1,12 +1,22 @@
 import { icons, avatars } from "../../../assets/game-assets.js";
 
+/**
+ *
+ * @param {*} playerData - Active player data (gameModel.player)
+ * @param {*} config - {cardsize: 'mini' || 'main}
+ * @returns
+ */
 export const playerCardComponent = (
   playerData,
   config = { cardSize: "mini" }
 ) => {
   const { cardSize } = config;
 
-  if (cardSize !== "main") cardSize = "mini";
+  console.log("playerCardComponent compiling...");
+  console.log(cardSize);
+  console.log(cardSize === "main");
+
+  // if (cardSize != "main" || cardSize != "mini") cardSize = "mini";
 
   const miniHTML = `
         <div class="player-card__avatar-box">
@@ -44,6 +54,8 @@ export const playerCardComponent = (
     <p class="rowdie-stat stat-purple">${playerData.answers}</p>
     
     `;
+
+  console.log(cardSize);
 
   const template = `
     <div class="player-card player-card--${cardSize}" data-id="${
