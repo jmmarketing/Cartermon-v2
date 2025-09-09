@@ -16,37 +16,97 @@
   </head>
   <body>
     <main>
-      <div class="player-card" data-id="${playerObj.id}">
-        <div class="player-card__avatar-box">
-          <img
-            class="player-card__img"
-            src="./assets/avatars/girl2.webp"
-            alt="Player"
-          />
-        </div>
-        <p class="user-name">Sterling</p>
-        <div class="player-card__pokeball-info">
-          <p class="play-information">
-            <span
-              ><img
-                src="./assets/icons/8bitpokeball.webp"
-                alt="Pokeball"
-                class="player-card__pokeball-info--img"
-              />
-            </span>
-            X 5
-          </p>
+      <section class="main-screen">
+        <div class="player-card player-card--main" data-id="${playerObj.id}">
+          <div class="player-card__avatar-box">
+            <img
+              class="player-card__img"
+              src="./assets/avatars/girl2.webp"
+              alt="Player"
+            />
+          </div>
+          <p class="user-name">Sterling</p>
+          <div class="player-card__info-title">
+            <p class="play-information">
+              <span
+                ><img
+                  src="./assets/icons/8bitpokeball.webp"
+                  alt="Pokeball"
+                  class="player-card__info-title--img"
+                />
+              </span>
+              X 5
+            </p>
+          </div>
+
+          <div class="player-card__info-title">
+            <p class="user-title">Pokemon Caught</p>
+          </div>
+          <p class="rowdie-stat stat-blue">58</p>
+
+          <div class="player-card__info-title">
+            <p class="user-title">Math Questions</p>
+          </div>
+          <p class="rowdie-stat stat-purple">117</p>
         </div>
 
-        <div class="player-card__pokeball-info">
-          <p class="user-title">Pokemon Caught</p>
+        <div class="main-screen__game-paths">
+          <!-- Game Card-->
+          <div class="gameplay-card">
+            <img
+              src="./assets/img/pokedex.png"
+              alt="Pokedex"
+              class="gameplay-card__img"
+            />
+            <p class="play-information">Pokedex</p>
+            <p class="general-text">
+              View all the Pokemon you have caught, and look up others you want
+              to know more about.
+            </p>
+            <a
+              href="/pokedex"
+              class="play-information stat-red gameplay-card__nav"
+              >View ></a
+            >
+          </div>
+          <!-- Game Card-->
+          <div class="gameplay-card">
+            <img
+              src="./assets/img/pokedex.png"
+              alt="Pokedex"
+              class="gameplay-card__img"
+            />
+            <p class="play-information">Pokedex</p>
+            <p class="general-text">
+              View all the Pokemon you have caught, and look up others you want
+              to know more about.
+            </p>
+            <a
+              href="/pokedex"
+              class="play-information stat-red gameplay-card__nav"
+              >View ></a
+            >
+          </div>
+          <!-- Game Card-->
+          <div class="gameplay-card">
+            <img
+              src="./assets/img/pokedex.png"
+              alt="Pokedex"
+              class="gameplay-card__img"
+            />
+            <p class="play-information">Pokedex</p>
+            <p class="general-text">
+              View all the Pokemon you have caught, and look up others you want
+              to know more about.
+            </p>
+            <a
+              href="/pokedex"
+              class="play-information stat-red gameplay-card__nav"
+              >View ></a
+            >
+          </div>
         </div>
-
-        <div class="player-card__pokeball-info">
-          <p class="user-title">Math Questions</p>
-        </div>
-      </div>
-      <section class="game-paths"></section>
+      </section>
     </main>
   </body>
 </html>

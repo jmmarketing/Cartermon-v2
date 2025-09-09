@@ -137,6 +137,18 @@ body {
   border: 3px solid #ba0000 !important;
 }
 
+.stat-blue {
+  color: #3962a7 !important;
+}
+
+.stat-purple {
+  color: #a884f0 !important;
+}
+
+.stat-red {
+  color: #ba0000 !important;
+}
+
 *,
 *::before,
 *::after {
@@ -323,26 +335,42 @@ label {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
   width: 260px;
   padding: 20px;
   text-align: center;
   position: relative;
-  cursor: pointer;
 }
-.player-card::before {
+.player-card--mini {
+  cursor: pointer;
+  gap: 20px;
+}
+.player-card--mini::before {
   content: "";
   width: 260px;
-  height: 240px;
   background-color: #fff;
   position: absolute;
   bottom: -10px;
   border-radius: 20px;
   z-index: -1;
   box-shadow: -5px -5px 7px 0 rgba(255, 250, 242, 0.05), -1px -1px 2px 0 rgba(255, 250, 242, 0.1), 5px 5px 7px 0 rgba(0, 0, 0, 0.2), 1px 1px 2px 0 rgba(0, 0, 0, 0.2);
+  height: 240px;
 }
-.player-card:hover .player-card__img {
+.player-card--mini:hover .player-card--mini__img {
   transform: scale(1.07);
+}
+.player-card--main {
+  gap: 15px;
+}
+.player-card--main::before {
+  content: "";
+  width: 260px;
+  background-color: #fff;
+  position: absolute;
+  bottom: -10px;
+  border-radius: 20px;
+  z-index: -1;
+  box-shadow: -5px -5px 7px 0 rgba(255, 250, 242, 0.05), -1px -1px 2px 0 rgba(255, 250, 242, 0.1), 5px 5px 7px 0 rgba(0, 0, 0, 0.2), 1px 1px 2px 0 rgba(0, 0, 0, 0.2);
+  height: 505px;
 }
 .player-card__avatar-box {
   position: relative;
@@ -359,7 +387,7 @@ label {
 .player-card__img {
   width: 200px;
 }
-.player-card__pokeball-info {
+.player-card__info-title {
   display: inline-flex;
   justify-content: space-around;
   align-items: center;
@@ -369,7 +397,7 @@ label {
   border: 1px solid #efefef;
   border-radius: 24px;
 }
-.player-card__pokeball-info--img {
+.player-card__info-title--img {
   width: 30px;
   vertical-align: middle;
 }
@@ -517,6 +545,48 @@ label {
   flex-wrap: wrap;
   align-items: center;
   gap: 20px;
+}
+
+.main-screen {
+  display: flex;
+  gap: 100px;
+  align-items: flex-end;
+}
+.main-screen__game-paths {
+  display: flex;
+  gap: 25px;
+}
+
+.gameplay-card {
+  height: 475px;
+  width: 260px;
+  padding: 50px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 25px;
+  background-color: #fff;
+  border-radius: 20px;
+  position: relative;
+  transform: translateY(-20px);
+  border: 3px solid #ba0000;
+  box-shadow: 0 30px 0 0 #ba0000;
+}
+.gameplay-card__img {
+  height: 125px;
+}
+.gameplay-card__nav {
+  text-decoration: none;
+  position: absolute;
+  bottom: 35px;
+  transition: all 0.3s ease;
+}
+.gameplay-card__nav:hover {
+  background-color: #ba0000;
+  border-radius: 999px;
+  padding: 5px 20px;
+  color: #fff !important;
 }
 
 .navigation {

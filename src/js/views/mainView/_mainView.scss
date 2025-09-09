@@ -1,1 +1,54 @@
 @use "../../../../essentials" as *;
+
+.main-screen {
+  display: flex;
+  gap: 100px;
+
+  align-items: flex-end;
+
+  &__game-paths {
+    display: flex;
+    gap: 25px;
+  }
+}
+
+.gameplay-card {
+  height: 475px;
+  width: 260px;
+  padding: 50px 20px 20px 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 25px;
+
+  background-color: $color-white;
+  border-radius: $radius-20;
+
+  position: relative;
+
+  transform: translateY(-20px);
+
+  //Card specific
+  border: 3px solid $color-red;
+  box-shadow: 0 30px 0 0 $color-red;
+
+  &__img {
+    height: 125px;
+  }
+
+  &__nav {
+    text-decoration: none;
+    position: absolute;
+    bottom: 35px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $color-red;
+      border-radius: $radius-full;
+      padding: 5px 20px;
+      color: $color-white !important;
+    }
+  }
+}

@@ -4,37 +4,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
 
   width: 260px;
-  //   height: 240px;
-  //   background-color: $color-white;
-  //   border-radius: $radius-20;
   padding: $spacing-20;
   text-align: center;
 
   position: relative;
 
-  cursor: pointer;
+  &--mini {
+    cursor: pointer;
+    gap: 20px;
+    &::before {
+      @include playerCardBackground;
+      height: 240px;
+    }
 
-  &::before {
-    content: "";
-    width: 260px;
-    height: 240px;
-    background-color: $color-white;
-    position: absolute;
-    bottom: -10px;
-
-    border-radius: $radius-20;
-    z-index: -1;
-
-    box-shadow: -5px -5px 7px 0 rgba(255, 250, 242, 0.05),
-      -1px -1px 2px 0 rgba(255, 250, 242, 0.1), 5px 5px 7px 0 rgba(0, 0, 0, 0.2),
-      1px 1px 2px 0 rgba(0, 0, 0, 0.2);
+    &:hover &__img {
+      transform: scale(1.07);
+    }
   }
 
-  &:hover &__img {
-    transform: scale(1.07);
+  &--main {
+    gap: 15px;
+    &::before {
+      @include playerCardBackground;
+      height: 505px;
+    }
   }
 
   &__avatar-box {
@@ -60,7 +55,7 @@
     width: 200px;
   }
 
-  &__pokeball-info {
+  &__info-title {
     display: inline-flex;
     justify-content: space-around;
     align-items: center;

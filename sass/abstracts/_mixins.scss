@@ -70,3 +70,17 @@ ORDER [When refactoring for responsiveness]: Base + typography > general layout 
   border-radius: $radius-24;
   border: 1px solid #c0c0c0;
 }
+
+@mixin playerCardBackground {
+  content: "";
+  width: 260px;
+  background-color: $color-white;
+  position: absolute;
+  bottom: -10px;
+  border-radius: $radius-20;
+  z-index: -1;
+
+  box-shadow: -5px -5px 7px 0 rgba(255, 250, 242, 0.05),
+    -1px -1px 2px 0 rgba(255, 250, 242, 0.1), 5px 5px 7px 0 rgba(0, 0, 0, 0.2),
+    1px 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
