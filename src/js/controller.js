@@ -3,6 +3,7 @@ import homeView from "./views/homeView/homeView.js";
 import signupView from "./views/signupView/signupView.js";
 import continueView from "./views/continueView/continueView.js";
 import mainView from "./views/mainView/mainView.js";
+import { MathProblemGenerator as mathServices } from "../services/MathProblemGenerator.js";
 
 import "core-js";
 import "regenerator-runtime/runtime";
