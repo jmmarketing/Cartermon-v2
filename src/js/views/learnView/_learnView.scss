@@ -128,5 +128,15 @@
       background-color: $color-light-purple;
       border: 4px solid $color-purple;
     }
+
+    &:has(input.correct) {
+      background-color: $color-light-green;
+      border: 2px solid $color-green;
+    }
+
+    &:has(input.wrong) {
+      background-color: $color-light-red;
+      border: 2px solid $color-red;
+    }
   }
 }

@@ -703,6 +703,14 @@ label {
   background-color: #d6c2ff;
   border: 4px solid #a884f0;
 }
+.math-question__answer:has(input.correct) {
+  background-color: #a4e4a7;
+  border: 2px solid #4caf50;
+}
+.math-question__answer:has(input.wrong) {
+  background-color: #e48585;
+  border: 2px solid #ba0000;
+}
 
 .navigation {
   width: 100%;
