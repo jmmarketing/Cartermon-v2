@@ -18,6 +18,7 @@
     }
 
     &--questions {
+      //   display: none; // for testing success
     }
   }
 
@@ -32,7 +33,7 @@
     text-align: center;
   }
 
-  &__check-button {
+  &__button {
     width: 295px;
     height: 50px;
 
@@ -58,6 +59,21 @@
         box-shadow: none;
         border: 3px solid $color-black;
       }
+    }
+  }
+
+  &__success-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+
+    height: 505px;
+    width: 100%;
+
+    &--pokeball {
+      width: 185px;
     }
   }
 }

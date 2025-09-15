@@ -2,9 +2,14 @@ const questionsContainer = document.querySelector(
   ".learn__math-container--questions"
 );
 const messageBar = document.querySelector(".learn__title p");
-const submitBtn = document.querySelector(".learn__check-button");
+const submitBtn = document.querySelector(".learn__button--check");
+const playAgainBtn = document.querySelector(".learn__button--play-again");
 const allQuestionContainers = document.querySelectorAll(".math-question");
 const mathForm = document.querySelector(".learn__math-quiz");
+
+const successContainer = document.querySelector(".learn__success-container");
+
+let mathQuestionObj = {};
 
 /*
 -Generate Math Questions = 
