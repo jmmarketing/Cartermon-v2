@@ -113,3 +113,15 @@ function showSuccess() {
   }
 }
 function resetMath() {}
+
+function generateMathQuestion(userObj) {
+  //Check difficulty and set parameters
+  //Loop 3 times (for loop / do..while)
+  // Generate operand (+/-)
+  // Generate number 1
+  // Generate number 2
+  // If addition: set numbers to object
+  // If subtraction: set bigger number to obj1 and other to obj2
+  // Set answer in obj & push to choices array
+  // If chocies array.length < 4 -> generate other choice and push to array
+}

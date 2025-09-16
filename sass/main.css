@@ -464,6 +464,59 @@ label {
   background-color: #a884f0;
 }
 
+.math-question {
+  height: 505px;
+  width: 300px;
+  background-color: #fff;
+  border-radius: 20px;
+  border: none;
+  padding: 40px 20px;
+  transform: translateY(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+}
+.math-question__equation {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 20px;
+  border-bottom: 5px solid #000;
+  width: 100%;
+}
+.math-question__numbers {
+  text-align: right;
+}
+.math-question__answers-block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 6px;
+}
+.math-question__answer {
+  width: 120px;
+  height: 50px;
+  border: 1px solid #aeaeae;
+  border-radius: 20px;
+  background-color: #ebebeb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9px 0px;
+}
+.math-question__answer:has(input:checked) {
+  background-color: #d6c2ff;
+  border: 4px solid #a884f0;
+}
+.math-question__answer:has(input.correct) {
+  background-color: #a4e4a7;
+  border: 2px solid #4caf50;
+}
+.math-question__answer:has(input.wrong) {
+  background-color: #e48585;
+  border: 2px solid #ba0000;
+}
+
 .hero {
   width: 100%;
   height: 740px;
@@ -686,59 +739,6 @@ label {
 }
 .learn__success-container--pokeball {
   width: 185px;
-}
-
-.math-question {
-  height: 505px;
-  width: 300px;
-  background-color: #fff;
-  border-radius: 20px;
-  border: none;
-  padding: 40px 20px;
-  transform: translateY(10px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 35px;
-}
-.math-question__equation {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 20px;
-  border-bottom: 5px solid #000;
-  width: 100%;
-}
-.math-question__numbers {
-  text-align: right;
-}
-.math-question__answers-block {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px 6px;
-}
-.math-question__answer {
-  width: 120px;
-  height: 50px;
-  border: 1px solid #aeaeae;
-  border-radius: 20px;
-  background-color: #ebebeb;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 9px 0px;
-}
-.math-question__answer:has(input:checked) {
-  background-color: #d6c2ff;
-  border: 4px solid #a884f0;
-}
-.math-question__answer:has(input.correct) {
-  background-color: #a4e4a7;
-  border: 2px solid #4caf50;
-}
-.math-question__answer:has(input.wrong) {
-  background-color: #e48585;
-  border: 2px solid #ba0000;
 }
 
 .navigation {
