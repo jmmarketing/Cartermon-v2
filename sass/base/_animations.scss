@@ -35,3 +35,12 @@
     transform: scale(1) rotate(0deg);
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

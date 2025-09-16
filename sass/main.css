@@ -133,6 +133,14 @@ body {
     transform: scale(1) rotate(0deg);
   }
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .error {
   border: 3px solid #ba0000 !important;
 }
@@ -626,6 +634,9 @@ label {
   gap: 25px;
   width: 100%;
 }
+.learn__math-container--questions {
+  animation: fadeIn 0.5s ease;
+}
 .learn__math-quiz {
   display: flex;
   gap: 22px;
@@ -660,6 +671,7 @@ label {
 }
 .learn__button.inactive:hover {
   box-shadow: none;
+  color: #000;
   border: 3px solid #000;
 }
 .learn__success-container {
@@ -670,6 +682,7 @@ label {
   gap: 60px;
   height: 505px;
   width: 100%;
+  animation: fadeIn 0.5s ease;
 }
 .learn__success-container--pokeball {
   width: 185px;

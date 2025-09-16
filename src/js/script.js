@@ -71,15 +71,15 @@ On Submit-
 
 */
 
-submitBtn.addEventListener("click", function () {
+submitBtn.addEventListener("click", checkAnswers);
+
+function checkAnswers() {
   allRadioAnswers.forEach((input) => {
     let isCorrect;
-
     input.classList.remove("wrong");
 
     if (input.checked) {
       isCorrect = mathQuestionObj[input.name].answer === +input.value;
-      console.log(`Correct: ${isCorrect}`);
       input.checked = false;
 
       if (isCorrect) {
@@ -91,10 +91,25 @@ submitBtn.addEventListener("click", function () {
       }
 
       console.log(userAnswers);
+      updateMessage();
+      showSuccess();
     }
   });
-});
+}
 
-function updateMessage() {}
-function clearChecked() {}
-function showSuccess() {}
+function updateMessage() {
+  messageBar.innerText = `You have ${userAnswers.correct} correct. Try Again.`;
+}
+// function clearChecked() {}
+function showSuccess() {
+  if (userAnswers.correct === 3) {
+    submitBtn.classList.add("inactive");
+    questionsContainer.classList.add("hide");
+    successContainer.classList.remove("hide");
+
+    messageBar.innerText = `You earned a Pokeball!`;
+
+    //Going to need logic fo handling upading user state passed back to controller.
+  }
+}
+function resetMath() {}
