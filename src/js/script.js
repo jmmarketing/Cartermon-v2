@@ -16,7 +16,7 @@ let mathQuestionObj = {
     top: 117,
     bottom: 117,
     answer: 234,
-    choices: [27, 7, 25, 24],
+    choices: [234, 7, 25, 24],
   },
   q2: {
     operand: "+",
@@ -34,6 +34,9 @@ let mathQuestionObj = {
   },
 };
 
+let userAnswers = {
+  correct: 0,
+};
 /*
 -Generate Math Questions = 
 {
@@ -69,25 +72,29 @@ On Submit-
 */
 
 submitBtn.addEventListener("click", function () {
-  //   const answerData = new FormData(mathForm);
-  //   console.log("Getting Answers");
-  //   console.log(answerData);
-
-  //   for (const value of answerData.values()) {
-  //     console.log(value);
-  //   }
-
   allRadioAnswers.forEach((input) => {
+    let isCorrect;
+
+    input.classList.remove("wrong");
+
     if (input.checked) {
-      console.log("Input Is:");
-      console.dir(input);
+      isCorrect = mathQuestionObj[input.name].answer === +input.value;
+      console.log(`Correct: ${isCorrect}`);
+      input.checked = false;
 
-      console.log("Is selected answer for:" + input.name);
-      console.log("Has ID of: " + input.id);
-      console.log("Value Is: " + input.value);
+      if (isCorrect) {
+        input.classList.add("correct");
+        userAnswers.correct++;
+        document.querySelector(`#${input.name}`).disabled = true;
+      } else {
+        input.classList.add("wrong");
+      }
 
-      console.log("Is Selected: " + input.checked);
-      console.log("#--#---#---#----#----#---#");
+      console.log(userAnswers);
     }
   });
 });
+
+function updateMessage() {}
+function clearChecked() {}
+function showSuccess() {}
