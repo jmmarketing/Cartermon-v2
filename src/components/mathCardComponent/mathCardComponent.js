@@ -1,13 +1,16 @@
+/**
+ *
+ * @param {*} mathObj - Matth Question Object with 3 questions
+ * @returns - A compiled set of Math Question Cards
+ */
 export const mathCardComponent = (mathObj) => {
-  const { q1, q2, q3 } = mathObj;
-
   const questionsArray = [];
 
   for (const key of Object.keys(mathObj)) {
     console.log(`${key}:`);
-    console.log(obj[key]);
+    console.log(mathObj[key]);
 
-    const { qnumber, operand, top, bottom, choices } = obj[key];
+    const { qnumber, operand, top, bottom, choices } = mathObj[key];
 
     const html = `
     <fieldset class="math-question" id="${key}">

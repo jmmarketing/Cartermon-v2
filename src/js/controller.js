@@ -18,7 +18,7 @@ const testData = {
   caught: [],
 
   pokeballs: 17,
-  answers: 0,
+  answers: 34,
 };
 // #########################
 // #### ROUTER / PAGE ######
@@ -48,7 +48,7 @@ export async function showSignup() {
   try {
     document.body.className = "signup";
 
-    await signupView.render(model.gameModel.player);
+    await signupView.render(model.gameModel);
     signupView._initSignUpBehavior();
   } catch (error) {
     console.error(`Failed to load page: ${error}`);

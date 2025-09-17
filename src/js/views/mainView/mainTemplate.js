@@ -5,7 +5,7 @@ import { gamePlayCardComponent } from "../../../components/gamePlayCardComponent
 export const mainTemplate = (gameModel) => {
   const { player } = gameModel;
   return `
-  ${navbarComponent(player)}
+  ${navbarComponent(gameModel)}
   <main>
       <section class="main-screen">
       ${playerCardComponent(player, { cardSize: "main" })}

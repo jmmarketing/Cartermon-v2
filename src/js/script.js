@@ -1,4 +1,5 @@
-import { mathCardComponent } from "../components/mathCardComponent/mathCardComponent.js";
+import { learnTemplate } from "./views/learnView/learnTemplate.js";
+import * as model from "./model.js";
 
 const questionsContainer = document.querySelector(
   ".learn__math-container--questions"
@@ -11,6 +12,8 @@ const mathForm = document.querySelector(".learn__math-quiz");
 const allRadioAnswers = document.querySelectorAll("input");
 
 const successContainer = document.querySelector(".learn__success-container");
+
+const container = document.querySelector("body");
 
 let mathQuestionObj = {
   q1: {
@@ -75,6 +78,7 @@ On Submit-
 - If any incorrect. 
 
 */
+render(model.gameModel, mathQuestionObj);
 
 submitBtn.addEventListener("click", checkAnswers);
 
@@ -142,4 +146,6 @@ function generateMathQuestion(userObj) {
   }
 }
 
-function render() {}
+function render(gameModel, mathObj) {
+  container.innerHTML = learnTemplate(gameModel, mathObj);
+}

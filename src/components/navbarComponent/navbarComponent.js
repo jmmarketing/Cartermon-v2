@@ -5,7 +5,8 @@ import { imgAssets, avatars } from "../../../assets/game-assets.js";
  * @param {*} data - Active player object
  * @returns
  */
-export const navbarComponent = (data = {}) => {
+export const navbarComponent = (gameModel = {}) => {
+  const data = gameModel.player;
   let avatarLink = "";
 
   console.log("navBarComponent compiling.....");
