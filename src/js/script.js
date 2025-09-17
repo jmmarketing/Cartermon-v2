@@ -1,3 +1,5 @@
+import { mathCardComponent } from "../components/mathCardComponent/mathCardComponent.js";
+
 const questionsContainer = document.querySelector(
   ".learn__math-container--questions"
 );
@@ -12,6 +14,7 @@ const successContainer = document.querySelector(".learn__success-container");
 
 let mathQuestionObj = {
   q1: {
+    qnumber: 1,
     operand: "+",
     top: 117,
     bottom: 117,
@@ -19,6 +22,7 @@ let mathQuestionObj = {
     choices: [234, 7, 25, 24],
   },
   q2: {
+    qnumber: 2,
     operand: "+",
     top: 17,
     bottom: 10,
@@ -26,6 +30,7 @@ let mathQuestionObj = {
     choices: [7, 27, 11, 22],
   },
   q3: {
+    qnumber: 3,
     operand: "-",
     top: 117,
     bottom: 100,
@@ -124,4 +129,17 @@ function generateMathQuestion(userObj) {
   // If subtraction: set bigger number to obj1 and other to obj2
   // Set answer in obj & push to choices array
   // If chocies array.length < 4 -> generate other choice and push to array
+
+  // Easy -> Max = 20. Second number max -> Max - first number
+  // Medium -> max = 99. Second number max -> max - first number
+  // Hard -> max = 999. Second number max -> max - first number
+
+  let questionNumber = 1;
+  while (questionNumber <= 3) {
+    questionNumber++;
+
+    /* Code */
+  }
 }
+
+function render() {}
