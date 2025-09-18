@@ -1,20 +1,6 @@
 import { learnTemplate } from "./views/learnView/learnTemplate.js";
 import * as model from "./model.js";
 
-const questionsContainer = document.querySelector(
-  ".learn__math-container--questions"
-);
-const messageBar = document.querySelector(".learn__title p");
-const submitBtn = document.querySelector(".learn__button--check");
-const playAgainBtn = document.querySelector(".learn__button--play-again");
-const allQuestionContainers = document.querySelectorAll(".math-question");
-const mathForm = document.querySelector(".learn__math-quiz");
-const allRadioAnswers = document.querySelectorAll("input");
-
-const successContainer = document.querySelector(".learn__success-container");
-
-const container = document.querySelector("body");
-
 let mathQuestionObj = {
   q1: {
     qnumber: 1,
@@ -78,7 +64,21 @@ On Submit-
 - If any incorrect. 
 
 */
+const container = document.querySelector("body");
+
 render(model.gameModel, mathQuestionObj);
+
+const questionsContainer = document.querySelector(
+  ".learn__math-container--questions"
+);
+const messageBar = document.querySelector(".learn__title p");
+const submitBtn = document.querySelector(".learn__button--check");
+const playAgainBtn = document.querySelector(".learn__button--play-again");
+const allQuestionContainers = document.querySelectorAll(".math-question");
+const mathForm = document.querySelector(".learn__math-quiz");
+const allRadioAnswers = document.querySelectorAll("input");
+
+const successContainer = document.querySelector(".learn__success-container");
 
 submitBtn.addEventListener("click", checkAnswers);
 
@@ -138,14 +138,77 @@ function generateMathQuestion(userObj) {
   // Medium -> max = 99. Second number max -> max - first number
   // Hard -> max = 999. Second number max -> max - first number
 
+  const mathQuestions = {
+    q1: {},
+    q2: {},
+    q3: {},
+  };
+
+  let maxNumber;
+  switch (userObj.difficulty) {
+    case "easy":
+      maxNumber = 20;
+    case "normal":
+      maxNumber = 99;
+    case "hard":
+      maxNumber = 999;
+    default:
+      maxNumber = 99;
+  }
+
   let questionNumber = 1;
   while (questionNumber <= 3) {
-    questionNumber++;
+    const qReference = mathQuestions[`q${questionNumber}`];
 
-    /* Code */
+    const operand = ["+", "-"][Math.round(Math.random())];
+    const numberOne = Math.floor(Math.random() * maxNumber);
+    const numberTwo = Math.floor(Math.random() * (maxNumber - numberOne));
+    const choices = [];
+
+    qReference.qnumber = questionNumber;
+    qReference.operand = operand;
+
+    if (operand == "+") {
+      qReference.top = numberOne;
+      qReference.bottom = numberTwo;
+      qReference.answer = eval(`${numberOne} + ${numberTwo}`);
+      choices.push(qReference.answer);
+    }
+
+    if (operand == "-") {
+      qReference.top = Math.max(numberOne.numberTwo);
+      qReference.bottom = Math.min(numberOne.numberTwo);
+      qReference.answer = eval(`${qReference.top} - ${qReference.bottom}`);
+      choices.push(qReference.answer);
+    }
+
+    for (let i = 0; i < 3; i++) {
+      const operation = ["+", "-"][Math.round(Math.random())];
+      const numDif = Math.round(Math.random() * 10);
+      const choice = eval(`${qReference.answer} ${operation} ${numDif}`);
+
+      choices.push(choice);
+    }
+    qReference.choices = choices.sort(); //Converting to strings?
+    questionNumber++;
   }
+
+  return mathQuestions;
 }
 
 function render(gameModel, mathObj) {
   container.innerHTML = learnTemplate(gameModel, mathObj);
 }
+
+console.log(
+  generateMathQuestion({
+    name: "jeffrey",
+    avatar: "boy3",
+    difficulty: "hard",
+    id: 637759389,
+    caught: [],
+
+    pokeballs: 17,
+    answers: 34,
+  })
+);

@@ -3,6 +3,8 @@ import homeView from "./views/homeView/homeView.js";
 import signupView from "./views/signupView/signupView.js";
 import continueView from "./views/continueView/continueView.js";
 import mainView from "./views/mainView/mainView.js";
+import learnView from "./views/learnView/learnView.js";
+
 import { MathProblemGenerator as mathServices } from "../services/MathProblemGenerator.js";
 
 import "core-js";
@@ -87,9 +89,13 @@ export async function showMain() {
     console.error(`Failed to load page: ${error}`);
   }
 }
+export async function showLearn() {
+  try {
+  } catch (error) {}
+}
 
 export async function showPokedex() {}
-export async function showLearn() {}
+
 export async function showExplore() {}
 
 // #########################

@@ -7,8 +7,8 @@ export const mathCardComponent = (mathObj) => {
   const questionsArray = [];
 
   for (const key of Object.keys(mathObj)) {
-    console.log(`${key}:`);
-    console.log(mathObj[key]);
+    // console.log(`${key}:`);
+    // console.log(mathObj[key]);
 
     const { qnumber, operand, top, bottom, choices } = mathObj[key];
 
