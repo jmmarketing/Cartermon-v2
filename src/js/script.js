@@ -4,7 +4,7 @@ import * as model from "./model.js";
 let mathQuestionObj = generateMathQuestion({
   name: "jeffrey",
   avatar: "boy3",
-  difficulty: "normal",
+  difficulty: "easy",
   id: 637759389,
   caught: [],
 
@@ -171,8 +171,10 @@ function generateMathQuestion(userObj) {
 
     for (let i = 0; i < 3; i++) {
       const operation = ["+", "-"][Math.round(Math.random())];
-      const numDif = Math.round(Math.random() * 10);
-      const choice = eval(`${qReference.answer} ${operation} ${numDif}`);
+      const numDif = Math.ceil(Math.random() * 9);
+      let choice = eval(`${qReference.answer} ${operation} ${numDif}`);
+
+      choice < 0 ? (choice *= -1) : "";
 
       choices.push(choice);
     }
