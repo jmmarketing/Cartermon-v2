@@ -1,32 +1,16 @@
 import { learnTemplate } from "./views/learnView/learnTemplate.js";
 import * as model from "./model.js";
 
-let mathQuestionObj = {
-  q1: {
-    qnumber: 1,
-    operand: "+",
-    top: 117,
-    bottom: 117,
-    answer: 234,
-    choices: [234, 7, 25, 24],
-  },
-  q2: {
-    qnumber: 2,
-    operand: "+",
-    top: 17,
-    bottom: 10,
-    answer: 27,
-    choices: [7, 27, 11, 22],
-  },
-  q3: {
-    qnumber: 3,
-    operand: "-",
-    top: 117,
-    bottom: 100,
-    answer: 17,
-    choices: [17, 183, 447, 517],
-  },
-};
+let mathQuestionObj = generateMathQuestion({
+  name: "jeffrey",
+  avatar: "boy3",
+  difficulty: "normal",
+  id: 637759389,
+  caught: [],
+
+  pokeballs: 17,
+  answers: 34,
+});
 
 let userAnswers = {
   correct: 0,
@@ -148,16 +132,19 @@ function generateMathQuestion(userObj) {
   switch (userObj.difficulty) {
     case "easy":
       maxNumber = 20;
+      break;
     case "normal":
       maxNumber = 99;
+      break;
     case "hard":
       maxNumber = 999;
+      break;
     default:
       maxNumber = 99;
   }
 
   let questionNumber = 1;
-  while (questionNumber <= 3) {
+  do {
     const qReference = mathQuestions[`q${questionNumber}`];
 
     const operand = ["+", "-"][Math.round(Math.random())];
@@ -176,8 +163,8 @@ function generateMathQuestion(userObj) {
     }
 
     if (operand == "-") {
-      qReference.top = Math.max(numberOne.numberTwo);
-      qReference.bottom = Math.min(numberOne.numberTwo);
+      qReference.top = Math.max(numberOne, numberTwo);
+      qReference.bottom = Math.min(numberOne, numberTwo);
       qReference.answer = eval(`${qReference.top} - ${qReference.bottom}`);
       choices.push(qReference.answer);
     }
@@ -191,7 +178,7 @@ function generateMathQuestion(userObj) {
     }
     qReference.choices = choices.sort(); //Converting to strings?
     questionNumber++;
-  }
+  } while (questionNumber <= 3);
 
   return mathQuestions;
 }
@@ -199,16 +186,3 @@ function generateMathQuestion(userObj) {
 function render(gameModel, mathObj) {
   container.innerHTML = learnTemplate(gameModel, mathObj);
 }
-
-console.log(
-  generateMathQuestion({
-    name: "jeffrey",
-    avatar: "boy3",
-    difficulty: "hard",
-    id: 637759389,
-    caught: [],
-
-    pokeballs: 17,
-    answers: 34,
-  })
-);
