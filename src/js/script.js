@@ -1,5 +1,6 @@
 import { learnTemplate } from "./views/learnView/learnTemplate.js";
 import * as model from "./model.js";
+import { mathCardComponent } from "../components/mathCardComponent/mathCardComponent.js";
 
 let mathQuestionObj = generateMathQuestion({
   name: "jeffrey",
@@ -49,22 +50,31 @@ On Submit-
 
 */
 const container = document.querySelector("body");
+let questionsContainer;
+let messageBar;
+let submitBtn;
+let playAgainBtn;
+let allQuestionContainers;
+let mathForm;
+let allRadioAnswers;
+let successContainer;
 
-render(model.gameModel, mathQuestionObj);
+function initiateElements() {
+  questionsContainer = document.querySelector(
+    ".learn__math-container--questions"
+  );
+  messageBar = document.querySelector(".learn__title p");
+  submitBtn = document.querySelector(".learn__button--check");
+  playAgainBtn = document.querySelector(".learn__button--play-again");
+  allQuestionContainers = document.querySelectorAll(".math-question");
+  mathForm = document.querySelector(".learn__math-quiz");
+  allRadioAnswers = document.querySelectorAll("input");
 
-const questionsContainer = document.querySelector(
-  ".learn__math-container--questions"
-);
-const messageBar = document.querySelector(".learn__title p");
-const submitBtn = document.querySelector(".learn__button--check");
-const playAgainBtn = document.querySelector(".learn__button--play-again");
-const allQuestionContainers = document.querySelectorAll(".math-question");
-const mathForm = document.querySelector(".learn__math-quiz");
-const allRadioAnswers = document.querySelectorAll("input");
+  successContainer = document.querySelector(".learn__success-container");
 
-const successContainer = document.querySelector(".learn__success-container");
-
-submitBtn.addEventListener("click", checkAnswers);
+  submitBtn.addEventListener("click", checkAnswers);
+  playAgainBtn.addEventListener("click", resetMath);
+}
 
 function checkAnswers() {
   allRadioAnswers.forEach((input) => {
@@ -105,7 +115,31 @@ function showSuccess() {
     //Going to need logic fo handling upading user state passed back to controller.
   }
 }
-function resetMath() {}
+function resetMath() {
+  mathForm.innerHTML = "";
+
+  mathForm.innerHTML = mathCardComponent(
+    generateMathQuestion({
+      name: "jeffrey",
+      avatar: "boy3",
+      difficulty: "easy",
+      id: 637759389,
+      caught: [],
+
+      pokeballs: 17,
+      answers: 34,
+    })
+  );
+
+  initiateElements();
+
+  successContainer.classList.add("hide");
+  questionsContainer.classList.remove("hide");
+  submitBtn.classList.remove("inactive");
+
+  userAnswers.correct = 0;
+  messageBar.innerText = "Get all 3 correct to earn a Pokeball.";
+}
 
 function generateMathQuestion(userObj) {
   //Check difficulty and set parameters
@@ -187,4 +221,7 @@ function generateMathQuestion(userObj) {
 
 function render(gameModel, mathObj) {
   container.innerHTML = learnTemplate(gameModel, mathObj);
+  initiateElements();
 }
+
+render(model.gameModel, mathQuestionObj);

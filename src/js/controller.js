@@ -5,23 +5,23 @@ import continueView from "./views/continueView/continueView.js";
 import mainView from "./views/mainView/mainView.js";
 import learnView from "./views/learnView/learnView.js";
 
-import { MathProblemGenerator as mathServices } from "../services/MathProblemGenerator.js";
+import { generateMathQuestion } from "../services/MathProblemGenerator.js";
 
 import "core-js";
 import "regenerator-runtime/runtime";
 
 import * as model from "./model.js";
 
-const testData = {
-  name: "jeffrey",
-  avatar: "boy3",
-  difficulty: "hard",
-  id: 637759389,
-  caught: [],
+// const testData = {
+//   name: "jeffrey",
+//   avatar: "boy3",
+//   difficulty: "hard",
+//   id: 637759389,
+//   caught: [],
 
-  pokeballs: 17,
-  answers: 34,
-};
+//   pokeballs: 17,
+//   answers: 34,
+// };
 // #########################
 // #### ROUTER / PAGE ######
 // #########################
@@ -89,9 +89,17 @@ export async function showMain() {
     console.error(`Failed to load page: ${error}`);
   }
 }
+
 export async function showLearn() {
+  const mathQuestions = generateMathQuestion(model.gameModel.player);
   try {
-  } catch (error) {}
+    document.body.className = "math-game";
+    console.log(model.gameModel);
+    await learnView.render(model.gameModel, mathQuestions);
+  } catch (error) {
+    console.log(error);
+    console.error(`Failed to load page: ${error}`);
+  }
 }
 
 export async function showPokedex() {}
@@ -135,6 +143,8 @@ function setupGlobalNavigation() {
     }
   });
 }
+
+export function handlePlayMathAgain() {}
 
 function init() {
   router.init();

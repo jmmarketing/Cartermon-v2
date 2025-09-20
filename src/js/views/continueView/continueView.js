@@ -26,7 +26,7 @@ class ContiueView {
 
   render(gameData) {
     const players = gameData.allPlayers;
-    const nav = navbarComponent();
+    const nav = navbarComponent(gameData);
 
     this.container.innerHTML = nav + continueTemplate(players);
   }

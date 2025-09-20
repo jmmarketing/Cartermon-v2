@@ -10,6 +10,8 @@ export const navbarComponent = (gameModel = {}) => {
   let avatarLink = "";
 
   console.log("navBarComponent compiling.....");
+  console.log(gameModel);
+  console.log(data);
 
   if (data.avatar) {
     avatarLink = `

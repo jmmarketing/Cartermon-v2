@@ -2,21 +2,23 @@
 
 export const gameModel = {
   player: {
-    // name: null,
-    // avatar: "",
-    // difficulty: "",
-    // id: "",
-    // pokeballs: 3,
-    // answers: 0,
-    // caught: [],
-    name: "jeffrey",
-    avatar: "boy3",
-    difficulty: "hard",
-    id: 637759389,
+    name: null,
+    avatar: "",
+    difficulty: "",
+    id: "",
+    pokeballs: 3,
+    answers: 0,
     caught: [],
 
-    pokeballs: 17,
-    answers: 34,
+    //TEST DATA
+    // name: "jeffrey",
+    // avatar: "boy3",
+    // difficulty: "hard",
+    // id: 637759389,
+    // caught: [],
+
+    // pokeballs: 17,
+    // answers: 34,
   },
   pokemon: [],
   allPlayers: [],

@@ -21,6 +21,80 @@
 
 */
 
-class MathProblemsServices {}
+export function generateMathQuestion(userObj) {
+  //Check difficulty and set parameters
+  //Loop 3 times (for loop / do..while)
+  // Generate operand (+/-)
+  // Generate number 1
+  // Generate number 2
+  // If addition: set numbers to object
+  // If subtraction: set bigger number to obj1 and other to obj2
+  // Set answer in obj & push to choices array
+  // If chocies array.length < 4 -> generate other choice and push to array
 
-export default new MathProblemsServices();
+  // Easy -> Max = 20. Second number max -> Max - first number
+  // Medium -> max = 99. Second number max -> max - first number
+  // Hard -> max = 999. Second number max -> max - first number
+
+  const mathQuestions = {
+    q1: {},
+    q2: {},
+    q3: {},
+  };
+
+  let maxNumber;
+  switch (userObj.difficulty) {
+    case "easy":
+      maxNumber = 20;
+      break;
+    case "normal":
+      maxNumber = 99;
+      break;
+    case "hard":
+      maxNumber = 999;
+      break;
+    default:
+      maxNumber = 99;
+  }
+
+  let questionNumber = 1;
+  do {
+    const qReference = mathQuestions[`q${questionNumber}`];
+
+    const operand = ["+", "-"][Math.round(Math.random())];
+    const numberOne = Math.floor(Math.random() * maxNumber);
+    const numberTwo = Math.floor(Math.random() * (maxNumber - numberOne));
+    const choices = [];
+
+    qReference.qnumber = questionNumber;
+    qReference.operand = operand;
+
+    if (operand == "+") {
+      qReference.top = numberOne;
+      qReference.bottom = numberTwo;
+      qReference.answer = eval(`${numberOne} + ${numberTwo}`);
+      choices.push(qReference.answer);
+    }
+
+    if (operand == "-") {
+      qReference.top = Math.max(numberOne, numberTwo);
+      qReference.bottom = Math.min(numberOne, numberTwo);
+      qReference.answer = eval(`${qReference.top} - ${qReference.bottom}`);
+      choices.push(qReference.answer);
+    }
+
+    for (let i = 0; i < 3; i++) {
+      const operation = ["+", "-"][Math.round(Math.random())];
+      const numDif = Math.ceil(Math.random() * 9);
+      let choice = eval(`${qReference.answer} ${operation} ${numDif}`);
+
+      choice < 0 ? (choice *= -1) : "";
+
+      choices.push(choice);
+    }
+    qReference.choices = choices.sort(); //Converting to strings?
+    questionNumber++;
+  } while (questionNumber <= 3);
+
+  return mathQuestions;
+}
