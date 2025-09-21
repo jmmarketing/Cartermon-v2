@@ -102,6 +102,7 @@ export async function showLearn() {
     document.body.className = "math-game";
     console.log(model.gameModel);
     await learnView.render(model.gameModel, mathQuestions);
+    learnView._initiateElements();
   } catch (error) {
     console.log(error);
     console.error(`Failed to load page: ${error}`);

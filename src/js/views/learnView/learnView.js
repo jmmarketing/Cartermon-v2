@@ -40,12 +40,13 @@ class LearnView {
   }
 
   _checkAnswers() {
+    console.log("BUTTON CLICK!");
     this._allRadioAnswers.forEach((input) => {
       let isCorrect;
       input.classList.remove("wrong");
 
       if (input.checked) {
-        isCorrect = mathQuestionObj[input.name].answer === +input.value;
+        isCorrect = this._mathQuestionObj[input.name].answer === +input.value;
         input.checked = false;
 
         if (isCorrect) {
@@ -56,7 +57,7 @@ class LearnView {
           input.classList.add("wrong");
         }
 
-        console.log(userAnswers);
+        console.log(this._userAnswers);
         this._updateMessage();
         this._showSuccess();
       }
@@ -116,6 +117,7 @@ class LearnView {
   render(gameModel, mathObj) {
     console.log("Rendering LEARN.. gameModel passed =");
     console.log(gameModel);
+    this._mathQuestionObj = mathObj;
     this._container.innerHTML = learnTemplate(gameModel, mathObj);
   }
 }
