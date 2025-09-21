@@ -32,9 +32,11 @@ export async function showHome() {
   try {
     document.body.className = "home-page";
     await homeView.render();
-    model._loadPokemonAndAllPlayersFromLS();
-    console.log("Local Storage Compiled & Loaded into gameModel: ");
-    console.log(model.gameModel);
+
+    //Pulls LS players
+    // model._loadPokemonAndAllPlayersFromLS();
+    // console.log("Local Storage Compiled & Loaded into gameModel: ");
+    // console.log(model.gameModel);
 
     // console.log("-------------");
     // model._updateAllPlayersData(testData);
@@ -81,6 +83,8 @@ export async function showContinue() {
 }
 
 export async function showMain() {
+  console.log("showMain -> Current gameModel:");
+  console.log(model.gameModel);
   try {
     document.body.className = "main";
 
@@ -92,6 +96,8 @@ export async function showMain() {
 
 export async function showLearn() {
   const mathQuestions = generateMathQuestion(model.gameModel.player);
+  console.log("showLearn -> Current gameModel:");
+  console.log(model.gameModel);
   try {
     document.body.className = "math-game";
     console.log(model.gameModel);

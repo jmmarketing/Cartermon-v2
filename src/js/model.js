@@ -27,6 +27,8 @@ export const gameModel = {
 //Basic Update of Player values (Might need updates, could be too simple)
 export function _updateActivePlayer(userObj) {
   // const { name, avatar, difficulty, id, caught, pokeballs, answers } = data;
+  console.log("_updateActivePlayer, userObj passed:");
+  console.log(userObj);
 
   gameModel.player = userObj;
 

@@ -13,8 +13,8 @@ export const playerCardComponent = (
   const { cardSize } = config;
 
   console.log("playerCardComponent compiling...");
-  console.log(cardSize);
-  console.log(cardSize === "main");
+  // console.log(cardSize);
+  // console.log(cardSize === "main");
 
   // if (cardSize != "main" || cardSize != "mini") cardSize = "mini";
 
@@ -55,7 +55,7 @@ export const playerCardComponent = (
     
     `;
 
-  console.log(cardSize);
+  // console.log(cardSize);
 
   const template = `
     <div class="player-card player-card--${cardSize}" data-id="${

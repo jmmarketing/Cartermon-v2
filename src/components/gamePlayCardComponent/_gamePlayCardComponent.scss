@@ -45,6 +45,7 @@
     position: absolute;
     bottom: 35px;
     transition: all 0.3s ease;
+    cursor: pointer;
 
     &:hover {
       border-radius: $radius-full;

@@ -11,7 +11,7 @@ class ContiueView {
 
   _initContinueBehavior() {
     this._playerCards = document.querySelectorAll(".player-card");
-    console.log(this._playerCards);
+    // console.log(this._playerCards);
 
     this._playerCards.forEach((element) =>
       element.addEventListener("click", this._getAndSendPlayerID)

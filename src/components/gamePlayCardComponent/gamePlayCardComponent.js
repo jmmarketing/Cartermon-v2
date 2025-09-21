@@ -47,7 +47,7 @@ export const gamePlayCardComponent = (type) => {
               ${configSettings[type].text}
         </p>
         <a
-              href="${configSettings[type].url}"
+              data-nav="${configSettings[type].url}" 
               class="play-information stat-${configSettings[type].color} gameplay-card__nav"
               >${configSettings[type].cta} >
         </a>
