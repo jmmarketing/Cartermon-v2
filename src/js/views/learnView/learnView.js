@@ -7,6 +7,8 @@ class LearnView {
   _userAnswers = {
     correct: 0,
   };
+  _currentPlayer;
+
   _questionsContainer;
   _messageBar;
   _submitBtn;
@@ -34,13 +36,16 @@ class LearnView {
       ".learn__success-container"
     );
 
+    //Handles updating UI to show gameModel Stats without a full model call.
+    this._pokeCount = document.querySelector("#pokeball-count");
+    this._answerCount = document.querySelector("#math-answers");
+
     //Apply Event Listeners
     this._submitBtn.addEventListener("click", this._checkAnswers.bind(this));
     this._playAgainBtn.addEventListener("click", this._resetMath.bind(this));
   }
 
   _checkAnswers() {
-    console.log("BUTTON CLICK!");
     this._allRadioAnswers.forEach((input) => {
       let isCorrect;
       input.classList.remove("wrong");
@@ -52,7 +57,11 @@ class LearnView {
         if (isCorrect) {
           input.classList.add("correct");
           this._userAnswers.correct++;
+          this._currentPlayer.answers++;
+          this._answerCount.innerText = `${this._currentPlayer.answers}`;
           document.querySelector(`#${input.name}`).disabled = true;
+
+          controller.updatePlayerDetails(this._currentPlayer);
         } else {
           input.classList.add("wrong");
         }
@@ -75,7 +84,14 @@ class LearnView {
       this._submitBtn.classList.add("inactive");
       this._questionsContainer.classList.add("hide");
       this._successContainer.classList.remove("hide");
+      this._currentPlayer.pokeballs++;
 
+      this._pokeCount.innerText = `X ${this._currentPlayer.pokeballs}`;
+
+      controller.updatePlayerDetails(this._currentPlayer);
+
+      // console.log(this._currentPlayer);
+      this._resetAnswerCount();
       this._updateMessage(`You earned a Pokeball!`);
 
       // #############################
@@ -91,17 +107,8 @@ class LearnView {
   _resetMath() {
     this._mathForm.innerHTML = "";
 
-    const html = mathCardComponent({
-      //Place holder object
-      name: "jeffrey",
-      avatar: "boy3",
-      difficulty: "easy",
-      id: 637759389,
-      caught: [],
-
-      pokeballs: 17,
-      answers: 34,
-    });
+    this._mathQuestionObj = controller.getNewMathQuestions();
+    const html = mathCardComponent(this._mathQuestionObj);
     this._mathForm.innerHTML = html;
 
     this._initiateElements();
@@ -110,7 +117,6 @@ class LearnView {
     this._questionsContainer.classList.remove("hide");
     this._submitBtn.classList.remove("inactive");
 
-    this._resetAnswerCount();
     this._updateMessage("Get all 3 correct to earn a Pokeball.");
   }
 
@@ -118,7 +124,9 @@ class LearnView {
     console.log("Rendering LEARN.. gameModel passed =");
     console.log(gameModel);
     this._mathQuestionObj = mathObj;
+    this._currentPlayer = gameModel.player;
     this._container.innerHTML = learnTemplate(gameModel, mathObj);
+    this._resetAnswerCount();
   }
 }
 

@@ -28,7 +28,7 @@ export const playerCardComponent = (
         </div>
         <p class="user-name">${playerData.name}</p>
         <div class="player-card__info-title">
-              <p class="play-information">
+              
                 <span
                   ><img
                     src="${icons.pixelPokeball}"
@@ -36,8 +36,10 @@ export const playerCardComponent = (
                     class="player-card__info-title--img"
                   />
                 </span>
-                X ${playerData.pokeballs}
-              </p>
+                <p class="play-information" id="pokeball-count">X ${
+                  playerData.pokeballs
+                }</p>
+              
         </div>
     
     `;
@@ -51,7 +53,7 @@ export const playerCardComponent = (
     <div class="player-card__info-title">
         <p class="user-title">Math Questions</p>
     </div>
-    <p class="rowdie-stat stat-purple">${playerData.answers}</p>
+    <p class="rowdie-stat stat-purple" id="math-answers">${playerData.answers}</p>
     
     `;
 

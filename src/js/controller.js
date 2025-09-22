@@ -136,6 +136,21 @@ export function handleContinuePlay(id) {
   router.navigateTo("/main");
 }
 
+export function getGameModel() {
+  return model.gameModel;
+}
+
+export function updatePlayerDetails(playerObj) {
+  model._updateActivePlayer(playerObj);
+  model._updateAllPlayersData(playerObj);
+}
+
+export function getNewMathQuestions() {
+  // This probably could be handled in the learView, but since it requires passing in the gameModel I want to keep it in the controller & avoid storing/mutating the gameModel in the view.
+  const newQuestions = generateMathQuestion(model.gameModel.player);
+  return newQuestions;
+}
+
 function setupGlobalNavigation() {
   document.addEventListener("click", (e) => {
     if (
@@ -150,8 +165,6 @@ function setupGlobalNavigation() {
     }
   });
 }
-
-export function handlePlayMathAgain() {}
 
 function init() {
   router.init();

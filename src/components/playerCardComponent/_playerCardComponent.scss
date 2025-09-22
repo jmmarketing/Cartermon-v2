@@ -57,7 +57,7 @@
 
   &__info-title {
     display: inline-flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 
     width: 100%;
@@ -69,6 +69,7 @@
     &--img {
       width: 30px;
       vertical-align: middle;
+      margin-right: 10px;
     }
   }
 }
