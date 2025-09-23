@@ -11,56 +11,24 @@
     flex-wrap: wrap;
     gap: 22px;
 
-    &--info-bar {
-      display: flex;
-      gap: 25px;
-      width: 100%;
-    }
+    // &--info-bar {
+    //   display: flex;
+    //   gap: 25px;
+    //   width: 100%;
+    // }
 
     &--questions {
       animation: fadeIn 0.5s ease;
     }
   }
 
+  &__button {
+    @include yellowLearnButton;
+  }
+
   &__math-quiz {
     display: flex;
     gap: 22px;
-  }
-
-  &__title {
-    @include labelTitleStyling;
-    width: 615px;
-    text-align: center;
-  }
-
-  &__button {
-    width: 295px;
-    height: 50px;
-
-    background-color: $color-yellow;
-    border-radius: $radius-24;
-    border: 3px solid $color-black;
-    transition: all 0.3s ease;
-
-    cursor: pointer;
-
-    &:hover {
-      border: 3px solid $color-white;
-      box-shadow: 0 5px 0 0 rgba($color-black, 0.45);
-      background-color: $color-green;
-      color: $color-white;
-    }
-
-    &.inactive {
-      background-color: $color-grey;
-      cursor: not-allowed;
-
-      &:hover {
-        box-shadow: none;
-        color: $color-black;
-        border: 3px solid $color-black;
-      }
-    }
   }
 
   &__success-container {

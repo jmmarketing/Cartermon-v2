@@ -26,9 +26,9 @@ class LearnView {
     this._questionsContainer = document.querySelector(
       ".learn__math-container--questions"
     );
-    this._messageBar = document.querySelector(".learn__title p");
-    this._submitBtn = document.querySelector(".learn__button--check");
-    this._playAgainBtn = document.querySelector(".learn__button--play-again");
+    this._messageBar = document.querySelector(".info-bar__title p");
+    this._submitBtn = document.querySelector("#check-answers");
+    this._playAgainBtn = document.querySelector("#play-again");
     this._allQuestionContainers = document.querySelectorAll(".math-question");
     this._mathForm = document.querySelector(".learn__math-quiz");
     this._allRadioAnswers = document.querySelectorAll("input");

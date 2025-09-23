@@ -19,11 +19,11 @@ export const learnTemplate = (gameModel, mathObj) => {
 
         <div class="learn__math-container">
           <!--Info bar-->
-          <div class="learn__math-container--info-bar">
-            <div class="learn__title">
+          <div class="info-bar">
+            <div class="info-bar__title">
               <p class="rowdie-title">Get all 3 correct to earn a Pokeball.</p>
             </div>
-            <button class="learn__button learn__button--check play-information">
+            <button class="info-bar__button--yellow play-information" id="check-answers">
               Check Answers
             </button>
           </div>
@@ -41,7 +41,7 @@ export const learnTemplate = (gameModel, mathObj) => {
               class="learn__success-container--pokeball"
             />
             <button
-              class="learn__button play-information learn__button--play-again"
+              class="learn__button play-information" id="play-again"
             >
               Play Again?
             </button>

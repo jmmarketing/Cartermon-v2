@@ -1,0 +1,18 @@
+@use "../../../essentials" as *;
+
+.info-bar {
+  display: flex;
+  gap: 25px;
+  width: 100%;
+  justify-content: space-between;
+
+  &__title {
+    @include labelTitleStyling;
+    width: fit-content;
+    text-align: center;
+  }
+
+  &__button--yellow {
+    @include yellowLearnButton;
+  }
+}

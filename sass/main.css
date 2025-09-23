@@ -519,6 +519,47 @@ label {
   border: 2px solid #ba0000;
 }
 
+.info-bar {
+  display: flex;
+  gap: 25px;
+  width: 100%;
+  justify-content: space-between;
+}
+.info-bar__title {
+  height: 50px;
+  padding: 5px 25px;
+  background-color: #fff;
+  border-radius: 24px;
+  border: 1px solid #c0c0c0;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+}
+.info-bar__button--yellow {
+  width: 295px;
+  height: 50px;
+  background-color: #ffd623;
+  border-radius: 24px;
+  border: 3px solid #000;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.info-bar__button--yellow:hover {
+  border: 3px solid #fff;
+  box-shadow: 0 5px 0 0 rgba(0, 0, 0, 0.45);
+  background-color: #4caf50;
+  color: #fff;
+}
+.info-bar__button--yellow.inactive {
+  background-color: #aeaeae;
+  cursor: not-allowed;
+}
+.info-bar__button--yellow.inactive:hover {
+  box-shadow: none;
+  color: #000;
+  border: 3px solid #000;
+}
+
 .hero {
   width: 100%;
   height: 740px;
@@ -684,26 +725,8 @@ label {
   flex-wrap: wrap;
   gap: 22px;
 }
-.learn__math-container--info-bar {
-  display: flex;
-  gap: 25px;
-  width: 100%;
-}
 .learn__math-container--questions {
   animation: fadeIn 0.5s ease;
-}
-.learn__math-quiz {
-  display: flex;
-  gap: 22px;
-}
-.learn__title {
-  height: 50px;
-  padding: 5px 25px;
-  background-color: #fff;
-  border-radius: 24px;
-  border: 1px solid #c0c0c0;
-  width: 615px;
-  text-align: center;
 }
 .learn__button {
   width: 295px;
@@ -728,6 +751,10 @@ label {
   box-shadow: none;
   color: #000;
   border: 3px solid #000;
+}
+.learn__math-quiz {
+  display: flex;
+  gap: 22px;
 }
 .learn__success-container {
   display: flex;
