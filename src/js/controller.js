@@ -52,17 +52,22 @@ export async function showSignup() {
   try {
     document.body.className = "signup";
 
+    //Renders Signuyp View
     await signupView.render(model.gameModel);
+
+    //After DOM Loaded, assigns elements and event listeners
     signupView._initSignUpBehavior();
   } catch (error) {
     console.error(`Failed to load page: ${error}`);
   }
 }
 
+//Renders the continue Page
 export async function showContinue() {
-  console.log("showContinue -> Current gameModel:");
-  console.log(model.gameModel);
-  console.log("Getting allPlayers from LocalStorage:");
+  // console.log("showContinue -> Current gameModel:");
+  // console.log(model.gameModel);
+  // console.log("Getting allPlayers from LocalStorage:");
+  // Loads data from Local Storage
   model._loadPokemonAndAllPlayersFromLS();
 
   //Check if any saved players, if not direct to /signup.
@@ -74,17 +79,19 @@ export async function showContinue() {
     document.body.className = "continue";
 
     await continueView.render(model.gameModel);
+
+    //After DOM Loaded initiate elements & event listeners
     continueView._initContinueBehavior();
-    // signupView._initSignUpBehavior();
   } catch (error) {
     console.log(error);
     console.error(`Failed to load page: ${error}`);
   }
 }
 
+// Renders the main poage
 export async function showMain() {
-  console.log("showMain -> Current gameModel:");
-  console.log(model.gameModel);
+  // console.log("showMain -> Current gameModel:");
+  // console.log(model.gameModel);
   try {
     document.body.className = "main";
 
@@ -94,16 +101,22 @@ export async function showMain() {
   }
 }
 
+//Renders the learn page
 export async function showLearn() {
+  //Generates initial questions for the learn Page
   const mathQuestions = generateMathQuestion(model.gameModel.player);
-  console.log("showLearn -> Current gameModel:");
-  console.log(model.gameModel);
+  // console.log("showLearn -> Current gameModel:");
+  // console.log(model.gameModel);
+
+  // If no player route to /continue path.
   if (!model.gameModel.player.name) router.navigateTo("/continue");
 
   try {
     document.body.className = "math-game";
-    console.log(model.gameModel);
+
     await learnView.render(model.gameModel, mathQuestions);
+
+    //After DOM Load iniate elements & event listeners
     learnView._initiateElements();
   } catch (error) {
     console.log(error);
@@ -153,6 +166,7 @@ export function getNewMathQuestions() {
   return newQuestions;
 }
 
+// Strictly for navigation from controller. Should not be used anywhere else.
 function setupGlobalNavigation() {
   document.addEventListener("click", (e) => {
     if (
