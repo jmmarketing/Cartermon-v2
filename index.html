@@ -11,8 +11,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" href="./sass/main.css" />
-    <!-- <script src="./src/js/script.js" type="module"></script> -->
-    <script src="./src/js/controller.js" type="module"></script>
+    <script src="./src/js/script.js" type="module"></script>
+    <!-- <script src="./src/js/controller.js" type="module"></script> -->
   </head>
-  <body></body>
+  <body>
+    <!--#########################-->
+    <!-----PLACE HOLDER NAV-------->
+    <!--#########################-->
+    <nav class="navigation">
+      <a href="/" data-nav="/"
+        ><img
+          class="navigation__logo"
+          src="http://localhost:1234/logo.54e03e96.webp?1758666623072"
+          alt="Cartermon Logo"
+      /></a>
+      <div class="navigation__icon-container">
+        <a href="/continue" data-nav="/continue"
+          ><img
+            class="navigation__icon"
+            src="http://localhost:1234/girl2.45cf3ca3.webp?1758666623072"
+            alt="User Avatar"
+        /></a>
+
+        <a href="/pokedex" data-nav="/pokedex"
+          ><img
+            class="navigation__icon"
+            src="http://localhost:1234/pokedex.a11503bb.png?1758666623072"
+            alt="Pokedex Icon"
+        /></a>
+        <a href="/learn" data-nav="/learn"
+          ><img
+            class="navigation__icon"
+            src="http://localhost:1234/backpack.7c0031e9.webp?1758666623072"
+            alt="Backpack Icon (Learn)"
+        /></a>
+        <a href="/explore" data-nav="/explore"
+          ><img
+            class="navigation__icon"
+            src="http://localhost:1234/pokeball.60fed957.webp?1758666623072"
+            alt="Explore Icon"
+        /></a>
+      </div>
+    </nav>
+    <!--#########################-->
+    <!-----END PLACE HOLDER -------->
+    <!--#########################-->
+
+    <main>
+      <section class="explore">
+        <!--#########################-->
+        <!-------- PLAYER CARD --------->
+        <!--#########################-->
+
+        <div class="player-card player-card--main" data-id="865296984">
+          <div class="player-card__avatar-box">
+            <img
+              class="player-card__img"
+              src="http://localhost:1234/girl2.45cf3ca3.webp?1758667064806"
+              alt="Sterling Player"
+            />
+          </div>
+          <p class="user-name">Sterling</p>
+          <div class="player-card__info-title">
+            <span
+              ><img
+                src="http://localhost:1234/8bitpokeball.3bc9a574.webp?1758667064807"
+                alt="Pokeball"
+                class="player-card__info-title--img"
+              />
+            </span>
+            <p class="play-information" id="pokeball-count">X 16</p>
+          </div>
+
+          <div class="player-card__info-title">
+            <p class="user-title">Pokemon Caught</p>
+          </div>
+          <p class="rowdie-stat stat-blue">0</p>
+
+          <div class="player-card__info-title">
+            <p class="user-title">Math Questions</p>
+          </div>
+          <p class="rowdie-stat stat-purple" id="math-answers">35</p>
+        </div>
+
+        <!--#########################-->
+        <!-------- END PLAYER CARD --------->
+        <!--#########################-->
+
+        <!-- This stays in template-->
+        <div class="explore__game-container">
+          <!-- INFO BAR -->
+          <div class="info-bar">
+            <div class="info-bar__title">
+              <p class="rowdie-title">A wild SQURTILE appeared!</p>
+            </div>
+            <button
+              class="info-bar__button--yellow play-information"
+              id="check-answers"
+            >
+              Check Answers
+            </button>
+          </div>
+          <!-- END INFO BAR -->
+
+          <div class="explore__game-container--screen">
+            <div class="explore__game-container--success"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>

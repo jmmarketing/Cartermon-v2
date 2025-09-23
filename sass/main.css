@@ -770,6 +770,14 @@ label {
   width: 185px;
 }
 
+.explore {
+  display: flex;
+  gap: 25px;
+  align-items: flex-end;
+}
+.explore__game-container {
+  width: 100%;
+}
 .navigation {
   width: 100%;
   max-width: 1220px;

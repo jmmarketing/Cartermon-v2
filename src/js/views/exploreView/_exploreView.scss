@@ -1,0 +1,19 @@
+@use "../../../../essentials" as *;
+
+.explore {
+  // Could possibly be turned into mixin (shared with learnView)
+  display: flex;
+  gap: 25px;
+
+  align-items: flex-end;
+
+  &__game-container {
+    width: 100%;
+
+    &--screen {
+    }
+
+    &--success {
+    }
+  }
+}
