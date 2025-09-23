@@ -98,6 +98,8 @@ export async function showLearn() {
   const mathQuestions = generateMathQuestion(model.gameModel.player);
   console.log("showLearn -> Current gameModel:");
   console.log(model.gameModel);
+  if (!model.gameModel.player.name) router.navigateTo("/continue");
+
   try {
     document.body.className = "math-game";
     console.log(model.gameModel);
