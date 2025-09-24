@@ -9,11 +9,45 @@
 
   &__game-container {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-20;
 
     &--screen {
+      width: 100%;
+      height: 505px;
+      background-color: $color-white;
+
+      border-radius: $radius-20;
+      border: 4px solid $color-white;
+
+      overflow: hidden;
+      position: relative;
+    }
+
+    &--pokemon {
     }
 
     &--success {
     }
+  }
+
+  &__scene {
+    width: 100%;
+    border-radius: $radius-20;
+
+    position: absolute;
+    bottom: 0;
+  }
+
+  &__character {
+    position: absolute;
+
+    width: 180px;
+
+    bottom: 35px;
+    right: 410px;
+
+    animation: pokemonBounce 7s ease infinite;
   }
 }

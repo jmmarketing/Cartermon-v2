@@ -44,3 +44,105 @@
     opacity: 1;
   }
 }
+
+@keyframes pokemonBounce {
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+
+  // Bounce right - going up
+  5% {
+    transform: translateX(25px) translateY(-15px);
+  }
+
+  // Land 100px right
+  10% {
+    transform: translateX(25px) translateY(0px);
+  }
+
+  // Flip and bounce back left
+  15% {
+    transform: translateX(50px) translateY(-15px);
+  }
+
+  // Pass starting point by 100px left
+  20% {
+    transform: translateX(50px) translateY(0px);
+  }
+
+  // Bounce back right
+  25% {
+    transform: translateX(75px) translateY(-15px);
+  }
+
+  // Flip forward and head home
+  30% {
+    transform: translateX(75px) translateY(0px);
+  }
+
+  // Return to start
+  35% {
+    transform: translateX(50px) translateY(-15px);
+  }
+
+  // Return to start
+  40% {
+    transform: translateX(50px) translateY(0px);
+  }
+
+  45% {
+    transform: translateX(25px) translateY(-15px);
+  }
+
+  50% {
+    transform: translateX(25px) translateY(0px);
+  }
+
+  55% {
+    transform: translateX(0px) translateY(-15px);
+  }
+
+  // Bounce right - going up
+  60% {
+    transform: translateX(0px) translateY(0px);
+  }
+
+  // Land 100px right
+  65% {
+    transform: translateX(-25px) translateY(-15px);
+  }
+
+  // Flip and bounce back left
+  70% {
+    transform: translateX(-25px) translateY(0px);
+  }
+
+  // Pass starting point by 100px left
+  75% {
+    transform: translateX(-50px) translateY(-15px);
+  }
+
+  // Bounce back right
+  80% {
+    transform: translateX(-50px) translateY(0px);
+  }
+
+  // Flip forward and head home
+  85% {
+    transform: translateX(-25px) translateY(-15px);
+  }
+
+  // Return to start
+  90% {
+    transform: translateX(-25px) translateY(0px);
+  }
+
+  // Return to start
+  95% {
+    transform: translateX(0px) translateY(-15px);
+  }
+
+  100% {
+    transform: translateX(0px) translateY(0px);
+  }
+}

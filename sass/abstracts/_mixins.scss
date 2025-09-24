@@ -76,7 +76,8 @@ ORDER [When refactoring for responsiveness]: Base + typography > general layout 
   width: 240px;
   background-color: $color-white;
   position: absolute;
-  bottom: -10px;
+  // bottom: -10px; needed?
+  bottom: 0px;
   border-radius: $radius-20;
   z-index: -1;
 
