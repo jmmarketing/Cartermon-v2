@@ -15,4 +15,63 @@
   &__button--yellow {
     @include yellowLearnButton;
   }
+
+  &__button--catch {
+    width: 195px;
+    height: 50px;
+
+    background-color: $color-white;
+    border-radius: $radius-24;
+    border: 3px solid $color-red;
+
+    cursor: pointer;
+
+    text-align: left;
+    padding-left: 30px;
+    padding-bottom: 4px;
+
+    position: relative;
+
+    transition: all 0.3s ease;
+
+    &::after {
+      content: "";
+      background-image: url("../assets/icons/8bitpokeball.webp");
+      background-size: cover;
+      width: 35px;
+      height: 37px;
+
+      position: absolute;
+      right: 25px;
+      bottom: 3px;
+    }
+
+    &:hover {
+      background-color: $color-red;
+      border: 3px solid $color-white;
+      color: $color-white;
+      transform: scale(1.05);
+
+      box-shadow: 0 3px 2px $color-black;
+    }
+  }
+
+  &__button--search {
+    width: 195px;
+    height: 50px;
+
+    color: $color-white;
+    background-color: $color-blue;
+    border-radius: $radius-24;
+    border: 3px solid $color-white;
+
+    padding-bottom: 4px;
+
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 3px 2px $color-black;
+    }
+  }
 }

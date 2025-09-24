@@ -624,6 +624,50 @@ label {
   color: #000;
   border: 3px solid #000;
 }
+.info-bar__button--catch {
+  width: 195px;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 24px;
+  border: 3px solid #ba0000;
+  cursor: pointer;
+  text-align: left;
+  padding-left: 30px;
+  padding-bottom: 4px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.info-bar__button--catch::after {
+  content: "";
+  background-image: url("../assets/icons/8bitpokeball.webp");
+  background-size: cover;
+  width: 35px;
+  height: 37px;
+  position: absolute;
+  right: 25px;
+  bottom: 3px;
+}
+.info-bar__button--catch:hover {
+  background-color: #ba0000;
+  border: 3px solid #fff;
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 3px 2px #000;
+}
+.info-bar__button--search {
+  width: 195px;
+  height: 50px;
+  color: #fff;
+  background-color: #3962a7;
+  border-radius: 24px;
+  border: 3px solid #fff;
+  padding-bottom: 4px;
+  cursor: pointer;
+}
+.info-bar__button--search:hover {
+  transform: scale(1.05);
+  box-shadow: 0 3px 2px #000;
+}
 
 .hero {
   width: 100%;
@@ -860,6 +904,7 @@ label {
   border-radius: 20px;
   position: absolute;
   bottom: 0;
+  opacity: 0.8;
 }
 .explore__character {
   position: absolute;
