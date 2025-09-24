@@ -16,6 +16,11 @@
     @include yellowLearnButton;
   }
 
+  &__button--home {
+    @include yellowLearnButton;
+    width: 195px;
+  }
+
   &__button--catch {
     width: 195px;
     height: 50px;
@@ -52,7 +57,27 @@
       color: $color-white;
       transform: scale(1.05);
 
-      box-shadow: 0 3px 2px $color-black;
+      box-shadow: 0 5px $color-black;
+    }
+
+    &.caught {
+      background-color: $color-red;
+      border: 3px solid $color-red;
+      color: $color-white;
+      text-align: center;
+
+      padding-left: initial;
+
+      cursor: not-allowed;
+
+      &:after {
+        display: none;
+      }
+
+      &:hover {
+        transform: scale(1);
+        box-shadow: none;
+      }
     }
   }
 
@@ -71,7 +96,7 @@
 
     &:hover {
       transform: scale(1.05);
-      box-shadow: 0 3px 2px $color-black;
+      box-shadow: 0 5px $color-black;
     }
   }
 }

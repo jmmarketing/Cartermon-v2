@@ -105,7 +105,10 @@
             <div class="info-bar__title">
               <p class="rowdie-title">A wild SQURTILE appeared!</p>
             </div>
-            <button class="info-bar__button--catch play-information" id="catch">
+            <button
+              class="info-bar__button--catch caught play-information"
+              id="catch"
+            >
               catch
             </button>
             <button
@@ -118,7 +121,7 @@
           <!-- END INFO BAR -->
 
           <div class="explore__game-container--screen">
-            <div class="explore__game-container--pokemon">
+            <div class="explore__game-container--pokemon hide">
               <img
                 src="./assets/backgrounds/bare-beach.webp"
                 class="explore__scene"
@@ -130,7 +133,26 @@
                 alt="Squirtle"
               />
             </div>
-            <div class="explore__game-container--success"></div>
+            <div class="explore__game-container--success">
+              <img src="./assets/img/pokeball.webp" alt="Pokeball" />
+              <p class="play-information">You caught a squirtle!</p>
+              <div class="explore__game-container--success-button-group">
+                <button
+                  class="info-bar__button--search play-information"
+                  id="catch"
+                >
+                  search
+                </button>
+
+                <button
+                  data-nav="/main"
+                  class="info-bar__button--home play-information"
+                  id="catch"
+                >
+                  Go Home
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
