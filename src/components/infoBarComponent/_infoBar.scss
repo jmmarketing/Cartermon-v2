@@ -79,6 +79,26 @@
         box-shadow: none;
       }
     }
+
+    &.no-balls {
+      background-color: $color-grey;
+      border: 3px solid $color-black;
+      color: $color-black;
+      text-align: center;
+
+      padding-left: initial;
+
+      cursor: not-allowed;
+
+      &:after {
+        display: none;
+      }
+
+      &:hover {
+        transform: scale(1);
+        box-shadow: none;
+      }
+    }
   }
 
   &__button--search {

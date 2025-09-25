@@ -4,6 +4,7 @@ import signupView from "./views/signupView/signupView.js";
 import continueView from "./views/continueView/continueView.js";
 import mainView from "./views/mainView/mainView.js";
 import learnView from "./views/learnView/learnView.js";
+import exploreView from "./views/exploreView/exploreView.js";
 
 import { generateMathQuestion } from "../services/MathProblemGenerator.js";
 

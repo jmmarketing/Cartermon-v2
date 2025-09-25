@@ -694,6 +694,21 @@ label {
   transform: scale(1);
   box-shadow: none;
 }
+.info-bar__button--catch.no-balls {
+  background-color: #aeaeae;
+  border: 3px solid #000;
+  color: #000;
+  text-align: center;
+  padding-left: initial;
+  cursor: not-allowed;
+}
+.info-bar__button--catch.no-balls:after {
+  display: none;
+}
+.info-bar__button--catch.no-balls:hover {
+  transform: scale(1);
+  box-shadow: none;
+}
 .info-bar__button--search {
   width: 195px;
   height: 50px;

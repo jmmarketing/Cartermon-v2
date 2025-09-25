@@ -22,6 +22,7 @@ export const gameModel = {
   },
   pokemon: [],
   allPlayers: [],
+  limit: 150,
 };
 
 //Basic Update of Player values (Might need updates, could be too simple)
