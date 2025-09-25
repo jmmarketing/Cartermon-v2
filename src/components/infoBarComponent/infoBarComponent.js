@@ -24,13 +24,13 @@ export const infoBarComponent = (config) => {
   } else {
     message = `Get all 3 correct to earn a Pokeball.`;
     buttonHTML = `
-    <button class="learn__button play-information" id="check-answers"> Check Answers</button>`;
+    <button class="info-bar__button--yellow play-information" id="check-answers">Check Answers</button>`;
   }
 
   return `
  <!--Info bar-->
     <div class="info-bar">
-        <div class="info__title">
+        <div class="info-bar__title">
             <p class="rowdie-title">${message}</p>
         </div>
        ${buttonHTML}

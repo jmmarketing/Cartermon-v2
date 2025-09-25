@@ -4,6 +4,7 @@ import { playerCardComponent } from "../../../components/playerCardComponent/pla
 
 import { navbarComponent } from "../../../components/navbarComponent/navbarComponent.js";
 import { imgAssets } from "../../../../assets/game-assets.js";
+import { infoBarComponent } from "../../../components/infoBarComponent/infoBarComponent.js";
 /**
  *
  * @param {object} gameModel - Takes gameModel Object.
@@ -18,16 +19,8 @@ export const learnTemplate = (gameModel, mathObj) => {
       ${playerCardComponent(gameModel.player, { cardSize: "main" })}
 
         <div class="learn__math-container">
-          <!--Info bar-->
-          <div class="info-bar">
-            <div class="info-bar__title">
-              <p class="rowdie-title">Get all 3 correct to earn a Pokeball.</p>
-            </div>
-            <button class="info-bar__button--yellow play-information" id="check-answers">
-              Check Answers
-            </button>
-          </div>
-          <!--END Info bar-->
+
+        ${infoBarComponent({ page: "learn" })}
 
           <div class="learn__math-container--questions">
             <form class="learn__math-quiz">

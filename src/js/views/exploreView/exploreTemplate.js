@@ -1,8 +1,4 @@
-import {
-  backgrounds,
-  imgAssets,
-  icons,
-} from "../../../../assets/game-assets.js";
+import { backgrounds, imgAssets } from "../../../../assets/game-assets.js";
 import { navbarComponent } from "../../../components/navbarComponent/navbarComponent.js";
 import { playerCardComponent } from "../../../components/playerCardComponent/playerCardComponent.js";
 import { infoBarComponent } from "../../../components/infoBarComponent/infoBarComponent.js";
@@ -11,7 +7,7 @@ export const exploreTemplate = (gameModel, pokemonObj) => {
   const bgIndex = Math.round(Math.random() * backgrounds.length);
   const scene = backgrounds[bgIndex];
 
-  const caught = gameModel.player.caught.incldues(pokemonObj.name);
+  const caught = gameModel.player.caught.includes(pokemonObj.name);
   const pokeballCount = gameModel.player.pokeballs;
 
   const {
@@ -50,8 +46,9 @@ export const exploreTemplate = (gameModel, pokemonObj) => {
                 alt="Scene Background"
               />
               <img
-                src="${spriteImg}"
+                src="${spriteGif}"
                 class="explore__character"
+                data-pokemon="${name}"
                 alt="${name}"
               />
             </div>

@@ -145,6 +145,26 @@ export function _updateAllLocalStorage() {
 
 */
 
+export async function getRandomPokemon() {
+  const pokemonId = Math.round(Math.random() * gameModel.limit);
+  console.log(pokemonId);
+
+  try {
+    const pokeRequest = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${pokemonId}`
+    );
+
+    if (!pokeRequest.ok)
+      throw new Error(`HTTP ${pokeRequest.status}: ${pokeRequest.statusText}`);
+
+    const pokemon = await pokeRequest.json();
+    return pokemon;
+  } catch (error) {
+    console.log(error);
+    console.error(error);
+  }
+}
+
 /// **** REFACTOR CATCH / SHOW HIDE
 function _searchPokemonAPI(pokemonSearched) {
   const pokeRequest = fetch(

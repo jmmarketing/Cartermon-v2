@@ -99,9 +99,20 @@ export async function showLearn() {
   }
 }
 
-export async function showPokedex() {}
+export async function showExplore() {
+  const pokemon = await model.getRandomPokemon();
+  console.log(pokemon);
 
-export async function showExplore() {}
+  try {
+    document.body.className = "explore-game";
+    await exploreView.render(model.gameModel, pokemon);
+  } catch (error) {
+    console.log(error);
+    console.error(`Failed to load page: ${error}`);
+  }
+}
+
+export async function showPokedex() {}
 
 // #########################
 // #### INTERACTIONS ######
