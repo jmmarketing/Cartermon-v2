@@ -20,7 +20,7 @@ class ContiueView {
 
   _getAndSendPlayerID() {
     const playerId = this.dataset.id;
-    console.log("This is player: " + playerId);
+    // console.log("This is player: " + playerId);
     controller.handleContinuePlay(playerId);
   }
 

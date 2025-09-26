@@ -492,7 +492,7 @@ label {
   background-color: #fff;
   border-radius: 20px;
   position: relative;
-  transform: translateY(-20px);
+  transform: translateY(-30px);
 }
 .gameplay-card--red {
   border: 3px solid #ba0000;
@@ -963,6 +963,7 @@ label {
 }
 .explore__game-container--success img {
   width: 185px;
+  animation: shake 0.5s ease infinite;
 }
 .explore__game-container--success-button-group {
   display: flex;

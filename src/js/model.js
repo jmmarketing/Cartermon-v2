@@ -28,21 +28,21 @@ export const gameModel = {
 //Basic Update of Player values (Might need updates, could be too simple)
 export function _updateActivePlayer(userObj) {
   // const { name, avatar, difficulty, id, caught, pokeballs, answers } = data;
-  console.log("_updateActivePlayer, userObj passed:");
-  console.log(userObj);
+  console.log("_updateActivePlayer, userObj passed");
+  // console.log(userObj);
 
   gameModel.player = userObj;
 
-  console.log("UPDATE! 🗃 Current Game Model:");
-  console.log(gameModel);
+  console.log("UPDATE! 🗃 Current Game Model");
+  // console.log(gameModel);
 }
 
 export function _setActivePlayer(id) {
   const playerID = +id;
   // console.log("Player ID is: " + playerID);
   // console.log("ID is a: " + typeof playerID);
-  console.log("setActivePlayer => 🗃 Current Game Model:");
-  console.log(gameModel);
+  console.log("setActivePlayer => to Current Game Model");
+  // console.log(gameModel);
 
   //Finds index of player in allPlayers
   const playerIndex = gameModel.allPlayers.findIndex(
@@ -52,8 +52,8 @@ export function _setActivePlayer(id) {
   console.log("Player Index: " + playerIndex);
   //Assigns selected player to variable
   const selectedPlayer = gameModel.allPlayers[playerIndex];
-  console.log("setActivePlayer, selectedPlayer:");
-  console.log(selectedPlayer);
+  console.log("setActivePlayer, to selectedPlayer in gameModel");
+  // console.log(selectedPlayer);
 
   // Passes selected player to update gameModel
   _updateActivePlayer(selectedPlayer);

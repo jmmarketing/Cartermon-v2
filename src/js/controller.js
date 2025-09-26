@@ -69,6 +69,8 @@ export async function showContinue() {
 
 // Renders the main poage
 export async function showMain() {
+  // If no player route to /continue path.
+  if (!model.gameModel.player.name) router.navigateTo("/continue");
   try {
     document.body.className = "main";
 
@@ -106,6 +108,7 @@ export async function showExplore() {
   try {
     document.body.className = "explore-game";
     await exploreView.render(model.gameModel, pokemon);
+    exploreView._initiateElements();
   } catch (error) {
     console.log(error);
     console.error(`Failed to load page: ${error}`);

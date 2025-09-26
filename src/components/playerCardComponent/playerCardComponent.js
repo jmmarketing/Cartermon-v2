@@ -12,7 +12,7 @@ export const playerCardComponent = (
 ) => {
   const { cardSize } = config;
 
-  console.log("playerCardComponent compiling...");
+  // console.log("playerCardComponent compiling...");
   // console.log(cardSize);
   // console.log(cardSize === "main");
 
@@ -48,7 +48,7 @@ export const playerCardComponent = (
     <div class="player-card__info-title">
       <p class="user-title">Pokemon Caught</p>
     </div>
-    <p class="rowdie-stat stat-blue">${playerData.caught.length}</p>
+    <p class="rowdie-stat stat-blue" id="caught-count">${playerData.caught.length}</p>
 
     <div class="player-card__info-title">
         <p class="user-title">Math Questions</p>
