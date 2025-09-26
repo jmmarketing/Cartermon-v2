@@ -22,7 +22,7 @@ export const gameModel = {
   },
   pokemon: [],
   allPlayers: [],
-  limit: 150,
+  limit: 5,
 };
 
 //Basic Update of Player values (Might need updates, could be too simple)
@@ -146,7 +146,7 @@ export function _updateAllLocalStorage() {
 */
 
 export async function getRandomPokemon() {
-  const pokemonId = Math.round(Math.random() * gameModel.limit);
+  const pokemonId = Math.floor(Math.random() * gameModel.limit) + 1;
   console.log(pokemonId);
 
   try {

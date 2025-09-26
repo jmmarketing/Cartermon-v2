@@ -8,7 +8,7 @@ export const infoBarComponent = (config) => {
 
   let message;
   const state = caught ? "caught" : pokeballs ? "" : "no-balls";
-  const stateMessage = caught ? "caught" : pokeballs ? "catch" : "No Pokeballs";
+  const stateMessage = caught ? "caught" : pokeballs ? "catch" : "No Balls";
   let buttonHTML;
 
   if (page === "explore") {
@@ -33,7 +33,9 @@ export const infoBarComponent = (config) => {
         <div class="info-bar__title">
             <p class="rowdie-title">${message}</p>
         </div>
+        <div class="info-bar__button-group">
        ${buttonHTML}
+        </div>
     </div>
 <!--END Info bar-->
 `;

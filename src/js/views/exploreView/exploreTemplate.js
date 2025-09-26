@@ -4,7 +4,8 @@ import { playerCardComponent } from "../../../components/playerCardComponent/pla
 import { infoBarComponent } from "../../../components/infoBarComponent/infoBarComponent.js";
 
 export const exploreTemplate = (gameModel, pokemonObj) => {
-  const bgIndex = Math.round(Math.random() * backgrounds.length);
+  const bgIndex = Math.floor(Math.random() * backgrounds.length);
+  console.log("Background Index: " + bgIndex);
   const scene = backgrounds[bgIndex];
 
   const caught = gameModel.player.caught.includes(pokemonObj.name);

@@ -46,16 +46,21 @@ export class ExploreView {
     //Catch state flag
     if (catchDisabled) return;
 
-    console.log(this._pokemon);
-    console.log(this._currentPlayer);
+    // console.log(this._pokemon);
+    // console.log(this._currentPlayer);
     this._pokemonScene.classList.add("hide");
     this._successScreen.classList.remove("hide");
 
     this._messageBar.innerText = "Good job!";
+    this._catchButton.classList.add("caught");
+    this._catchButton.innerText = "caught";
+
     this._currentPlayer.caught.push(this._pokemon);
     this._currentPlayer.pokeballs--;
 
     this._updatePlayerCard();
+
+    controller.updatePlayerDetails(this._currentPlayer);
   }
 
   _updatePlayerCard() {
