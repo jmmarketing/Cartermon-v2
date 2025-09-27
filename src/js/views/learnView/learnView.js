@@ -49,9 +49,11 @@ class LearnView {
     //Takes all input elements, loops through and checks if inpue value = answer.
     this._allRadioAnswers.forEach((input) => {
       let isCorrect;
-      input.classList.remove("wrong");
+      console.log(input);
 
+      input.classList.remove("wrong");
       if (input.checked) {
+        // input.classList.remove("wrong");
         isCorrect = this._mathQuestionObj[input.name].answer === +input.value;
         input.checked = false;
 
@@ -66,11 +68,9 @@ class LearnView {
           //Updates DOM element
           this._answerCount.innerText = `${this._currentPlayer.answers}`;
           document.querySelector(`#${input.name}`).disabled = true;
-
-          //Sends view player State to controller to update whole gameModel
-          controller.updatePlayerDetails(this._currentPlayer);
         } else {
           console.log("WRONG FIRED!");
+          console.log(input);
           input.classList.add("wrong");
         }
 
@@ -79,6 +79,9 @@ class LearnView {
         this._showSuccess();
       }
     });
+
+    //Sends view player State to controller to update whole gameModel
+    controller.updatePlayerDetails(this._currentPlayer);
   }
 
   _updateMessage(message) {
@@ -129,6 +132,8 @@ class LearnView {
     this._mathForm.innerHTML = html;
 
     //Re-iniate elements and event listeners since DOM was cleared.
+    // I think this is adding a 2second event listenr to the button, so it fires twice.
+    //This would cause the first round to work but then clear right away?
     this._initiateElements();
 
     this._successContainer.classList.add("hide");
