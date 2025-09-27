@@ -3,7 +3,7 @@ import { navbarComponent } from "../../../components/navbarComponent/navbarCompo
 import { playerCardComponent } from "../../../components/playerCardComponent/playerCardComponent.js";
 import { infoBarComponent } from "../../../components/infoBarComponent/infoBarComponent.js";
 
-export const exploreTemplate = (gameModel, pokemonObj) => {
+export const exploreTemplate = (gameModel, pokemonObj, render = "full") => {
   const bgIndex = Math.floor(Math.random() * backgrounds.length);
   console.log("Background Index: " + bgIndex);
   const scene = backgrounds[bgIndex];
@@ -21,7 +21,8 @@ export const exploreTemplate = (gameModel, pokemonObj) => {
     },
   } = pokemonObj;
 
-  return `
+  if (render == "full") {
+    return `
     
     ${navbarComponent(gameModel)}
     <main>
@@ -84,4 +85,57 @@ export const exploreTemplate = (gameModel, pokemonObj) => {
     
     
     `;
+  }
+
+  if (render == "scene") {
+    return `
+
+      ${infoBarComponent({
+        name,
+        page: "explore",
+        caught,
+        pokeballs: pokeballCount,
+      })}
+
+          <div class="explore__game-container--screen">
+            <!-- MAIN EXPLORE SCREEN-->
+    <div class="explore__game-container--pokemon">
+              <img
+                src="${scene}"
+                class="explore__scene"
+                alt="Scene Background"
+              />
+              <img
+                src="${spriteGif}"
+                class="explore__character"
+                data-pokemon="${name}"
+                alt="${name}"
+              />
+            </div>
+
+            <!-- SUCCESS SCREEN-->
+            <div class="explore__game-container--success hide">
+              <img src="${imgAssets.pokeball}" alt="Pokeball" />
+              <p class="play-information">You caught a ${name}!</p>
+              <div class="explore__game-container--success-button-group">
+                <button
+                  class="info-bar__button--search play-information"
+                  id="search-pokemon"    
+                >
+                  search
+                </button>
+
+                <button
+                  data-nav="/main"
+                  class="info-bar__button--home play-information"
+                  id="go-home"
+                >
+                  Go Home
+                </button>
+              </div>
+            </div>
+            <!--END SUCCESS SCREEN-->
+    
+    `;
+  }
 };

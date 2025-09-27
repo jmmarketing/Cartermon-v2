@@ -82,14 +82,16 @@ export async function showMain() {
 
 //Renders the learn page
 export async function showLearn() {
-  //Generates initial questions for the learn Page
-  const mathQuestions = generateMathQuestion(model.gameModel.player);
-
   // If no player route to /continue path.
-  if (!model.gameModel.player.name) router.navigateTo("/continue");
+  if (!model.gameModel.player.name) {
+    router.navigateTo("/continue");
+    return;
+  }
 
   try {
     document.body.className = "math-game";
+    //Generates initial questions for the learn Page
+    const mathQuestions = generateMathQuestion(model.gameModel.player);
 
     await learnView.render(model.gameModel, mathQuestions);
 
@@ -102,11 +104,16 @@ export async function showLearn() {
 }
 
 export async function showExplore() {
-  const pokemon = await model.getRandomPokemon();
-  console.log(pokemon);
+  // If no player route to /continue path.
+  if (!model.gameModel.player.name) {
+    router.navigateTo("/continue");
+    return;
+  }
 
   try {
     document.body.className = "explore-game";
+    const pokemon = await model.getRandomPokemon();
+    console.log(pokemon);
     await exploreView.render(model.gameModel, pokemon);
     exploreView._initiateElements();
   } catch (error) {
@@ -153,6 +160,11 @@ export function getNewMathQuestions() {
   // This probably could be handled in the learView, but since it requires passing in the gameModel I want to keep it in the controller & avoid storing/mutating the gameModel in the view.
   const newQuestions = generateMathQuestion(model.gameModel.player);
   return newQuestions;
+}
+
+export async function getNewPokemon() {
+  const pokemon = await model.getRandomPokemon();
+  return pokemon;
 }
 
 // Strictly for navigation from controller. Should not be used anywhere else.
