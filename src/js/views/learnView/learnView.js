@@ -70,6 +70,7 @@ class LearnView {
           //Sends view player State to controller to update whole gameModel
           controller.updatePlayerDetails(this._currentPlayer);
         } else {
+          console.log("WRONG FIRED!");
           input.classList.add("wrong");
         }
 
