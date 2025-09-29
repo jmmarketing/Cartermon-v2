@@ -987,6 +987,34 @@ label {
   animation: pokemonBounce 7s ease infinite;
 }
 
+.pokedex {
+  width: 100%;
+  display: flex;
+}
+.pokemon-details {
+  height: 660px;
+  width: 305px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.pokemon-details::before {
+  content: "";
+  width: 240px;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0px;
+  border-radius: 20px;
+  z-index: -1;
+  box-shadow: -5px -5px 7px 0 rgba(255, 250, 242, 0.05), -1px -1px 2px 0 rgba(255, 250, 242, 0.1), 5px 5px 7px 0 rgba(0, 0, 0, 0.2), 1px 1px 2px 0 rgba(0, 0, 0, 0.2);
+  width: 305px;
+  height: 600px;
+}
+.pokemon-details__empty {
+  text-align: center;
+  margin: auto;
+}
+
 .navigation {
   width: 100%;
   max-width: 1220px;

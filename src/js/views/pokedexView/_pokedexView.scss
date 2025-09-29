@@ -1,4 +1,9 @@
+@use "../../../../essentials" as *;
+
 .pokedex {
+  width: 100%;
+  display: flex;
+
   &__container {
   }
 
@@ -15,7 +20,22 @@
   }
 }
 
-.pokemon-card {
-  &__full {
+.pokemon-details {
+  height: 660px;
+  width: 305px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  &::before {
+    @include playerCardBackground;
+    width: 305px;
+    height: 600px;
+  }
+
+  &__empty {
+    text-align: center;
+    margin: auto;
   }
 }

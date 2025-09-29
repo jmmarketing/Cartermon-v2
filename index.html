@@ -11,8 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" href="./sass/main.css" />
-    <!-- <script src="./src/js/script.js" type="module"></script> -->
-    <script src="./src/js/controller.js" type="module"></script>
+    <script src="./src/js/script.js" type="module"></script>
+    <!-- <script src="./src/js/controller.js" type="module"></script> -->
   </head>
   <body>
     <!-- ######################################-->
@@ -56,7 +56,13 @@
     <!-- #########################################-->
     <main>
       <section class="pokedex">
-        <div class="pokemon-card__full"></div>
+        <!-- Side Pokemon Details Card-->
+        <div class="pokemon-details">
+          <div class="pokemon-details__empty">
+            <p class="play-information">Select a <br />Pokemon</p>
+          </div>
+        </div>
+        <!-- END Side Pokemon Details Card-->
         <div class="pokedex__container">
           <div class="pokedex__search"></div>
           <div class="pokedex__display">
