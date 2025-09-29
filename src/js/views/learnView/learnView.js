@@ -134,7 +134,8 @@ class LearnView {
     //Re-iniate elements and event listeners since DOM was cleared.
     // I think this is adding a 2second event listenr to the button, so it fires twice.
     //This would cause the first round to work but then clear right away?
-    this._initiateElements();
+    // this._initiateElements();
+    this._allRadioAnswers = document.querySelectorAll("input");
 
     this._successContainer.classList.add("hide");
     this._questionsContainer.classList.remove("hide");
