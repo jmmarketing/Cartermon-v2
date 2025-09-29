@@ -3,6 +3,14 @@ import { navbarComponent } from "../../../components/navbarComponent/navbarCompo
 import { playerCardComponent } from "../../../components/playerCardComponent/playerCardComponent.js";
 import { infoBarComponent } from "../../../components/infoBarComponent/infoBarComponent.js";
 
+/**
+ *
+ * @param {*} gameModel - Object of model.gameModel
+ * @param {*} pokemonObj - Pokemon specifc object from Fetch in model
+ * @param {*} render - string -> 'full' || 'scene'
+ * @returns
+ */
+
 export const exploreTemplate = (gameModel, pokemonObj, render = "full") => {
   const bgIndex = Math.floor(Math.random() * backgrounds.length);
   console.log("Background Index: " + bgIndex);
