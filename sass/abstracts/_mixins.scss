@@ -115,3 +115,10 @@ ORDER [When refactoring for responsiveness]: Base + typography > general layout 
     }
   }
 }
+
+@mixin pokemonTypeText {
+  font-family: "Silkscreen", sans-serif;
+  font-size: $default-font-size;
+  padding: 5px 10px;
+  border-radius: $radius-10;
+}
