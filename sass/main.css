@@ -990,13 +990,45 @@ label {
 .pokedex {
   width: 100%;
   display: flex;
+  gap: 20px;
+}
+.pokedex__container {
+  display: flex;
+  flex-direction: column;
+  width: 895px;
+}
+.pokedex__search {
+  width: 885px;
+  height: 50px;
+  padding: 10px 50px;
+  box-shadow: 4px 4px 0 #ba0000;
+  border: none;
+  border-radius: 10px;
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 2rem;
+  position: relative;
+}
+.pokedex__search:focus {
+  outline: none;
+  border: 2px solid #ba0000;
+}
+.pokedex__search::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  background-image: url("../assets/icons/search.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 10px;
+  right: 20px;
 }
 .pokemon-details {
   height: 660px;
   width: 305px;
   position: relative;
   display: flex;
-  flex-direction: column;
 }
 .pokemon-details::before {
   content: "";
