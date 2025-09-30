@@ -50,6 +50,10 @@
     height: 104px;
   }
 
+  &__id {
+    opacity: 0.5;
+  }
+
   &__type {
     display: flex;
     flex-wrap: wrap;
@@ -61,6 +65,19 @@
     &--electric {
       @include pokemonTypeText;
       background-color: #fac000;
+    }
+  }
+
+  &__abilities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    &--text {
+      text-align: center;
+      padding: 5px 10px;
+      background-color: #f9f9f9; // Used a few times should be variables;
+      border: 1px solid $color-light-grey;
+      border-radius: $radius-24;
     }
   }
 }

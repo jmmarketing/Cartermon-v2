@@ -1023,6 +1023,9 @@ label {
 .pokemon-details__sprite {
   height: 104px;
 }
+.pokemon-details__id {
+  opacity: 0.5;
+}
 .pokemon-details__type {
   display: flex;
   flex-wrap: wrap;
@@ -1041,6 +1044,18 @@ label {
   padding: 5px 10px;
   border-radius: 10px;
   background-color: #fac000;
+}
+.pokemon-details__abilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.pokemon-details__abilities--text {
+  text-align: center;
+  padding: 5px 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #efefef;
+  border-radius: 24px;
 }
 
 /*
