@@ -52,6 +52,17 @@
 
   &__id {
     opacity: 0.5;
+    position: absolute;
+    top: 70px;
+    left: 20px;
+  }
+
+  &__caught {
+    width: 30px;
+    position: absolute;
+
+    top: 70px;
+    right: 20px;
   }
 
   &__type {
@@ -71,7 +82,12 @@
   &__abilities {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
     gap: 12px;
+    & > p.rowdie-label {
+      width: 100%;
+    }
     &--text {
       @include pokedexDataText;
     }
@@ -119,6 +135,24 @@
     &--icon {
       height: 20px;
       width: 20px;
+    }
+  }
+
+  &__evolution {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 30px;
+    justify-content: center;
+    text-align: center;
+
+    & > p {
+      width: 100%;
+    }
+
+    &--stage {
+      width: 50px;
+      height: 52px;
     }
   }
 }

@@ -1025,6 +1025,15 @@ label {
 }
 .pokemon-details__id {
   opacity: 0.5;
+  position: absolute;
+  top: 70px;
+  left: 20px;
+}
+.pokemon-details__caught {
+  width: 30px;
+  position: absolute;
+  top: 70px;
+  right: 20px;
 }
 .pokemon-details__type {
   display: flex;
@@ -1048,7 +1057,12 @@ label {
 .pokemon-details__abilities {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
   gap: 12px;
+}
+.pokemon-details__abilities > p.rowdie-label {
+  width: 100%;
 }
 .pokemon-details__abilities--text {
   text-align: center;
@@ -1101,6 +1115,22 @@ label {
 .pokemon-details__skills--icon {
   height: 20px;
   width: 20px;
+}
+.pokemon-details__evolution {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+  justify-content: center;
+  text-align: center;
+}
+.pokemon-details__evolution > p {
+  width: 100%;
+}
+.pokemon-details__evolution--stage {
+  width: 50px;
+  height: 52px;
 }
 
 /*
