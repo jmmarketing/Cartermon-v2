@@ -122,3 +122,11 @@ ORDER [When refactoring for responsiveness]: Base + typography > general layout 
   padding: 5px 10px;
   border-radius: $radius-10;
 }
+
+@mixin pokedexDataText {
+  text-align: center;
+  padding: 5px 10px;
+  background-color: #f9f9f9; // Used a few times should be variables;
+  border: 1px solid $color-light-grey;
+  border-radius: $radius-24;
+}

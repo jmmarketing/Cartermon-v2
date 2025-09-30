@@ -73,11 +73,7 @@
     flex-wrap: wrap;
     gap: 12px;
     &--text {
-      text-align: center;
-      padding: 5px 10px;
-      background-color: #f9f9f9; // Used a few times should be variables;
-      border: 1px solid $color-light-grey;
-      border-radius: $radius-24;
+      @include pokedexDataText;
     }
   }
 
@@ -93,15 +89,36 @@
       width: 50%;
     }
     &--text {
-      text-align: center;
-      padding: 5px 10px;
-      background-color: #f9f9f9; // Used a few times should be variables;
-      border: 1px solid $color-light-grey;
-      border-radius: $radius-24;
+      @include pokedexDataText;
 
       //Dif from abilities--text
       min-width: 110px;
       margin-top: $spacing-10;
+    }
+  }
+
+  &__skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    text-align: center;
+
+    & > p {
+      width: 100%;
+    }
+
+    &--skill {
+      display: flex;
+      justify-content: space-between;
+
+      @include pokedexDataText;
+      padding: 5px 15px;
+      width: 110px;
+    }
+    &--icon {
+      height: 20px;
+      width: 20px;
     }
   }
 }

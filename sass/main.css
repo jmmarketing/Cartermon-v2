@@ -1077,6 +1077,31 @@ label {
   min-width: 110px;
   margin-top: 10px;
 }
+.pokemon-details__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  text-align: center;
+}
+.pokemon-details__skills > p {
+  width: 100%;
+}
+.pokemon-details__skills--skill {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 5px 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #efefef;
+  border-radius: 24px;
+  padding: 5px 15px;
+  width: 110px;
+}
+.pokemon-details__skills--icon {
+  height: 20px;
+  width: 20px;
+}
 
 /*
 Normal: #9FA19F 
