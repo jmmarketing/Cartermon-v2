@@ -80,6 +80,30 @@
       border-radius: $radius-24;
     }
   }
+
+  &__attributes {
+    display: flex;
+    gap: 20px;
+    text-align: center;
+
+    &--height {
+      width: 50%;
+    }
+    &--weight {
+      width: 50%;
+    }
+    &--text {
+      text-align: center;
+      padding: 5px 10px;
+      background-color: #f9f9f9; // Used a few times should be variables;
+      border: 1px solid $color-light-grey;
+      border-radius: $radius-24;
+
+      //Dif from abilities--text
+      min-width: 110px;
+      margin-top: $spacing-10;
+    }
+  }
 }
 
 /*
