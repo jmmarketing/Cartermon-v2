@@ -45,17 +45,24 @@ import defense from "./icons/defense.png";
 import dragon from "./icons/dragon.png";
 import electric from "./icons/electric.png";
 import fire from "./icons/fire.png";
-import fist from "./icons/fist.png";
+import fighting from "./icons/fighting.png";
 import ghost from "./icons/ghost.png";
 import grass from "./icons/grass.png";
 import heart from "./icons/heart.png";
 import ice from "./icons/ice.png";
-import moon from "./icons/moon.png";
+import dark from "./icons/dark.png";
 import poison from "./icons/poison.png";
 import search from "./icons/search.png";
 import speed from "./icons/speed.png";
 import thumbsup from "./icons/thumbsup.png";
 import water from "./icons/water.png";
+import normal from "./icons/normal.png";
+import flying from "./icons/flying.png";
+import ground from "./icons/ground.png";
+import rock from "./icons/rock.png";
+import psychic from "./icons/psychic.png";
+import bug from "./icons/bug.png";
+import fairy from "./icons/fairy.png";
 
 //##### GEN. IMAGE ASSETS ######
 //##############################
@@ -120,12 +127,12 @@ export const icons = {
   defense,
   dragon,
   fire,
-  fist,
+  fighting,
   ghost,
   grass,
   heart,
   ice,
-  moon,
+  dark,
   poison,
   search,
   speed,
@@ -133,6 +140,13 @@ export const icons = {
   water,
   attack,
   electric,
+  normal,
+  flying,
+  ground,
+  rock,
+  psychic,
+  bug,
+  fairy,
 };
 
 export const imgAssets = {
