@@ -4,11 +4,13 @@
   width: 100%;
   display: flex;
   gap: 20px;
+  align-items: flex-end;
 
   &__container {
     display: flex;
     flex-direction: column;
     width: 895px;
+    gap: 25px;
 
     & form {
       position: relative;
@@ -63,6 +65,11 @@
   }
 
   &__display {
+    height: 600px;
+    width: 895px;
+    background-color: rgba($color-white, 0.8);
+    border-radius: $radius-20;
+    border: 3px solid $color-red;
   }
 
   &__filter {

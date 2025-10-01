@@ -991,11 +991,13 @@ label {
   width: 100%;
   display: flex;
   gap: 20px;
+  align-items: flex-end;
 }
 .pokedex__container {
   display: flex;
   flex-direction: column;
   width: 895px;
+  gap: 25px;
 }
 .pokedex__container form {
   position: relative;
@@ -1036,6 +1038,13 @@ label {
   border-radius: 999px;
   width: 120px;
   background-size: 25%;
+}
+.pokedex__display {
+  height: 600px;
+  width: 895px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  border: 3px solid #ba0000;
 }
 .pokemon-details {
   height: 660px;
