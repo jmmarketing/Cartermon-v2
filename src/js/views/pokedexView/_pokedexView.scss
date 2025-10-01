@@ -9,6 +9,10 @@
     display: flex;
     flex-direction: column;
     width: 895px;
+
+    & form {
+      position: relative;
+    }
   }
 
   &__search {
@@ -23,25 +27,38 @@
     font-family: "Pixelify Sans", sans-serif;
     font-size: 2rem;
 
-    position: relative;
-
     &:focus {
       outline: none;
       border: 2px solid $color-red;
     }
 
-    &::after {
-      content: "";
-      display: block;
+    &--btn {
       position: absolute;
-      height: 30px;
-      width: 30px;
-      background-image: url("../assets/icons/search.png");
-      background-repeat: no-repeat;
-      background-size: cover;
-      top: 10px;
+      height: 40px;
+      width: 100px;
+      top: 5px;
       right: 20px;
-      //   z-index: 2;
+      cursor: pointer;
+
+      background-image: url("../assets/icons/search.png");
+      background-size: 30%;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding: 5px 20px;
+      background-color: $color-white;
+
+      border: 2px solid $color-light-grey;
+      border-radius: $radius-10;
+
+      transition: all 0.3s ease;
+
+      &:hover,
+      &:focus {
+        background-color: $color-light-grey;
+        border-radius: $radius-full;
+        width: 120px;
+        background-size: 25%;
+      }
     }
   }
 

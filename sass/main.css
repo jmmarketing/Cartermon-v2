@@ -997,6 +997,9 @@ label {
   flex-direction: column;
   width: 895px;
 }
+.pokedex__container form {
+  position: relative;
+}
 .pokedex__search {
   width: 885px;
   height: 50px;
@@ -1006,23 +1009,33 @@ label {
   border-radius: 10px;
   font-family: "Pixelify Sans", sans-serif;
   font-size: 2rem;
-  position: relative;
 }
 .pokedex__search:focus {
   outline: none;
   border: 2px solid #ba0000;
 }
-.pokedex__search::after {
-  content: "";
-  display: block;
+.pokedex__search--btn {
   position: absolute;
-  height: 30px;
-  width: 30px;
-  background-image: url("../assets/icons/search.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  top: 10px;
+  height: 40px;
+  width: 100px;
+  top: 5px;
   right: 20px;
+  cursor: pointer;
+  background-image: url("../assets/icons/search.png");
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 5px 20px;
+  background-color: #fff;
+  border: 2px solid #efefef;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+.pokedex__search--btn:hover, .pokedex__search--btn:focus {
+  background-color: #efefef;
+  border-radius: 999px;
+  width: 120px;
+  background-size: 25%;
 }
 .pokemon-details {
   height: 660px;
