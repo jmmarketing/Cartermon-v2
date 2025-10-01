@@ -1061,6 +1061,21 @@ label {
   flex-direction: column;
   align-items: center;
 }
+.pokedex__filter--clear {
+  width: 100px;
+  height: 40px;
+  font-family: "Silkscreen", sans-serif;
+  font-size: 1.6rem;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.pokedex__filter--clear:hover {
+  background-color: #000;
+  color: #fff;
+}
 .pokemon-details {
   height: 660px;
   width: 305px;
