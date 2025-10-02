@@ -73,6 +73,9 @@
 
     padding: 20px;
     box-shadow: 5px 5px 10px 0px rgba($color-black, 0.4);
+
+    display: flex;
+    gap: $spacing-14;
   }
 
   &__filter {
@@ -216,6 +219,14 @@
   }
 
   &__grid {
+  }
+
+  &__empty {
+    margin: auto;
+    text-align: center;
+    & img {
+      width: 200px;
+    }
   }
 }
 

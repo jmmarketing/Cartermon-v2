@@ -1049,6 +1049,8 @@ label {
   border: 3px solid #ba0000;
   padding: 20px;
   box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.4);
+  display: flex;
+  gap: 14px;
 }
 .pokedex__filter {
   background-color: #fff;
@@ -1171,6 +1173,14 @@ label {
   background-color: #000;
   color: #fff;
 }
+.pokedex__empty {
+  margin: auto;
+  text-align: center;
+}
+.pokedex__empty img {
+  width: 200px;
+}
+
 .pokemon-details {
   height: 660px;
   width: 305px;
