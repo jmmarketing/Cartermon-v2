@@ -1173,6 +1173,18 @@ label {
   background-color: #000;
   color: #fff;
 }
+.pokedex__grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  -moz-column-gap: 25px;
+       column-gap: 25px;
+  row-gap: 26px;
+  padding: 10px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #ba0000 #efefef;
+}
 .pokedex__empty {
   margin: auto;
   text-align: center;
@@ -1320,6 +1332,40 @@ label {
 .pokemon-details__evolution--stage {
   width: 50px;
   height: 52px;
+}
+
+/* --- Pokemon Card --*/
+.pokemon-card {
+  width: 150px;
+  height: 155px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.pokemon-card::before {
+  content: "";
+  width: 150px;
+  height: 120px;
+  background-color: #fff;
+  border: 1px solid #ededed;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+}
+.pokemon-card__sprite {
+  width: 65px;
+}
+.pokemon-card__id {
+  opacity: 0.5;
+}
+.pokemon-card__caught {
+  width: 20px;
 }
 
 /*
