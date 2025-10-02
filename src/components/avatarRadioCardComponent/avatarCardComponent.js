@@ -1,6 +1,7 @@
 export const avatarCardComponent = (data) => {
   const [id, value] = data;
-  return `<div class="avatar-card">
+  return `
+  <div class="avatar-card">
         <input
             type="radio"
             id="${id}"

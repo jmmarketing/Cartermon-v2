@@ -251,7 +251,8 @@ main {
   padding-bottom: 50px;
 }
 
-input[type=radio] {
+input[type=radio],
+input[type=checkbox] {
   width: 0;
 }
 
@@ -1058,14 +1059,108 @@ label {
   box-shadow: 2px 2px 1px 0 rgba(0, 0, 0, 0.25);
   padding: 10px;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+.pokedex__filter--type {
+  width: 44px;
+  height: 35px;
+  border-radius: 999px;
+  display: flex;
   align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+.pokedex__filter--type:has(input:checked) {
+  border: 3px dashed #000;
+}
+.pokedex__filter--type label {
+  width: 100%;
+}
+.pokedex__filter--type:has(#normal) {
+  background-color: #9fa19f;
+}
+.pokedex__filter--type:has(#fighting) {
+  background-color: #ff8000;
+}
+.pokedex__filter--type:has(#fire) {
+  background-color: #e48585;
+}
+.pokedex__filter--type:has(#water) {
+  background-color: #2980ef;
+}
+.pokedex__filter--type:has(#electric) {
+  background-color: #fac000;
+}
+.pokedex__filter--type:has(#grass) {
+  background-color: #3fa129;
+}
+.pokedex__filter--type:has(#ice) {
+  background-color: #3dcef3;
+}
+.pokedex__filter--type:has(#poison) {
+  background-color: #9141cb;
+}
+.pokedex__filter--type:has(#ground) {
+  background-color: #915121;
+}
+.pokedex__filter--type:has(#flying) {
+  background-color: #81b9ef;
+}
+.pokedex__filter--type:has(#psychic) {
+  background-color: #ef4179;
+}
+.pokedex__filter--type:has(#bug) {
+  background-color: #91a119;
+}
+.pokedex__filter--type:has(#rock) {
+  background-color: #afa981;
+}
+.pokedex__filter--type:has(#ghost) {
+  background-color: #704170;
+}
+.pokedex__filter--type:has(#dragon) {
+  background-color: #5060e1;
+}
+.pokedex__filter--type:has(#dark) {
+  background-color: #624d4e;
+}
+.pokedex__filter--type:has(#steel) {
+  background-color: #60a1b8;
+}
+.pokedex__filter--type:has(#fairy) {
+  background-color: #ef70ef;
+}
+.pokedex__filter--icon {
+  height: 25px;
+  width: 25px;
+  vertical-align: middle;
+}
+.pokedex__filter--caught {
+  width: 100px;
+  height: 35px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  background-color: #fff;
+  border: 2px solid #ba0000;
+}
+.pokedex__filter--caught:has(input:checked) {
+  background-color: #ba0000;
+}
+.pokedex__filter--caught label {
+  width: 100%;
 }
 .pokedex__filter--clear {
   width: 100px;
   height: 40px;
   font-family: "Silkscreen", sans-serif;
   font-size: 1.6rem;
+  margin-top: 10px;
   background-color: #fff;
   border: 2px solid #000;
   border-radius: 999px;

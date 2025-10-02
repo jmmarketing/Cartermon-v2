@@ -23,7 +23,8 @@ main {
   padding-bottom: 50px; //Added developing /continue page
 }
 
-input[type="radio"] {
+input[type="radio"],
+input[type="checkbox"] {
   width: 0;
 }
 

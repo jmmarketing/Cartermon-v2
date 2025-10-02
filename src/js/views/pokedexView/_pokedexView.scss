@@ -88,15 +88,119 @@
     padding: 10px;
 
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    // flex-direction: column;
+    align-content: flex-start;
+    justify-content: center;
+    gap: 10px;
+
+    &--type {
+      width: 44px;
+      height: 35px;
+      border-radius: $radius-full;
+      display: flex;
+      align-items: center;
+      text-align: center;
+
+      cursor: pointer;
+
+      &:has(input:checked) {
+        border: 3px dashed $color-black;
+      }
+
+      & label {
+        width: 100%;
+      }
+
+      &:has(#normal) {
+        background-color: #9fa19f;
+      }
+      &:has(#fighting) {
+        background-color: #ff8000;
+      }
+      &:has(#fire) {
+        background-color: $color-light-red;
+      }
+      &:has(#water) {
+        background-color: #2980ef;
+      }
+      &:has(#electric) {
+        background-color: #fac000;
+      }
+      &:has(#grass) {
+        background-color: #3fa129;
+      }
+      &:has(#ice) {
+        background-color: #3dcef3;
+      }
+      &:has(#poison) {
+        background-color: #9141cb;
+      }
+      &:has(#ground) {
+        background-color: #915121;
+      }
+      &:has(#flying) {
+        background-color: #81b9ef;
+      }
+      &:has(#psychic) {
+        background-color: #ef4179;
+      }
+      &:has(#bug) {
+        background-color: #91a119;
+      }
+      &:has(#rock) {
+        background-color: #afa981;
+      }
+      &:has(#ghost) {
+        background-color: #704170;
+      }
+      &:has(#dragon) {
+        background-color: #5060e1;
+      }
+      &:has(#dark) {
+        background-color: #624d4e;
+      }
+      &:has(#steel) {
+        background-color: #60a1b8;
+      }
+      &:has(#fairy) {
+        background-color: #ef70ef;
+      }
+    }
+
+    &--icon {
+      height: 25px;
+      width: 25px;
+      vertical-align: middle;
+    }
+
+    &--caught {
+      width: 100px;
+      height: 35px;
+      border-radius: $radius-full;
+      display: flex;
+      align-items: center;
+      text-align: center;
+
+      cursor: pointer;
+      background-color: $color-white;
+      border: 2px solid $color-red;
+
+      &:has(input:checked) {
+        background-color: $color-red;
+      }
+
+      & label {
+        width: 100%;
+      }
+    }
 
     &--clear {
       width: 100px;
       height: 40px;
       font-family: "Silkscreen", sans-serif;
       font-size: $default-font-size;
-
+      margin-top: 10px;
       background-color: $color-white;
       border: 2px solid $color-black;
       border-radius: $radius-full;
