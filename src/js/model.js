@@ -9,20 +9,10 @@ export const gameModel = {
     pokeballs: 3,
     answers: 0,
     caught: [],
-
-    //TEST DATA
-    // name: "jeffrey",
-    // avatar: "boy3",
-    // difficulty: "hard",
-    // id: 637759389,
-    // caught: [],
-
-    // pokeballs: 17,
-    // answers: 34,
   },
   pokemon: [],
   allPlayers: [],
-  limit: 150,
+  limit: 151,
 };
 
 //Basic Update of Player values (Might need updates, could be too simple)
@@ -204,6 +194,27 @@ function _searchPokemonAPI(pokemonSearched) {
       resetButton.hidden = false;
       console.log(error);
     });
+}
+
+// Loads on the main page, after continue selection. This way we
+// can use the player.caught to determine if caught. When player
+// Selects card from pokedex, we do anohter call to load side data.
+export async function _getPokedexBasicInfo() {
+  if (gameModel.pokemon.length) return;
+
+  try {
+    const request = await fetch(
+      `https://pokeapi.co/api/v2/pokemon?limit=${gameModel.limit}`
+    );
+
+    if (!request.ok)
+      throw new Error(`HTTP ${request.status}: ${request.statusText}`);
+
+    const list = await request.json();
+  } catch (error) {
+    console.log(error);
+    console.error(`Uh-oh Something Happened: ${error} `);
+  }
 }
 
 //########## Grab & Store Pokemon Info ##########
