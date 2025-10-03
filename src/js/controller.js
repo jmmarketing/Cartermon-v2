@@ -5,6 +5,7 @@ import continueView from "./views/continueView/continueView.js";
 import mainView from "./views/mainView/mainView.js";
 import learnView from "./views/learnView/learnView.js";
 import exploreView from "./views/exploreView/exploreView.js";
+import pokedexView from "./views/pokedexView/pokedexView.js";
 
 import { generateMathQuestion } from "../services/MathProblemGenerator.js";
 
@@ -73,7 +74,7 @@ export async function showMain() {
   if (!model.gameModel.player.name) router.navigateTo("/continue");
   try {
     document.body.className = "main";
-
+    await model._setPokedexListInfo();
     await mainView.render(model.gameModel);
   } catch (error) {
     console.error(`Failed to load page: ${error}`);
@@ -122,7 +123,21 @@ export async function showExplore() {
   }
 }
 
-export async function showPokedex() {}
+export async function showPokedex() {
+  // If no player route to /continue path.
+  if (!model.gameModel.player.name) {
+    router.navigateTo("/continue");
+    return;
+  }
+
+  try {
+    document.body.className = "pokedex-view";
+    await pokedexView.render(model.gameModel);
+  } catch (error) {
+    console.log(error);
+    console.error(`Failed to load page: ${error}`);
+  }
+}
 
 // #########################
 // #### INTERACTIONS ######

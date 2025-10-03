@@ -155,51 +155,10 @@ export async function getRandomPokemon() {
   }
 }
 
-/// **** REFACTOR CATCH / SHOW HIDE
-function _searchPokemonAPI(pokemonSearched) {
-  const pokeRequest = fetch(
-    `https://pokeapi.co/api/v2/pokemon/${pokemonSearched}`
-  );
-
-  pokeRequest
-    .then((response) => response.json())
-    .then((pokeJSON) => {
-      // console.log(pokeJSON);
-      // Destructure Response into Pokemon Object//
-      ({
-        name: this.pokemon.name,
-        sprites: {
-          other: {
-            "official-artwork": { front_default: this.pokemon.img },
-          },
-        },
-        stats: [
-          { base_stat: this.pokemon.hp },
-          { base_stat: this.pokemon.attack },
-          { base_stat: this.pokemon.defense },
-          { base_stat: this.pokemon.special_attack },
-          { base_stat: this.pokemon.special_defense },
-          { base_stat: this.pokemon.speed },
-        ],
-        fav: this.pokemon.fav = false,
-      } = pokeJSON);
-
-      console.log("Pokemon API Search Found 🔍", this.pokemon);
-      console.log("🃏 CARD CREATED! -> From API");
-      this._createPokeCard(this.pokemon);
-    })
-    .catch((error) => {
-      loader.hidden = true;
-      errorMessage.hidden = false;
-      resetButton.hidden = false;
-      console.log(error);
-    });
-}
-
 // Loads on the main page, after continue selection. This way we
 // can use the player.caught to determine if caught. When player
 // Selects card from pokedex, we do anohter call to load side data.
-export async function _getPokedexListInfo() {
+export async function _setPokedexListInfo() {
   if (gameModel.pokemon.length) return;
 
   try {
@@ -242,11 +201,53 @@ export async function _getPokedexListInfo() {
 
     gameModel.pokemon = [...pokemonList];
 
+    console.log("Get Basic Pokedex List Called");
     console.log(gameModel);
   } catch (error) {
     console.log(error);
     console.error(`Uh-oh Something Happened: ${error} `);
   }
+}
+
+/// **** REFACTOR CATCH / SHOW HIDE
+function _searchPokemonAPI(pokemonSearched) {
+  const pokeRequest = fetch(
+    `https://pokeapi.co/api/v2/pokemon/${pokemonSearched}`
+  );
+
+  pokeRequest
+    .then((response) => response.json())
+    .then((pokeJSON) => {
+      // console.log(pokeJSON);
+      // Destructure Response into Pokemon Object//
+      ({
+        name: this.pokemon.name,
+        sprites: {
+          other: {
+            "official-artwork": { front_default: this.pokemon.img },
+          },
+        },
+        stats: [
+          { base_stat: this.pokemon.hp },
+          { base_stat: this.pokemon.attack },
+          { base_stat: this.pokemon.defense },
+          { base_stat: this.pokemon.special_attack },
+          { base_stat: this.pokemon.special_defense },
+          { base_stat: this.pokemon.speed },
+        ],
+        fav: this.pokemon.fav = false,
+      } = pokeJSON);
+
+      console.log("Pokemon API Search Found 🔍", this.pokemon);
+      console.log("🃏 CARD CREATED! -> From API");
+      this._createPokeCard(this.pokemon);
+    })
+    .catch((error) => {
+      loader.hidden = true;
+      errorMessage.hidden = false;
+      resetButton.hidden = false;
+      console.log(error);
+    });
 }
 
 //########## Grab & Store Pokemon Info ##########

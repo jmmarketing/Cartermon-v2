@@ -1,12 +1,16 @@
 import { navbarComponent } from "../../../components/navbarComponent/navbarComponent.js";
 
+import { pokemonCard } from "../../../components/pokemonCardComponent/pokemonCard.js";
+
 export const pokedexTemplate = (gameModel) => {
   return `
     ${navbarComponent(gameModel)}
         <main>
       <section class="pokedex">
-        <!-- #########################-->
-        <!-- Side Pokemon Details Card-->
+
+<!-- #########################-->
+<!-- Side Pokemon Details Card-->
+
         <div class="pokemon-details">
           <!-- Empty State-->
           <div class="pokemon-details__empty hide">
@@ -154,11 +158,13 @@ export const pokedexTemplate = (gameModel) => {
           </div>
         </div>
 
-        <!-- End Pokemon Details Card -->
-        <!-- #########################-->
+<!-- End Pokemon Details Card -->
+<!-- #########################-->
+
+
         <div class="pokedex__container">
 
-          <!-- Search Field -->
+ <!-- Search Field -->
           <form>
               <input class="pokedex__search" name="pokemon-search" placeholder="Search Pokemon">
             </input>
@@ -167,7 +173,7 @@ export const pokedexTemplate = (gameModel) => {
           <!-- End Search Field -->
           <div class="pokedex__display">
 
-            <!-- Filter Component-->
+ <!-- Filter Component-->
             <div class="pokedex__filter">
               <p class="play-label">Filter</p>
 
@@ -329,21 +335,18 @@ export const pokedexTemplate = (gameModel) => {
 
 
 
-            <!-- End Filter Component-->
+<!-- End Filter Component-->
 
-            <!-- Pokemon Grid Layout-->
+<!-- Pokemon Grid Layout-->
             <div class="pokedex__grid">
 
-            <!--#+#+#+#+ REPLACE WITH COMPONENT +#+#+#+#+-->
+            
 <!--Pokemon Card-->
-              <div class="pokemon-card" data-id="3">
-                <img src="./assets/sprite/squirtle.webp" alt="Squirtle" class="pokemon-card__sprite">
-                <p class="rowdie-label">Squirtle</p>
-                <p class="pokedex-value pokemon-card__id">#003</p>
-                <img src="./assets/icons/8bitpokeball.webp" alt="Caught" class="pokemon-card__caught ">
-              </div>
-               <!--END Pokemon Card-->
-             <!--#+#+#+#+ REPLACE WITH COMPONENT +#+#+#+#+-->
+              ${gameModel.pokemon
+                .map((pokemon) => pokemonCard(pokemon))
+                .join("")}
+<!--END Pokemon Card-->
+             
 
             </div>
 
