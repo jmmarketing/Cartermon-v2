@@ -210,7 +210,30 @@ export async function _getPokedexBasicInfo() {
     if (!request.ok)
       throw new Error(`HTTP ${request.status}: ${request.statusText}`);
 
-    const list = await request.json();
+    const { results: list } = await request.json();
+    const all = [];
+
+    list.forEach((item) => {
+      item.id = item.url.split("/")[6];
+
+      /* Fetch item url. get appropriate sprite
+
+      const {
+    name,
+    sprites: { front_default: spriteImg },
+    sprites: {
+      other: {
+        showdown: { front_default: spriteGif },
+      },
+    },
+  } = pokemonObj;
+
+      */
+    });
+    console.log(list);
+
+    //ID
+    console.log(list[141].url.split("/")[6]);
   } catch (error) {
     console.log(error);
     console.error(`Uh-oh Something Happened: ${error} `);
