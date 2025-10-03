@@ -199,7 +199,7 @@ function _searchPokemonAPI(pokemonSearched) {
 // Loads on the main page, after continue selection. This way we
 // can use the player.caught to determine if caught. When player
 // Selects card from pokedex, we do anohter call to load side data.
-export async function _getPokedexBasicInfo() {
+export async function _getPokedexListInfo() {
   if (gameModel.pokemon.length) return;
 
   try {
@@ -208,32 +208,41 @@ export async function _getPokedexBasicInfo() {
     );
 
     if (!request.ok)
-      throw new Error(`HTTP ${request.status}: ${request.statusText}`);
+      throw new Error(
+        `Failed to fetch Pokemon List ${request.status}: ${request.statusText}`
+      );
 
     const { results: list } = await request.json();
-    const all = [];
 
-    list.forEach((item) => {
-      item.id = item.url.split("/")[6];
+    // Individual Pokemon Promise/Fetch Loop
+    const compilePokemonBasicDetails = list.map(async (pokemon) => {
+      try {
+        const pokemonRaw = await fetch(pokemon.url);
 
-      /* Fetch item url. get appropriate sprite
+        if (!pokemonRaw.ok) {
+          throw new Error(`HTTP ${pokemonRaw.status}`);
+        }
 
-      const {
-    name,
-    sprites: { front_default: spriteImg },
-    sprites: {
-      other: {
-        showdown: { front_default: spriteGif },
-      },
-    },
-  } = pokemonObj;
-
-      */
+        const pokemonDetails = await pokemonRaw.json();
+        return {
+          name: pokemonDetails.name,
+          id: pokemonDetails.id,
+          sprite: pokemonDetails.sprites.front_default,
+          caught: gameModel.player.caught.includes(pokemonDetails.name), //check if breaks.
+        };
+      } catch (error) {
+        console.warn(`Failed to load ${pokemon.name}: ${error}`);
+        return null;
+      }
     });
-    console.log(list);
+    //End Individual Pokemon Promise/fetch loop
+    const results = await Promise.all(compilePokemonBasicDetails);
 
-    //ID
-    console.log(list[141].url.split("/")[6]);
+    const pokemonList = results.filter((pokemon) => pokemon !== null);
+
+    gameModel.pokemon = [...pokemonList];
+
+    console.log(gameModel);
   } catch (error) {
     console.log(error);
     console.error(`Uh-oh Something Happened: ${error} `);
