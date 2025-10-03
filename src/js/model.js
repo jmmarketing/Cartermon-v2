@@ -12,7 +12,7 @@ export const gameModel = {
   },
   pokemon: [],
   allPlayers: [],
-  limit: 151,
+  limit: 17, //151
 };
 
 //Basic Update of Player values (Might need updates, could be too simple)
@@ -159,7 +159,10 @@ export async function getRandomPokemon() {
 // can use the player.caught to determine if caught. When player
 // Selects card from pokedex, we do anohter call to load side data.
 export async function _setPokedexListInfo() {
-  if (gameModel.pokemon.length) return;
+  if (gameModel.pokemon.length) {
+    console.log("Pokemon already in gameModel");
+    return;
+  }
 
   try {
     const request = await fetch(
@@ -184,7 +187,8 @@ export async function _setPokedexListInfo() {
 
         const pokemonDetails = await pokemonRaw.json();
         return {
-          name: pokemonDetails.name,
+          name:
+            pokemonDetails.name[0].toUpperCase() + pokemonDetails.name.slice(1),
           id: pokemonDetails.id,
           sprite: pokemonDetails.sprites.front_default,
           caught: gameModel.player.caught.includes(pokemonDetails.name), //check if breaks.

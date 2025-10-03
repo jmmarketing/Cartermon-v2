@@ -754,6 +754,7 @@ label {
 }
 .pokemon-card__sprite {
   width: 65px;
+  transform: scale(1.5);
 }
 .pokemon-card__id {
   opacity: 0.5;

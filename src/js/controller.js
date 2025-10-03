@@ -133,6 +133,7 @@ export async function showPokedex() {
   try {
     document.body.className = "pokedex-view";
     await pokedexView.render(model.gameModel);
+    pokedexView._initiateElements();
   } catch (error) {
     console.log(error);
     console.error(`Failed to load page: ${error}`);

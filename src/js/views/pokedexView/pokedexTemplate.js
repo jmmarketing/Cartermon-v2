@@ -2,6 +2,8 @@ import { navbarComponent } from "../../../components/navbarComponent/navbarCompo
 
 import { pokemonCard } from "../../../components/pokemonCardComponent/pokemonCard.js";
 
+import { icons, sprites } from "../../../../assets/game-assets.js";
+
 export const pokedexTemplate = (gameModel) => {
   return `
     ${navbarComponent(gameModel)}
@@ -12,16 +14,17 @@ export const pokedexTemplate = (gameModel) => {
 <!-- Side Pokemon Details Card-->
 
         <div class="pokemon-details">
-          <!-- Empty State-->
-          <div class="pokemon-details__empty hide">
+ <!-- Empty State-->
+          <div class="pokemon-details__empty ">
             <p class="play-information">Select a <br />Pokemon</p>
           </div>
-          <!-- End Empty State-->
-          <!-- DATA -->
-          <div class="pokemon-details__data">
+<!-- End Empty State-->
+
+ <!-- DATA -->
+          <div class="pokemon-details__data hide">
             <!--Pokemon Img-->
             <img
-              src="./assets/sprite/squirtle.webp"
+              src="${sprites.squirtle}"
               alt="Squirtle"
               class="pokemon-details__sprite"
             />
@@ -29,7 +32,7 @@ export const pokedexTemplate = (gameModel) => {
             <p class="pokedex-value pokemon-details__id">#003</p>
             <!-- Pokemon caught icon | hidden by default-->
             <img
-              src="./assets/icons/8bitpokeball.webp"
+              src="${icons.pixelPokeball}"
               alt="Caught"
               class="pokemon-details__caught"
             />
@@ -77,7 +80,7 @@ export const pokedexTemplate = (gameModel) => {
               <!-- skill -->
               <div class="pokemon-details__skills--skill">
                 <img
-                  src="./assets/icons/heart.png"
+                  src="${icons.heart}"
                   alt="HP"
                   class="pokemon-details__skills--icon"
                 />
@@ -87,7 +90,7 @@ export const pokedexTemplate = (gameModel) => {
               <!-- skill -->
               <div class="pokemon-details__skills--skill">
                 <img
-                  src="./assets/icons/speed.png"
+                  src="${icons.speed}"
                   alt="HP"
                   class="pokemon-details__skills--icon"
                 />
@@ -97,7 +100,7 @@ export const pokedexTemplate = (gameModel) => {
               <!-- skill -->
               <div class="pokemon-details__skills--skill">
                 <img
-                  src="./assets/icons/attack.png"
+                  src="${icons.attack}"
                   alt="HP"
                   class="pokemon-details__skills--icon"
                 />
@@ -107,7 +110,7 @@ export const pokedexTemplate = (gameModel) => {
               <!-- skill -->
               <div class="pokemon-details__skills--skill">
                 <img
-                  src="./assets/icons/attack-special.png"
+                  src="${icons.attackSpecial}"
                   alt="HP"
                   class="pokemon-details__skills--icon"
                 />
@@ -117,7 +120,7 @@ export const pokedexTemplate = (gameModel) => {
               <!-- skill -->
               <div class="pokemon-details__skills--skill">
                 <img
-                  src="./assets/icons/defense.png"
+                  src="${icons.defense}"
                   alt="HP"
                   class="pokemon-details__skills--icon"
                 />
@@ -127,7 +130,7 @@ export const pokedexTemplate = (gameModel) => {
               <!-- skill -->
               <div class="pokemon-details__skills--skill">
                 <img
-                  src="./assets/icons/defense-special.png"
+                  src="${icons.defenseSpecial}"
                   alt="HP"
                   class="pokemon-details__skills--icon"
                 />
@@ -140,17 +143,17 @@ export const pokedexTemplate = (gameModel) => {
             <div class="pokemon-details__evolution">
               <p class="rowdie-label">Evolution</p>
               <img
-                src="./assets/sprite/squirtle.webp"
+                src="${sprites.squirtle}"
                 alt="Squritle"
                 class="pokemon-details__evolution--stage"
               />
               <img
-                src="./assets/sprite/squirtle.webp"
+                src="${sprites.bulbasaur}"
                 alt="Squritle"
                 class="pokemon-details__evolution--stage"
               />
               <img
-                src="./assets/sprite/squirtle.webp"
+                src="${sprites.pikachu}"
                 alt="Squritle"
                 class="pokemon-details__evolution--stage"
               />
@@ -181,7 +184,9 @@ export const pokedexTemplate = (gameModel) => {
               <div class="pokedex__filter--type pokedex__filter--caught">
                 <input type="checkbox" name="type" id="caught" value="caught">
                 <label for="caught" title="Caught Pokemon">
-                  <img src="./assets/icons/8bitpokeball.webp" alt="Caught" class="pokedex__filter--icon">
+                  <img src="${
+                    icons.pixelPokeball
+                  }" alt="Caught" class="pokedex__filter--icon">
                 </label>
               </div>
 
@@ -189,7 +194,9 @@ export const pokedexTemplate = (gameModel) => {
               <div class="pokedex__filter--type">
                 <input type="checkbox" name="type" id="fighting" value="fighting">
                 <label for="fighting" title="Fighting type">
-                  <img src="./assets/icons/fighting.png" alt="fighting" class="pokedex__filter--icon">
+                  <img src="${
+                    icons.fighting
+                  }" alt="fighting" class="pokedex__filter--icon">
                 </label>
               </div>
 
@@ -197,7 +204,9 @@ export const pokedexTemplate = (gameModel) => {
               <div class="pokedex__filter--type">
                 <input type="checkbox" name="type" id="normal" value="normal">
                 <label for="normal" title="Normal type">
-                  <img src="./assets/icons/normal.png" alt="normal" class="pokedex__filter--icon">
+                  <img src="${
+                    icons.normal
+                  }" alt="normal" class="pokedex__filter--icon">
                 </label>
               </div>
 
@@ -205,7 +214,9 @@ export const pokedexTemplate = (gameModel) => {
               <div class="pokedex__filter--type">
                 <input type="checkbox" name="type" id="fire" value="fire">
                 <label for="fire" title="Fire type">
-                  <img src="./assets/icons/fire.png" alt="fire" class="pokedex__filter--icon">
+                  <img src="${
+                    icons.fire
+                  }" alt="fire" class="pokedex__filter--icon">
                 </label>
               </div>
 
@@ -213,7 +224,9 @@ export const pokedexTemplate = (gameModel) => {
               <div class="pokedex__filter--type">
                 <input type="checkbox" name="type" id="water" value="water">
                 <label for="water" title="Water type">
-                  <img src="./assets/icons/water.png" alt="water" class="pokedex__filter--icon">
+                  <img src="${
+                    icons.water
+                  }" alt="water" class="pokedex__filter--icon">
                 </label>
               </div>
 
@@ -221,7 +234,9 @@ export const pokedexTemplate = (gameModel) => {
               <div class="pokedex__filter--type">
                 <input type="checkbox" name="type" id="electric" value="electric">
                 <label for="electric" title="Electric type">
-                  <img src="./assets/icons/electric.png" alt="electric" class="pokedex__filter--icon">
+                  <img src="${
+                    icons.electric
+                  }" alt="electric" class="pokedex__filter--icon">
                 </label>
               </div>
 
@@ -229,7 +244,9 @@ export const pokedexTemplate = (gameModel) => {
               <div class="pokedex__filter--type">
                 <input type="checkbox" name="type" id="grass" value="grass">
                 <label for="grass" title="Grass type">
-                  <img src="./assets/icons/grass.png" alt="grass" class="pokedex__filter--icon">
+                  <img src="${
+                    icons.grass
+                  }" alt="grass" class="pokedex__filter--icon">
                 </label>
               </div>
 
@@ -237,7 +254,9 @@ export const pokedexTemplate = (gameModel) => {
               <div class="pokedex__filter--type">
                 <input type="checkbox" name="type" id="ice" value="ice">
                 <label for="ice" title="Ice type">
-                  <img src="./assets/icons/ice.png" alt="ice" class="pokedex__filter--icon">
+                  <img src="${
+                    icons.ice
+                  }" alt="ice" class="pokedex__filter--icon">
                 </label>
               </div>
 
@@ -245,7 +264,9 @@ export const pokedexTemplate = (gameModel) => {
               <div class="pokedex__filter--type">
                 <input type="checkbox" name="type" id="poison" value="poison">
                 <label for="poison" title="Poison type">
-                  <img src="./assets/icons/poison.png" alt="poison" class="pokedex__filter--icon">
+                  <img src="${
+                    icons.poison
+                  }" alt="poison" class="pokedex__filter--icon">
                 </label>
               </div>
 
@@ -253,7 +274,9 @@ export const pokedexTemplate = (gameModel) => {
               <div class="pokedex__filter--type">
                 <input type="checkbox" name="type" id="ground" value="ground">
                 <label for="ground" title="Ground type">
-                  <img src="./assets/icons/ground.png" alt="ground" class="pokedex__filter--icon">
+                  <img src="${
+                    icons.ground
+                  }" alt="ground" class="pokedex__filter--icon">
                 </label>
               </div>
 
@@ -261,7 +284,9 @@ export const pokedexTemplate = (gameModel) => {
               <div class="pokedex__filter--type">
                 <input type="checkbox" name="type" id="flying" value="flying">
                 <label for="flying" title="Flying type">
-                  <img src="./assets/icons/flying.png" alt="flying" class="pokedex__filter--icon">
+                  <img src="${
+                    icons.flying
+                  }" alt="flying" class="pokedex__filter--icon">
                 </label>
               </div>
 
@@ -269,7 +294,9 @@ export const pokedexTemplate = (gameModel) => {
               <div class="pokedex__filter--type">
                 <input type="checkbox" name="type" id="psychic" value="psychic">
                 <label for="psychic" title="Psychic type">
-                  <img src="./assets/icons/psychic.png" alt="psychic" class="pokedex__filter--icon">
+                  <img src="${
+                    icons.psychic
+                  }" alt="psychic" class="pokedex__filter--icon">
                 </label>
               </div>
 
@@ -277,7 +304,9 @@ export const pokedexTemplate = (gameModel) => {
               <div class="pokedex__filter--type">
                 <input type="checkbox" name="type" id="bug" value="bug">
                 <label for="bug" title="Bug type">
-                  <img src="./assets/icons/bug.png" alt="bug" class="pokedex__filter--icon">
+                  <img src="${
+                    icons.bug
+                  }" alt="bug" class="pokedex__filter--icon">
                 </label>
               </div>
 
@@ -285,7 +314,9 @@ export const pokedexTemplate = (gameModel) => {
               <div class="pokedex__filter--type">
                 <input type="checkbox" name="type" id="rock" value="rock">
                 <label for="rock" title="Rock type">
-                  <img src="./assets/icons/rock.png" alt="rock" class="pokedex__filter--icon">
+                  <img src="${
+                    icons.rock
+                  }" alt="rock" class="pokedex__filter--icon">
                 </label>
               </div>
 
@@ -293,7 +324,9 @@ export const pokedexTemplate = (gameModel) => {
               <div class="pokedex__filter--type">
                 <input type="checkbox" name="type" id="ghost" value="ghost">
                 <label for="ghost" title="Ghosttype">
-                  <img src="./assets/icons/ghost.png" alt="ghost" class="pokedex__filter--icon">
+                  <img src="${
+                    icons.ghost
+                  }" alt="ghost" class="pokedex__filter--icon">
                 </label>
               </div>
 
@@ -301,7 +334,9 @@ export const pokedexTemplate = (gameModel) => {
               <div class="pokedex__filter--type">
                 <input type="checkbox" name="type" id="dragon" value="dragon">
                 <label for="dragon" title="Dragon type">
-                  <img src="./assets/icons/dragon.png" alt="dragon" class="pokedex__filter--icon">
+                  <img src="${
+                    icons.dragon
+                  }" alt="dragon" class="pokedex__filter--icon">
                 </label>
               </div>
 
@@ -309,7 +344,9 @@ export const pokedexTemplate = (gameModel) => {
               <div class="pokedex__filter--type">
                 <input type="checkbox" name="type" id="dark" value="dark">
                 <label for="dark" title="Dark type">
-                  <img src="./assets/icons/dark.png" alt="dark" class="pokedex__filter--icon">
+                  <img src="${
+                    icons.dark
+                  }" alt="dark" class="pokedex__filter--icon">
                 </label>
               </div>
 
@@ -317,7 +354,9 @@ export const pokedexTemplate = (gameModel) => {
               <div class="pokedex__filter--type">
                 <input type="checkbox" name="type" id="steel" value="steel">
                 <label for="steel" title="Steel type">
-                  <img src="./assets/icons/steel.png" alt="steel" class="pokedex__filter--icon">
+                  <img src="${
+                    icons.steel
+                  }" alt="steel" class="pokedex__filter--icon">
                 </label>
               </div>
 
@@ -325,7 +364,9 @@ export const pokedexTemplate = (gameModel) => {
               <div class="pokedex__filter--type">
                 <input type="checkbox" name="type" id="fairy" value="fairy">
                 <label for="fairy" title="Fairy type">
-                  <img src="./assets/icons/fairy.png" alt="fairy" class="pokedex__filter--icon">
+                  <img src="${
+                    icons.fairy
+                  }" alt="fairy" class="pokedex__filter--icon">
                 </label>
               </div>
 

@@ -63,6 +63,7 @@ import rock from "./icons/rock.png";
 import psychic from "./icons/psychic.png";
 import bug from "./icons/bug.png";
 import fairy from "./icons/fairy.png";
+import steel from "./icons/steel.png";
 
 //##### GEN. IMAGE ASSETS ######
 //##############################
@@ -147,6 +148,7 @@ export const icons = {
   psychic,
   bug,
   fairy,
+  steel,
 };
 
 export const imgAssets = {
