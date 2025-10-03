@@ -226,7 +226,7 @@
     row-gap: 26px;
     padding: 10px;
 
-    overflow-y: scroll;
+    overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: $color-red $color-light-grey;
   }
