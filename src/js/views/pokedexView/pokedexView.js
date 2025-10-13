@@ -1,6 +1,11 @@
 import { pokedexTemplate } from "./pokedexTemplate.js";
+import { pokemonCard } from "../../../components/pokemonCardComponent/pokemonCard.js";
 
 export class PokedexView {
+  _rawList;
+  _filteredList;
+  _filterParams;
+
   constructor() {
     this.container = document.querySelector("body");
   }
@@ -24,6 +29,9 @@ export class PokedexView {
     this._pokemonCards.forEach((card) =>
       card.addEventListener("click", this._showPokemonDetails)
     );
+    this._filterButtons.forEach((filter) =>
+      filter.addEventListener("change", this._triggerFilterPokemon.bind(this))
+    );
 
     console.log("Initated Elements");
     // console.log(this._filterButtons);
@@ -40,14 +48,23 @@ export class PokedexView {
     console.log(pokeId);
   }
 
-  _filterPokemon() {}
+  _triggerFilterPokemon(e) {
+    const filterButton = e.target;
+    filterButton.disabled = true;
+  }
+
+  _renderFilters() {}
 
   _reset() {}
 
   render(gameModel) {
     const html = pokedexTemplate(gameModel);
+    this._rawList = [...gameModel.pokemon];
 
     this.container.innerHTML = html;
+
+    console.log("RAW LIST:");
+    console.log(this._rawList);
   }
 }
 
