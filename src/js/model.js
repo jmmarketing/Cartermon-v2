@@ -186,12 +186,14 @@ export async function _setPokedexListInfo() {
         }
 
         const pokemonDetails = await pokemonRaw.json();
+
         return {
           name:
             pokemonDetails.name[0].toUpperCase() + pokemonDetails.name.slice(1),
           id: pokemonDetails.id,
           sprite: pokemonDetails.sprites.front_default,
           caught: gameModel.player.caught.includes(pokemonDetails.name), //check if breaks.
+          types: pokemonDetails.types.map((type) => type.type.name),
         };
       } catch (error) {
         console.warn(`Failed to load ${pokemon.name}: ${error}`);
@@ -207,6 +209,7 @@ export async function _setPokedexListInfo() {
 
     console.log("Get Basic Pokedex List Called");
     console.log(gameModel);
+    _updateAllLocalStorage();
   } catch (error) {
     console.log(error);
     console.error(`Uh-oh Something Happened: ${error} `);

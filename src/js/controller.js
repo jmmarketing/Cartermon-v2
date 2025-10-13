@@ -71,7 +71,9 @@ export async function showContinue() {
 // Renders the main poage
 export async function showMain() {
   // If no player route to /continue path.
-  if (!model.gameModel.player.name) router.navigateTo("/continue");
+  if (!model.gameModel.player.name) {
+    router.navigateTo("/continue");
+  }
   try {
     document.body.className = "main";
     await model._setPokedexListInfo();
