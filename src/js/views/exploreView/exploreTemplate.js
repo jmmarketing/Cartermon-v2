@@ -29,6 +29,8 @@ export const exploreTemplate = (gameModel, pokemonObj, render = "full") => {
     },
   } = pokemonObj;
 
+  const formattedName = name[0].toUpperCase() + name.slice(1);
+
   if (render == "full") {
     return `
     
@@ -58,7 +60,7 @@ export const exploreTemplate = (gameModel, pokemonObj, render = "full") => {
               <img
                 src="${spriteGif}"
                 class="explore__character"
-                data-pokemon="${name}"
+                data-pokemon="${formattedName}"
                 alt="${name}"
               />
             </div>
@@ -116,7 +118,7 @@ export const exploreTemplate = (gameModel, pokemonObj, render = "full") => {
               <img
                 src="${spriteGif}"
                 class="explore__character"
-                data-pokemon="${name}"
+                data-pokemon="${formattedName}"
                 alt="${name}"
               />
             </div>

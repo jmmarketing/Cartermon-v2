@@ -216,6 +216,15 @@ export async function _setPokedexListInfo() {
   }
 }
 
+export async function _updatePokedexList() {
+  for (const pokemon of gameModel.pokemon) {
+    console.log(`Updating: ${pokemon.name}`);
+    pokemon.caught = gameModel.player.caught.includes(pokemon.name);
+  }
+
+  _updateAllLocalStorage();
+}
+
 /// **** REFACTOR CATCH / SHOW HIDE
 function _searchPokemonAPI(pokemonSearched) {
   const pokeRequest = fetch(

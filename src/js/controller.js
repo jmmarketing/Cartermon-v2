@@ -134,6 +134,7 @@ export async function showPokedex() {
 
   try {
     document.body.className = "pokedex-view";
+    await model._updatePokedexList();
     await pokedexView.render(model.gameModel);
     pokedexView._initiateElements();
   } catch (error) {

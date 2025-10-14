@@ -81,15 +81,30 @@ export class PokedexView {
   _renderFiltered() {
     console.log("RENDERING FILETERED!");
     console.log(this._filteredList);
+    const html = this._filteredList
+      .map((pokemon) => pokemonCard(pokemon))
+      .join("");
+    this._gridContainer.innerHTML = "";
+
+    this._gridContainer.innerHTML = html;
   }
 
-  _reset() {}
+  _reset() {
+    const html = this._rawList.map((pokemon) => pokemonCard(pokemon)).join("");
+    this._gridContainer.innerHTML = "";
+
+    this._gridContainer.innerHTML = html;
+  }
 
   _clearFilters() {
     for (const input of this._filterButtons) {
       input.disabled = false;
       input.checked = false;
     }
+
+    this._filteredList = [];
+
+    this._reset();
   }
 
   render(gameModel) {
