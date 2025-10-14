@@ -2,11 +2,15 @@ import { pokedexTemplate } from "./pokedexTemplate.js";
 import { pokemonCard } from "../../../components/pokemonCardComponent/pokemonCard.js";
 
 export class PokedexView {
-  _rawList;
-  _filteredList;
-  _filterParams;
+  // _rawList;
+  // _filteredList;
+  // _filterParams;
+  _filterCaught = false;
 
   constructor() {
+    this._filteredList = [];
+    this._filterParams = [];
+    this._rawList = [];
     this.container = document.querySelector("body");
   }
 
@@ -51,9 +55,32 @@ export class PokedexView {
   _triggerFilterPokemon(e) {
     const filterButton = e.target;
     filterButton.disabled = true;
+    if (filterButton.value == "caught") this._filterCaught = true;
+    else this._filterParams.push(filterButton.value);
+
+    this._compileFilteredList();
   }
 
-  _renderFilters() {}
+  _compileFilteredList() {
+    let results = this._rawList;
+
+    if (this._filterParams.length > 0)
+      results = this._rawList.filter((pokemon) => {
+        return pokemon.types.some((type) => this._filterParams.includes(type));
+      });
+
+    if (this._filterCaught) {
+      results = results.filter((pokemon) => pokemon.caught);
+    }
+
+    this._filteredList = results;
+    this._renderFiltered();
+  }
+
+  _renderFiltered() {
+    console.log("RENDERING FILETERED!");
+    console.log(this._filteredList);
+  }
 
   _reset() {}
 
