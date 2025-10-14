@@ -36,6 +36,7 @@ export class PokedexView {
     this._filterButtons.forEach((filter) =>
       filter.addEventListener("change", this._triggerFilterPokemon.bind(this))
     );
+    this._clearFilter.addEventListener("click", this._clearFilters.bind(this));
 
     console.log("Initated Elements");
     // console.log(this._filterButtons);
@@ -54,7 +55,7 @@ export class PokedexView {
 
   _triggerFilterPokemon(e) {
     const filterButton = e.target;
-    filterButton.disabled = true;
+    filterButton.disabled = true; // in place so user HAS to use clear button.
     if (filterButton.value == "caught") this._filterCaught = true;
     else this._filterParams.push(filterButton.value);
 
@@ -83,6 +84,13 @@ export class PokedexView {
   }
 
   _reset() {}
+
+  _clearFilters() {
+    for (const input of this._filterButtons) {
+      input.disabled = false;
+      input.checked = false;
+    }
+  }
 
   render(gameModel) {
     const html = pokedexTemplate(gameModel);
@@ -113,5 +121,28 @@ When grabbing pokemonList in model, does it make sense to determine caught statu
 cardComponent instead. This way can push to local storage and not need to call and compare on /main.
 
 Will need to determine best approach for re-initializing cards after filer/search.
+
+
+10/13
+IN PROGRESS:
+- Basic filter working for capturing filter params & setting caught filter flag 
+(_triggerFilterPokemon & _filterCaught = false).
+- _compileFilterList function. uses .filer, .some, .include on rawList &
+_fiterParams to compile type based filtering. 
+- _compileFilterList has bug with filteringt for caught. 
+- _renderFiltered() calling console.log for now. 
+
+BUG: 
+- Need to create a function (model) that when user catches a pokemon
+it updates the gameModel.pokemon to included updated caught pokemon.
+
+TODO:
+- Finish _renderFiltered with just type filter.
+- Fix bug for caught and retest. 
+- Build clearFilter function & reset function. 
+- Search functionality
+- Click and render pokemon details functionallity (evolution trickiest part)
+- Show hide empty search (snorlax) function (toggle hide class)
+- Loading feature
 
 */
