@@ -2,6 +2,8 @@ import { navbarComponent } from "../../../components/navbarComponent/navbarCompo
 
 import { pokemonCard } from "../../../components/pokemonCardComponent/pokemonCard.js";
 
+import { pokemonDetails } from "../../../components/pokemonDetailsComponent/pokemonDetails.js";
+
 import { icons, sprites } from "../../../../assets/game-assets.js";
 
 export const pokedexTemplate = (gameModel) => {

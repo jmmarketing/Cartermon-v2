@@ -1,0 +1,139 @@
+@use "../../../essentials" as *;
+
+//Pokemon details card sepcifically
+.pokemon-details {
+  height: 660px;
+  width: 305px;
+  position: relative;
+
+  display: flex;
+  //   flex-direction: column;
+
+  &::before {
+    @include playerCardBackground;
+    width: 305px;
+    height: 600px;
+  }
+
+  &__empty {
+    text-align: center;
+    margin: auto;
+  }
+
+  &__data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  &__sprite {
+    height: 104px;
+  }
+
+  &__id {
+    opacity: 0.5;
+    position: absolute;
+    top: 70px;
+    left: 20px;
+  }
+
+  &__caught {
+    width: 30px;
+    position: absolute;
+
+    top: 70px;
+    right: 20px;
+  }
+
+  &__type {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    &--water {
+      @include pokemonTypeText;
+      background-color: #2980ef;
+    }
+    &--electric {
+      @include pokemonTypeText;
+      background-color: #fac000;
+    }
+  }
+
+  &__abilities {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+    & > p.rowdie-label {
+      width: 100%;
+    }
+    &--text {
+      @include pokedexDataText;
+    }
+  }
+
+  &__attributes {
+    display: flex;
+    gap: 20px;
+    text-align: center;
+
+    &--height {
+      width: 50%;
+    }
+    &--weight {
+      width: 50%;
+    }
+    &--text {
+      @include pokedexDataText;
+
+      //Dif from abilities--text
+      min-width: 110px;
+      margin-top: $spacing-10;
+    }
+  }
+
+  &__skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    text-align: center;
+
+    & > p {
+      width: 100%;
+    }
+
+    &--skill {
+      display: flex;
+      justify-content: space-between;
+
+      @include pokedexDataText;
+      padding: 5px 15px;
+      width: 110px;
+    }
+    &--icon {
+      height: 20px;
+      width: 20px;
+    }
+  }
+
+  &__evolution {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 30px;
+    justify-content: center;
+    text-align: center;
+
+    & > p {
+      width: 100%;
+    }
+
+    &--stage {
+      width: 50px;
+      height: 52px;
+    }
+  }
+}

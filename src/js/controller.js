@@ -186,6 +186,11 @@ export async function getNewPokemon() {
   return pokemon;
 }
 
+export async function fetchPokemonDetails(id) {
+  const details = await model._getPokemonFullDetails(id);
+  return details;
+}
+
 // Strictly for navigation from controller. Should not be used anywhere else.
 function setupGlobalNavigation() {
   document.addEventListener("click", (e) => {

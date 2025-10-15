@@ -1,5 +1,6 @@
 import { pokedexTemplate } from "./pokedexTemplate.js";
 import { pokemonCard } from "../../../components/pokemonCardComponent/pokemonCard.js";
+import * as controller from "../../controller.js";
 
 export class PokedexView {
   // _rawList;
@@ -53,10 +54,14 @@ export class PokedexView {
     console.log("Searching....");
   }
 
-  _showPokemonDetails() {
+  async _showPokemonDetails() {
     console.log("Getting Details..");
     const pokeId = this.dataset.id;
     console.log(pokeId);
+
+    const details = await controller.fetchPokemonDetails(pokeId);
+
+    console.log(details);
   }
 
   _triggerFilterPokemon(e) {

@@ -225,6 +225,41 @@ export async function _updatePokedexList() {
   _updateAllLocalStorage();
 }
 
+export async function _getPokemonFullDetails(id) {
+  try {
+    const request = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+
+    if (!request.ok) throw new Error(`HTTP ${request.status}`);
+
+    const rawDetails = await request.json();
+    const formatName =
+      rawDetails.name[0].toUpperCase() + rawDetails.name.slice(1);
+
+    const pokemon = {
+      name: formatName,
+      id: rawDetails.id,
+      sprite: rawDetails.sprites.front_default,
+      caught: gameModel.player.caught.includes(formatName), //check if breaks.
+      types: rawDetails.types.map((type) => type.type.name),
+      abilities: rawDetails.abilities.map((ability) => ability.ability.name),
+      height: rawDetails.height,
+      weight: rawDetails.weight,
+      hp: rawDetails.stats[0].base_stat,
+      speed: rawDetails.stats[5].base_stat,
+      attack: rawDetails.stats[1].base_stat,
+      attack_special: rawDetails.stats[3].base_stat,
+      defense: rawDetails.stats[2].base_stat,
+      defense_special: rawDetails.stats[4].base_stat,
+      // evolution:
+    };
+
+    return pokemon;
+  } catch (error) {
+    console.error(error);
+    console.log(`Error occured: ${error.message}`);
+  }
+}
+
 /// **** REFACTOR CATCH / SHOW HIDE
 function _searchPokemonAPI(pokemonSearched) {
   const pokeRequest = fetch(
