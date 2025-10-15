@@ -27,6 +27,7 @@ export class PokedexView {
       ".pokemon-details__data"
     );
     this._gridContainer = document.querySelector(".pokedex__grid");
+    this._notFoundContainer = document.querySelector(".pokedex__empty");
 
     //Event listeners
     this._search.addEventListener("submit", this._searchPokemon.bind(this));
@@ -79,8 +80,15 @@ export class PokedexView {
   }
 
   _renderFiltered() {
-    console.log("RENDERING FILETERED!");
-    console.log(this._filteredList);
+    // console.log("RENDERING FILETERED!");
+    // console.log(this._filteredList);
+    // console.log(`_filteredList length: ${this._filteredList.length}`);
+
+    if (this._filteredList.length == 0) {
+      this._toggleNotFound();
+      return;
+    }
+
     const html = this._filteredList
       .map((pokemon) => pokemonCard(pokemon))
       .join("");
@@ -91,6 +99,9 @@ export class PokedexView {
 
   _reset() {
     const html = this._rawList.map((pokemon) => pokemonCard(pokemon)).join("");
+
+    this._toggleNotFound();
+
     this._gridContainer.innerHTML = "";
 
     this._gridContainer.innerHTML = html;
@@ -103,8 +114,17 @@ export class PokedexView {
     }
 
     this._filteredList = [];
+    this._filterParams = [];
+    this._filterCaught = false;
 
     this._reset();
+  }
+
+  _toggleNotFound() {
+    const notFoundShowing = this._notFoundContainer.classList.contains("hide");
+
+    this._gridContainer.classList.toggle("hide");
+    this._notFoundContainer.classList.toggle("hide");
   }
 
   render(gameModel) {
@@ -147,14 +167,14 @@ _fiterParams to compile type based filtering.
 - _compileFilterList has bug with filteringt for caught. 
 - _renderFiltered() calling console.log for now. 
 
-BUG: 
+✅ BUG: 
 - Need to create a function (model) that when user catches a pokemon
 it updates the gameModel.pokemon to included updated caught pokemon.
 
 TODO:
-- Finish _renderFiltered with just type filter.
-- Fix bug for caught and retest. 
-- Build clearFilter function & reset function. 
+✅- Finish _renderFiltered with just type filter.
+✅- Fix bug for caught and retest. 
+✅- Build clearFilter function & reset function. 
 - Search functionality
 - Click and render pokemon details functionallity (evolution trickiest part)
 - Show hide empty search (snorlax) function (toggle hide class)

@@ -393,7 +393,7 @@ export const pokedexTemplate = (gameModel) => {
 
             <!-- No Pokemon Message-->
             <div class="pokedex__empty hide">
-              <img src="./assets/sprite/snorlax.webp" alt="Snorlax Empty">
+              <img src="${sprites.snorlax}" alt="Snorlax Empty">
               <p class="play-information">No Pokemon Found. <br> Try Again.</p>
             </div>
           </div>
