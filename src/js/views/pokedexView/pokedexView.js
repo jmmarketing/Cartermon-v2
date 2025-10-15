@@ -19,7 +19,7 @@ export class PokedexView {
     this._search = document.querySelector("form");
     this._filterButtons = document.querySelectorAll('input[type="checkbox"]');
     this._clearFilter = document.querySelector("#clear-button");
-    this._pokemonCards = document.querySelectorAll(".pokemon-card");
+    this._iniatePokedexCards();
 
     // Element Containers
     this._emptyDetails = document.querySelector(".pokemon-details__empty");
@@ -31,9 +31,7 @@ export class PokedexView {
 
     //Event listeners
     this._search.addEventListener("submit", this._searchPokemon.bind(this));
-    this._pokemonCards.forEach((card) =>
-      card.addEventListener("click", this._showPokemonDetails)
-    );
+
     this._filterButtons.forEach((filter) =>
       filter.addEventListener("change", this._triggerFilterPokemon.bind(this))
     );
@@ -41,6 +39,13 @@ export class PokedexView {
 
     console.log("Initated Elements");
     // console.log(this._filterButtons);
+  }
+
+  _iniatePokedexCards() {
+    this._pokemonCards = document.querySelectorAll(".pokemon-card");
+    this._pokemonCards.forEach((card) =>
+      card.addEventListener("click", this._showPokemonDetails)
+    );
   }
 
   _searchPokemon(e) {
@@ -105,6 +110,8 @@ export class PokedexView {
     this._gridContainer.innerHTML = "";
 
     this._gridContainer.innerHTML = html;
+
+    this._iniatePokedexCards();
   }
 
   _clearFilters() {
