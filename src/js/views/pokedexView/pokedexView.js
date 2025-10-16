@@ -19,6 +19,7 @@ export class PokedexView {
   _initiateElements() {
     // Event trigger elements
     this._search = document.querySelector("form");
+    this._searchField = document.querySelector(".pokedex__search");
     this._filterButtons = document.querySelectorAll('input[type="checkbox"]');
     this._clearFilter = document.querySelector("#clear-button");
     this._iniatePokedexCards();
@@ -33,6 +34,7 @@ export class PokedexView {
 
     //Event listeners
     this._search.addEventListener("submit", this._searchPokemon.bind(this));
+    this._searchField.addEventListener("keyup", this._searchPokemon.bind(this));
 
     this._filterButtons.forEach((filter) =>
       filter.addEventListener("change", this._triggerFilterPokemon.bind(this))
@@ -52,6 +54,7 @@ export class PokedexView {
   _searchPokemon(e) {
     e.preventDefault();
     console.log("Searching....");
+    console.log(e.target.value);
   }
 
   // Calls controller to get details from model (API) via target data-id
