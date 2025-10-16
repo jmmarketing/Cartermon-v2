@@ -118,18 +118,18 @@ export class PokedexView {
     this._gridContainer.innerHTML = html;
 
     this._iniatePokedexCards();
+    this._toggleNotFound();
   }
 
   _reset() {
     const html = this._rawList.map((pokemon) => pokemonCard(pokemon)).join("");
-
-    this._toggleNotFound();
 
     this._gridContainer.innerHTML = "";
 
     this._gridContainer.innerHTML = html;
 
     this._iniatePokedexCards();
+    this._toggleNotFound();
   }
 
   _clearFilters() {
@@ -151,15 +151,27 @@ export class PokedexView {
     console.log("Toggle Not Found FIRED");
 
     const notFoundShowing = !this._notFoundContainer.classList.contains("hide");
-    console.log(notFoundShowing);
+    console.log(`Snorlax is showing: ${notFoundShowing}`);
 
     if (notFoundShowing) {
       this._gridContainer.classList.remove("hide");
       this._notFoundContainer.classList.add("hide");
-    } else {
+      return;
+    }
+
+    if (
+      this._filteredList.length == 0 &&
+      !notFoundShowing &&
+      this._filterParams.length > 0
+    ) {
       this._gridContainer.classList.add("hide");
       this._notFoundContainer.classList.remove("hide");
     }
+
+    // if (){
+    //   this._gridContainer.classList.add("hide");
+    //   this._notFoundContainer.classList.remove("hide");
+    // }
   }
 
   render(gameModel) {

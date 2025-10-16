@@ -220,7 +220,7 @@ export async function _setPokedexListInfo() {
 
 export async function _updatePokedexList() {
   for (const pokemon of gameModel.pokemon) {
-    console.log(`Updating: ${pokemon.name}`);
+    // console.log(`Updating: ${pokemon.name}`);
     pokemon.caught = gameModel.player.caught.includes(pokemon.name);
   }
 
@@ -240,7 +240,8 @@ export async function _getPokemonFullDetails(id) {
     const pokemon = {
       name: formatName,
       id: formatID(rawDetails.id),
-      sprite: rawDetails.sprites.front_default,
+      // sprite: rawDetails.sprites.front_default,
+      sprite: rawDetails.sprites.other.showdown.front_default,
       caught: gameModel.player.caught.includes(formatName), //check if breaks.
       types: rawDetails.types.map((type) => type.type.name),
       abilities: rawDetails.abilities.map((ability) => ability.ability.name),

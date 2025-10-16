@@ -2,7 +2,7 @@
 
 //Pokemon details card sepcifically
 .pokemon-details {
-  height: 660px;
+  height: 675px;
   width: 305px;
   position: relative;
 
@@ -12,7 +12,7 @@
   &::before {
     @include playerCardBackground;
     width: 305px;
-    height: 600px;
+    height: 615px;
   }
 
   &__empty {
