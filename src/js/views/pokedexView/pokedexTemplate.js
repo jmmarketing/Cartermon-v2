@@ -2,7 +2,7 @@ import { navbarComponent } from "../../../components/navbarComponent/navbarCompo
 
 import { pokemonCard } from "../../../components/pokemonCardComponent/pokemonCard.js";
 
-import { pokemonDetails } from "../../../components/pokemonDetailsComponent/pokemonDetails.js";
+import { renderPokemonDetails } from "../../../components/pokemonDetailsComponent/pokemonDetails.js";
 
 import { icons, sprites } from "../../../../assets/game-assets.js";
 
@@ -24,142 +24,7 @@ export const pokedexTemplate = (gameModel) => {
 
  <!-- DATA -->
           <div class="pokemon-details__data hide">
-            <!--Pokemon Img-->
-            <img
-              src="${sprites.squirtle}"
-              alt="Squirtle"
-              class="pokemon-details__sprite"
-            />
-            <!--Pokemon #003-->
-            <p class="pokedex-value pokemon-details__id">#003</p>
-            <!-- Pokemon caught icon | hidden by default-->
-            <img
-              src="${icons.pixelPokeball}"
-              alt="Caught"
-              class="pokemon-details__caught"
-            />
-            <!--Pokemon Name-->
-            <p class="rowdie-title">Squirtle</p>
-            <!--Pokemon Type Container-->
-            <div class="pokemon-details__type">
-              <p class="pokemon-details__type--water">Water</p>
-              <p class="pokemon-details__type--electric">Electric</p>
-            </div>
-            <!--Pokemon Abilities Container-->
-            <div class="pokemon-details__abilities">
-              <p class="rowdie-label">Abilities</p>
-              <p class="pokedex-value pokemon-details__abilities--text">
-                Torrent
-              </p>
-              <p class="pokedex-value pokemon-details__abilities--text">
-                rain-dish
-              </p>
-            </div>
-            <!--Pokemon Height & Weight-->
-            <div class="pokemon-details__attributes">
-              <div class="pokemon-details__attributes--height">
-                <p class="rowdie-label">Height</p>
-                <p
-                  class="pokedex-value pokemon-details__attributes--text"
-                  id="height"
-                >
-                  5
-                </p>
-              </div>
-              <div class="pokemon-details__attributes--weight">
-                <p class="rowdie-label">Weight</p>
-                <p
-                  class="pokedex-value pokemon-details__attributes--text"
-                  id="weight"
-                >
-                  90 lbs
-                </p>
-              </div>
-            </div>
-            <!--Pokemon SWkills Container-->
-            <div class="pokemon-details__skills">
-              <p class="rowdie-label">Skills</p>
-              <!-- skill -->
-              <div class="pokemon-details__skills--skill">
-                <img
-                  src="${icons.heart}"
-                  alt="HP"
-                  class="pokemon-details__skills--icon"
-                />
-                <p class="pokedex-value" id="hp">44</p>
-              </div>
-              <!-- end skill -->
-              <!-- skill -->
-              <div class="pokemon-details__skills--skill">
-                <img
-                  src="${icons.speed}"
-                  alt="HP"
-                  class="pokemon-details__skills--icon"
-                />
-                <p class="pokedex-value" id="speed">144</p>
-              </div>
-              <!-- end skill -->
-              <!-- skill -->
-              <div class="pokemon-details__skills--skill">
-                <img
-                  src="${icons.attack}"
-                  alt="HP"
-                  class="pokemon-details__skills--icon"
-                />
-                <p class="pokedex-value" id="attack">17</p>
-              </div>
-              <!-- end skill -->
-              <!-- skill -->
-              <div class="pokemon-details__skills--skill">
-                <img
-                  src="${icons.attackSpecial}"
-                  alt="HP"
-                  class="pokemon-details__skills--icon"
-                />
-                <p class="pokedex-value" id="attack-special">34</p>
-              </div>
-              <!-- end skill -->
-              <!-- skill -->
-              <div class="pokemon-details__skills--skill">
-                <img
-                  src="${icons.defense}"
-                  alt="HP"
-                  class="pokemon-details__skills--icon"
-                />
-                <p class="pokedex-value" id="defense">51</p>
-              </div>
-              <!-- end skill -->
-              <!-- skill -->
-              <div class="pokemon-details__skills--skill">
-                <img
-                  src="${icons.defenseSpecial}"
-                  alt="HP"
-                  class="pokemon-details__skills--icon"
-                />
-                <p class="pokedex-value" id="defense-special">108</p>
-              </div>
-              <!-- end skill -->
-            </div>
-
-            <!--Pokemon Evolution-->
-            <div class="pokemon-details__evolution">
-              <p class="rowdie-label">Evolution</p>
-              <img
-                src="${sprites.squirtle}"
-                alt="Squritle"
-                class="pokemon-details__evolution--stage"
-              />
-              <img
-                src="${sprites.bulbasaur}"
-                alt="Squritle"
-                class="pokemon-details__evolution--stage"
-              />
-              <img
-                src="${sprites.pikachu}"
-                alt="Squritle"
-                class="pokemon-details__evolution--stage"
-              />
-            </div>
+            ${renderPokemonDetails()};
           </div>
         </div>
 

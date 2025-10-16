@@ -1,6 +1,7 @@
 import { pokedexTemplate } from "./pokedexTemplate.js";
 import { pokemonCard } from "../../../components/pokemonCardComponent/pokemonCard.js";
 import * as controller from "../../controller.js";
+import { renderPokemonDetails } from "../../../components/pokemonDetailsComponent/pokemonDetails.js";
 
 export class PokedexView {
   // _rawList;
@@ -39,13 +40,14 @@ export class PokedexView {
     this._clearFilter.addEventListener("click", this._clearFilters.bind(this));
 
     console.log("Initated Elements");
+    console.log(this._emptyDetails);
     // console.log(this._filterButtons);
   }
 
   _iniatePokedexCards() {
     this._pokemonCards = document.querySelectorAll(".pokemon-card");
     this._pokemonCards.forEach((card) =>
-      card.addEventListener("click", this._showPokemonDetails)
+      card.addEventListener("click", this._showPokemonDetails.bind(this))
     );
   }
 
@@ -54,14 +56,23 @@ export class PokedexView {
     console.log("Searching....");
   }
 
-  async _showPokemonDetails() {
+  async _showPokemonDetails(e) {
     console.log("Getting Details..");
-    const pokeId = this.dataset.id;
+    console.dir(e.target);
+    const pokeId = e.target.dataset?.id ?? e.target.parentElement.dataset.id;
     console.log(pokeId);
 
     const details = await controller.fetchPokemonDetails(pokeId);
 
     console.log(details);
+    console.log(this._emptyDetails);
+    this._emptyDetails.classList.add("hide");
+    this._pokemonDataContainer.classList.remove("hide");
+
+    const html = renderPokemonDetails(details);
+    this._pokemonDataContainer.innerHTML = "";
+
+    this._pokemonDataContainer.innerHTML = html;
   }
 
   _triggerFilterPokemon(e) {
@@ -90,9 +101,9 @@ export class PokedexView {
   }
 
   _renderFiltered() {
-    // console.log("RENDERING FILETERED!");
-    // console.log(this._filteredList);
-    // console.log(`_filteredList length: ${this._filteredList.length}`);
+    console.log("RENDERING FILETERED!");
+    console.log(this._filteredList);
+    console.log(`_filteredList length: ${this._filteredList.length}`);
 
     if (this._filteredList.length == 0) {
       this._toggleNotFound();
@@ -105,6 +116,8 @@ export class PokedexView {
     this._gridContainer.innerHTML = "";
 
     this._gridContainer.innerHTML = html;
+
+    this._iniatePokedexCards();
   }
 
   _reset() {
@@ -120,6 +133,8 @@ export class PokedexView {
   }
 
   _clearFilters() {
+    if (this._filterParams.length == 0 && !this._filterCaught) return;
+
     for (const input of this._filterButtons) {
       input.disabled = false;
       input.checked = false;
@@ -133,10 +148,18 @@ export class PokedexView {
   }
 
   _toggleNotFound() {
-    const notFoundShowing = this._notFoundContainer.classList.contains("hide");
+    console.log("Toggle Not Found FIRED");
 
-    this._gridContainer.classList.toggle("hide");
-    this._notFoundContainer.classList.toggle("hide");
+    const notFoundShowing = !this._notFoundContainer.classList.contains("hide");
+    console.log(notFoundShowing);
+
+    if (notFoundShowing) {
+      this._gridContainer.classList.remove("hide");
+      this._notFoundContainer.classList.add("hide");
+    } else {
+      this._gridContainer.classList.add("hide");
+      this._notFoundContainer.classList.remove("hide");
+    }
   }
 
   render(gameModel) {

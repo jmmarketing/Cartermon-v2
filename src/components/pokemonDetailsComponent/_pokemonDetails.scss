@@ -58,8 +58,72 @@
       @include pokemonTypeText;
       background-color: #fac000;
     }
-  }
+    &--normal {
+      @include pokemonTypeText;
+      background-color: #9fa19f;
+    }
+    &--fighting {
+      @include pokemonTypeText;
+      background-color: #ff8000;
+    }
+    &--fire {
+      @include pokemonTypeText;
+      background-color: $color-light-red;
+    }
+    &--grass {
+      @include pokemonTypeText;
+      background-color: #3fa129;
+    }
+    &--ice {
+      @include pokemonTypeText;
+      background-color: #3dcef3;
+    }
 
+    &--poison {
+      @include pokemonTypeText;
+      background-color: #9141cb;
+    }
+    &--ground {
+      @include pokemonTypeText;
+      background-color: #915121;
+    }
+    &--flying {
+      @include pokemonTypeText;
+      background-color: #81b9ef;
+    }
+    &--psychic {
+      @include pokemonTypeText;
+      background-color: #ef4179;
+    }
+    &--bug {
+      @include pokemonTypeText;
+      background-color: #91a119;
+    }
+    &--rock {
+      @include pokemonTypeText;
+      background-color: #afa981;
+    }
+    &--ghost {
+      @include pokemonTypeText;
+      background-color: #704170;
+    }
+    &--dragon {
+      @include pokemonTypeText;
+      background-color: #5060e1;
+    }
+    &--dark {
+      @include pokemonTypeText;
+      background-color: #624d4e;
+    }
+    &--steel {
+      @include pokemonTypeText;
+      background-color: #60a1b8;
+    }
+    &--fair {
+      @include pokemonTypeText;
+      background-color: #ef70ef;
+    }
+  }
   &__abilities {
     display: flex;
     flex-wrap: wrap;

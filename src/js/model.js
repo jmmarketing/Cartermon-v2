@@ -1,3 +1,5 @@
+import { formatID } from "../services/idFormatter.js";
+
 // ORganizing Old function that could be use for model.
 
 export const gameModel = {
@@ -237,7 +239,7 @@ export async function _getPokemonFullDetails(id) {
 
     const pokemon = {
       name: formatName,
-      id: rawDetails.id,
+      id: formatID(rawDetails.id),
       sprite: rawDetails.sprites.front_default,
       caught: gameModel.player.caught.includes(formatName), //check if breaks.
       types: rawDetails.types.map((type) => type.type.name),
