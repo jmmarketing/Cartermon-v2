@@ -38,12 +38,10 @@ export class PokedexView {
       filter.addEventListener("change", this._triggerFilterPokemon.bind(this))
     );
     this._clearFilter.addEventListener("click", this._clearFilters.bind(this));
-
-    console.log("Initated Elements");
-    console.log(this._emptyDetails);
-    // console.log(this._filterButtons);
   }
 
+  // After pokedex grid if filtered/cleared need to re-declare the cards & add the
+  // event listener for showing the details card.
   _iniatePokedexCards() {
     this._pokemonCards = document.querySelectorAll(".pokemon-card");
     this._pokemonCards.forEach((card) =>
@@ -56,72 +54,93 @@ export class PokedexView {
     console.log("Searching....");
   }
 
+  // Calls controller to get details from model (API) via target data-id
+  // Renders data in details cards
   async _showPokemonDetails(e) {
-    console.log("Getting Details..");
-    console.dir(e.target);
+    // Get Pokemon Details
+
     const pokeId = e.target.dataset?.id ?? e.target.parentElement.dataset.id;
     console.log(pokeId);
 
     const details = await controller.fetchPokemonDetails(pokeId);
 
-    console.log(details);
-    console.log(this._emptyDetails);
+    //Hid/Show empty / details elements
     this._emptyDetails.classList.add("hide");
     this._pokemonDataContainer.classList.remove("hide");
 
+    // Render the details via component in details container.
     const html = renderPokemonDetails(details);
     this._pokemonDataContainer.innerHTML = "";
 
     this._pokemonDataContainer.innerHTML = html;
   }
 
+  // Action for filtering pokemon (used on filterButtons)
+  // Gets filter criteria and adds to filterList array.
   _triggerFilterPokemon(e) {
     const filterButton = e.target;
+
     filterButton.disabled = true; // in place so user HAS to use clear button.
     if (filterButton.value == "caught") this._filterCaught = true;
     else this._filterParams.push(filterButton.value);
 
+    // Calls to compile all pokemon that match the filter
     this._compileFilteredList();
   }
 
+  // Compiles pokemon from rawList that match filter criteria
   _compileFilteredList() {
-    let results = this._rawList;
+    //Copies rawList to be maniupated wihout effecting rawList
+    let results = [...this._rawList];
 
+    //Condition whne there are no filter parameters
     if (this._filterParams.length > 0)
       results = this._rawList.filter((pokemon) => {
         return pokemon.types.some((type) => this._filterParams.includes(type));
       });
 
+    //Condiiton when caught is true
     if (this._filterCaught) {
       results = results.filter((pokemon) => pokemon.caught);
     }
 
+    // Assings manipulated list to filteredList to use when rendering to DOM
     this._filteredList = results;
     this._renderFiltered();
   }
 
+  //Renders filteredList to the DOM
   _renderFiltered() {
     console.log("RENDERING FILETERED!");
     console.log(this._filteredList);
     console.log(`_filteredList length: ${this._filteredList.length}`);
 
+    // Control for if there is no filterable pokemon
     if (this._filteredList.length == 0) {
       this._toggleNotFound();
       return;
     }
 
+    // Creates HTML to be instered via pokemonCard component.
     const html = this._filteredList
       .map((pokemon) => pokemonCard(pokemon))
       .join("");
+
+    // DOM updates
     this._gridContainer.innerHTML = "";
 
     this._gridContainer.innerHTML = html;
 
+    // Reinitiates event listeners for pokemonCards
     this._iniatePokedexCards();
+
+    // Acts as a catch if previous filter meets any of the controls in the function.
     this._toggleNotFound();
   }
 
+  //Resets pokedex back to initiate DOM state.
   _reset() {
+    //Rebuild pokemonCards from rawList in gameModel
     const html = this._rawList.map((pokemon) => pokemonCard(pokemon)).join("");
 
     this._gridContainer.innerHTML = "";
@@ -129,36 +148,47 @@ export class PokedexView {
     this._gridContainer.innerHTML = html;
 
     this._iniatePokedexCards();
+
+    // Updates grid if notFound is showing.
     this._toggleNotFound();
   }
 
+  // Used as clearButton event.
   _clearFilters() {
+    //Control state based off filterPArams and if filterCaught is true
     if (this._filterParams.length == 0 && !this._filterCaught) return;
 
+    //Clears the properties of the filterButtons
     for (const input of this._filterButtons) {
       input.disabled = false;
       input.checked = false;
     }
 
+    //Clears any filter lists, params, or caught
     this._filteredList = [];
     this._filterParams = [];
     this._filterCaught = false;
 
+    //Triggers the reset.
     this._reset();
   }
 
+  // Controls showing and hiding not-found(Snorlaxx) element
   _toggleNotFound() {
     console.log("Toggle Not Found FIRED");
 
+    // Checks to see if snorlaxx is showing if it does not contain 'hide' then it is showing
     const notFoundShowing = !this._notFoundContainer.classList.contains("hide");
     console.log(`Snorlax is showing: ${notFoundShowing}`);
 
+    //Condition if showing (simple).
     if (notFoundShowing) {
       this._gridContainer.classList.remove("hide");
       this._notFoundContainer.classList.add("hide");
       return;
     }
 
+    // Condition based on list length, showing, and filter params.
     if (
       this._filteredList.length == 0 &&
       !notFoundShowing &&
@@ -167,13 +197,9 @@ export class PokedexView {
       this._gridContainer.classList.add("hide");
       this._notFoundContainer.classList.remove("hide");
     }
-
-    // if (){
-    //   this._gridContainer.classList.add("hide");
-    //   this._notFoundContainer.classList.remove("hide");
-    // }
   }
 
+  // Renders the initial DOM
   render(gameModel) {
     const html = pokedexTemplate(gameModel);
     this._rawList = [...gameModel.pokemon];

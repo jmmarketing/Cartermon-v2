@@ -16,9 +16,6 @@ export const exploreTemplate = (gameModel, pokemonObj, render = "full") => {
   console.log("Background Index: " + bgIndex);
   const scene = backgrounds[bgIndex];
 
-  const caught = gameModel.player.caught.includes(pokemonObj.name);
-  const pokeballCount = gameModel.player.pokeballs;
-
   const {
     name,
     sprites: { front_default: spriteImg },
@@ -30,6 +27,8 @@ export const exploreTemplate = (gameModel, pokemonObj, render = "full") => {
   } = pokemonObj;
 
   const formattedName = name[0].toUpperCase() + name.slice(1);
+  const caught = gameModel.player.caught.includes(formattedName);
+  const pokeballCount = gameModel.player.pokeballs;
 
   if (render == "full") {
     return `

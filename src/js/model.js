@@ -14,7 +14,7 @@ export const gameModel = {
   },
   pokemon: [],
   allPlayers: [],
-  limit: 17, //151
+  limit: 34, //151
 };
 
 //Basic Update of Player values (Might need updates, could be too simple)
@@ -161,7 +161,7 @@ export async function getRandomPokemon() {
 // can use the player.caught to determine if caught. When player
 // Selects card from pokedex, we do anohter call to load side data.
 export async function _setPokedexListInfo() {
-  if (gameModel.pokemon.length) {
+  if (gameModel.pokemon.length == gameModel.limit) {
     console.log("Pokemon already in gameModel");
     return;
   }
@@ -244,7 +244,9 @@ export async function _getPokemonFullDetails(id) {
       sprite: rawDetails.sprites.other.showdown.front_default,
       caught: gameModel.player.caught.includes(formatName), //check if breaks.
       types: rawDetails.types.map((type) => type.type.name),
-      abilities: rawDetails.abilities.map((ability) => ability.ability.name),
+      abilities: rawDetails.abilities
+        .map((ability) => ability.ability.name)
+        .slice(0, 2),
       height: rawDetails.height,
       weight: rawDetails.weight,
       hp: rawDetails.stats[0].base_stat,

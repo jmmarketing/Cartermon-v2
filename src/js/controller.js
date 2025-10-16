@@ -116,7 +116,7 @@ export async function showExplore() {
   try {
     document.body.className = "explore-game";
     const pokemon = await model.getRandomPokemon();
-    console.log(pokemon);
+    // console.log(pokemon);
     await exploreView.render(model.gameModel, pokemon);
     exploreView._initiateElements();
   } catch (error) {

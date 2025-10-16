@@ -16,7 +16,7 @@ export const navbarComponent = (gameModel = {}) => {
   if (data.avatar) {
     avatarLink = `
     
-        <a href="/continue" data-nav="/continue"
+        <a href="/main" data-nav="/main"
           ><img
             class="navigation__icon"
             src="${avatars[data.avatar]}"
