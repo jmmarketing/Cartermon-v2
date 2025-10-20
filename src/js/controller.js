@@ -191,6 +191,9 @@ export async function fetchPokemonDetails(id) {
   return details;
 }
 
+
+
+
 // Strictly for navigation from controller. Should not be used anywhere else.
 function setupGlobalNavigation() {
   document.addEventListener("click", (e) => {

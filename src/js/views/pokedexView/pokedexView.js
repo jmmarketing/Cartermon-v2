@@ -54,7 +54,19 @@ export class PokedexView {
   _searchPokemon(e) {
     e.preventDefault();
     console.log("Searching....");
-    console.log(e.target.value);
+    const inputValue = e.target.value;
+
+    /*
+    For live filtered searches as user types:
+    - Loop through list (raw, filter). Use string.substring() on each item. 
+    - Check if input.value is same as list item.substrtinc(value.length)
+    - Push to list variable.
+    - Build pokemonCard elements from list. 
+    - Render elements to DOM
+
+    - Will live filtering of pokemoncards be too resource intensive. Need lodash (debounce or throttle)?
+
+    */
   }
 
   // Calls controller to get details from model (API) via target data-id
