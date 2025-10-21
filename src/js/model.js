@@ -228,12 +228,16 @@ export async function _updatePokedexList() {
 }
 
 export async function _getPokemonFullDetails(id) {
+  console.log(`1. Model: Fetching pokemon: ${id}`);
   try {
     const request = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
 
+    console.log(`2. Model: Response Status: ${request.status}`);
+    console.log(`3. Model: Response ok: ${request.ok}`);
     if (!request.ok) throw new Error(`HTTP ${request.status}`);
 
     const rawDetails = await request.json();
+    console.log(`4. Model: Data received: ${rawDetails.name}`);
     const formatName =
       rawDetails.name[0].toUpperCase() + rawDetails.name.slice(1);
 
@@ -261,7 +265,8 @@ export async function _getPokemonFullDetails(id) {
     return pokemon;
   } catch (error) {
     console.error(error);
-    console.log(`Error occured: ${error.message}`);
+    console.log(`5. Model: Error occured: ${error.message}`);
+    throw error;
   }
 }
 
