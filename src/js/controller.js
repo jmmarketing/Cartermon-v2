@@ -187,9 +187,8 @@ export async function getNewPokemon() {
 }
 
 export async function fetchPokemonDetails(id) {
-  console.log(`6. Controller: Calling model with id: ${id}`);
   const details = await model._getPokemonFullDetails(id);
-  console.log(`7. Controller: Pokemon Received: ${details?.name}`);
+
   return details;
 }
 

@@ -86,6 +86,7 @@ body {
 
 .play-information {
   font-size: 2.4rem;
+  word-break: break-word;
 }
 
 .play-label {
@@ -764,7 +765,7 @@ label {
 }
 
 .pokemon-details {
-  height: 660px;
+  height: 675px;
   width: 305px;
   position: relative;
   display: flex;
@@ -779,11 +780,14 @@ label {
   z-index: -1;
   box-shadow: -5px -5px 7px 0 rgba(255, 250, 242, 0.05), -1px -1px 2px 0 rgba(255, 250, 242, 0.1), 5px 5px 7px 0 rgba(0, 0, 0, 0.2), 1px 1px 2px 0 rgba(0, 0, 0, 0.2);
   width: 305px;
-  height: 600px;
+  height: 615px;
 }
-.pokemon-details__empty {
+.pokemon-details__empty, .pokemon-details__loading {
   text-align: center;
   margin: auto;
+}
+.pokemon-details__empty img, .pokemon-details__loading img {
+  width: 125px;
 }
 .pokemon-details__data {
   display: flex;

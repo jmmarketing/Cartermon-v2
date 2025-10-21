@@ -14,7 +14,7 @@ export const gameModel = {
   },
   pokemon: [],
   allPlayers: [],
-  limit: 34, //151
+  limit: 252, //151
 };
 
 //Basic Update of Player values (Might need updates, could be too simple)
@@ -38,7 +38,6 @@ export function _setActivePlayer(id) {
     (player) => player.id === playerID
   );
 
-  console.log("Player Index: " + playerIndex);
   //Assigns selected player to variable
   const selectedPlayer = gameModel.allPlayers[playerIndex];
   console.log("setActivePlayer, to selectedPlayer in gameModel");
@@ -66,8 +65,7 @@ export function _updateAllPlayersData(playerData) {
     gameModel.allPlayers[playerIndex] = playerData;
   }
 
-  console.log("Updated gameModel: ");
-  console.log(gameModel);
+  console.log("Updated gameModel. ");
   console.log("Updating Local Storage....");
   _updateAllLocalStorage();
 }
@@ -97,7 +95,6 @@ export function _updateAllLocalStorage() {
 
 export async function getRandomPokemon() {
   const pokemonId = Math.floor(Math.random() * gameModel.limit) + 1;
-  console.log(pokemonId);
 
   try {
     const pokeRequest = await fetch(
@@ -168,7 +165,7 @@ export async function _setPokedexListInfo() {
     gameModel.pokemon = [...pokemonList];
 
     console.log("Get Basic Pokedex List Called");
-    console.log(gameModel);
+
     _updateAllLocalStorage();
   } catch (error) {
     console.log(error);
@@ -223,47 +220,6 @@ export async function _getPokemonFullDetails(id) {
 
     throw error;
   }
-}
-
-/// **** REFACTOR CATCH / SHOW HIDE
-function _searchPokemonAPI(pokemonSearched) {
-  const pokeRequest = fetch(
-    `https://pokeapi.co/api/v2/pokemon/${pokemonSearched}`
-  );
-
-  pokeRequest
-    .then((response) => response.json())
-    .then((pokeJSON) => {
-      // console.log(pokeJSON);
-      // Destructure Response into Pokemon Object//
-      ({
-        name: this.pokemon.name,
-        sprites: {
-          other: {
-            "official-artwork": { front_default: this.pokemon.img },
-          },
-        },
-        stats: [
-          { base_stat: this.pokemon.hp },
-          { base_stat: this.pokemon.attack },
-          { base_stat: this.pokemon.defense },
-          { base_stat: this.pokemon.special_attack },
-          { base_stat: this.pokemon.special_defense },
-          { base_stat: this.pokemon.speed },
-        ],
-        fav: this.pokemon.fav = false,
-      } = pokeJSON);
-
-      console.log("Pokemon API Search Found 🔍", this.pokemon);
-      console.log("🃏 CARD CREATED! -> From API");
-      this._createPokeCard(this.pokemon);
-    })
-    .catch((error) => {
-      loader.hidden = true;
-      errorMessage.hidden = false;
-      resetButton.hidden = false;
-      console.log(error);
-    });
 }
 
 // PSUEDO CODE 9-3-25

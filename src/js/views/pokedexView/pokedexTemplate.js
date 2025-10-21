@@ -25,7 +25,7 @@ export const pokedexTemplate = (gameModel) => {
  <!-- Loading State-->
           <div class="pokemon-details__loading hide">
             <img src="${imgAssets.loading}" alt="Loading">
-            <p class="play-information" id="details-error">loading..</p>
+            <p class="play-information">loading..</p>
           </div>
 <!-- End Loading State-->
 
