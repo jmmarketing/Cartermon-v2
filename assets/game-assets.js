@@ -71,6 +71,7 @@ import backpack from "./img/backpack.webp";
 import peekvee from "./img/eevee-bottom.webp";
 import pokeball from "./img/pokeball.webp";
 import pokedex from "./img/pokedex.png";
+import loading from "./img/loading.gif";
 
 //##### LOGO ASSETS ########
 //##########################
@@ -157,6 +158,7 @@ export const imgAssets = {
   pokeball,
   pokedex,
   logo,
+  loading,
 };
 
 export const sprites = {

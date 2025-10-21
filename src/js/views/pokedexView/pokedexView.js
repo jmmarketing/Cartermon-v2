@@ -29,6 +29,8 @@ export class PokedexView {
     this._pokemonDataContainer = document.querySelector(
       ".pokemon-details__data"
     );
+
+    this._loading = document.querySelector(".pokemon-details__loading");
     this._gridContainer = document.querySelector(".pokedex__grid");
     this._notFoundContainer = document.querySelector(".pokedex__empty");
     this._detailsErrorMessage = document.querySelector("#details-error");
@@ -54,19 +56,19 @@ export class PokedexView {
 
   async _searchPokemon(e) {
     e.preventDefault();
-    console.log("8. View Initiated - Searching....");
+
     const inputValue = this._searchField.value;
+
+    if (!inputValue) return;
 
     console.log(`9. View search input: ${inputValue}`);
     try {
       const pokemon = await controller.fetchPokemonDetails(inputValue);
       this._searchField.value = "";
-      console.log(`10. View: Pokemon Recieved: ${pokemon?.name}`);
 
       //Should be refactored into own function (also used in showPokemonDetails)
       const html = renderPokemonDetails(pokemon);
 
-      console.log(`11. View rendering Details`);
       //Hid/Show empty / details elements
       this._emptyDetails.classList.add("hide");
       this._pokemonDataContainer.classList.remove("hide");
@@ -75,18 +77,13 @@ export class PokedexView {
       this._pokemonDataContainer.innerHTML = html;
     } catch (error) {
       const message = `${inputValue}... <br> not found. <br> Search Again!`;
+      this._searchField.value = "";
       this._detailsErrorMessage.innerText = "";
       this._detailsErrorMessage.innerHTML = message;
 
       this._emptyDetails.classList.remove("hide");
       this._pokemonDataContainer.classList.add("hide");
-
-      console.log(`12. View caught error: ${error.message}`);
-      console.log(`13. View error stack: ${error.stack}`);
-      console.log(`NO POKEMON NAMED ${inputValue}`);
     }
-
-    // console.log(inputValue);
 
     /*
     For live filtered searches as user types:

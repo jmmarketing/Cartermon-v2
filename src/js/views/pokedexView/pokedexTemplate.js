@@ -4,7 +4,7 @@ import { pokemonCard } from "../../../components/pokemonCardComponent/pokemonCar
 
 import { renderPokemonDetails } from "../../../components/pokemonDetailsComponent/pokemonDetails.js";
 
-import { icons, sprites } from "../../../../assets/game-assets.js";
+import { icons, sprites, imgAssets } from "../../../../assets/game-assets.js";
 
 export const pokedexTemplate = (gameModel) => {
   return `
@@ -21,6 +21,13 @@ export const pokedexTemplate = (gameModel) => {
             <p class="play-information" id="details-error">Select or <br />Search for <br />a Pokemon</p>
           </div>
 <!-- End Empty State-->
+
+ <!-- Loading State-->
+          <div class="pokemon-details__loading hide">
+            <img src="${imgAssets.loading}" alt="Loading">
+            <p class="play-information" id="details-error">loading..</p>
+          </div>
+<!-- End Loading State-->
 
  <!-- DATA -->
           <div class="pokemon-details__data hide">

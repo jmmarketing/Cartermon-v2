@@ -26,15 +26,12 @@ export function _updateActivePlayer(userObj) {
   gameModel.player = userObj;
 
   console.log("UPDATE! 🗃 Current Game Model");
-  // console.log(gameModel);
 }
 
 export function _setActivePlayer(id) {
   const playerID = +id;
-  // console.log("Player ID is: " + playerID);
-  // console.log("ID is a: " + typeof playerID);
+
   console.log("setActivePlayer => to Current Game Model");
-  // console.log(gameModel);
 
   //Finds index of player in allPlayers
   const playerIndex = gameModel.allPlayers.findIndex(
@@ -45,7 +42,6 @@ export function _setActivePlayer(id) {
   //Assigns selected player to variable
   const selectedPlayer = gameModel.allPlayers[playerIndex];
   console.log("setActivePlayer, to selectedPlayer in gameModel");
-  // console.log(selectedPlayer);
 
   // Passes selected player to update gameModel
   _updateActivePlayer(selectedPlayer);
@@ -85,19 +81,12 @@ export function _loadPokemonAndAllPlayersFromLS() {
 
   const rawLocalStorageData = localStorage.getItem("gameModel");
   const localStorageData = JSON.parse(rawLocalStorageData);
-  // console.log("Raw: " + rawLocalStorageData);
-  // console.log("Parse: " + localStorageData);
 
   const pokemon = localStorageData.pokemon || [];
   const allPlayersData = localStorageData.allPlayers || [];
 
-  // console.log("Pokemon: " + pokemon);
-  // console.log("All Players: " + allPlayersData);
-
   gameModel.pokemon = pokemon;
   gameModel.allPlayers = allPlayersData;
-
-  // console.log(gameModel);
 }
 
 //Blanket update for whole gameModel to local storage.
@@ -105,37 +94,6 @@ export function _updateAllLocalStorage() {
   const gameModelJSON = JSON.stringify(gameModel);
   localStorage.setItem("gameModel", gameModelJSON);
 }
-
-// PSUEDO CODE 9-3-25
-/*
--- ANY Page Load (not / or /continue or /singup)
-  + Check player -> if name: null direct to /Continue page
-
--- New Signup:
-  + Add player details to player
-  + Add player to allPlayers. 
-  + Update LocalStorage
-
--- Continue Page:
-  + Pull allPlayers from LocalStorage
-  + Loop over & create cards for UX
-  + Selected Player pushed to Player property
-  + Redirect to /Main. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
 
 export async function getRandomPokemon() {
   const pokemonId = Math.floor(Math.random() * gameModel.limit) + 1;
@@ -228,16 +186,13 @@ export async function _updatePokedexList() {
 }
 
 export async function _getPokemonFullDetails(id) {
-  console.log(`1. Model: Fetching pokemon: ${id}`);
   try {
     const request = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
 
-    console.log(`2. Model: Response Status: ${request.status}`);
-    console.log(`3. Model: Response ok: ${request.ok}`);
     if (!request.ok) throw new Error(`HTTP ${request.status}`);
 
     const rawDetails = await request.json();
-    console.log(`4. Model: Data received: ${rawDetails.name}`);
+
     const formatName =
       rawDetails.name[0].toUpperCase() + rawDetails.name.slice(1);
 
@@ -265,7 +220,7 @@ export async function _getPokemonFullDetails(id) {
     return pokemon;
   } catch (error) {
     console.error(error);
-    console.log(`5. Model: Error occured: ${error.message}`);
+
     throw error;
   }
 }
@@ -311,67 +266,19 @@ function _searchPokemonAPI(pokemonSearched) {
     });
 }
 
-//########## Grab & Store Pokemon Info ##########
-function _loadPokeInfo() {
-  let names250;
-  const request = fetch("https://pokeapi.co/api/v2/pokemon?limit=250");
-  request
-    .then((response) => response.json())
-    .then((data) => {
-      for (const poke of data.results) {
-        this.names250.push({
-          name: poke.name,
-          image: poke.sprites.other["official-artwork"]["front_default"],
-          hp: poke["stats"][0]["base_stat"],
-        });
-      }
-      localStorage.setItem("allnames", JSON.stringify(this.names250));
+// PSUEDO CODE 9-3-25
+/*
+-- ANY Page Load (not / or /continue or /singup)
+  + Check player -> if name: null direct to /Continue page
 
-      this._createPreviewCards(this.names250);
-    })
-    .catch((error) => console.log(error));
-}
+-- New Signup:
+  + Add player details to player
+  + Add player to allPlayers. 
+  + Update LocalStorage
 
-function _loadPokeNames() {
-  // IF Names in local Storage then set to #names from localstorage
-  let names = this._getLocalstorage("autoNames") || [];
-  // IF names NOT in localstorage, then feth from API
-  if (!names.length) {
-    const request = fetch("https://pokeapi.co/api/v2/pokemon?limit=250");
-
-    request
-      .then((response) => response.json())
-      .then((data) => {
-        //Takes response and loops through results to push pokemon names to names array.
-        data.results.forEach((poke) => {
-          names.push(poke.name);
-        });
-        this._setLocalstorage("autoNames", names);
-      })
-      .catch((error) => console.log(error));
-  }
-}
-
-function _setLocalstorage(key, value) {
-  if (!localStorage[key]) {
-    localStorage.setItem(key, JSON.stringify(value));
-  } else {
-    const storageArr = this._getLocalstorage(key);
-    storageArr.push(value);
-    localStorage.setItem(key, JSON.stringify(storageArr));
-  }
-}
-
-function _getLocalstorage(key) {
-  return JSON.parse(localStorage.getItem(key));
-}
-
-function _removeFromLocalstorage() {
-  let pokeFav = this._getLocalstorage("fav");
-  let pokeIdx = pokeFav.findIndex((obj) => obj.name === this.pokemon.name);
-
-  pokeFav.splice(pokeIdx, 1);
-  console.log(pokeFav);
-  // localStorage.removeItem("fav");
-  localStorage.setItem("fav", JSON.stringify(pokeFav));
-}
+-- Continue Page:
+  + Pull allPlayers from LocalStorage
+  + Loop over & create cards for UX
+  + Selected Player pushed to Player property
+  + Redirect to /Main. 
+*/
