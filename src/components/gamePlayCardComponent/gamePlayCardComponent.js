@@ -41,6 +41,7 @@ export const gamePlayCardComponent = (type) => {
               src="${configSettings[type].image}"
               alt="Pokedex"
               class="gameplay-card__img"
+              data-nav="${configSettings[type].url}"
         />
         <p class="play-information">${configSettings[type].name}</p>
         <p class="general-text">

@@ -117,7 +117,7 @@ export async function getRandomPokemon() {
 // Selects card from pokedex, we do anohter call to load side data.
 export async function _setPokedexListInfo() {
   if (gameModel.pokemon.length == gameModel.limit) {
-    console.log("Pokemon already in gameModel");
+    // console.log("Pokemon already in gameModel");
     return;
   }
 

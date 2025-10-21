@@ -61,7 +61,7 @@ export class PokedexView {
 
     if (!inputValue) return;
 
-    console.log(`9. View search input: ${inputValue}`);
+    console.log(`View search input: ${inputValue}`);
     try {
       const pokemon = await controller.fetchPokemonDetails(inputValue);
       this._searchField.value = "";
@@ -104,7 +104,6 @@ export class PokedexView {
     // Get Pokemon Details
 
     const pokeId = e.target.dataset?.id ?? e.target.parentElement.dataset.id;
-    console.log(pokeId);
 
     const details = await controller.fetchPokemonDetails(pokeId);
 
@@ -223,7 +222,7 @@ export class PokedexView {
 
     // Checks to see if snorlaxx is showing if it does not contain 'hide' then it is showing
     const notFoundShowing = !this._notFoundContainer.classList.contains("hide");
-    console.log(`Snorlax is showing: ${notFoundShowing}`);
+    // console.log(`Snorlax is showing: ${notFoundShowing}`);
 
     //Condition if showing (simple).
     if (notFoundShowing) {
@@ -250,8 +249,8 @@ export class PokedexView {
 
     this.container.innerHTML = html;
 
-    console.log("RAW LIST:");
-    console.log(this._rawList);
+    // console.log("RAW LIST:");
+    // console.log(this._rawList);
   }
 }
 

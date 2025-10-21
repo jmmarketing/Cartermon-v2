@@ -145,8 +145,8 @@ class LearnView {
   }
 
   render(gameModel, mathObj) {
-    console.log("Rendering LEARN.. gameModel passed =");
-    console.log(gameModel);
+    // console.log("Rendering LEARN.. gameModel passed =");
+    // console.log(gameModel);
     this._mathQuestionObj = mathObj;
     this._currentPlayer = gameModel.player;
     this._container.innerHTML = learnTemplate(gameModel, mathObj);

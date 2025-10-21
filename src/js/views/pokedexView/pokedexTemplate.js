@@ -17,7 +17,7 @@ export const pokedexTemplate = (gameModel) => {
 
         <div class="pokemon-details">
  <!-- Empty State-->
-          <div class="pokemon-details__empty ">
+          <div class="pokemon-details__empty">
             <p class="play-information" id="details-error">Select or <br />Search for <br />a Pokemon</p>
           </div>
 <!-- End Empty State-->

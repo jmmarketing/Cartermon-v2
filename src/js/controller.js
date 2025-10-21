@@ -6,6 +6,7 @@ import mainView from "./views/mainView/mainView.js";
 import learnView from "./views/learnView/learnView.js";
 import exploreView from "./views/exploreView/exploreView.js";
 import pokedexView from "./views/pokedexView/pokedexView.js";
+import widthWarning from "../components/widthWarningComponent/widthWarning.js";
 
 import { generateMathQuestion } from "../services/MathProblemGenerator.js";
 
@@ -208,9 +209,28 @@ function setupGlobalNavigation() {
   });
 }
 
+function checkScreenSize() {
+  const min_width = 1240;
+  let resizeTimer;
+
+  function showWarning() {
+    const screen_size = window.innerWidth;
+    if (screen_size < min_width) widthWarning.show();
+    else widthWarning.remove();
+  }
+
+  document.addEventListener("DOMContentLoaded", showWarning);
+
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(showWarning, 250);
+  });
+}
+
 function init() {
   router.init();
   setupGlobalNavigation();
+  checkScreenSize();
 }
 
 init();

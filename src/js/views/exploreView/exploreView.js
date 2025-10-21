@@ -84,7 +84,6 @@ export class ExploreView {
   }
 
   async _resetExplore() {
-    console.log("NEW SEARCH REGISTERED!");
     const newPokemon = await controller.getNewPokemon();
 
     const html = exploreTemplate(

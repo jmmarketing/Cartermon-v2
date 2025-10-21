@@ -511,6 +511,7 @@ label {
 }
 .gameplay-card__img {
   height: 125px;
+  cursor: pointer;
 }
 .gameplay-card__nav {
   text-decoration: none;
@@ -934,7 +935,7 @@ label {
   border-radius: 10px;
   background-color: #60a1b8;
 }
-.pokemon-details__type--fair {
+.pokemon-details__type--fairy {
   font-family: "Silkscreen", sans-serif;
   font-size: 1.6rem;
   padding: 5px 10px;
