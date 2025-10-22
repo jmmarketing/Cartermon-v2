@@ -1043,9 +1043,7 @@ label {
 }
 .width-warning__logo {
   width: 250px;
-  margin-bottom: 30px;
-  position: absolute;
-  top: 40px;
+  margin-bottom: 80px;
 }
 .width-warning__rotate {
   width: 120px;
