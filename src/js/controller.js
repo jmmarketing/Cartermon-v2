@@ -6,7 +6,6 @@ import mainView from "./views/mainView/mainView.js";
 import learnView from "./views/learnView/learnView.js";
 import exploreView from "./views/exploreView/exploreView.js";
 import pokedexView from "./views/pokedexView/pokedexView.js";
-import widthWarning from "../components/widthWarningComponent/widthWarning.js";
 
 import { generateMathQuestion } from "../services/MathProblemGenerator.js";
 
@@ -212,11 +211,15 @@ function setupGlobalNavigation() {
 function checkScreenSize() {
   const min_width = 1240;
   let resizeTimer;
+  const warningDialog = document.querySelector(".width-warning");
+  const viewWidth = document.querySelector(".width-warning__width");
 
   function showWarning() {
     const screen_size = window.innerWidth;
-    if (screen_size < min_width) widthWarning.show();
-    else widthWarning.remove();
+    if (screen_size < min_width) {
+      viewWidth.textContent = `${screen_size}px`;
+      warningDialog.showModal();
+    } else warningDialog.close();
   }
 
   document.addEventListener("DOMContentLoaded", showWarning);

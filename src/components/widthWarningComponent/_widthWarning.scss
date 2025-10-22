@@ -1,1 +1,48 @@
 @use "../../../essentials" as *;
+
+.width-warning {
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  max-width: 1240px;
+  width: 100%;
+  max-height: 1000px;
+  height: 100%;
+  z-index: 999;
+  border: none;
+  background-color: $color-white;
+  text-align: center;
+
+  &[open] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 250px;
+    margin-bottom: 30px;
+
+    position: absolute;
+    top: 40px;
+  }
+
+  &__rotate {
+    width: 120px;
+    margin: 10px;
+  }
+
+  & .general-text {
+    margin-bottom: 20px;
+  }
+
+  & .rowdie-label {
+    opacity: 0.5;
+  }
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}

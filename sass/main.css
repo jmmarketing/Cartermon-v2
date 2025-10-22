@@ -1021,6 +1021,46 @@ label {
   height: 52px;
 }
 
+.width-warning {
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  max-width: 1240px;
+  width: 100%;
+  max-height: 1000px;
+  height: 100%;
+  z-index: 999;
+  border: none;
+  background-color: #fff;
+  text-align: center;
+}
+.width-warning[open] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.width-warning__logo {
+  width: 250px;
+  margin-bottom: 30px;
+  position: absolute;
+  top: 40px;
+}
+.width-warning__rotate {
+  width: 120px;
+  margin: 10px;
+}
+.width-warning .general-text {
+  margin-bottom: 20px;
+}
+.width-warning .rowdie-label {
+  opacity: 0.5;
+}
+.width-warning:focus {
+  border: none;
+  outline: none;
+}
+
 .hero {
   width: 100%;
   height: 740px;
