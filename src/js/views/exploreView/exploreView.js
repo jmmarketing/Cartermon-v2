@@ -9,7 +9,7 @@ export class ExploreView {
   //   _sceneContainer;
 
   constructor() {
-    this._container = document.querySelector("body");
+    this._container = document.querySelector("#game-container");
   }
 
   _initiateElements() {

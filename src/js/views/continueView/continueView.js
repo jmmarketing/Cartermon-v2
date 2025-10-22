@@ -6,7 +6,7 @@ class ContiueView {
   _playerCards;
 
   constructor() {
-    this.container = document.querySelector("body");
+    this.container = document.querySelector("#game-container");
   }
 
   _initContinueBehavior() {

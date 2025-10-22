@@ -2,7 +2,7 @@ import { homeTemplate } from "./homeTemplate.js";
 
 class HomeView {
   constructor() {
-    this.container = document.querySelector("body");
+    this.container = document.querySelector("#game-container");
   }
 
   render() {

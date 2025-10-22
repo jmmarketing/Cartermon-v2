@@ -13,7 +13,7 @@ export class PokedexView {
     this._filteredList = [];
     this._filterParams = [];
     this._rawList = [];
-    this.container = document.querySelector("body");
+    this.container = document.querySelector("#game-container");
   }
 
   _initiateElements() {

@@ -23,7 +23,7 @@ class SignUpView {
   };
 
   constructor() {
-    this.container = document.querySelector("body");
+    this.container = document.querySelector("#game-container");
   }
 
   // Initiates page element variables & Sets eventlistners after DOM updated with render.

@@ -7,7 +7,7 @@ import {
 } from "../../../../assets/game-assets.js";
 
 export const homeTemplate = `
- <main>
+
       <div class="plain-logo">
         <img src="${imgAssets.logo}" alt="Cartermon Logo" />
       </div>
@@ -68,5 +68,5 @@ export const homeTemplate = `
           />
         </div>
       </section>
-    </main>
+    
 `;

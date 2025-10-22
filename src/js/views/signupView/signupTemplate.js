@@ -4,7 +4,7 @@ import { avatarCardComponent } from "../../../components/avatarRadioCardComponen
 import { difficultyRadioComponent } from "../../../components/difficultyRadioComponent/difficultyRadioComponent.js";
 
 export const signupTemplate = `
-<main>
+
       <form class="signup-form">
         <div class="signup-form__left">
           <div>
@@ -45,5 +45,5 @@ export const signupTemplate = `
         })}
         
       </form>
-    </main>
+    
 `;

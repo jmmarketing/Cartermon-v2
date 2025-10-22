@@ -19,7 +19,7 @@ class LearnView {
   _successContainer;
 
   constructor() {
-    this._container = document.querySelector("body");
+    this._container = document.querySelector("#game-container");
   }
 
   _initiateElements() {

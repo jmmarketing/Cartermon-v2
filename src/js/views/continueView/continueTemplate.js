@@ -3,7 +3,7 @@ import { playerCardComponent } from "../../../components/playerCardComponent/pla
 export const continueTemplate = (playersArray) => {
   return `
 
- <main>
+ 
       <section class="continue">
         <div class="continue__title">
           <p class="rowdie-title">Select Your Player</p>
@@ -14,7 +14,7 @@ export const continueTemplate = (playersArray) => {
           
         </div>
       </section>
-    </main>
+    
 
 
 `;

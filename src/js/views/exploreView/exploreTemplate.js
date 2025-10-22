@@ -34,7 +34,7 @@ export const exploreTemplate = (gameModel, pokemonObj, render = "full") => {
     return `
     
     ${navbarComponent(gameModel)}
-    <main>
+    
       <section class="explore">
         ${playerCardComponent(gameModel.player, { cardSize: "main" })}
 
@@ -89,7 +89,7 @@ export const exploreTemplate = (gameModel, pokemonObj, render = "full") => {
           </div>
         </div>
       </section>
-    </main>
+   
     
     
     

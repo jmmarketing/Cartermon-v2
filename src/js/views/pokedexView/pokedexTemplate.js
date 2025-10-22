@@ -9,7 +9,7 @@ import { icons, sprites, imgAssets } from "../../../../assets/game-assets.js";
 export const pokedexTemplate = (gameModel) => {
   return `
     ${navbarComponent(gameModel)}
-        <main>
+        
       <section class="pokedex">
 
 <!-- #########################-->
@@ -273,7 +273,6 @@ export const pokedexTemplate = (gameModel) => {
           </div>
         </div>
       </section>
-    </main>
     
     
     `;

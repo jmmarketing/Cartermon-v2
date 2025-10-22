@@ -2,7 +2,7 @@ import { mainTemplate } from "./mainTemplate.js";
 
 class MainView {
   constructor() {
-    this.container = document.querySelector("body");
+    this.container = document.querySelector("#game-container");
   }
 
   render(gameModel) {

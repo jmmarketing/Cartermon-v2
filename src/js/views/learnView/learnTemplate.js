@@ -14,7 +14,7 @@ import { infoBarComponent } from "../../../components/infoBarComponent/infoBarCo
 export const learnTemplate = (gameModel, mathObj) => {
   return `
   ${navbarComponent(gameModel)}
-<main>
+
       <section class="learn">
       ${playerCardComponent(gameModel.player, { cardSize: "main" })}
 
@@ -41,7 +41,7 @@ export const learnTemplate = (gameModel, mathObj) => {
           </div>
         </div>
       </section>
-    </main>
+   
 
 `;
 };

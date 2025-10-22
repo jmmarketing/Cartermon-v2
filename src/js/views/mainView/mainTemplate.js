@@ -6,7 +6,7 @@ export const mainTemplate = (gameModel) => {
   const { player } = gameModel;
   return `
   ${navbarComponent(gameModel)}
-  <main>
+ 
       <section class="main-screen">
       ${playerCardComponent(player, { cardSize: "main" })}
 
@@ -17,6 +17,6 @@ export const mainTemplate = (gameModel) => {
           
         </div>
       </section>
-    </main>
+    
   `;
 };
