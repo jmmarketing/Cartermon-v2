@@ -155,8 +155,8 @@ export class PokedexView {
   //Renders filteredList to the DOM
   _renderFiltered() {
     console.log("RENDERING FILETERED!");
-    console.log(this._filteredList);
-    console.log(`_filteredList length: ${this._filteredList.length}`);
+    // console.log(this._filteredList);
+    // console.log(`_filteredList length: ${this._filteredList.length}`);
 
     // Control for if there is no filterable pokemon
     if (this._filteredList.length == 0) {

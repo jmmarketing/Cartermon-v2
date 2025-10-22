@@ -225,6 +225,7 @@ function checkScreenSize() {
   document.addEventListener("DOMContentLoaded", showWarning);
 
   window.addEventListener("resize", () => {
+    //Basic Debounce method
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(showWarning, 250);
   });

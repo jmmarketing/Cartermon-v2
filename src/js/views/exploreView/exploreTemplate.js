@@ -13,7 +13,7 @@ import { infoBarComponent } from "../../../components/infoBarComponent/infoBarCo
 
 export const exploreTemplate = (gameModel, pokemonObj, render = "full") => {
   const bgIndex = Math.floor(Math.random() * backgrounds.length);
-  console.log("Background Index: " + bgIndex);
+  // console.log("Background Index: " + bgIndex);
   const scene = backgrounds[bgIndex];
 
   const {
