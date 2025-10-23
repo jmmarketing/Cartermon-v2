@@ -53,6 +53,11 @@ class SignUpView {
   //Applies event listeners
   _applyEventListener() {
     this._startButton.addEventListener("click", this._getPlayerData.bind(this));
+
+    //Prevent premature submit from name input field.
+    this._nameInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") e.preventDefault();
+    });
   }
 
   // Gets data from form via eventlistner on submit button & passes to

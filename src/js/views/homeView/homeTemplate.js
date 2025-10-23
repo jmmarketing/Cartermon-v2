@@ -28,10 +28,7 @@ export const homeTemplate = `
           </div>
           <div class="hero__description">
             <p class="general-text">
-              Pika-pi Marshtomp Nosepass Aipom Celebi Kyogre Magmar. Consectetur
-              adipisicing elit Chansey Bronzong Nosepass Zangoose Azumarill
-              Meditite Strength Kirlia Glaceon Spoink Zekrom Tangela grumpy old
-              man who needs coffee.
+              Solve math problems to catch Pokemon and build your collection! Practice addition and subtraction while exploring different environments and discovering new Pokemon. Challenge yourself and become a math master trainer.
             </p>
           </div>
 

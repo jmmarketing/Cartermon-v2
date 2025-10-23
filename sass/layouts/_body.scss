@@ -1,4 +1,4 @@
-@use "../abstracts/variables" as *;
+@use "../../essentials" as *;
 
 body {
   width: 100%;
@@ -23,6 +23,10 @@ body {
   align-items: center;
 
   padding-top: 30px;
+
+  @include respond(tablet-landscape) {
+    padding-top: $spacing-10;
+  }
 
   &::after {
     content: "";

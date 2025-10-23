@@ -27,3 +27,4 @@ CarterMon is a practice project inspired by my daughter's newly discovered inter
 - When nothing caught and filter by caught should show snorlax
 - Open graph data to share
 - Slow to load when new sign up (load screen)
+- SPA routes dont work on ghpages (404 workout method)

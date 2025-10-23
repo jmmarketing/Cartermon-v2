@@ -166,21 +166,27 @@ evolution (name, sprite) [array of {}] - logic for creation
             <!--Pokemon Evolution-->
             <div class="pokemon-details__evolution">
               <p class="rowdie-label">Evolution</p>
+                <p class="pokedex-value">Coming Soon.</p>
+
+              <! -- 
               <img
                 src="${sprites.squirtle}"
                 alt="Squritle"
                 class="pokemon-details__evolution--stage"
-              />
+              /> 
+              <! -- 
               <img
                 src="${sprites.bulbasaur}"
                 alt="Squritle"
                 class="pokemon-details__evolution--stage"
-              />
+              /> 
+              <! -- 
               <img
                 src="${sprites.pikachu}"
                 alt="Squritle"
                 class="pokemon-details__evolution--stage"
-              />
+              /> 
+              
             </div>
 
 `;

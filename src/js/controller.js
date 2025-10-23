@@ -6,6 +6,7 @@ import mainView from "./views/mainView/mainView.js";
 import learnView from "./views/learnView/learnView.js";
 import exploreView from "./views/exploreView/exploreView.js";
 import pokedexView from "./views/pokedexView/pokedexView.js";
+import loadingView from "./views/loadingView/loadingView.js";
 
 import { generateMathQuestion } from "../services/MathProblemGenerator.js";
 
@@ -31,8 +32,8 @@ export async function showHome() {
 
 //Renders the Signup Page & Sets eventListeners
 export async function showSignup() {
-  console.log("showSignup -> Current gameModel:");
-  console.log(model.gameModel);
+  // console.log("showSignup -> Current gameModel:");
+  // console.log(model.gameModel);
   try {
     document.body.className = "signup";
 
@@ -76,6 +77,7 @@ export async function showMain() {
   }
   try {
     document.body.className = "main";
+    loadingView.render();
     await model._setPokedexListInfo();
     await mainView.render(model.gameModel);
   } catch (error) {
@@ -134,6 +136,7 @@ export async function showPokedex() {
 
   try {
     document.body.className = "pokedex-view";
+    loadingView.render();
     await model._updatePokedexList();
     await pokedexView.render(model.gameModel);
     pokedexView._initiateElements();
@@ -153,8 +156,8 @@ export function handleNewSignUp(playerData) {
   model._updateActivePlayer(playerData);
   model._updateAllPlayersData(playerData);
 
-  console.log("Current Game Model:");
-  console.log(model.gameModel);
+  // console.log("Current Game Model:");
+  // console.log(model.gameModel);
 
   localStorage.setItem("gameModel", JSON.stringify(model.gameModel));
 

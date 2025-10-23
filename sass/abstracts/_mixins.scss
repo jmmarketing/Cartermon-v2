@@ -23,22 +23,22 @@ ORDER [When refactoring for responsiveness]: Base + typography > general layout 
 */
 
 @mixin respond($breakpoint) {
-  @if $breakpoint == phone {
-    @media only screen and (max-width: 36.5em) {
-      //580px
+  // @if $breakpoint == phone {
+  //   @media only screen and (max-width: 36.5em) {
+  //     //580px
+  //     @content;
+  //   }
+  // }
+
+  @if $breakpoint == tablet-landscape {
+    @media only screen and (max-width: 81.25em) {
+      //1300px
       @content;
     }
   }
 
-  @if $breakpoint == tablet {
-    @media only screen and (max-width: 65.5em) {
-      //1048px
-      @content;
-    }
-  }
-
-  @if $breakpoint == big-desktop {
-  }
+  // @if $breakpoint == big-desktop {
+  // }
 }
 
 @mixin signupBoxStyling {

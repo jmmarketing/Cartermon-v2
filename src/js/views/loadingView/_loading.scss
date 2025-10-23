@@ -1,0 +1,24 @@
+@use "../../../../essentials" as *;
+
+.loading {
+  background-color: $color-white;
+  border-radius: $radius-20;
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+
+  text-align: center;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 4px 4px 10px rgba($color-black, 0.6);
+
+  & img {
+    width: 100px;
+    margin: 0 auto;
+  }
+}
