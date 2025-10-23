@@ -317,6 +317,15 @@ label {
   transform: scale(1.05);
 }
 
+@media only screen and (width <= 81.25em) {
+  .navigation {
+    z-index: 100;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+  }
+}
+
 .avatar-card {
   background-color: #fff;
   border-radius: 20px;
@@ -582,7 +591,6 @@ label {
   height: 505px;
   padding: 40px 20px;
   display: flex;
-  transform: translateY(10px);
 }
 
 .math-question__equation {
@@ -833,7 +841,7 @@ label {
 
 .pokemon-details {
   width: 305px;
-  height: 675px;
+  height: 660px;
   display: flex;
   position: relative;
 }
@@ -844,7 +852,7 @@ label {
   background-color: #fff;
   border-radius: 20px;
   width: 305px;
-  height: 615px;
+  height: 600px;
   position: absolute;
   bottom: 0;
   box-shadow: -5px -5px 7px #fffaf20d, -1px -1px 2px #fffaf21a, 5px 5px 7px #0003, 1px 1px 2px #0003;
@@ -1128,7 +1136,8 @@ label {
   width: 100%;
   max-width: 1240px;
   height: 100%;
-  max-height: 1000px;
+  max-height: 1200px;
+  padding: 10px;
   position: fixed;
   top: 0;
   overflow: hidden;
@@ -1143,9 +1152,7 @@ label {
 
 .width-warning__logo {
   width: 250px;
-  margin-bottom: 30px;
-  position: absolute;
-  top: 40px;
+  margin-bottom: 80px;
 }
 
 .width-warning__rotate {
@@ -1235,6 +1242,7 @@ label {
 .signup-form {
   flex-wrap: wrap;
   gap: 35px;
+  animation: .5s fadeIn;
   display: flex;
 }
 
@@ -1305,6 +1313,7 @@ label {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  animation: .5s fadeIn;
   display: flex;
 }
 
@@ -1334,6 +1343,7 @@ label {
 
 .main-screen__game-paths {
   gap: 25px;
+  animation: .5s fadeIn;
   display: flex;
 }
 
@@ -1411,6 +1421,7 @@ label {
   flex-direction: column;
   gap: 20px;
   width: 100%;
+  animation: .5s fadeIn;
   display: flex;
 }
 
@@ -1465,6 +1476,7 @@ label {
   align-items: flex-end;
   gap: 20px;
   width: 100%;
+  animation: .5s fadeIn;
   display: flex;
 }
 
@@ -1701,6 +1713,26 @@ label {
   width: 200px;
 }
 
+.loading {
+  text-align: center;
+  background-color: #fff;
+  border-radius: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  box-shadow: 4px 4px 10px #0009;
+}
+
+.loading img {
+  width: 100px;
+  margin: 0 auto;
+}
+
 .navigation {
   width: 100%;
   max-width: 1220px;
@@ -1721,6 +1753,12 @@ body {
   padding-top: 30px;
   display: flex;
   position: relative;
+}
+
+@media only screen and (width <= 81.25em) {
+  body {
+    padding-top: 10px;
+  }
 }
 
 body:after {

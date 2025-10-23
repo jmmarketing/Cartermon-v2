@@ -705,6 +705,8 @@ var _exploreViewJs = require("./views/exploreView/exploreView.js");
 var _exploreViewJsDefault = parcelHelpers.interopDefault(_exploreViewJs);
 var _pokedexViewJs = require("./views/pokedexView/pokedexView.js");
 var _pokedexViewJsDefault = parcelHelpers.interopDefault(_pokedexViewJs);
+var _loadingViewJs = require("./views/loadingView/loadingView.js");
+var _loadingViewJsDefault = parcelHelpers.interopDefault(_loadingViewJs);
 var _mathProblemGeneratorJs = require("../services/MathProblemGenerator.js");
 var _runtime = require("regenerator-runtime/runtime");
 var _modelJs = require("./model.js");
@@ -718,8 +720,8 @@ async function showHome() {
     }
 }
 async function showSignup() {
-    console.log("showSignup -> Current gameModel:");
-    console.log(_modelJs.gameModel);
+    // console.log("showSignup -> Current gameModel:");
+    // console.log(model.gameModel);
     try {
         document.body.className = "signup";
         //Renders Signuyp View
@@ -731,6 +733,7 @@ async function showSignup() {
     }
 }
 async function showContinue() {
+    (0, _loadingViewJsDefault.default).render();
     _modelJs._loadPokemonAndAllPlayersFromLS();
     //Check if any saved players, if not direct to /signup.
     const hasPlayers = _modelJs.gameModel.allPlayers.length > 0;
@@ -747,12 +750,13 @@ async function showContinue() {
     }
 }
 async function showMain() {
+    (0, _loadingViewJsDefault.default).render();
     // If no player route to /continue path.
     if (!_modelJs.gameModel.player.name) (0, _routerDefault.default).navigateTo("/continue");
     try {
         document.body.className = "main";
         await _modelJs._setPokedexListInfo();
-        await (0, _mainViewJsDefault.default).render(_modelJs.gameModel);
+        setTimeout(await (0, _mainViewJsDefault.default).render(_modelJs.gameModel), 5000);
     } catch (error) {
         console.error(`Failed to load page: ${error}`);
     }
@@ -798,6 +802,7 @@ async function showPokedex() {
         (0, _routerDefault.default).navigateTo("/continue");
         return;
     }
+    (0, _loadingViewJsDefault.default).render();
     try {
         document.body.className = "pokedex-view";
         await _modelJs._updatePokedexList();
@@ -812,8 +817,8 @@ function handleNewSignUp(playerData) {
     console.log("New Signup Passed to Controller");
     _modelJs._updateActivePlayer(playerData);
     _modelJs._updateAllPlayersData(playerData);
-    console.log("Current Game Model:");
-    console.log(_modelJs.gameModel);
+    // console.log("Current Game Model:");
+    // console.log(model.gameModel);
     localStorage.setItem("gameModel", JSON.stringify(_modelJs.gameModel));
     (0, _routerDefault.default).navigateTo("/main");
 }
@@ -877,7 +882,7 @@ function init() {
 }
 init();
 
-},{"core-js/modules/esnext.array.last-index.js":"8cpHj","core-js/modules/esnext.array.last-item.js":"3KWUU","core-js/modules/esnext.composite-key.js":"3zsBr","core-js/modules/esnext.composite-symbol.js":"6P6E3","core-js/modules/esnext.map.delete-all.js":"84I4a","core-js/modules/esnext.map.every.js":"a0ie9","core-js/modules/esnext.map.filter.js":"8EHBg","core-js/modules/esnext.map.find.js":"kzunK","core-js/modules/esnext.map.find-key.js":"ipfV1","core-js/modules/esnext.map.from.js":"aMX7r","core-js/modules/esnext.map.group-by.js":"3AR1K","core-js/modules/esnext.map.includes.js":"3cPf4","core-js/modules/esnext.map.key-by.js":"czzPK","core-js/modules/esnext.map.key-of.js":"la1gU","core-js/modules/esnext.map.map-keys.js":"12CRV","core-js/modules/esnext.map.map-values.js":"fQehs","core-js/modules/esnext.map.merge.js":"5Qvm2","core-js/modules/esnext.map.of.js":"3WfcG","core-js/modules/esnext.map.reduce.js":"8ampn","core-js/modules/esnext.map.some.js":"eVX7K","core-js/modules/esnext.map.update.js":"agmCJ","core-js/modules/esnext.math.clamp.js":"fVCxt","core-js/modules/esnext.math.deg-per-rad.js":"16Ig2","core-js/modules/esnext.math.degrees.js":"lAovk","core-js/modules/esnext.math.fscale.js":"k2b33","core-js/modules/esnext.math.iaddh.js":"3rdHO","core-js/modules/esnext.math.imulh.js":"8UDpO","core-js/modules/esnext.math.isubh.js":"hHlFR","core-js/modules/esnext.math.rad-per-deg.js":"d0sq8","core-js/modules/esnext.math.radians.js":"4O5p8","core-js/modules/esnext.math.scale.js":"7eJRv","core-js/modules/esnext.math.seeded-prng.js":"avTaO","core-js/modules/esnext.math.signbit.js":"cwFfw","core-js/modules/esnext.math.umulh.js":"29loa","core-js/modules/esnext.number.from-string.js":"3xbh3","core-js/modules/esnext.observable.js":"eeV02","core-js/modules/esnext.promise.try.js":"9Mfk9","core-js/modules/esnext.reflect.define-metadata.js":"hNtw3","core-js/modules/esnext.reflect.delete-metadata.js":"gLTQ0","core-js/modules/esnext.reflect.get-metadata.js":"4ocs1","core-js/modules/esnext.reflect.get-metadata-keys.js":"c4lFr","core-js/modules/esnext.reflect.get-own-metadata.js":"92uop","core-js/modules/esnext.reflect.get-own-metadata-keys.js":"1tHok","core-js/modules/esnext.reflect.has-metadata.js":"cVgdu","core-js/modules/esnext.reflect.has-own-metadata.js":"9crGj","core-js/modules/esnext.reflect.metadata.js":"aSvLp","core-js/modules/esnext.set.add-all.js":"7qoXf","core-js/modules/esnext.set.delete-all.js":"79fB3","core-js/modules/esnext.set.difference.js":"773AO","core-js/modules/esnext.set.every.js":"4X7Cu","core-js/modules/esnext.set.filter.js":"a8QMe","core-js/modules/esnext.set.find.js":"44hBz","core-js/modules/esnext.set.from.js":"fFjm0","core-js/modules/esnext.set.intersection.js":"5PUFy","core-js/modules/esnext.set.is-disjoint-from.js":"b3q3i","core-js/modules/esnext.set.is-subset-of.js":"5igXN","core-js/modules/esnext.set.is-superset-of.js":"1amm1","core-js/modules/esnext.set.join.js":"bMl6L","core-js/modules/esnext.set.map.js":"g65Jk","core-js/modules/esnext.set.of.js":"h11gG","core-js/modules/esnext.set.reduce.js":"gtD5C","core-js/modules/esnext.set.some.js":"aYdPy","core-js/modules/esnext.set.symmetric-difference.js":"lsopM","core-js/modules/esnext.set.union.js":"3nyPK","core-js/modules/esnext.string.at.js":"PgTGt","core-js/modules/esnext.string.code-points.js":"138n3","core-js/modules/esnext.symbol.dispose.js":"b9ez5","core-js/modules/esnext.symbol.observable.js":"bTlfI","core-js/modules/esnext.symbol.pattern-match.js":"dLSVv","core-js/modules/esnext.weak-map.delete-all.js":"jHykW","core-js/modules/esnext.weak-map.from.js":"hUBsF","core-js/modules/esnext.weak-map.of.js":"cBEF1","core-js/modules/esnext.weak-set.add-all.js":"aizkc","core-js/modules/esnext.weak-set.delete-all.js":"d5YOC","core-js/modules/esnext.weak-set.from.js":"upZfU","core-js/modules/esnext.weak-set.of.js":"CNJie","core-js/modules/web.immediate.js":"49tUX","./router":"jSUBV","./views/homeView/homeView.js":"2VtE1","./views/signupView/signupView.js":"69Fw8","./views/continueView/continueView.js":"3Ncj8","./views/mainView/mainView.js":"dJOhh","./views/learnView/learnView.js":"7m48U","./views/exploreView/exploreView.js":"bL1CD","./views/pokedexView/pokedexView.js":"jegRn","../services/MathProblemGenerator.js":"aJ9XV","regenerator-runtime/runtime":"dXNgZ","./model.js":"Y4A21","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8cpHj":[function(require,module,exports) {
+},{"core-js/modules/esnext.array.last-index.js":"8cpHj","core-js/modules/esnext.array.last-item.js":"3KWUU","core-js/modules/esnext.composite-key.js":"3zsBr","core-js/modules/esnext.composite-symbol.js":"6P6E3","core-js/modules/esnext.map.delete-all.js":"84I4a","core-js/modules/esnext.map.every.js":"a0ie9","core-js/modules/esnext.map.filter.js":"8EHBg","core-js/modules/esnext.map.find.js":"kzunK","core-js/modules/esnext.map.find-key.js":"ipfV1","core-js/modules/esnext.map.from.js":"aMX7r","core-js/modules/esnext.map.group-by.js":"3AR1K","core-js/modules/esnext.map.includes.js":"3cPf4","core-js/modules/esnext.map.key-by.js":"czzPK","core-js/modules/esnext.map.key-of.js":"la1gU","core-js/modules/esnext.map.map-keys.js":"12CRV","core-js/modules/esnext.map.map-values.js":"fQehs","core-js/modules/esnext.map.merge.js":"5Qvm2","core-js/modules/esnext.map.of.js":"3WfcG","core-js/modules/esnext.map.reduce.js":"8ampn","core-js/modules/esnext.map.some.js":"eVX7K","core-js/modules/esnext.map.update.js":"agmCJ","core-js/modules/esnext.math.clamp.js":"fVCxt","core-js/modules/esnext.math.deg-per-rad.js":"16Ig2","core-js/modules/esnext.math.degrees.js":"lAovk","core-js/modules/esnext.math.fscale.js":"k2b33","core-js/modules/esnext.math.iaddh.js":"3rdHO","core-js/modules/esnext.math.imulh.js":"8UDpO","core-js/modules/esnext.math.isubh.js":"hHlFR","core-js/modules/esnext.math.rad-per-deg.js":"d0sq8","core-js/modules/esnext.math.radians.js":"4O5p8","core-js/modules/esnext.math.scale.js":"7eJRv","core-js/modules/esnext.math.seeded-prng.js":"avTaO","core-js/modules/esnext.math.signbit.js":"cwFfw","core-js/modules/esnext.math.umulh.js":"29loa","core-js/modules/esnext.number.from-string.js":"3xbh3","core-js/modules/esnext.observable.js":"eeV02","core-js/modules/esnext.promise.try.js":"9Mfk9","core-js/modules/esnext.reflect.define-metadata.js":"hNtw3","core-js/modules/esnext.reflect.delete-metadata.js":"gLTQ0","core-js/modules/esnext.reflect.get-metadata.js":"4ocs1","core-js/modules/esnext.reflect.get-metadata-keys.js":"c4lFr","core-js/modules/esnext.reflect.get-own-metadata.js":"92uop","core-js/modules/esnext.reflect.get-own-metadata-keys.js":"1tHok","core-js/modules/esnext.reflect.has-metadata.js":"cVgdu","core-js/modules/esnext.reflect.has-own-metadata.js":"9crGj","core-js/modules/esnext.reflect.metadata.js":"aSvLp","core-js/modules/esnext.set.add-all.js":"7qoXf","core-js/modules/esnext.set.delete-all.js":"79fB3","core-js/modules/esnext.set.difference.js":"773AO","core-js/modules/esnext.set.every.js":"4X7Cu","core-js/modules/esnext.set.filter.js":"a8QMe","core-js/modules/esnext.set.find.js":"44hBz","core-js/modules/esnext.set.from.js":"fFjm0","core-js/modules/esnext.set.intersection.js":"5PUFy","core-js/modules/esnext.set.is-disjoint-from.js":"b3q3i","core-js/modules/esnext.set.is-subset-of.js":"5igXN","core-js/modules/esnext.set.is-superset-of.js":"1amm1","core-js/modules/esnext.set.join.js":"bMl6L","core-js/modules/esnext.set.map.js":"g65Jk","core-js/modules/esnext.set.of.js":"h11gG","core-js/modules/esnext.set.reduce.js":"gtD5C","core-js/modules/esnext.set.some.js":"aYdPy","core-js/modules/esnext.set.symmetric-difference.js":"lsopM","core-js/modules/esnext.set.union.js":"3nyPK","core-js/modules/esnext.string.at.js":"PgTGt","core-js/modules/esnext.string.code-points.js":"138n3","core-js/modules/esnext.symbol.dispose.js":"b9ez5","core-js/modules/esnext.symbol.observable.js":"bTlfI","core-js/modules/esnext.symbol.pattern-match.js":"dLSVv","core-js/modules/esnext.weak-map.delete-all.js":"jHykW","core-js/modules/esnext.weak-map.from.js":"hUBsF","core-js/modules/esnext.weak-map.of.js":"cBEF1","core-js/modules/esnext.weak-set.add-all.js":"aizkc","core-js/modules/esnext.weak-set.delete-all.js":"d5YOC","core-js/modules/esnext.weak-set.from.js":"upZfU","core-js/modules/esnext.weak-set.of.js":"CNJie","core-js/modules/web.immediate.js":"49tUX","./router":"jSUBV","./views/homeView/homeView.js":"2VtE1","./views/signupView/signupView.js":"69Fw8","./views/continueView/continueView.js":"3Ncj8","./views/mainView/mainView.js":"dJOhh","./views/learnView/learnView.js":"7m48U","./views/exploreView/exploreView.js":"bL1CD","./views/pokedexView/pokedexView.js":"jegRn","./views/loadingView/loadingView.js":"aATCs","../services/MathProblemGenerator.js":"aJ9XV","regenerator-runtime/runtime":"dXNgZ","./model.js":"Y4A21","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8cpHj":[function(require,module,exports) {
 "use strict";
 // TODO: Remove from `core-js@4`
 var DESCRIPTORS = require("73b5a71b9881a20f");
@@ -7060,10 +7065,7 @@ const homeTemplate = `
           </div>
           <div class="hero__description">
             <p class="general-text">
-              Pika-pi Marshtomp Nosepass Aipom Celebi Kyogre Magmar. Consectetur
-              adipisicing elit Chansey Bronzong Nosepass Zangoose Azumarill
-              Meditite Strength Kirlia Glaceon Spoink Zekrom Tangela grumpy old
-              man who needs coffee.
+              Solve math problems to catch Pokemon and build your collection! Practice addition and subtraction while exploring different environments and discovering new Pokemon. Challenge yourself and become a math master trainer.
             </p>
           </div>
 
@@ -7659,6 +7661,10 @@ class SignUpView {
     //Applies event listeners
     _applyEventListener() {
         this._startButton.addEventListener("click", this._getPlayerData.bind(this));
+        //Prevent premature submit from name input field.
+        this._nameInput.addEventListener("keydown", (e)=>{
+            if (e.key === "Enter") e.preventDefault();
+        });
     }
     // Gets data from form via eventlistner on submit button & passes to
     // validation method.
@@ -8483,7 +8489,7 @@ var _playerCardComponentJs = require("../../../components/playerCardComponent/pl
 var _infoBarComponentJs = require("../../../components/infoBarComponent/infoBarComponent.js");
 const exploreTemplate = (gameModel, pokemonObj, render = "full")=>{
     const bgIndex = Math.floor(Math.random() * (0, _gameAssetsJs.backgrounds).length);
-    console.log("Background Index: " + bgIndex);
+    // console.log("Background Index: " + bgIndex);
     const scene = (0, _gameAssetsJs.backgrounds)[bgIndex];
     const { name, sprites: { front_default: spriteImg }, sprites: { other: { showdown: { front_default: spriteGif } } } } = pokemonObj;
     const formattedName = name[0].toUpperCase() + name.slice(1);
@@ -8727,8 +8733,8 @@ class PokedexView {
     //Renders filteredList to the DOM
     _renderFiltered() {
         console.log("RENDERING FILETERED!");
-        console.log(this._filteredList);
-        console.log(`_filteredList length: ${this._filteredList.length}`);
+        // console.log(this._filteredList);
+        // console.log(`_filteredList length: ${this._filteredList.length}`);
         // Control for if there is no filterable pokemon
         if (this._filteredList.length == 0) {
             this._toggleNotFound();
@@ -9254,27 +9260,55 @@ evolution (name, sprite) [array of {}] - logic for creation
             <!--Pokemon Evolution-->
             <div class="pokemon-details__evolution">
               <p class="rowdie-label">Evolution</p>
+                <p class="pokedex-value">Coming Soon.</p>
+
+              <! -- 
               <img
                 src="${(0, _gameAssetsJs.sprites).squirtle}"
                 alt="Squritle"
                 class="pokemon-details__evolution--stage"
-              />
+              /> 
+              <! -- 
               <img
                 src="${(0, _gameAssetsJs.sprites).bulbasaur}"
                 alt="Squritle"
                 class="pokemon-details__evolution--stage"
-              />
+              /> 
+              <! -- 
               <img
                 src="${(0, _gameAssetsJs.sprites).pikachu}"
                 alt="Squritle"
                 class="pokemon-details__evolution--stage"
-              />
+              /> 
+              
             </div>
 
 `;
 };
 
-},{"../../../assets/game-assets.js":"5d6HN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aJ9XV":[function(require,module,exports) {
+},{"../../../assets/game-assets.js":"5d6HN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aATCs":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "loadingView", ()=>loadingView);
+var _gameAssetsJs = require("../../../../assets/game-assets.js");
+class loadingView {
+    constructor(){
+        this.container = document.querySelector("#game-container");
+    }
+    render() {
+        const html = `
+        <div class="loading">
+            <img src="${(0, _gameAssetsJs.imgAssets).loading}" alt="Loading Image">
+            <p class="play-information">Loading...</p>
+        </div>
+        `;
+        this.container.innerHTML = "";
+        this.container.innerHTML = html;
+    }
+}
+exports.default = new loadingView();
+
+},{"../../../../assets/game-assets.js":"5d6HN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aJ9XV":[function(require,module,exports) {
 //Psuedo Code
 /*
 - Math questions array [{mathQPropertiess}]
