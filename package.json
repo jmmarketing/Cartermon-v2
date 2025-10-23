@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html --open --port 1234",
     "build": "parcel build index.html --public-url ./",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && cp dist/index.html dist/404.html && gh-pages -d dist"
   },
   "author": "Jeffrey McLean",
   "license": "ISC",
