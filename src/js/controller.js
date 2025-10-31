@@ -49,6 +49,7 @@ export async function showSignup() {
 
 //Renders the continue Page
 export async function showContinue() {
+  loadingView.render();
   model._loadPokemonAndAllPlayersFromLS();
 
   //Check if any saved players, if not direct to /signup.
@@ -71,15 +72,16 @@ export async function showContinue() {
 
 // Renders the main poage
 export async function showMain() {
+  loadingView.render();
   // If no player route to /continue path.
   if (!model.gameModel.player.name) {
     router.navigateTo("/continue");
   }
   try {
     document.body.className = "main";
-    loadingView.render();
+
     await model._setPokedexListInfo();
-    await mainView.render(model.gameModel);
+    setTimeout(await mainView.render(model.gameModel), 5000);
   } catch (error) {
     console.error(`Failed to load page: ${error}`);
   }
@@ -133,10 +135,10 @@ export async function showPokedex() {
     router.navigateTo("/continue");
     return;
   }
-
+  loadingView.render();
   try {
     document.body.className = "pokedex-view";
-    loadingView.render();
+
     await model._updatePokedexList();
     await pokedexView.render(model.gameModel);
     pokedexView._initiateElements();
