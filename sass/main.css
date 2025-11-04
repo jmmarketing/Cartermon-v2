@@ -1067,6 +1067,27 @@ label {
   outline: none;
 }
 
+.fullscreen-mode {
+  height: 60px;
+  width: 60px;
+  background-color: #fff;
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 80px;
+  left: 80px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+.fullscreen-mode__icon {
+  width: 30px;
+}
+.fullscreen-mode:hover {
+  transform: scale(1.05);
+}
+
 .hero {
   width: 100%;
   height: 740px;

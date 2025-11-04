@@ -9,6 +9,7 @@ import pokedexView from "./views/pokedexView/pokedexView.js";
 import loadingView from "./views/loadingView/loadingView.js";
 
 import { generateMathQuestion } from "../services/MathProblemGenerator.js";
+import { icons } from "../../assets/game-assets.js";
 
 import "core-js";
 import "regenerator-runtime/runtime";
@@ -227,6 +228,7 @@ function checkScreenSize() {
     } else warningDialog.close();
   }
 
+  // Come back and look at this. Hoisting? Why showWarning and not checkScreenSize?
   document.addEventListener("DOMContentLoaded", showWarning);
 
   window.addEventListener("resize", () => {
@@ -235,6 +237,25 @@ function checkScreenSize() {
     resizeTimer = setTimeout(showWarning, 250);
   });
 }
+
+function toggleFullScreen(e) {
+  const gameScreen = document.querySelector("body");
+  const isInFullScreen = document.fullscreenElement !== null;
+  const toggleIcon = document.querySelector(".fullscreen-mode__icon");
+  const toggleAction = e.target.dataset.action == "toggle-fullscreen";
+
+  if (toggleAction) {
+    gameScreen.requestFullscreen();
+    toggleIcon.src = `${icons.normalscreen}`;
+  }
+
+  if (toggleAction && isInFullScreen) {
+    document.exitFullscreen();
+    toggleIcon.src = `${icons.fullscreen}`;
+  }
+}
+
+document.addEventListener("click", toggleFullScreen);
 
 function init() {
   router.init();
