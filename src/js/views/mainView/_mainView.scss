@@ -2,9 +2,14 @@
 
 .main-screen {
   display: flex;
-  gap: 100px;
+  gap: 85px;
 
   align-items: flex-end;
+
+  @include respond(tablet-landscape) {
+    height: 585px;
+    margin-top: 15px;
+  }
 
   &__game-paths {
     display: flex;

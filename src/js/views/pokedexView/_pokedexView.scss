@@ -15,6 +15,10 @@
 
     & form {
       position: relative;
+
+      @include respond(tablet-landscape) {
+        display: none;
+      }
     }
   }
 

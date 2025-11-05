@@ -6,6 +6,10 @@
   width: 100%;
   justify-content: space-between;
 
+  @include respond(tablet-landscape) {
+    justify-content: space-around;
+  }
+
   &__title {
     @include labelTitleStyling;
     width: fit-content;

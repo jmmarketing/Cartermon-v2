@@ -29,7 +29,8 @@ body {
   transition: height 0.3s ease;
 
   @include respond(tablet-landscape) {
-    padding-top: $spacing-10;
+    padding-top: $spacing-08;
+    // padding-bottom: $spacing-40;
   }
 
   &::backdrop {

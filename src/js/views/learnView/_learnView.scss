@@ -6,16 +6,21 @@
 
   align-items: flex-end;
 
+  // @include respond(tablet-landscape) {
+  //   height: 585px;
+  //   margin-top: 15px;
+  // }
+
   &__math-container {
     display: flex;
     flex-wrap: wrap;
     gap: 22px;
 
-    // &--info-bar {
-    //   display: flex;
-    //   gap: 25px;
-    //   width: 100%;
-    // }
+    justify-content: space-between;
+
+    @include respond(tablet-landscape) {
+      justify-content: space-around;
+    }
 
     &--questions {
       animation: fadeIn 0.5s ease;

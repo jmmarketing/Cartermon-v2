@@ -11,6 +11,10 @@
 
   position: relative;
 
+  @include respond(tablet-landscape) {
+    margin-left: $spacing-12;
+  }
+
   &--mini {
     cursor: pointer;
     gap: 20px;
@@ -53,6 +57,10 @@
 
   &__img {
     width: 200px;
+
+    @include respond(tablet-landscape) {
+      width: 175px;
+    }
   }
 
   &__info-title {

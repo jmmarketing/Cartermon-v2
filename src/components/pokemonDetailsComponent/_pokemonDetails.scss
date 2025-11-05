@@ -9,6 +9,10 @@
   display: flex;
   //   flex-direction: column;
 
+  @include respond(tablet-landscape) {
+    height: 620px;
+  }
+
   &::before {
     @include playerCardBackground;
     width: 305px;
@@ -30,6 +34,11 @@
     flex-direction: column;
     align-items: center;
     gap: 15px;
+
+    @include respond(tablet-landscape) {
+      gap: 18px;
+      padding-top: 10px;
+    }
   }
 
   &__sprite {
@@ -41,6 +50,10 @@
     position: absolute;
     top: 70px;
     left: 20px;
+
+    @include respond(tablet-landscape) {
+      top: 35px;
+    }
   }
 
   &__caught {
@@ -49,6 +62,9 @@
 
     top: 70px;
     right: 20px;
+    @include respond(tablet-landscape) {
+      top: 35px;
+    }
   }
 
   &__type {
@@ -203,6 +219,10 @@
     &--stage {
       width: 50px;
       height: 52px;
+    }
+
+    @include respond(tablet-landscape) {
+      display: none;
     }
   }
 }

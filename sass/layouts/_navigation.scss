@@ -6,4 +6,8 @@
   max-height: 80px;
 
   margin-bottom: 20px;
+
+  @include respond(tablet-landscape) {
+    margin-bottom: 5px;
+  }
 }

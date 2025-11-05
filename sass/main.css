@@ -269,6 +269,11 @@ main {
   max-width: 1220px;
   padding-bottom: 50px;
 }
+@media only screen and (max-width: 81.25em) {
+  main {
+    padding-bottom: 5px;
+  }
+}
 
 input[type=radio],
 input[type=checkbox] {
@@ -328,14 +333,6 @@ label {
 }
 .navigation__icon:hover {
   transform: scale(1.05);
-}
-@media only screen and (max-width: 81.25em) {
-  .navigation {
-    position: sticky;
-    background-color: #fff;
-    top: 0;
-    z-index: 100;
-  }
 }
 
 .avatar-card {
@@ -446,6 +443,11 @@ label {
   text-align: center;
   position: relative;
 }
+@media only screen and (max-width: 81.25em) {
+  .player-card {
+    margin-left: 12px;
+  }
+}
 .player-card--mini {
   cursor: pointer;
   gap: 20px;
@@ -492,6 +494,11 @@ label {
 }
 .player-card__img {
   width: 200px;
+}
+@media only screen and (max-width: 81.25em) {
+  .player-card__img {
+    width: 175px;
+  }
 }
 .player-card__info-title {
   display: inline-flex;
@@ -617,6 +624,11 @@ label {
   display: flex;
   width: 100%;
   justify-content: space-between;
+}
+@media only screen and (max-width: 81.25em) {
+  .info-bar {
+    justify-content: space-around;
+  }
 }
 .info-bar__title {
   height: 50px;
@@ -796,6 +808,11 @@ label {
   position: relative;
   display: flex;
 }
+@media only screen and (max-width: 81.25em) {
+  .pokemon-details {
+    height: 620px;
+  }
+}
 .pokemon-details::before {
   content: "";
   width: 240px;
@@ -821,6 +838,12 @@ label {
   align-items: center;
   gap: 15px;
 }
+@media only screen and (max-width: 81.25em) {
+  .pokemon-details__data {
+    gap: 18px;
+    padding-top: 10px;
+  }
+}
 .pokemon-details__sprite {
   height: 104px;
 }
@@ -830,11 +853,21 @@ label {
   top: 70px;
   left: 20px;
 }
+@media only screen and (max-width: 81.25em) {
+  .pokemon-details__id {
+    top: 35px;
+  }
+}
 .pokemon-details__caught {
   width: 30px;
   position: absolute;
   top: 70px;
   right: 20px;
+}
+@media only screen and (max-width: 81.25em) {
+  .pokemon-details__caught {
+    top: 35px;
+  }
 }
 .pokemon-details__type {
   display: flex;
@@ -1044,6 +1077,11 @@ label {
 .pokemon-details__evolution--stage {
   width: 50px;
   height: 52px;
+}
+@media only screen and (max-width: 81.25em) {
+  .pokemon-details__evolution {
+    display: none;
+  }
 }
 
 .width-warning {
@@ -1255,8 +1293,14 @@ label {
 
 .main-screen {
   display: flex;
-  gap: 100px;
+  gap: 85px;
   align-items: flex-end;
+}
+@media only screen and (max-width: 81.25em) {
+  .main-screen {
+    height: 585px;
+    margin-top: 15px;
+  }
 }
 .main-screen__game-paths {
   display: flex;
@@ -1273,6 +1317,12 @@ label {
   display: flex;
   flex-wrap: wrap;
   gap: 22px;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 81.25em) {
+  .learn__math-container {
+    justify-content: space-around;
+  }
 }
 .learn__math-container--questions {
   animation: fadeIn 0.5s ease;
@@ -1388,6 +1438,11 @@ label {
 }
 .pokedex__container form {
   position: relative;
+}
+@media only screen and (max-width: 81.25em) {
+  .pokedex__container form {
+    display: none;
+  }
 }
 .pokedex__search {
   width: 885px;
@@ -1624,6 +1679,11 @@ Fairy: #EF70EF -- icon✅
   max-height: 80px;
   margin-bottom: 20px;
 }
+@media only screen and (max-width: 81.25em) {
+  .navigation {
+    margin-bottom: 5px;
+  }
+}
 
 body {
   width: 100%;
@@ -1644,7 +1704,7 @@ body {
 }
 @media only screen and (max-width: 81.25em) {
   body {
-    padding-top: 10px;
+    padding-top: 8px;
   }
 }
 body::backdrop {

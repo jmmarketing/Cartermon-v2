@@ -27,10 +27,10 @@
     }
   }
 
-  @include respond(tablet-landscape) {
-    position: sticky;
-    background-color: $color-white;
-    top: 0;
-    z-index: 100;
-  }
+  // @include respond(tablet-landscape) {
+  //   position: sticky;
+  //   background-color: $color-white;
+  //   top: 0;
+  //   z-index: 100;
+  // }
 }
