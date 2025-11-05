@@ -26,6 +26,8 @@ body {
 
   overscroll-behavior: none;
 
+  transition: height 0.3s ease;
+
   @include respond(tablet-landscape) {
     padding-top: $spacing-10;
   }
@@ -40,6 +42,12 @@ body {
     background-position: center, 0 30%;
     background-size: cover;
     background-repeat: no-repeat;
+    opacity: 0.5;
+    animation: backdropFade 0.5s ease forwards;
+  }
+
+  &:fullscreen {
+    animation: zoomIn 0.3s ease;
   }
 
   &::after {
