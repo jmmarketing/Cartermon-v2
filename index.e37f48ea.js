@@ -708,6 +708,7 @@ var _pokedexViewJsDefault = parcelHelpers.interopDefault(_pokedexViewJs);
 var _loadingViewJs = require("./views/loadingView/loadingView.js");
 var _loadingViewJsDefault = parcelHelpers.interopDefault(_loadingViewJs);
 var _mathProblemGeneratorJs = require("../services/MathProblemGenerator.js");
+var _gameAssetsJs = require("../../assets/game-assets.js");
 var _runtime = require("regenerator-runtime/runtime");
 var _modelJs = require("./model.js");
 async function showHome() {
@@ -868,6 +869,7 @@ function checkScreenSize() {
             warningDialog.showModal();
         } else warningDialog.close();
     }
+    // Come back and look at this. Hoisting? Why showWarning and not checkScreenSize?
     document.addEventListener("DOMContentLoaded", showWarning);
     window.addEventListener("resize", ()=>{
         //Basic Debounce method
@@ -875,6 +877,21 @@ function checkScreenSize() {
         resizeTimer = setTimeout(showWarning, 250);
     });
 }
+function toggleFullScreen(e) {
+    const gameScreen = document.querySelector("body");
+    const isInFullScreen = document.fullscreenElement !== null;
+    const toggleIcon = document.querySelector(".fullscreen-mode__icon");
+    const toggleAction = e.target.dataset.action == "toggle-fullscreen";
+    if (toggleAction) {
+        gameScreen.requestFullscreen();
+        toggleIcon.src = `${(0, _gameAssetsJs.icons).normalscreen}`;
+    }
+    if (toggleAction && isInFullScreen) {
+        document.exitFullscreen();
+        toggleIcon.src = `${(0, _gameAssetsJs.icons).fullscreen}`;
+    }
+}
+document.addEventListener("click", toggleFullScreen);
 function init() {
     (0, _routerDefault.default).init();
     setupGlobalNavigation();
@@ -882,7 +899,7 @@ function init() {
 }
 init();
 
-},{"core-js/modules/esnext.array.last-index.js":"8cpHj","core-js/modules/esnext.array.last-item.js":"3KWUU","core-js/modules/esnext.composite-key.js":"3zsBr","core-js/modules/esnext.composite-symbol.js":"6P6E3","core-js/modules/esnext.map.delete-all.js":"84I4a","core-js/modules/esnext.map.every.js":"a0ie9","core-js/modules/esnext.map.filter.js":"8EHBg","core-js/modules/esnext.map.find.js":"kzunK","core-js/modules/esnext.map.find-key.js":"ipfV1","core-js/modules/esnext.map.from.js":"aMX7r","core-js/modules/esnext.map.group-by.js":"3AR1K","core-js/modules/esnext.map.includes.js":"3cPf4","core-js/modules/esnext.map.key-by.js":"czzPK","core-js/modules/esnext.map.key-of.js":"la1gU","core-js/modules/esnext.map.map-keys.js":"12CRV","core-js/modules/esnext.map.map-values.js":"fQehs","core-js/modules/esnext.map.merge.js":"5Qvm2","core-js/modules/esnext.map.of.js":"3WfcG","core-js/modules/esnext.map.reduce.js":"8ampn","core-js/modules/esnext.map.some.js":"eVX7K","core-js/modules/esnext.map.update.js":"agmCJ","core-js/modules/esnext.math.clamp.js":"fVCxt","core-js/modules/esnext.math.deg-per-rad.js":"16Ig2","core-js/modules/esnext.math.degrees.js":"lAovk","core-js/modules/esnext.math.fscale.js":"k2b33","core-js/modules/esnext.math.iaddh.js":"3rdHO","core-js/modules/esnext.math.imulh.js":"8UDpO","core-js/modules/esnext.math.isubh.js":"hHlFR","core-js/modules/esnext.math.rad-per-deg.js":"d0sq8","core-js/modules/esnext.math.radians.js":"4O5p8","core-js/modules/esnext.math.scale.js":"7eJRv","core-js/modules/esnext.math.seeded-prng.js":"avTaO","core-js/modules/esnext.math.signbit.js":"cwFfw","core-js/modules/esnext.math.umulh.js":"29loa","core-js/modules/esnext.number.from-string.js":"3xbh3","core-js/modules/esnext.observable.js":"eeV02","core-js/modules/esnext.promise.try.js":"9Mfk9","core-js/modules/esnext.reflect.define-metadata.js":"hNtw3","core-js/modules/esnext.reflect.delete-metadata.js":"gLTQ0","core-js/modules/esnext.reflect.get-metadata.js":"4ocs1","core-js/modules/esnext.reflect.get-metadata-keys.js":"c4lFr","core-js/modules/esnext.reflect.get-own-metadata.js":"92uop","core-js/modules/esnext.reflect.get-own-metadata-keys.js":"1tHok","core-js/modules/esnext.reflect.has-metadata.js":"cVgdu","core-js/modules/esnext.reflect.has-own-metadata.js":"9crGj","core-js/modules/esnext.reflect.metadata.js":"aSvLp","core-js/modules/esnext.set.add-all.js":"7qoXf","core-js/modules/esnext.set.delete-all.js":"79fB3","core-js/modules/esnext.set.difference.js":"773AO","core-js/modules/esnext.set.every.js":"4X7Cu","core-js/modules/esnext.set.filter.js":"a8QMe","core-js/modules/esnext.set.find.js":"44hBz","core-js/modules/esnext.set.from.js":"fFjm0","core-js/modules/esnext.set.intersection.js":"5PUFy","core-js/modules/esnext.set.is-disjoint-from.js":"b3q3i","core-js/modules/esnext.set.is-subset-of.js":"5igXN","core-js/modules/esnext.set.is-superset-of.js":"1amm1","core-js/modules/esnext.set.join.js":"bMl6L","core-js/modules/esnext.set.map.js":"g65Jk","core-js/modules/esnext.set.of.js":"h11gG","core-js/modules/esnext.set.reduce.js":"gtD5C","core-js/modules/esnext.set.some.js":"aYdPy","core-js/modules/esnext.set.symmetric-difference.js":"lsopM","core-js/modules/esnext.set.union.js":"3nyPK","core-js/modules/esnext.string.at.js":"PgTGt","core-js/modules/esnext.string.code-points.js":"138n3","core-js/modules/esnext.symbol.dispose.js":"b9ez5","core-js/modules/esnext.symbol.observable.js":"bTlfI","core-js/modules/esnext.symbol.pattern-match.js":"dLSVv","core-js/modules/esnext.weak-map.delete-all.js":"jHykW","core-js/modules/esnext.weak-map.from.js":"hUBsF","core-js/modules/esnext.weak-map.of.js":"cBEF1","core-js/modules/esnext.weak-set.add-all.js":"aizkc","core-js/modules/esnext.weak-set.delete-all.js":"d5YOC","core-js/modules/esnext.weak-set.from.js":"upZfU","core-js/modules/esnext.weak-set.of.js":"CNJie","core-js/modules/web.immediate.js":"49tUX","./router":"jSUBV","./views/homeView/homeView.js":"2VtE1","./views/signupView/signupView.js":"69Fw8","./views/continueView/continueView.js":"3Ncj8","./views/mainView/mainView.js":"dJOhh","./views/learnView/learnView.js":"7m48U","./views/exploreView/exploreView.js":"bL1CD","./views/pokedexView/pokedexView.js":"jegRn","./views/loadingView/loadingView.js":"aATCs","../services/MathProblemGenerator.js":"aJ9XV","regenerator-runtime/runtime":"dXNgZ","./model.js":"Y4A21","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8cpHj":[function(require,module,exports) {
+},{"core-js/modules/esnext.array.last-index.js":"8cpHj","core-js/modules/esnext.array.last-item.js":"3KWUU","core-js/modules/esnext.composite-key.js":"3zsBr","core-js/modules/esnext.composite-symbol.js":"6P6E3","core-js/modules/esnext.map.delete-all.js":"84I4a","core-js/modules/esnext.map.every.js":"a0ie9","core-js/modules/esnext.map.filter.js":"8EHBg","core-js/modules/esnext.map.find.js":"kzunK","core-js/modules/esnext.map.find-key.js":"ipfV1","core-js/modules/esnext.map.from.js":"aMX7r","core-js/modules/esnext.map.group-by.js":"3AR1K","core-js/modules/esnext.map.includes.js":"3cPf4","core-js/modules/esnext.map.key-by.js":"czzPK","core-js/modules/esnext.map.key-of.js":"la1gU","core-js/modules/esnext.map.map-keys.js":"12CRV","core-js/modules/esnext.map.map-values.js":"fQehs","core-js/modules/esnext.map.merge.js":"5Qvm2","core-js/modules/esnext.map.of.js":"3WfcG","core-js/modules/esnext.map.reduce.js":"8ampn","core-js/modules/esnext.map.some.js":"eVX7K","core-js/modules/esnext.map.update.js":"agmCJ","core-js/modules/esnext.math.clamp.js":"fVCxt","core-js/modules/esnext.math.deg-per-rad.js":"16Ig2","core-js/modules/esnext.math.degrees.js":"lAovk","core-js/modules/esnext.math.fscale.js":"k2b33","core-js/modules/esnext.math.iaddh.js":"3rdHO","core-js/modules/esnext.math.imulh.js":"8UDpO","core-js/modules/esnext.math.isubh.js":"hHlFR","core-js/modules/esnext.math.rad-per-deg.js":"d0sq8","core-js/modules/esnext.math.radians.js":"4O5p8","core-js/modules/esnext.math.scale.js":"7eJRv","core-js/modules/esnext.math.seeded-prng.js":"avTaO","core-js/modules/esnext.math.signbit.js":"cwFfw","core-js/modules/esnext.math.umulh.js":"29loa","core-js/modules/esnext.number.from-string.js":"3xbh3","core-js/modules/esnext.observable.js":"eeV02","core-js/modules/esnext.promise.try.js":"9Mfk9","core-js/modules/esnext.reflect.define-metadata.js":"hNtw3","core-js/modules/esnext.reflect.delete-metadata.js":"gLTQ0","core-js/modules/esnext.reflect.get-metadata.js":"4ocs1","core-js/modules/esnext.reflect.get-metadata-keys.js":"c4lFr","core-js/modules/esnext.reflect.get-own-metadata.js":"92uop","core-js/modules/esnext.reflect.get-own-metadata-keys.js":"1tHok","core-js/modules/esnext.reflect.has-metadata.js":"cVgdu","core-js/modules/esnext.reflect.has-own-metadata.js":"9crGj","core-js/modules/esnext.reflect.metadata.js":"aSvLp","core-js/modules/esnext.set.add-all.js":"7qoXf","core-js/modules/esnext.set.delete-all.js":"79fB3","core-js/modules/esnext.set.difference.js":"773AO","core-js/modules/esnext.set.every.js":"4X7Cu","core-js/modules/esnext.set.filter.js":"a8QMe","core-js/modules/esnext.set.find.js":"44hBz","core-js/modules/esnext.set.from.js":"fFjm0","core-js/modules/esnext.set.intersection.js":"5PUFy","core-js/modules/esnext.set.is-disjoint-from.js":"b3q3i","core-js/modules/esnext.set.is-subset-of.js":"5igXN","core-js/modules/esnext.set.is-superset-of.js":"1amm1","core-js/modules/esnext.set.join.js":"bMl6L","core-js/modules/esnext.set.map.js":"g65Jk","core-js/modules/esnext.set.of.js":"h11gG","core-js/modules/esnext.set.reduce.js":"gtD5C","core-js/modules/esnext.set.some.js":"aYdPy","core-js/modules/esnext.set.symmetric-difference.js":"lsopM","core-js/modules/esnext.set.union.js":"3nyPK","core-js/modules/esnext.string.at.js":"PgTGt","core-js/modules/esnext.string.code-points.js":"138n3","core-js/modules/esnext.symbol.dispose.js":"b9ez5","core-js/modules/esnext.symbol.observable.js":"bTlfI","core-js/modules/esnext.symbol.pattern-match.js":"dLSVv","core-js/modules/esnext.weak-map.delete-all.js":"jHykW","core-js/modules/esnext.weak-map.from.js":"hUBsF","core-js/modules/esnext.weak-map.of.js":"cBEF1","core-js/modules/esnext.weak-set.add-all.js":"aizkc","core-js/modules/esnext.weak-set.delete-all.js":"d5YOC","core-js/modules/esnext.weak-set.from.js":"upZfU","core-js/modules/esnext.weak-set.of.js":"CNJie","core-js/modules/web.immediate.js":"49tUX","./router":"jSUBV","./views/homeView/homeView.js":"2VtE1","./views/signupView/signupView.js":"69Fw8","./views/continueView/continueView.js":"3Ncj8","./views/mainView/mainView.js":"dJOhh","./views/learnView/learnView.js":"7m48U","./views/exploreView/exploreView.js":"bL1CD","./views/pokedexView/pokedexView.js":"jegRn","./views/loadingView/loadingView.js":"aATCs","../services/MathProblemGenerator.js":"aJ9XV","regenerator-runtime/runtime":"dXNgZ","./model.js":"Y4A21","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../assets/game-assets.js":"5d6HN"}],"8cpHj":[function(require,module,exports) {
 "use strict";
 // TODO: Remove from `core-js@4`
 var DESCRIPTORS = require("73b5a71b9881a20f");
@@ -7263,6 +7280,10 @@ var _fairyPng = require("./icons/fairy.png");
 var _fairyPngDefault = parcelHelpers.interopDefault(_fairyPng);
 var _steelPng = require("./icons/steel.png");
 var _steelPngDefault = parcelHelpers.interopDefault(_steelPng);
+var _fullscreenPng = require("./icons/fullscreen.png");
+var _fullscreenPngDefault = parcelHelpers.interopDefault(_fullscreenPng);
+var _normalscreenPng = require("./icons/normalscreen.png");
+var _normalscreenPngDefault = parcelHelpers.interopDefault(_normalscreenPng);
 //##### GEN. IMAGE ASSETS ######
 //##############################
 var _backpackWebp = require("./img/backpack.webp");
@@ -7353,7 +7374,9 @@ const icons = {
     psychic: (0, _psychicPngDefault.default),
     bug: (0, _bugPngDefault.default),
     fairy: (0, _fairyPngDefault.default),
-    steel: (0, _steelPngDefault.default)
+    steel: (0, _steelPngDefault.default),
+    normalscreen: (0, _normalscreenPngDefault.default),
+    fullscreen: (0, _fullscreenPngDefault.default)
 };
 const imgAssets = {
     backpack: (0, _backpackWebpDefault.default),
@@ -7371,7 +7394,7 @@ const sprites = {
     snorlax: (0, _snorlaxWebpDefault.default)
 };
 
-},{"./avatars/boy1.webp":"6WKga","./avatars/boy2.webp":"9Ryi4","./avatars/boy3.webp":"cSh7R","./avatars/girl1.webp":"ji2kL","./avatars/girl2.webp":"kZ5zm","./avatars/girl3.webp":"4ylZT","./avatars/girl4.webp":"bUquC","./avatars/girl5.webp":"jUM47","./backgrounds/alien-planet.webp":"2IW2z","./backgrounds/bare-beach.webp":"5yCqs","./backgrounds/cherry-blossoms.webp":"jcS7G","./backgrounds/deep-forest.webp":"7PeLA","./backgrounds/desert.webp":"fPOnO","./backgrounds/dinosaurs.webp":"5UBxL","./backgrounds/field-cliff.webp":"3zjFe","./backgrounds/field-hill.webp":"j8Ns0","./backgrounds/field.webp":"c2XIo","./backgrounds/forest-alt.webp":"koS68","./backgrounds/forest.webp":"8gLob","./backgrounds/jungle-island.webp":"7pdDR","./backgrounds/jungle.webp":"7oNQP","./backgrounds/night-field.webp":"7IzJV","./backgrounds/night-forest.webp":"kxotZ","./backgrounds/night-town.webp":"5uV4n","./backgrounds/open-field.webp":"3xFBX","./backgrounds/rural-field.webp":"jbUqW","./backgrounds/stream.webp":"17R1s","./backgrounds/sunset-valley.webp":"bvzwi","./backgrounds/training.webp":"4efjR","./backgrounds/tropical-beach.webp":"awfr0","./backgrounds/valley.webp":"5MPk1","./icons/8bitpokeball.webp":"epZSI","./icons/attack-special.png":"lFQ33","./icons/attack.png":"eGhVu","./icons/defense-special.png":"hb4bT","./icons/defense.png":"0y5yD","./icons/dragon.png":"4NQlm","./icons/electric.png":"bWIg9","./icons/fire.png":"gWRMH","./icons/fighting.png":"9oZoL","./icons/ghost.png":"2Fd8t","./icons/grass.png":"i8kcF","./icons/heart.png":"ceSh7","./icons/ice.png":"QUMbU","./icons/dark.png":"clxUo","./icons/poison.png":"8q2ar","./icons/search.png":"6xpB5","./icons/speed.png":"eUMDS","./icons/thumbsup.png":"dvpQk","./icons/water.png":"g7SXw","./icons/normal.png":"eQFia","./icons/flying.png":"1i2UZ","./icons/ground.png":"cFLsY","./icons/rock.png":"1XubN","./icons/psychic.png":"aIFPl","./icons/bug.png":"7TXnq","./icons/fairy.png":"l1ShG","./icons/steel.png":"8EtUg","./img/backpack.webp":"lbARZ","./img/eevee-bottom.webp":"2EDJn","./img/pokeball.webp":"aCTpI","./img/pokedex.png":"eFcdh","./img/loading.gif":"kVq1u","./logo/logo.webp":"8VCo3","./sprite/bulbasaur.webp":"dZMJA","./sprite/eevee.webp":"iaTVY","./sprite/pikachu.webp":"kg1Bg","./sprite/snorlax.webp":"2bB9v","./sprite/squirtle.webp":"fRFli","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6WKga":[function(require,module,exports) {
+},{"./avatars/boy1.webp":"6WKga","./avatars/boy2.webp":"9Ryi4","./avatars/boy3.webp":"cSh7R","./avatars/girl1.webp":"ji2kL","./avatars/girl2.webp":"kZ5zm","./avatars/girl3.webp":"4ylZT","./avatars/girl4.webp":"bUquC","./avatars/girl5.webp":"jUM47","./backgrounds/alien-planet.webp":"2IW2z","./backgrounds/bare-beach.webp":"5yCqs","./backgrounds/cherry-blossoms.webp":"jcS7G","./backgrounds/deep-forest.webp":"7PeLA","./backgrounds/desert.webp":"fPOnO","./backgrounds/dinosaurs.webp":"5UBxL","./backgrounds/field-cliff.webp":"3zjFe","./backgrounds/field-hill.webp":"j8Ns0","./backgrounds/field.webp":"c2XIo","./backgrounds/forest-alt.webp":"koS68","./backgrounds/forest.webp":"8gLob","./backgrounds/jungle-island.webp":"7pdDR","./backgrounds/jungle.webp":"7oNQP","./backgrounds/night-field.webp":"7IzJV","./backgrounds/night-forest.webp":"kxotZ","./backgrounds/night-town.webp":"5uV4n","./backgrounds/open-field.webp":"3xFBX","./backgrounds/rural-field.webp":"jbUqW","./backgrounds/stream.webp":"17R1s","./backgrounds/sunset-valley.webp":"bvzwi","./backgrounds/training.webp":"4efjR","./backgrounds/tropical-beach.webp":"awfr0","./backgrounds/valley.webp":"5MPk1","./icons/8bitpokeball.webp":"epZSI","./icons/attack-special.png":"lFQ33","./icons/attack.png":"eGhVu","./icons/defense-special.png":"hb4bT","./icons/defense.png":"0y5yD","./icons/dragon.png":"4NQlm","./icons/electric.png":"bWIg9","./icons/fire.png":"gWRMH","./icons/fighting.png":"9oZoL","./icons/ghost.png":"2Fd8t","./icons/grass.png":"i8kcF","./icons/heart.png":"ceSh7","./icons/ice.png":"QUMbU","./icons/dark.png":"clxUo","./icons/poison.png":"8q2ar","./icons/search.png":"6xpB5","./icons/speed.png":"eUMDS","./icons/thumbsup.png":"dvpQk","./icons/water.png":"g7SXw","./icons/normal.png":"eQFia","./icons/flying.png":"1i2UZ","./icons/ground.png":"cFLsY","./icons/rock.png":"1XubN","./icons/psychic.png":"aIFPl","./icons/bug.png":"7TXnq","./icons/fairy.png":"l1ShG","./icons/steel.png":"8EtUg","./img/backpack.webp":"lbARZ","./img/eevee-bottom.webp":"2EDJn","./img/pokeball.webp":"aCTpI","./img/pokedex.png":"eFcdh","./img/loading.gif":"kVq1u","./logo/logo.webp":"8VCo3","./sprite/bulbasaur.webp":"dZMJA","./sprite/eevee.webp":"iaTVY","./sprite/pikachu.webp":"kg1Bg","./sprite/snorlax.webp":"2bB9v","./sprite/squirtle.webp":"fRFli","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./icons/fullscreen.png":"dt0O9","./icons/normalscreen.png":"kXsXw"}],"6WKga":[function(require,module,exports) {
 module.exports = require("cbed11a55538fbdf").getBundleURL("hWUTQ") + "boy1.26f4bbf0.webp" + "?" + Date.now();
 
 },{"cbed11a55538fbdf":"lgJ39"}],"lgJ39":[function(require,module,exports) {
@@ -7613,7 +7636,13 @@ module.exports = require("d66facd9f9692e3e").getBundleURL("hWUTQ") + "snorlax.89
 },{"d66facd9f9692e3e":"lgJ39"}],"fRFli":[function(require,module,exports) {
 module.exports = require("1a3b11f0993c7a94").getBundleURL("hWUTQ") + "squirtle.34527a05.webp" + "?" + Date.now();
 
-},{"1a3b11f0993c7a94":"lgJ39"}],"69Fw8":[function(require,module,exports) {
+},{"1a3b11f0993c7a94":"lgJ39"}],"dt0O9":[function(require,module,exports) {
+module.exports = require("2ee705fa6bf70767").getBundleURL("hWUTQ") + "fullscreen.ef9a5a70.png" + "?" + Date.now();
+
+},{"2ee705fa6bf70767":"lgJ39"}],"kXsXw":[function(require,module,exports) {
+module.exports = require("741121e5c2bf6344").getBundleURL("hWUTQ") + "normalscreen.12ffbbc9.png" + "?" + Date.now();
+
+},{"741121e5c2bf6344":"lgJ39"}],"69Fw8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _signupTemplateJs = require("./signupTemplate.js");
