@@ -1144,8 +1144,13 @@ label {
   bottom: 80px;
   left: 80px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-  display: none;
   cursor: pointer;
+}
+@media only screen and (max-width: 81.25em) {
+  .fullscreen-mode {
+    bottom: 40px;
+    left: 1170px;
+  }
 }
 .fullscreen-mode__icon {
   width: 30px;

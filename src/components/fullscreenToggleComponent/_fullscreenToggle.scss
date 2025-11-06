@@ -16,9 +16,14 @@
 
   box-shadow: 2px 2px 4px rgba($color-black, 0.6);
 
-  display: none; //While fixing tablet responsiveness.
+  //   display: none; //While fixing tablet responsiveness.
 
   cursor: pointer;
+
+  @include respond(tablet-landscape) {
+    bottom: 40px;
+    left: 1170px;
+  }
 
   &__icon {
     width: 30px;
