@@ -26,6 +26,10 @@ main {
 
   @include respond(tablet-landscape) {
     padding-bottom: 5px;
+
+    & .plain-logo {
+      text-align: center;
+    }
   }
 }
 

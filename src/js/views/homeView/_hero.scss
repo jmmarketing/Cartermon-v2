@@ -15,12 +15,21 @@
   display: inline-flex;
   overflow: hidden;
 
+  @include respond(tablet-landscape) {
+    height: 620px;
+  }
+
   &__left {
     width: 50%;
     padding: 60px;
     display: flex;
     flex-direction: column;
     gap: 25px;
+
+    @include respond(tablet-landscape) {
+      gap: 20px;
+      padding: 40px;
+    }
   }
 
   &__right {
@@ -34,6 +43,10 @@
     background-repeat: no-repeat;
 
     position: relative;
+
+    @include respond(tablet-landscape) {
+      width: 60%;
+    }
 
     &--pikachu {
       position: absolute;
@@ -66,6 +79,10 @@
 
       //   opacity: 0;
       animation: fadeInPokeball 1s ease 2s both;
+
+      @include respond(tablet-landscape) {
+        top: 225px;
+      }
     }
   }
 
@@ -75,5 +92,9 @@
 
   &__sprite {
     width: 110px;
+
+    @include respond(tablet-landscape) {
+      width: 90px;
+    }
   }
 }

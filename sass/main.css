@@ -19,88 +19,6 @@ $breakpoint argument choices:
 
 ORDER [When refactoring for responsiveness]: Base + typography > general layout + grid > page layout > components
 */
-body {
-  font-size: 1.6rem;
-  color: #000;
-}
-
-.bilboard,
-.bilboard-sm,
-.rowdie-title,
-.rowdie-label,
-.rowdie-stat,
-.math-equation,
-.math-answer {
-  font-family: "Rowdies", sans-serif;
-}
-
-.bilboard {
-  font-size: 9.6rem;
-  line-height: 99px;
-  font-weight: 400;
-  color: #3962a7;
-}
-
-.bilboard-sm {
-  font-size: 6.4rem;
-  font-weight: 400;
-  color: #3962a7;
-}
-
-.rowdie-title {
-  font-size: 3rem;
-}
-
-.rowdie-label {
-  font-size: 1.8rem;
-}
-
-.rowdie-stat {
-  font-size: 4.8rem;
-}
-
-.math-equation {
-  font-size: 8rem;
-}
-
-.math-answer {
-  font-size: 2.4rem;
-}
-
-.general-text {
-  font-family: "Pixelify Sans", sans-serif;
-  font-size: 1.8rem;
-}
-
-.pokedex-value,
-.play-information,
-.play-label,
-.user-title,
-.user-name {
-  font-family: "Silkscreen", sans-serif;
-}
-
-.pokedex-value {
-  font-size: 1.6rem;
-}
-
-.play-information {
-  font-size: 2.4rem;
-  word-break: break-word;
-}
-
-.play-label {
-  font-size: 2rem;
-}
-
-.user-title {
-  font-size: 1.8rem;
-}
-
-.user-name {
-  font-size: 3rem;
-}
-
 @keyframes shake {
   0%, 100% {
     transform: translateX(0);
@@ -226,6 +144,94 @@ body {
     opacity: 1;
   }
 }
+body {
+  font-size: 1.6rem;
+  color: #000;
+}
+
+.bilboard,
+.bilboard-sm,
+.rowdie-title,
+.rowdie-label,
+.rowdie-stat,
+.math-equation,
+.math-answer {
+  font-family: "Rowdies", sans-serif;
+}
+
+.bilboard {
+  font-size: 9.6rem;
+  line-height: 99px;
+  font-weight: 400;
+  color: #3962a7;
+}
+@media only screen and (max-width: 81.25em) {
+  .bilboard {
+    font-size: 6.6rem;
+    line-height: 6.6rem;
+  }
+}
+
+.bilboard-sm {
+  font-size: 6.4rem;
+  font-weight: 400;
+  color: #3962a7;
+}
+
+.rowdie-title {
+  font-size: 3rem;
+}
+
+.rowdie-label {
+  font-size: 1.8rem;
+}
+
+.rowdie-stat {
+  font-size: 4.8rem;
+}
+
+.math-equation {
+  font-size: 8rem;
+}
+
+.math-answer {
+  font-size: 2.4rem;
+}
+
+.general-text {
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 1.8rem;
+}
+
+.pokedex-value,
+.play-information,
+.play-label,
+.user-title,
+.user-name {
+  font-family: "Silkscreen", sans-serif;
+}
+
+.pokedex-value {
+  font-size: 1.6rem;
+}
+
+.play-information {
+  font-size: 2.4rem;
+  word-break: break-word;
+}
+
+.play-label {
+  font-size: 2rem;
+}
+
+.user-title {
+  font-size: 1.8rem;
+}
+
+.user-name {
+  font-size: 3rem;
+}
+
 .error {
   border: 3px solid #ba0000 !important;
 }
@@ -272,6 +278,9 @@ main {
 @media only screen and (max-width: 81.25em) {
   main {
     padding-bottom: 5px;
+  }
+  main .plain-logo {
+    text-align: center;
   }
 }
 
@@ -1155,12 +1164,23 @@ label {
   display: inline-flex;
   overflow: hidden;
 }
+@media only screen and (max-width: 81.25em) {
+  .hero {
+    height: 620px;
+  }
+}
 .hero__left {
   width: 50%;
   padding: 60px;
   display: flex;
   flex-direction: column;
   gap: 25px;
+}
+@media only screen and (max-width: 81.25em) {
+  .hero__left {
+    gap: 20px;
+    padding: 40px;
+  }
 }
 .hero__right {
   width: 50%;
@@ -1170,6 +1190,11 @@ label {
   background-position: right;
   background-repeat: no-repeat;
   position: relative;
+}
+@media only screen and (max-width: 81.25em) {
+  .hero__right {
+    width: 60%;
+  }
 }
 .hero__right--pikachu {
   position: absolute;
@@ -1195,11 +1220,21 @@ label {
   top: 305px;
   animation: fadeInPokeball 1s ease 2s both;
 }
+@media only screen and (max-width: 81.25em) {
+  .hero__right--pokeball {
+    top: 225px;
+  }
+}
 .hero__description {
   max-width: 450px;
 }
 .hero__sprite {
   width: 110px;
+}
+@media only screen and (max-width: 81.25em) {
+  .hero__sprite {
+    width: 90px;
+  }
 }
 
 .signup-form {
