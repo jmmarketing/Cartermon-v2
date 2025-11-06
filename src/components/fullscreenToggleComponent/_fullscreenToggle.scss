@@ -16,6 +16,8 @@
 
   box-shadow: 2px 2px 4px rgba($color-black, 0.6);
 
+  display: none; //While fixing tablet responsiveness.
+
   cursor: pointer;
 
   &__icon {

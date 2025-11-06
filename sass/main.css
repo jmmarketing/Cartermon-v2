@@ -1144,6 +1144,7 @@ label {
   bottom: 80px;
   left: 80px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  display: none;
   cursor: pointer;
 }
 .fullscreen-mode__icon {
@@ -1243,12 +1244,24 @@ label {
   gap: 35px;
   animation: fadeIn 0.5s ease;
 }
+@media only screen and (max-width: 81.25em) {
+  .signup-form {
+    gap: 20px;
+    position: relative;
+    padding-top: 5px;
+  }
+}
 .signup-form__left {
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 625px;
   gap: 35px;
+}
+@media only screen and (max-width: 81.25em) {
+  .signup-form__left {
+    gap: 0px;
+  }
 }
 .signup-form__right {
   width: 100%;
@@ -1297,9 +1310,22 @@ label {
   display: flex;
   flex-direction: column;
 }
-.signup-form a,
+@media only screen and (max-width: 81.25em) {
+  .signup-form--difficulty {
+    padding: 30px 24px;
+  }
+}
+.signup-form a[type=submit],
 .signup-form button {
   margin-left: auto;
+}
+@media only screen and (max-width: 81.25em) {
+  .signup-form a[type=submit],
+  .signup-form button {
+    position: absolute;
+    bottom: -60px;
+    right: 33%;
+  }
 }
 
 .continue {
