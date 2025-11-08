@@ -74,6 +74,7 @@ import peekvee from "./img/eevee-bottom.webp";
 import pokeball from "./img/pokeball.webp";
 import pokedex from "./img/pokedex.png";
 import loading from "./img/loading.gif";
+import opengraph from "./img/opengraph.jpg";
 
 //##### LOGO ASSETS ########
 //##########################
@@ -163,6 +164,7 @@ export const imgAssets = {
   pokedex,
   logo,
   loading,
+  opengraph,
 };
 
 export const sprites = {
