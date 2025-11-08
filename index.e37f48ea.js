@@ -734,13 +734,13 @@ async function showSignup() {
     }
 }
 async function showContinue() {
-    (0, _loadingViewJsDefault.default).render();
     _modelJs._loadPokemonAndAllPlayersFromLS();
     //Check if any saved players, if not direct to /signup.
     const hasPlayers = _modelJs.gameModel.allPlayers.length > 0;
     if (!hasPlayers) (0, _routerDefault.default).navigateTo("/signup");
     // Render continue
     try {
+        (0, _loadingViewJsDefault.default).render();
         document.body.className = "continue";
         await (0, _continueViewJsDefault.default).render(_modelJs.gameModel);
         //After DOM Loaded initiate elements & event listeners
@@ -751,10 +751,10 @@ async function showContinue() {
     }
 }
 async function showMain() {
-    (0, _loadingViewJsDefault.default).render();
     // If no player route to /continue path.
     if (!_modelJs.gameModel.player.name) (0, _routerDefault.default).navigateTo("/continue");
     try {
+        (0, _loadingViewJsDefault.default).render();
         document.body.className = "main";
         await _modelJs._setPokedexListInfo();
         setTimeout(await (0, _mainViewJsDefault.default).render(_modelJs.gameModel), 5000);
@@ -769,6 +769,7 @@ async function showLearn() {
         return;
     }
     try {
+        (0, _loadingViewJsDefault.default).render();
         document.body.className = "math-game";
         //Generates initial questions for the learn Page
         const mathQuestions = (0, _mathProblemGeneratorJs.generateMathQuestion)(_modelJs.gameModel.player);
@@ -787,6 +788,7 @@ async function showExplore() {
         return;
     }
     try {
+        (0, _loadingViewJsDefault.default).render();
         document.body.className = "explore-game";
         const pokemon = await _modelJs.getRandomPokemon();
         // console.log(pokemon);
@@ -803,8 +805,8 @@ async function showPokedex() {
         (0, _routerDefault.default).navigateTo("/continue");
         return;
     }
-    (0, _loadingViewJsDefault.default).render();
     try {
+        (0, _loadingViewJsDefault.default).render();
         document.body.className = "pokedex-view";
         await _modelJs._updatePokedexList();
         await (0, _pokedexViewJsDefault.default).render(_modelJs.gameModel);
@@ -8198,7 +8200,7 @@ class LearnView {
         //Takes all input elements, loops through and checks if inpue value = answer.
         this._allRadioAnswers.forEach((input)=>{
             let isCorrect;
-            console.log(input);
+            // console.log(input);
             input.classList.remove("wrong");
             if (input.checked) {
                 // input.classList.remove("wrong");
@@ -8215,7 +8217,7 @@ class LearnView {
                     document.querySelector(`#${input.name}`).disabled = true;
                 } else {
                     console.log("WRONG FIRED!");
-                    console.log(input);
+                    // console.log(input);
                     input.classList.add("wrong");
                 }
                 console.log(this._userAnswers);
