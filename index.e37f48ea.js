@@ -7296,6 +7296,8 @@ var _pokedexPng = require("./img/pokedex.png");
 var _pokedexPngDefault = parcelHelpers.interopDefault(_pokedexPng);
 var _loadingGif = require("./img/loading.gif");
 var _loadingGifDefault = parcelHelpers.interopDefault(_loadingGif);
+var _opengraphJpg = require("./img/opengraph.jpg");
+var _opengraphJpgDefault = parcelHelpers.interopDefault(_opengraphJpg);
 //##### LOGO ASSETS ########
 //##########################
 var _logoWebp = require("./logo/logo.webp");
@@ -7384,7 +7386,8 @@ const imgAssets = {
     pokeball: (0, _pokeballWebpDefault.default),
     pokedex: (0, _pokedexPngDefault.default),
     logo: (0, _logoWebpDefault.default),
-    loading: (0, _loadingGifDefault.default)
+    loading: (0, _loadingGifDefault.default),
+    opengraph: (0, _opengraphJpgDefault.default)
 };
 const sprites = {
     pikachu: (0, _pikachuWebpDefault.default),
@@ -7394,7 +7397,7 @@ const sprites = {
     snorlax: (0, _snorlaxWebpDefault.default)
 };
 
-},{"./avatars/boy1.webp":"6WKga","./avatars/boy2.webp":"9Ryi4","./avatars/boy3.webp":"cSh7R","./avatars/girl1.webp":"ji2kL","./avatars/girl2.webp":"kZ5zm","./avatars/girl3.webp":"4ylZT","./avatars/girl4.webp":"bUquC","./avatars/girl5.webp":"jUM47","./backgrounds/alien-planet.webp":"2IW2z","./backgrounds/bare-beach.webp":"5yCqs","./backgrounds/cherry-blossoms.webp":"jcS7G","./backgrounds/deep-forest.webp":"7PeLA","./backgrounds/desert.webp":"fPOnO","./backgrounds/dinosaurs.webp":"5UBxL","./backgrounds/field-cliff.webp":"3zjFe","./backgrounds/field-hill.webp":"j8Ns0","./backgrounds/field.webp":"c2XIo","./backgrounds/forest-alt.webp":"koS68","./backgrounds/forest.webp":"8gLob","./backgrounds/jungle-island.webp":"7pdDR","./backgrounds/jungle.webp":"7oNQP","./backgrounds/night-field.webp":"7IzJV","./backgrounds/night-forest.webp":"kxotZ","./backgrounds/night-town.webp":"5uV4n","./backgrounds/open-field.webp":"3xFBX","./backgrounds/rural-field.webp":"jbUqW","./backgrounds/stream.webp":"17R1s","./backgrounds/sunset-valley.webp":"bvzwi","./backgrounds/training.webp":"4efjR","./backgrounds/tropical-beach.webp":"awfr0","./backgrounds/valley.webp":"5MPk1","./icons/8bitpokeball.webp":"epZSI","./icons/attack-special.png":"lFQ33","./icons/attack.png":"eGhVu","./icons/defense-special.png":"hb4bT","./icons/defense.png":"0y5yD","./icons/dragon.png":"4NQlm","./icons/electric.png":"bWIg9","./icons/fire.png":"gWRMH","./icons/fighting.png":"9oZoL","./icons/ghost.png":"2Fd8t","./icons/grass.png":"i8kcF","./icons/heart.png":"ceSh7","./icons/ice.png":"QUMbU","./icons/dark.png":"clxUo","./icons/poison.png":"8q2ar","./icons/search.png":"6xpB5","./icons/speed.png":"eUMDS","./icons/thumbsup.png":"dvpQk","./icons/water.png":"g7SXw","./icons/normal.png":"eQFia","./icons/flying.png":"1i2UZ","./icons/ground.png":"cFLsY","./icons/rock.png":"1XubN","./icons/psychic.png":"aIFPl","./icons/bug.png":"7TXnq","./icons/fairy.png":"l1ShG","./icons/steel.png":"8EtUg","./img/backpack.webp":"lbARZ","./img/eevee-bottom.webp":"2EDJn","./img/pokeball.webp":"aCTpI","./img/pokedex.png":"eFcdh","./img/loading.gif":"kVq1u","./logo/logo.webp":"8VCo3","./sprite/bulbasaur.webp":"dZMJA","./sprite/eevee.webp":"iaTVY","./sprite/pikachu.webp":"kg1Bg","./sprite/snorlax.webp":"2bB9v","./sprite/squirtle.webp":"fRFli","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./icons/fullscreen.png":"dt0O9","./icons/normalscreen.png":"kXsXw"}],"6WKga":[function(require,module,exports) {
+},{"./avatars/boy1.webp":"6WKga","./avatars/boy2.webp":"9Ryi4","./avatars/boy3.webp":"cSh7R","./avatars/girl1.webp":"ji2kL","./avatars/girl2.webp":"kZ5zm","./avatars/girl3.webp":"4ylZT","./avatars/girl4.webp":"bUquC","./avatars/girl5.webp":"jUM47","./backgrounds/alien-planet.webp":"2IW2z","./backgrounds/bare-beach.webp":"5yCqs","./backgrounds/cherry-blossoms.webp":"jcS7G","./backgrounds/deep-forest.webp":"7PeLA","./backgrounds/desert.webp":"fPOnO","./backgrounds/dinosaurs.webp":"5UBxL","./backgrounds/field-cliff.webp":"3zjFe","./backgrounds/field-hill.webp":"j8Ns0","./backgrounds/field.webp":"c2XIo","./backgrounds/forest-alt.webp":"koS68","./backgrounds/forest.webp":"8gLob","./backgrounds/jungle-island.webp":"7pdDR","./backgrounds/jungle.webp":"7oNQP","./backgrounds/night-field.webp":"7IzJV","./backgrounds/night-forest.webp":"kxotZ","./backgrounds/night-town.webp":"5uV4n","./backgrounds/open-field.webp":"3xFBX","./backgrounds/rural-field.webp":"jbUqW","./backgrounds/stream.webp":"17R1s","./backgrounds/sunset-valley.webp":"bvzwi","./backgrounds/training.webp":"4efjR","./backgrounds/tropical-beach.webp":"awfr0","./backgrounds/valley.webp":"5MPk1","./icons/8bitpokeball.webp":"epZSI","./icons/attack-special.png":"lFQ33","./icons/attack.png":"eGhVu","./icons/defense-special.png":"hb4bT","./icons/defense.png":"0y5yD","./icons/dragon.png":"4NQlm","./icons/electric.png":"bWIg9","./icons/fire.png":"gWRMH","./icons/fighting.png":"9oZoL","./icons/ghost.png":"2Fd8t","./icons/grass.png":"i8kcF","./icons/heart.png":"ceSh7","./icons/ice.png":"QUMbU","./icons/dark.png":"clxUo","./icons/poison.png":"8q2ar","./icons/search.png":"6xpB5","./icons/speed.png":"eUMDS","./icons/thumbsup.png":"dvpQk","./icons/water.png":"g7SXw","./icons/normal.png":"eQFia","./icons/flying.png":"1i2UZ","./icons/ground.png":"cFLsY","./icons/rock.png":"1XubN","./icons/psychic.png":"aIFPl","./icons/bug.png":"7TXnq","./icons/fairy.png":"l1ShG","./icons/steel.png":"8EtUg","./img/backpack.webp":"lbARZ","./img/eevee-bottom.webp":"2EDJn","./img/pokeball.webp":"aCTpI","./img/pokedex.png":"eFcdh","./img/loading.gif":"kVq1u","./logo/logo.webp":"8VCo3","./sprite/bulbasaur.webp":"dZMJA","./sprite/eevee.webp":"iaTVY","./sprite/pikachu.webp":"kg1Bg","./sprite/snorlax.webp":"2bB9v","./sprite/squirtle.webp":"fRFli","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./icons/fullscreen.png":"dt0O9","./icons/normalscreen.png":"kXsXw","./img/opengraph.jpg":"3vfq0"}],"6WKga":[function(require,module,exports) {
 module.exports = require("cbed11a55538fbdf").getBundleURL("hWUTQ") + "boy1.26f4bbf0.webp" + "?" + Date.now();
 
 },{"cbed11a55538fbdf":"lgJ39"}],"lgJ39":[function(require,module,exports) {
@@ -7642,7 +7645,10 @@ module.exports = require("2ee705fa6bf70767").getBundleURL("hWUTQ") + "fullscreen
 },{"2ee705fa6bf70767":"lgJ39"}],"kXsXw":[function(require,module,exports) {
 module.exports = require("741121e5c2bf6344").getBundleURL("hWUTQ") + "normalscreen.12ffbbc9.png" + "?" + Date.now();
 
-},{"741121e5c2bf6344":"lgJ39"}],"69Fw8":[function(require,module,exports) {
+},{"741121e5c2bf6344":"lgJ39"}],"3vfq0":[function(require,module,exports) {
+module.exports = require("2e2b9c870300c1da").getBundleURL("hWUTQ") + "opengraph.ed11c6fb.jpg" + "?" + Date.now();
+
+},{"2e2b9c870300c1da":"lgJ39"}],"69Fw8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _signupTemplateJs = require("./signupTemplate.js");
