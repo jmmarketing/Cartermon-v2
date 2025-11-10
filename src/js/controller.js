@@ -50,7 +50,6 @@ export async function showSignup() {
 
 //Renders the continue Page
 export async function showContinue() {
-  loadingView.render();
   model._loadPokemonAndAllPlayersFromLS();
 
   //Check if any saved players, if not direct to /signup.
@@ -59,6 +58,7 @@ export async function showContinue() {
 
   // Render continue
   try {
+    loadingView.render();
     document.body.className = "continue";
 
     await continueView.render(model.gameModel);
@@ -73,12 +73,12 @@ export async function showContinue() {
 
 // Renders the main poage
 export async function showMain() {
-  loadingView.render();
   // If no player route to /continue path.
   if (!model.gameModel.player.name) {
     router.navigateTo("/continue");
   }
   try {
+    loadingView.render();
     document.body.className = "main";
 
     await model._setPokedexListInfo();
@@ -97,6 +97,7 @@ export async function showLearn() {
   }
 
   try {
+    loadingView.render();
     document.body.className = "math-game";
     //Generates initial questions for the learn Page
     const mathQuestions = generateMathQuestion(model.gameModel.player);
@@ -119,6 +120,7 @@ export async function showExplore() {
   }
 
   try {
+    loadingView.render();
     document.body.className = "explore-game";
     const pokemon = await model.getRandomPokemon();
     // console.log(pokemon);
@@ -136,8 +138,9 @@ export async function showPokedex() {
     router.navigateTo("/continue");
     return;
   }
-  loadingView.render();
+
   try {
+    loadingView.render();
     document.body.className = "pokedex-view";
 
     await model._updatePokedexList();
@@ -225,16 +228,35 @@ function checkScreenSize() {
     if (screen_size < min_width) {
       viewWidth.textContent = `${screen_size}px`;
       warningDialog.showModal();
+
+      //Force reflow for iOS
+      if (warningDialog.open) warningDialog.offsetHeight; //hacky for trigger reflow.
     } else warningDialog.close();
   }
 
-  // Come back and look at this. Hoisting? Why showWarning and not checkScreenSize?
+  //Initial trigger for showing widthWarning.
   document.addEventListener("DOMContentLoaded", showWarning);
 
   window.addEventListener("resize", () => {
     //Basic Debounce method
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(showWarning, 250);
+  });
+
+  //Specific listner for iOs (coverage for "resize")
+  window.addEventListener("orientationchange", () => {
+    //Basic Debounce method
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      showWarning();
+
+      //Extra reflow trigger for iOS.
+      if (warningDialog.open) {
+        warningDialog.style.display = "none";
+        warningDialog.offsetHeight;
+        warningDialog.style.display = "";
+      }
+    }, 300);
   });
 }
 

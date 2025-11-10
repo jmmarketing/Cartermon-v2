@@ -49,7 +49,7 @@ class LearnView {
     //Takes all input elements, loops through and checks if inpue value = answer.
     this._allRadioAnswers.forEach((input) => {
       let isCorrect;
-      console.log(input);
+      // console.log(input);
 
       input.classList.remove("wrong");
       if (input.checked) {
@@ -70,7 +70,7 @@ class LearnView {
           document.querySelector(`#${input.name}`).disabled = true;
         } else {
           console.log("WRONG FIRED!");
-          console.log(input);
+          // console.log(input);
           input.classList.add("wrong");
         }
 
