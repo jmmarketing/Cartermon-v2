@@ -869,14 +869,30 @@ function checkScreenSize() {
         if (screen_size < min_width) {
             viewWidth.textContent = `${screen_size}px`;
             warningDialog.showModal();
+            //Force reflow for iOS
+            if (warningDialog.open) warningDialog.offsetHeight; //hacky for trigger reflow.
         } else warningDialog.close();
     }
-    // Come back and look at this. Hoisting? Why showWarning and not checkScreenSize?
+    //Initial trigger for showing widthWarning.
     document.addEventListener("DOMContentLoaded", showWarning);
     window.addEventListener("resize", ()=>{
         //Basic Debounce method
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(showWarning, 250);
+    });
+    //Specific listner for iOs (coverage for "resize")
+    window.addEventListener("orientationchange", ()=>{
+        //Basic Debounce method
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(()=>{
+            showWarning();
+            //Extra reflow trigger for iOS.
+            if (warningDialog.open) {
+                warningDialog.style.display = "none";
+                warningDialog.offsetHeight;
+                warningDialog.style.display = "";
+            }
+        }, 300);
     });
 }
 function toggleFullScreen(e) {
@@ -8661,6 +8677,7 @@ class PokedexView {
     // _filteredList;
     // _filterParams;
     _filterCaught = false;
+    _notFoundShowing = false;
     constructor(){
         this._filteredList = [];
         this._filterParams = [];
@@ -8770,8 +8787,8 @@ class PokedexView {
     //Renders filteredList to the DOM
     _renderFiltered() {
         console.log("RENDERING FILETERED!");
-        // console.log(this._filteredList);
-        // console.log(`_filteredList length: ${this._filteredList.length}`);
+        console.log(this._filteredList);
+        console.log(`_filteredList length: ${this._filteredList.length}`);
         // Control for if there is no filterable pokemon
         if (this._filteredList.length == 0) {
             this._toggleNotFound();
@@ -8795,6 +8812,7 @@ class PokedexView {
         this._gridContainer.innerHTML = html;
         this._iniatePokedexCards();
         // Updates grid if notFound is showing.
+        console.log("ToggleNotFound fired from _reset");
         this._toggleNotFound();
     }
     // Used as clearButton event.
@@ -8806,27 +8824,32 @@ class PokedexView {
             input.disabled = false;
             input.checked = false;
         }
+        //Triggers the reset.
+        this._reset();
         //Clears any filter lists, params, or caught
         this._filteredList = [];
         this._filterParams = [];
         this._filterCaught = false;
-        //Triggers the reset.
-        this._reset();
     }
     // Controls showing and hiding not-found(Snorlaxx) element
     _toggleNotFound() {
         console.log("Toggle Not Found FIRED");
         // Checks to see if snorlaxx is showing if it does not contain 'hide' then it is showing
-        const notFoundShowing = !this._notFoundContainer.classList.contains("hide");
-        // console.log(`Snorlax is showing: ${notFoundShowing}`);
+        this._notFoundShowing = !this._notFoundContainer.classList.contains("hide");
+        console.log(`\u{1F6A9} notFoundShowing: ${this._notFoundShowing}`);
         //Condition if showing (simple).
-        if (notFoundShowing) {
+        if (this._notFoundShowing) {
+            console.log("\u25B6 _toggleNotFound 1st IF fired.");
             this._gridContainer.classList.remove("hide");
             this._notFoundContainer.classList.add("hide");
             return;
         }
         // Condition based on list length, showing, and filter params.
-        if (this._filteredList.length == 0 && !notFoundShowing && this._filterParams.length > 0) {
+        console.log(`filterList Length = 0: ${this._filteredList.length == 0}`);
+        console.log(`Not found showing: ${!this._notFoundShowing}`);
+        console.log(`filterParams length >=0 : ${this._filterParams.length >= 0}`);
+        if (this._filteredList.length == 0 && !this._notFoundShowing && this._filterParams.length >= 0) {
+            console.log("\u25B6 _toggleNotFound 2nd IF fired.");
             this._gridContainer.classList.add("hide");
             this._notFoundContainer.classList.remove("hide");
         }
