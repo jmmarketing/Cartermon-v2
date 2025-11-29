@@ -1429,6 +1429,11 @@ label {
   display: flex;
   gap: 22px;
 }
+@media only screen and (max-width: 81.25em) {
+  .learn__math-quiz {
+    gap: 5px;
+  }
+}
 .learn__success-container {
   display: flex;
   flex-direction: column;

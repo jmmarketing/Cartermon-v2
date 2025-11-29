@@ -34,6 +34,10 @@
   &__math-quiz {
     display: flex;
     gap: 22px;
+
+    @include respond(tablet-landscape) {
+      gap: 5px;
+    }
   }
 
   &__success-container {
