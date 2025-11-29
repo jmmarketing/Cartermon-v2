@@ -21,8 +21,8 @@
   cursor: pointer;
 
   @include respond(tablet-landscape) {
-    bottom: 40px;
-    left: 1170px;
+    bottom: 30px;
+    left: 1100px;
   }
 
   &__icon {

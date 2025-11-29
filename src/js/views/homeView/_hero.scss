@@ -17,6 +17,8 @@
 
   @include respond(tablet-landscape) {
     height: 620px;
+    width: 98%;
+    margin: 10px 12px;
   }
 
   &__left {
@@ -88,6 +90,10 @@
 
   &__description {
     max-width: 450px;
+
+    @include respond(tablet-landscape) {
+      max-width: 400px;
+    }
   }
 
   &__sprite {

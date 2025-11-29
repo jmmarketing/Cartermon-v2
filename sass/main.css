@@ -278,6 +278,7 @@ main {
 @media only screen and (max-width: 81.25em) {
   main {
     padding-bottom: 5px;
+    width: 98%;
   }
   main .plain-logo {
     text-align: center;
@@ -1148,8 +1149,8 @@ label {
 }
 @media only screen and (max-width: 81.25em) {
   .fullscreen-mode {
-    bottom: 40px;
-    left: 1170px;
+    bottom: 30px;
+    left: 1100px;
   }
 }
 .fullscreen-mode__icon {
@@ -1173,6 +1174,8 @@ label {
 @media only screen and (max-width: 81.25em) {
   .hero {
     height: 620px;
+    width: 98%;
+    margin: 10px 12px;
   }
 }
 .hero__left {
@@ -1233,6 +1236,11 @@ label {
 }
 .hero__description {
   max-width: 450px;
+}
+@media only screen and (max-width: 81.25em) {
+  .hero__description {
+    max-width: 400px;
+  }
 }
 .hero__sprite {
   width: 110px;

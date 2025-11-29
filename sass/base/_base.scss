@@ -26,6 +26,7 @@ main {
 
   @include respond(tablet-landscape) {
     padding-bottom: 5px;
+    width: 98%;
 
     & .plain-logo {
       text-align: center;
