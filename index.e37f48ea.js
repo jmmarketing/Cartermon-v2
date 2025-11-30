@@ -860,7 +860,7 @@ function setupGlobalNavigation() {
     });
 }
 function checkScreenSize() {
-    const min_width = 1240;
+    const min_width = 1180;
     let resizeTimer;
     const warningDialog = document.querySelector(".width-warning");
     const viewWidth = document.querySelector(".width-warning__width");
