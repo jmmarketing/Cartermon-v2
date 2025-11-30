@@ -11,7 +11,8 @@
   @include respond(tablet-landscape) {
     gap: 20px;
     position: relative;
-    padding-top: 5px;
+    padding-top: 20px;
+    justify-content: center;
   }
   &__left {
     display: flex;
@@ -28,6 +29,10 @@
   &__right {
     width: 100%;
     max-width: 560px;
+
+    @include respond(tablet-landscape) {
+      max-width: 500px;
+    }
   }
 
   &__label {

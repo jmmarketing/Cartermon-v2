@@ -1266,7 +1266,8 @@ label {
   .signup-form {
     gap: 20px;
     position: relative;
-    padding-top: 5px;
+    padding-top: 20px;
+    justify-content: center;
   }
 }
 .signup-form__left {
@@ -1284,6 +1285,11 @@ label {
 .signup-form__right {
   width: 100%;
   max-width: 560px;
+}
+@media only screen and (max-width: 81.25em) {
+  .signup-form__right {
+    max-width: 500px;
+  }
 }
 .signup-form__label {
   height: 50px;
