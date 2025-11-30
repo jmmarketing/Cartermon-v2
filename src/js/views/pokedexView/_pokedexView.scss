@@ -13,6 +13,10 @@
     width: 895px;
     gap: 25px;
 
+    @include respond(tablet-landscape) {
+      width: 840px;
+    }
+
     & form {
       position: relative;
 
@@ -71,7 +75,7 @@
 
   &__display {
     height: 600px;
-    width: 895px;
+    width: 100%;
     background-color: rgba($color-white, 0.8);
     border-radius: $radius-20;
     border: 3px solid $color-red;
@@ -81,6 +85,10 @@
 
     display: flex;
     gap: $spacing-14;
+
+    @include respond(tablet-landscape) {
+      padding: 15px;
+    }
   }
 
   &__filter {
@@ -234,6 +242,10 @@
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: $color-red $color-light-grey;
+
+    @include respond(tablet-landscape) {
+      gap: 25px 11px;
+    }
   }
 
   &__empty {
