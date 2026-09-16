@@ -682,7 +682,6 @@ label {
   border: 3px solid #000;
   transition: all 0.3s ease;
   cursor: pointer;
-  width: 195px;
 }
 .info-bar__button--home:hover {
   border: 3px solid #fff;
@@ -698,6 +697,9 @@ label {
   box-shadow: none;
   color: #000;
   border: 3px solid #000;
+}
+.info-bar__button--home {
+  width: 195px;
 }
 .info-bar__button--catch {
   width: 195px;

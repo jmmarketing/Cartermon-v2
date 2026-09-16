@@ -6,6 +6,8 @@ import {
   backgrounds,
 } from "../../../../assets/game-assets.js";
 
+console.log(imgAssets);
+
 export const homeTemplate = `
 
       <div class="plain-logo">
